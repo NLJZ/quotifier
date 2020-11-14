@@ -15,7 +15,7 @@ const projectSchema = Schema(
 );
 
 // static method to make sure object exists
-projectsSchema.statics.projectCheck = async function (id) {
+projectSchema.statics.projectCheck = async function (id) {
   try {
     const project = await this.findById(id);
     if (project) {

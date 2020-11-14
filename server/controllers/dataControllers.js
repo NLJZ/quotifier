@@ -252,12 +252,12 @@ dataControllers.updateProject = async (req, res, next) => {
   const id = req.params.id;
   const changes = req.body;
   try {
-    const source = await Project.projectCheck(id);
+    const project = await Project.projectCheck(id);
     if (req.body.projectName !== undefined) {
       project.projectName = changes.projectName;
     }
     if (req.body.quotes !== undefined) {
-      changes.quotes.forEach((el) => project.quotes.push(el));
+      project.quotes = changes.quotes;
     }
     await project.save();
     res.json(project);
