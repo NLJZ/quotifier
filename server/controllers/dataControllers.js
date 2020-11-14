@@ -55,6 +55,7 @@ dataControllers.addQuote = async (req, res) => {
           tags: req.body.tags,
           userNotes: req.body.userNotes,
           location: req.body.location,
+          fave: req.body.fave,
           source: source.id,
         });
         quote.save();
@@ -69,6 +70,7 @@ dataControllers.addQuote = async (req, res) => {
           tags: req.body.tags,
           userNotes: req.body.userNotes,
           location: req.body.location,
+          fave: req.body.fave,
         });
         quote.save();
         res.status(201).json(quote);
@@ -127,7 +129,7 @@ dataControllers.getQuotes = async (req, res) => {
 dataControllers.getProjects = async (req, res) => {
   try {
     const currentUser = res.locals.user;
-    const quotes = await Project.find({
+    const projects = await Project.find({
       user: `${currentUser.id}`,
     }).lean();
     res.status(200).json(projects);
@@ -228,48 +230,6 @@ dataControllers.updateQuote = async (req, res, next) => {
   }
 };
 
-// dataControllers.updateSource = async (req, res, next) => {
-//   const id = req.params.id;
-//   const changes = req.body;
-//   try {
-//     const source = await Source.sourceCheck(id);
-//     if (req.body.author !== undefined) {
-//       source.author = changes.author;
-//     }
-//     if (req.body.sourceTitle !== undefined) {
-//       source.sourceTitle = changes.sourceTitle;
-//     }
-//     if (req.body.containerTitle !== undefined) {
-//       source.containerTitle = changes.containerTitle;
-//     }
-//     if (req.body.otherContributors !== undefined) {
-//       source.otherContributors = changes.otherContributors;
-//     }
-//     if (req.body.editor !== undefined) {
-//       source.editor = changes.editor;
-//     }
-//     if (req.body.translator !== undefined) {
-//       source.translator = changes.translator;
-//     }
-//     if (req.body.version !== undefined) {
-//       source.version = changes.version;
-//     }
-//     if (req.body.number !== undefined) {
-//       source.number = changes.number;
-//     }
-//     if (req.body.publisher !== undefined) {
-//       source.publisher = changes.publisher;
-//     }
-//     if (req.body.pubDate !== undefined) {
-//       source.editor = changes.pubDate;
-//     }
-//     await source.save();
-//     res.json(source);
-//   } catch (err) {
-//     console.log(err.message);
-//   }
-// };
-
 dataControllers.updateSource = async (req, res, next) => {
   const id = req.params.id;
   const changes = req.body;
@@ -297,7 +257,7 @@ dataControllers.updateProject = async (req, res, next) => {
       project.projectName = changes.projectName;
     }
     if (req.body.quotes !== undefined) {
-      project.quotes = changes.quotes;
+      changes.quotes.forEach((el) => project.quotes.push(el));
     }
     await project.save();
     res.json(project);

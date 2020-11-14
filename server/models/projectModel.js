@@ -9,10 +9,7 @@ const projectSchema = Schema(
       type: String,
       trim: true,
     },
-    quotes: {
-      type: Array,
-      default: undefined,
-    },
+    quotes: [{ type: Schema.Types.ObjectId, ref: "Quote" }],
   },
   { timestamps: true }
 );
