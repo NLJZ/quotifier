@@ -14,6 +14,7 @@ const quoteSchema = Schema(
     userNotes: { type: String },
     location: { type: String },
     source: { type: String },
+    fave: { type: Boolean, default: false },
   },
   { timestamps: true }
 );
