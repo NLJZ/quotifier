@@ -5,6 +5,10 @@ const projectSchema = Schema(
   {
     _id: Schema.Types.ObjectId,
     user: { type: Schema.Types.ObjectId, ref: "User" },
+    projectName: {
+      type: String,
+      trim: true,
+    },
     quotes: {
       type: Array,
       default: undefined,
