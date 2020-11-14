@@ -195,7 +195,6 @@ dataControllers.updateQuote = async (req, res, next) => {
         }
       );
       const newSource = await Source.sourceCheck(changes.source);
-      console.log(newSource.id);
       await Source.findByIdAndUpdate(
         newSource.id,
         { $addToSet: { quotes: id } },
@@ -221,6 +220,9 @@ dataControllers.updateQuote = async (req, res, next) => {
     }
     if (req.body.location !== undefined) {
       quote.location = changes.location;
+    }
+    if (req.body.fave !== undefined) {
+      quote.fave = changes.fave;
     }
     await quote.save();
     res.json(quote);
