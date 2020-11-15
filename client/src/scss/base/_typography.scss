@@ -118,8 +118,10 @@ li.ws-menu-left-items-link a {
 //-------------workspace all quotes----------------------
 
 //applies style to all children of this element
-div.quote-container > *,
-div.quote-container > * > * {
+div.quote-container-open > *,
+div.quote-container-closed > *,
+div.quote-container-open > * > *,
+div.quote-container-closed > * > * {
   font-size: 1.5rem;
 }
 

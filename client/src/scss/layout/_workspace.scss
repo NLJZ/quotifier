@@ -31,16 +31,26 @@
 
 //----------------workspace-all-quotes--------------------
 
-div.quote-container {
+div.quote-container-open {
   border: 1px solid black;
   margin: 2rem;
   border-radius: 20px;
   box-shadow: 10px 10px grey;
 }
 
-div.quote-container > *:hover,
-div.quote-container > * > *:hover,
-div.quote-container > * > * > *:hover {
+div.quote-container-closed {
+  border: 1px solid black;
+  margin: 2rem;
+  border-radius: 20px;
+  box-shadow: 10px 10px grey;
+}
+
+div.quote-container-open > *:hover,
+div.quote-container-closed > *:hover,
+div.quote-container-open > * > *:hover,
+div.quote-container-closed > * > *:hover,
+div.quote-container-open > * > * > *:hover,
+div.quote-container-closed > * > * > *:hover {
   color: grey;
   cursor: pointer;
 }

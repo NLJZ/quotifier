@@ -1,6 +1,9 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import ReactHtmlParser from "react-html-parser";
+//-------components-----------------
+// import QuoteContainerOpen from "./QuoteContainer/QuoteContainerOpen";
+import QuoteContainerClosed from "./QuoteContainer/QuoteContainerClosed";
 
 const QuoteContainer = (props) => {
   const id = props.id;
@@ -28,26 +31,27 @@ const QuoteContainer = (props) => {
   }
 
   return (
-    <div className="quote-container text">
-      <span>"{quoteBody}"</span>
-      <ul className="quoteTags">
-        <li className="bold">Tags: </li>
-        {renderTags}
-      </ul>
-      <span>
-        <p className="bold">Notes:</p> <p> {quoteNotes}</p>
-      </span>
-      <span>
-        {" "}
-        <p className="bold">Location:</p> <p>{quoteLocation}</p>
-      </span>
-      <span>
-        <p className="bold">Source:</p> <p>{sourceTitle}</p>
-      </span>
-      <span>
-        <p className="bold">Details:</p> <p>{sourceInfo}</p>
-      </span>
-    </div>
+    // <QuoteContainerOpen id={id}
+    // quote={quote}
+    // source={source}
+    // quoteBody={quoteBody}
+    // quoteNotes={quoteNotes}
+    // quoteLocation={quoteLocation}
+    // sourceTitle={sourceTitle}
+    // sourceInfo={sourceInfo}
+    // tags={renderTags} />
+
+    <QuoteContainerClosed
+      id={id}
+      quote={quote}
+      source={source}
+      quoteBody={quoteBody}
+      quoteNotes={quoteNotes}
+      quoteLocation={quoteLocation}
+      sourceTitle={sourceTitle}
+      sourceInfo={sourceInfo}
+      tags={renderTags}
+    />
   );
 };
 
