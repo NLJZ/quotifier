@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 const AllQuotes = () => {
   const dispatch = useDispatch();
   const quotesState = useSelector((state) => state.quotes);
-  const allQuotes = Object.keys(quotesState);
+  const allQuotes = Object.values(quotesState);
   const showQuotes = () => {
     console.log(allQuotes);
     dispatch(showAllQuotes(allQuotes));
