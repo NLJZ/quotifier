@@ -15,6 +15,10 @@
   box-shadow: 5px 10px rgba(14, 13, 13, 0.233);
 }
 
+.about-single-button {
+  margin: 1rem;
+}
+
 .sign-up-single-button-light {
   @include singleButton;
   background-color: $mid-color-light;

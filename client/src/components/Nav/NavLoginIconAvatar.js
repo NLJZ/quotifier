@@ -30,8 +30,8 @@ function NavLoginIconAvatar() {
   //------------------------------------------------------------------
 
   return (
-    <div className="dropdown-menu1-container">
-      <button onClick={onClick} className="dropdown-menu1-trigger">
+    <div className="dd-menu-av-container">
+      <button onClick={onClick} className="dd-menu-av-trigger">
         <FontAwesomeIcon
           className="ws-menu-top-icon-single"
           icon={faUserCircle}
@@ -39,7 +39,7 @@ function NavLoginIconAvatar() {
       </button>
       <nav
         ref={dropdownRef}
-        className={`dropdown-menu1 ${isActive ? "active" : "inactive"}`}
+        className={`dd-menu-av ${isActive ? "active" : "inactive"}`}
       >
         <ul>
           <li>

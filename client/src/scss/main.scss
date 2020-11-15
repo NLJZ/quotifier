@@ -6,12 +6,17 @@
 @import "base/animations";
 @import "base/typography";
 @import "base/utilities";
+@import "base/text";
 
 @import "components/button";
 @import "components/icon";
 
+@import "layout/dropdowns";
+@import "layout/footer";
+@import "layout/forms";
+@import "layout/media-queries";
 @import "layout/nav";
-@import "layout/components";
+@import "layout/workspace";
 
 @import "pages/home";
 

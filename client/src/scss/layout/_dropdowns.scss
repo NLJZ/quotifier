@@ -1,0 +1,227 @@
+//--------menu top dropdown-button from avatar icon ---------//
+
+.dd-menu-av-container {
+  position: relative;
+}
+
+.dd-menu-av {
+  background: $base-color-light;
+  border-radius: 8px;
+  position: absolute;
+  top: 75px;
+  right: -80px;
+  width: 300px;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-300px);
+  transform: translateX(-90px);
+  transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
+}
+
+.dd-menu-av.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.dd-menu-av ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dd-menu-av li {
+  border-bottom: 1px solid $mid-color-dark;
+}
+
+.dd-menu-av li a {
+  text-decoration: none;
+  color: $base-color-dark;
+  padding: 15px 20px;
+  display: block;
+}
+
+.menu-top-icons-button {
+  @include buttonUnStyle;
+  padding: 15px 20px;
+}
+
+.dd-menu-av-trigger {
+  background: #f0000000;
+  border-radius: 90px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 6px;
+  // box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  border: none;
+  vertical-align: middle;
+  transition: box-shadow 0.4s ease;
+  outline: none;
+  color: $base-color-dark;
+}
+
+.dd-menu-av-trigger:hover {
+  color: $mid-color-mid;
+}
+
+.dd-menu-av-trigger span {
+  font-weight: 700;
+  vertical-align: middle;
+  font-size: 14px;
+  margin: 0 10px;
+}
+
+//--------menu top dropdown-button from icon logout---------//
+
+.dd-menu-dts-container {
+  position: relative;
+}
+
+.dd-menu-dts {
+  background: $base-color-light;
+  border-radius: 8px;
+  position: absolute;
+  top: 75px;
+  right: -80px;
+  width: 300px;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-300px);
+  transform: translateX(-90px);
+  transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
+}
+
+.dd-menu-dts.active {
+  opacity: 1;
+  visibility: visible;
+  // transform: translateY();
+}
+
+.dd-menu-dts ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dd-menu-dts li {
+  border-bottom: 1px solid $mid-color-dark;
+}
+
+.dd-menu-dts li a {
+  text-decoration: none;
+  color: $base-color-dark;
+  padding: 15px 20px;
+  display: block;
+}
+
+.dd-menu-dts-trigger {
+  background: #ff000000;
+  border-radius: 90px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 6px;
+  // box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  border: none;
+  vertical-align: middle;
+  transition: box-shadow 0.4s ease;
+  outline: none;
+}
+
+.dd-menu-dts-trigger:hover {
+  color: $mid-color-mid;
+}
+
+.dd-menu-dts-trigger span {
+  font-weight: 700;
+  vertical-align: middle;
+  font-size: 14px;
+  margin: 0 10px;
+}
+
+//-------menu left dropdown-button from icon--------//
+
+.ws-menu-left-container {
+  position: relative;
+}
+
+.ws-menu-left {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+}
+
+.ws-menu-left.active {
+  opacity: 1;
+  visibility: visible;
+  position: relative;
+  top: 0px;
+  bottom: 20px;
+  right: 0px;
+  background-color: $mid-color-dark;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.ws-menu-left ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ws-menu-left li {
+  border-bottom: 1px solid $base-color-light;
+}
+
+.ws-menu-left li a {
+  text-decoration: none;
+  color: $base-color-light;
+  padding: 15px 20px;
+  display: block;
+}
+
+.ws-menu-left-trigger {
+  // background: $base-color-light;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 6px;
+  border: none;
+  vertical-align: middle;
+}
+
+.ws-menu-left-trigger:hover {
+  color: $mid-color-light;
+  outline: none;
+  border: 0;
+}
+
+.ws-menu-left-trigger span {
+  font-weight: 700;
+  vertical-align: middle;
+  font-size: 14px;
+  margin: 0 10px;
+}
+
+li.ws-menu-left-icon-single:hover {
+  text-decoration: none;
+  outline: none;
+  border: 0;
+  border: none;
+}
+
+.ws-menu-left-icon-single.active {
+  transform: rotate(90deg);
+  border: 0;
+}
+
+li.ws-menu-left-items-link button {
+  @include buttonUnStyle;
+  color: $base-color-light;
+}
