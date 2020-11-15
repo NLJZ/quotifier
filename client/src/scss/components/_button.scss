@@ -30,18 +30,18 @@
 
 //-------workspace-menu-top--------------------------
 
-.workspace-menu-top-button-single {
-  margin: 1rem 2rem;
-}
+// .ws-menu-top-button-single {
+//   margin: 1rem 2rem;
+// }
 
 //-------workspace-menu-left--------------------------
 
-.workspace-menu-left-items-button.menu-left-trigger {
+.ws-menu-left-items-button.menu-left-trigger {
   color: $base-color-light;
   padding-right: 0.5rem;
 }
 
-li.workspace-menu-left-items-button-big button {
+li.ws-menu-left-items-button-big button {
   @include buttonUnStyle;
   background-color: $mid-color-mid;
   border-radius: 30px;
@@ -49,17 +49,17 @@ li.workspace-menu-left-items-button-big button {
   padding: 0.2rem 1.5rem;
 }
 
-.workspace-menu-left-items-button-big {
+.ws-menu-left-items-button-big {
   padding: 0.8rem 1rem;
   // border: 1px $base-color-light solid;
   @include justifyCenter;
 }
 
-.workspace-menu-left-items-button-big:first-child {
+.ws-menu-left-items-button-big:first-child {
   padding-top: 2rem;
 }
 
-.workspace-menu-left-items-button-big:nth-child(3) {
+.ws-menu-left-items-button-big:nth-child(3) {
   padding-bottom: 2rem;
 }
 
@@ -67,11 +67,20 @@ li.workspace-menu-left-items-button-big button {
   padding-right: 0.5rem;
 }
 
-.workspace-menu-left-items-button-big a:hover,
-li.workspace-menu-left-items-button-big button:hover {
+.ws-menu-left-items-button-big a:hover,
+li.ws-menu-left-items-button-big button:hover {
   background-color: $mid-color-light;
   cursor: pointer;
   transform: translateY(3px);
+}
+
+button.ws-menu-left-icon-folder {
+  background: $mid-color-dark;
+  border: none;
+}
+
+.icn-folder {
+  color: $base-color-light;
 }
 
 //---------------login-form-----------------------------

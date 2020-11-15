@@ -33,7 +33,7 @@ function NavLoginIconThreeDots() {
     <div className="dropdown-menu2-container">
       <button onClick={onClick} className="dropdown-menu2-trigger">
         <FontAwesomeIcon
-          className="workspace-menu-top-icon-single"
+          className="ws-menu-top-icon-single"
           icon={faEllipsisV}
         />
       </button>

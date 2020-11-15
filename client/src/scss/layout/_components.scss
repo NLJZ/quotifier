@@ -24,7 +24,7 @@
   padding: 3rem;
 }
 
-.workspace-main-text {
+.ws-main-text {
   padding-top: 2rem;
   max-width: 40rem;
 }
@@ -131,15 +131,15 @@ p.text-footer a:link {
 
 //--------workspace------------------
 
-.workspace {
-  background-color: blueviolet;
-  width: 100%;
+.ws {
   @include minHeightComponents;
+  background-color: $mid-color-dark;
+  width: 100%;
   display: flex;
   transform: translateY(60px);
 }
 
-.workspace-right {
+.ws-right {
   background-color: yellow;
   width: 85%;
   min-height: 100vh;
@@ -147,13 +147,13 @@ p.text-footer a:link {
   flex-direction: column;
 }
 
-.workspace-left {
+.ws-left {
   background: $mid-color-dark;
   width: 15%;
   min-height: 100vh;
 }
 
-.workspace-main {
+.ws-main {
   height: 100%;
   width: 100%;
   background-color: $base-color-light;

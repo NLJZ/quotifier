@@ -67,7 +67,7 @@ button.about-single-button-dark {
 
 //--------------------workspace-----------------------------------------
 
-.workspace-menu-top-icon-single {
+.ws-menu-top-icon-single {
   margin: 1rem;
   font-size: 2rem;
 }
@@ -75,30 +75,30 @@ button.about-single-button-dark {
 //-----------workspace-nav-left----------------------------------------
 
 // font all items on left nav
-li.workspace-menu-left-items-link,
+li.ws-menu-left-items-link,
 .menu-left.active,
-.workspace-menu-left-items-button-big a,
-li.workspace-menu-left-items-button-big button {
+.ws-menu-left-items-button-big a,
+li.ws-menu-left-items-button-big button {
   font-family: "Source Sans Pro";
   font-size: 1.3rem;
   color: $base-color-light;
 }
 
-li.workspace-menu-left-items-link a {
+li.ws-menu-left-items-link a {
   text-decoration: none;
   color: $base-color-light;
 }
 
 // arrow button for dropdown
-.workspace-menu-left-icon-single {
+.ws-menu-left-icon-single {
   font-size: 0.8rem;
 }
 
-.workspace-menu-left-items-button {
+.ws-menu-left-items-button {
   color: $base-color-light;
 }
 
-.workspace-menu-left-icon-folder {
+.ws-menu-left-icon-folder {
   font-size: 3rem;
   margin-top: 4rem;
 }
@@ -120,6 +120,6 @@ div.quote-container > * > * {
   font-size: 1.5rem;
 }
 
-div.quote-container span:nth-child(2n + 0) {
+.bold {
   font-weight: bold;
 }

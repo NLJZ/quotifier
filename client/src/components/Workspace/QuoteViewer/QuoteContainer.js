@@ -29,15 +29,24 @@ const QuoteContainer = (props) => {
 
   return (
     <div className="quote-container text">
-      <span>{quoteBody}</span>
+      <span>"{quoteBody}"</span>
       <ul className="quoteTags">
-        <li>Tags: </li>
+        <li className="bold">Tags: </li>
         {renderTags}
       </ul>
-      <span>Notes: {quoteNotes}</span>
-      <span>Location: {quoteLocation}</span>
-      <span>Source: {sourceTitle}</span>
-      <span>Details: {sourceInfo}</span>
+      <span>
+        <p className="bold">Notes:</p> <p> {quoteNotes}</p>
+      </span>
+      <span>
+        {" "}
+        <p className="bold">Location:</p> <p>{quoteLocation}</p>
+      </span>
+      <span>
+        <p className="bold">Source:</p> <p>{sourceTitle}</p>
+      </span>
+      <span>
+        <p className="bold">Details:</p> <p>{sourceInfo}</p>
+      </span>
     </div>
   );
 };

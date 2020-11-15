@@ -33,7 +33,7 @@ function NavLoginIconAvatar() {
     <div className="dropdown-menu1-container">
       <button onClick={onClick} className="dropdown-menu1-trigger">
         <FontAwesomeIcon
-          className="workspace-menu-top-icon-single"
+          className="ws-menu-top-icon-single"
           icon={faUserCircle}
         />
       </button>

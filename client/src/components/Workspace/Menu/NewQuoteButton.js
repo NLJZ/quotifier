@@ -12,7 +12,7 @@ function NewQuoteFormButton() {
     <div className="new-quote-form-container">
       <button
         onClick={onClick}
-        className="workspace-menu-left-items-button-new-quote new-quote-form-trigger"
+        className="ws-menu-left-items-button-new-quote new-quote-form-trigger"
       >
         <FontAwesomeIcon className="test-test" icon={faPlus} />
         new quote

@@ -13,7 +13,7 @@ const AllQuotes = () => {
   };
   return (
     <React.Fragment>
-      <li className="workspace-menu-left-items-link">
+      <li className="ws-menu-left-items-link">
         <button onClick={showQuotes} type="submit">
           All Quotes
         </button>

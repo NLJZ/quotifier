@@ -11,7 +11,7 @@ const WorkspaceMain = () => {
   }
 
   return (
-    <div className="workspace-main">
+    <div className="ws-main">
       <MainContent />
     </div>
   );
