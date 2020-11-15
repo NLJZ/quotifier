@@ -1,11 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import ReactHtmlParser from "react-html-parser";
+//-------icons------------------------
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlusCircle, faMinusCircle } from "@fortawesome/free-solid-svg-icons";
 //-------components-----------------
-// import QuoteContainerOpen from "./QuoteContainer/QuoteContainerOpen";
+import QuoteContainerOpen from "./QuoteContainer/QuoteContainerOpen";
 import QuoteContainerClosed from "./QuoteContainer/QuoteContainerClosed";
 
 const QuoteContainer = (props) => {
+  const [isOff, setIsOff] = useState(true);
+  const openContainer = () => setIsOff(!isOff);
+
   const id = props.id;
   const quote = useSelector((state) => state.quotes[`${id}`]);
   const source = useSelector((state) => state.sources[quote.source]);
@@ -30,17 +36,7 @@ const QuoteContainer = (props) => {
     renderTags = null;
   }
 
-  return (
-    // <QuoteContainerOpen id={id}
-    // quote={quote}
-    // source={source}
-    // quoteBody={quoteBody}
-    // quoteNotes={quoteNotes}
-    // quoteLocation={quoteLocation}
-    // sourceTitle={sourceTitle}
-    // sourceInfo={sourceInfo}
-    // tags={renderTags} />
-
+  let quoteContainer = (
     <QuoteContainerClosed
       id={id}
       quote={quote}
@@ -52,6 +48,49 @@ const QuoteContainer = (props) => {
       sourceInfo={sourceInfo}
       tags={renderTags}
     />
+  );
+
+  if (!isOff) {
+    quoteContainer = (
+      <QuoteContainerOpen
+        id={id}
+        quote={quote}
+        source={source}
+        quoteBody={quoteBody}
+        quoteNotes={quoteNotes}
+        quoteLocation={quoteLocation}
+        sourceTitle={sourceTitle}
+        sourceInfo={sourceInfo}
+        tags={renderTags}
+      />
+    );
+  }
+
+  let buttonOpen = (
+    <button onClick={openContainer}>
+      <FontAwesomeIcon
+        className="ws-menu-top-icon-single"
+        icon={faPlusCircle}
+      />
+    </button>
+  );
+
+  if (!isOff) {
+    buttonOpen = (
+      <button onClick={openContainer}>
+        <FontAwesomeIcon
+          className="ws-menu-top-icon-single"
+          icon={faMinusCircle}
+        />
+      </button>
+    );
+  }
+
+  return (
+    <div className="quote-container-closed text">
+      {quoteContainer}
+      {buttonOpen}
+    </div>
   );
 };
 

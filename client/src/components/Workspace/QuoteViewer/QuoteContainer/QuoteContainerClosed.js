@@ -3,7 +3,6 @@ import React from "react";
 const QuoteContainerClosed = (props) => {
   const shortQuoteBody = props.quoteBody;
   console.log(shortQuoteBody);
-
   const shortQuoteNotes = props.quoteNotes;
   console.log(shortQuoteNotes);
   const shortSourceTitle = props.sourceTitle;
@@ -12,7 +11,7 @@ const QuoteContainerClosed = (props) => {
   //   quoteNotesShort.map((item) => console.log(item));
 
   return (
-    <div className="quote-container-closed text">
+    <>
       <span>
         <p className="bold">Title:</p> <p> {shortSourceTitle}</p>
       </span>
@@ -21,7 +20,7 @@ const QuoteContainerClosed = (props) => {
         <li className="bold">Tags: </li>
         {shortTags}
       </ul>
-    </div>
+    </>
   );
 };
 

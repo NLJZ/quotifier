@@ -1,8 +1,10 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMinusCircle } from "@fortawesome/free-solid-svg-icons";
 
 const QuoteContainerOpen = (props) => {
   return (
-    <div className="quote-container-open text">
+    <React.Fragment>
       <span>"{props.quoteBody}"</span>
       <ul className="quoteTags">
         <li className="bold">Tags: </li>
@@ -21,7 +23,7 @@ const QuoteContainerOpen = (props) => {
       <span>
         <p className="bold">Details:</p> <p>{props.sourceInfo}</p>
       </span>
-    </div>
+    </React.Fragment>
   );
 };
 
