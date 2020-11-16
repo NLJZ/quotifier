@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
-import { addQuote } from "../../../../redux/actions";
+import { addQuote, showAllSources } from "../../../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 
 const axios = require("axios");
 
-const NewQuoteForm = () => {
+const NewQuoteForm = (props) => {
   const [id, setId] = useState("");
   const [user, setUser] = useState("");
   const [body, setBody] = useState("");
+  const [source, setSource] = useState("hello");
   const [tags, setTags] = useState("");
   const [userNotes, setUserNotes] = useState("");
   const [location, setLocation] = useState("");
@@ -27,6 +28,7 @@ const NewQuoteForm = () => {
       _id: id,
       user: user,
       body: body,
+      source: source,
       tags: tags,
       userNotes,
       location: location,
@@ -34,12 +36,29 @@ const NewQuoteForm = () => {
     },
   };
 
+  const sources = useSelector((state) => state.sources);
+  console.log(sources);
+  const allSources = Object.values(sources);
+  console.log(allSources);
+  const allSourcesOnly = Object.values(
+    allSources.map((item) => item.sourceTitle)
+  );
+  console.log(allSourcesOnly);
+
+  const obj = Object.keys(allSourcesOnly).map((key) => [allSourcesOnly[key]]);
+  console.log(obj);
+  console.log(obj.map((key) => obj[key]));
+
+  const changeSource = (allSourcesOnly) => {
+    setSource(allSourcesOnly.map((item) => item));
+  };
+  console.log(changeSource);
+
   const submitForm = async () => {
     await axios(options)
       .then((response) => {
         let quote = response.data.quote;
         dispatch(addQuote(quote));
-        // getData();
         setRedirect(true);
       })
       .catch((error) => {
@@ -70,6 +89,22 @@ const NewQuoteForm = () => {
         autoComplete="on"
         required
       />
+
+      <select
+        // type="quoteBody"
+        // name="quoteBody"
+        className="input"
+        onChange={(e) => changeSource(e.target.value)}
+        value={source}
+        required
+      >
+        {/* <option value={obj.forEach((element) => element)}> */}
+        {allSourcesOnly.map((item) => (
+          <option>{item}</option>
+        ))}
+        {/* </option> */}
+      </select>
+
       <input
         type="tags"
         name="tags"

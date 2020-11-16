@@ -81,3 +81,10 @@ export const quoteViewerOff = () => {
     type: "QUOTE_VIEWER_OFF",
   };
 };
+
+export const showAllSources = (sources) => {
+  return {
+    type: "SHOW_ALL_SOURCES",
+    payload: sources,
+  };
+};
