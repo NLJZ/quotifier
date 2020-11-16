@@ -17,7 +17,6 @@ const LoginForm = () => {
   const [password, setPassword] = useState("");
   const [redirect, setRedirect] = useState(null);
   const [loading, setLoading] = useState(false);
-
   const dispatch = useDispatch();
 
   const options = {

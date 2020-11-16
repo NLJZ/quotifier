@@ -1,13 +1,15 @@
 import React from "react";
-import LoadingAnimation from "../../Animation/LoadingAnimation";
+import { useSelector } from "react-redux";
+import { getAllTags } from "../../../helpers/sortSearch.js";
 
-function help() {
+function Help() {
+  const quotes = useSelector((state) => state.quotes);
+  getAllTags(quotes);
   return (
     <div className="help">
       <h2>help</h2>
-      <LoadingAnimation />
     </div>
   );
 }
 
-export default help;
+export default Help;
