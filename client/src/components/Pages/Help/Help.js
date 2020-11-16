@@ -4,7 +4,8 @@ import { getAllTags } from "../../../helpers/sortSearch.js";
 
 function Help() {
   const quotes = useSelector((state) => state.quotes);
-  getAllTags(quotes);
+  const tags = getAllTags(quotes);
+  console.log(tags);
   return (
     <div className="help">
       <h2>help</h2>
