@@ -5,13 +5,12 @@ import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
 function NewQuoteFormButton() {
   const [isActive, setIsActive] = useState(false);
-  const onClick = () => setIsActive(!isActive);
-  const closeClick = () => setIsActive(!isActive);
+  const onClickOpenCloseQuote = () => setIsActive(!isActive);
 
   return (
     <div className="new-quote-form-container">
       <button
-        onClick={onClick}
+        onClick={onClickOpenCloseQuote}
         className="workspace-menu-left-items-button-new-quote new-quote-form-trigger"
       >
         <FontAwesomeIcon className="test-test" icon={faPlus} />
@@ -67,7 +66,7 @@ function NewQuoteFormButton() {
             Submit
           </button>
         </form>
-        <button onClick={closeClick} className="new-quote-form-button-close">
+        <button onClick={onClickOpenCloseQuote} className="new-quote-form-button-close">
           close
         </button>
       </div>
