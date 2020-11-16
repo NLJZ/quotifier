@@ -8,6 +8,7 @@ import {
 } from "../../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { getSources, getQuotes } from "../../../helpers/getUserData";
+import LoadingAnimation from "../../Animation/LoadingAnimation";
 
 const axios = require("axios");
 
@@ -15,6 +16,8 @@ const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [redirect, setRedirect] = useState(null);
+  const [loading, setLoading] = useState(false);
+
   const dispatch = useDispatch();
 
   const options = {
@@ -27,6 +30,10 @@ const LoginForm = () => {
     data: { email: email, password: password },
   };
 
+  function handleLoading() {
+    setLoading(!loading);
+  }
+
   const getData = async () => {
     const sources = await getSources();
     const quotes = await getQuotes();
@@ -37,6 +44,7 @@ const LoginForm = () => {
   const submitForm = async () => {
     await axios(options)
       .then((response) => {
+        handleLoading();
         let user = response.data.user;
         dispatch(getUser(user));
         dispatch(login());
@@ -83,6 +91,8 @@ const LoginForm = () => {
       <button className="sign-in-button" type="submit" value="Submit">
         Submit
       </button>
+
+      {loading ? <LoadingAnimation /> : null}
     </form>
   );
 };
