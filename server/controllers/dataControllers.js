@@ -1,10 +1,10 @@
 const Source = require("../models/sourceModel");
 const Quote = require("../models/quoteModel");
-const User = require("../models/userModel");
+const Project = require("../models/projectModel");
 const mongoose = require("mongoose");
-const { findById } = require("../models/userModel");
 dataControllers = {};
 
+// old addSource for SourceModelOld.js
 // dataControllers.addSource = async (req, res) => {
 //   const currentUser = res.locals.user;
 //   try {
@@ -55,6 +55,7 @@ dataControllers.addQuote = async (req, res) => {
           tags: req.body.tags,
           userNotes: req.body.userNotes,
           location: req.body.location,
+          fave: req.body.fave,
           source: source.id,
         });
         quote.save();
@@ -69,6 +70,7 @@ dataControllers.addQuote = async (req, res) => {
           tags: req.body.tags,
           userNotes: req.body.userNotes,
           location: req.body.location,
+          fave: req.body.fave,
         });
         quote.save();
         res.status(201).json(quote);
@@ -83,6 +85,21 @@ dataControllers.addQuote = async (req, res) => {
         message: err.message,
       });
     });
+};
+
+dataControllers.addProject = async (req, res) => {
+  const currentUser = res.locals.user;
+  try {
+    const project = await Project.create({
+      _id: new mongoose.Types.ObjectId(),
+      user: currentUser.id,
+      projectName: req.body.projectName,
+      quotes: req.body.quotes,
+    });
+    res.status(201).json(project);
+  } catch (err) {
+    res.status(400).json({ message: err.message });
+  }
 };
 
 dataControllers.getSources = async (req, res) => {
@@ -104,6 +121,18 @@ dataControllers.getQuotes = async (req, res) => {
       user: `${currentUser.id}`,
     }).lean();
     res.status(200).json(quotes);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
+
+dataControllers.getProjects = async (req, res) => {
+  try {
+    const currentUser = res.locals.user;
+    const projects = await Project.find({
+      user: `${currentUser.id}`,
+    }).lean();
+    res.status(200).json(projects);
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
@@ -133,6 +162,18 @@ dataControllers.getOneSource = async (req, res) => {
   }
 };
 
+dataControllers.getOneProject = async (req, res) => {
+  try {
+    const id = req.params.id;
+    const project = await Project.find({
+      _id: id,
+    }).lean();
+    res.status(200).json(project);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
+
 dataControllers.updateQuote = async (req, res, next) => {
   const id = req.params.id;
   const changes = req.body;
@@ -154,7 +195,6 @@ dataControllers.updateQuote = async (req, res, next) => {
         }
       );
       const newSource = await Source.sourceCheck(changes.source);
-      console.log(newSource.id);
       await Source.findByIdAndUpdate(
         newSource.id,
         { $addToSet: { quotes: id } },
@@ -181,6 +221,9 @@ dataControllers.updateQuote = async (req, res, next) => {
     if (req.body.location !== undefined) {
       quote.location = changes.location;
     }
+    if (req.body.fave !== undefined) {
+      quote.fave = changes.fave;
+    }
     await quote.save();
     res.json(quote);
   } catch (err) {
@@ -188,48 +231,6 @@ dataControllers.updateQuote = async (req, res, next) => {
     return res.status(500).json({ status: 500, error: errorMsg });
   }
 };
-
-// dataControllers.updateSource = async (req, res, next) => {
-//   const id = req.params.id;
-//   const changes = req.body;
-//   try {
-//     const source = await Source.sourceCheck(id);
-//     if (req.body.author !== undefined) {
-//       source.author = changes.author;
-//     }
-//     if (req.body.sourceTitle !== undefined) {
-//       source.sourceTitle = changes.sourceTitle;
-//     }
-//     if (req.body.containerTitle !== undefined) {
-//       source.containerTitle = changes.containerTitle;
-//     }
-//     if (req.body.otherContributors !== undefined) {
-//       source.otherContributors = changes.otherContributors;
-//     }
-//     if (req.body.editor !== undefined) {
-//       source.editor = changes.editor;
-//     }
-//     if (req.body.translator !== undefined) {
-//       source.translator = changes.translator;
-//     }
-//     if (req.body.version !== undefined) {
-//       source.version = changes.version;
-//     }
-//     if (req.body.number !== undefined) {
-//       source.number = changes.number;
-//     }
-//     if (req.body.publisher !== undefined) {
-//       source.publisher = changes.publisher;
-//     }
-//     if (req.body.pubDate !== undefined) {
-//       source.editor = changes.pubDate;
-//     }
-//     await source.save();
-//     res.json(source);
-//   } catch (err) {
-//     console.log(err.message);
-//   }
-// };
 
 dataControllers.updateSource = async (req, res, next) => {
   const id = req.params.id;
@@ -244,6 +245,24 @@ dataControllers.updateSource = async (req, res, next) => {
     }
     await source.save();
     res.json(source);
+  } catch (err) {
+    console.log(err.message);
+  }
+};
+
+dataControllers.updateProject = async (req, res, next) => {
+  const id = req.params.id;
+  const changes = req.body;
+  try {
+    const project = await Project.projectCheck(id);
+    if (req.body.projectName !== undefined) {
+      project.projectName = changes.projectName;
+    }
+    if (req.body.quotes !== undefined) {
+      project.quotes = changes.quotes;
+    }
+    await project.save();
+    res.json(project);
   } catch (err) {
     console.log(err.message);
   }
@@ -264,6 +283,17 @@ dataControllers.deleteSource = async (req, res) => {
   try {
     const source = await Source.findByIdAndDelete(req.params.id);
     res.status(200).json(`${source.id} deleted`);
+  } catch (err) {
+    res.status(500).json({
+      message: err.message,
+    });
+  }
+};
+
+dataControllers.deleteProject = async (req, res) => {
+  try {
+    const project = await Project.findByIdAndDelete(req.params.id);
+    res.status(200).json(`${project.id} deleted`);
   } catch (err) {
     res.status(500).json({
       message: err.message,

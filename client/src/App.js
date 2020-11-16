@@ -16,14 +16,10 @@ import { useSelector } from "react-redux";
 function App() {
   //------redux---------------------------------------
   const isLogged = useSelector((state) => state.isLogged);
-  let Navigation = <Nav />;
-  if (isLogged) {
-    Navigation = <NavLogin />;
-  }
   return (
     <Router>
       <div className="app">
-        {Navigation}
+        {isLogged ? <NavLogin /> : <Nav />}
         <Switch>
           <Route
             exact

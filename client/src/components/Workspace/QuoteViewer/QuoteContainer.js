@@ -7,6 +7,8 @@ import { faPlusCircle, faMinusCircle } from "@fortawesome/free-solid-svg-icons";
 //-------components-----------------
 import QuoteContainerOpen from "./QuoteContainer/QuoteContainerOpen";
 import QuoteContainerClosed from "./QuoteContainer/QuoteContainerClosed";
+//--------utils---------------------
+import cleanHtml from "../../../utils/cleanHtml";
 
 const QuoteContainer = (props) => {
   const [isOff, setIsOff] = useState(true);
@@ -15,7 +17,8 @@ const QuoteContainer = (props) => {
   const id = props.id;
   const quote = useSelector((state) => state.quotes[`${id}`]);
   const source = useSelector((state) => state.sources[quote.source]);
-  const quoteBody = ReactHtmlParser(quote.body);
+  const quoteBodyClean = cleanHtml(quote.body);
+  const quoteBody = ReactHtmlParser(quoteBodyClean);
   const quoteNotes = quote.userNotes;
   const quoteLocation = quote.location;
   const sourceTitle = source.sourceTitle;
