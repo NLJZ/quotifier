@@ -2,6 +2,8 @@ import React, { useState, useRef, useEffect } from "react";
 //----------------icons-----------------------
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
+//-----components--------------------------
+import NewQuoteForm from "./NewQuoteForm";
 
 function NewQuoteFormButton() {
   const [isActive, setIsActive] = useState(false);
@@ -18,7 +20,9 @@ function NewQuoteFormButton() {
       </button>
 
       <div className={`new-quote-form ${isActive ? "active" : "inactive"}`}>
-        <form className="new-quote-form-form">
+        <NewQuoteForm />
+
+        {/* <form className="new-quote-form-form">
           <p className="new-quote-form-text">Quote</p>
           <input
             type="firstName"
@@ -65,7 +69,8 @@ function NewQuoteFormButton() {
           >
             Submit
           </button>
-        </form>
+        </form> */}
+
         <button
           onClick={onOpenCloseClick}
           className="new-quote-form-button-close"

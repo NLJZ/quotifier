@@ -70,29 +70,22 @@ const QuoteContainer = (props) => {
   }
 
   let buttonOpen = (
-    <button onClick={openContainer}>
-      <FontAwesomeIcon
-        className="ws-menu-top-icon-single"
-        icon={faPlusCircle}
-      />
-    </button>
+    <FontAwesomeIcon className="ws-menu-top-icon-single" icon={faPlusCircle} />
   );
 
   if (!isOff) {
     buttonOpen = (
-      <button onClick={openContainer}>
-        <FontAwesomeIcon
-          className="ws-menu-top-icon-single"
-          icon={faMinusCircle}
-        />
-      </button>
+      <FontAwesomeIcon
+        className="ws-menu-top-icon-single"
+        icon={faMinusCircle}
+      />
     );
   }
 
   return (
     <div className="quote-container-closed text">
       {quoteContainer}
-      {buttonOpen}
+      <button onClick={openContainer}> {buttonOpen}</button>
     </div>
   );
 };

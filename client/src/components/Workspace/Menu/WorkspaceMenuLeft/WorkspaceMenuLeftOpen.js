@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay, faPlus, faSearch } from "@fortawesome/free-solid-svg-icons";
 //-------------components----------------------------------
 import AllQuotes from "../AllQuotes.js";
-import NewQuoteFormButton from "../NewQuoteButton.js";
+import NewQuoteFormButton from "../NewQuote/NewQuoteButton.js";
 
 const WorkspaceMenuLeftOpen = () => {
   const dropdownRef = useRef(null);

@@ -11,7 +11,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 //-------------components----------------------------------
 import AllQuotes from "../AllQuotes.js";
-import NewQuoteFormButton from "../NewQuoteButton.js";
+import NewQuoteFormButton from "../NewQuote/NewQuoteButton.js";
 
 const WorkspaceMenuLeftCollapsed = () => {
   const dropdownRef = useRef(null);
