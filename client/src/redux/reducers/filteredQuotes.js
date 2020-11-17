@@ -1,15 +1,16 @@
+import { sortByDate, getFaves } from "../../helpers/sortSearch";
 import produce from "immer";
 
 const quotesReducer = (state = [], action) => {
   switch (action.type) {
     case "SHOW_ALL_QUOTES":
-    // const baseState = state;
-    // const newArr = action.payload;
-    // const allQuotesArr = produce(baseState, (draft) => {
-    //   newArr.forEach((quoteID) => draft.push(quoteID));
-    // });
-    case "SHOW_ALL_QUOTES":
-      const allQuotesArr = action.payload;
+      const baseState = [];
+      const newArr = sortByDate(action.payload, "new");
+      const allQuotesArr = produce(baseState, (draft) => {
+        newArr.forEach((quoteID) => draft.push(quoteID));
+      });
+      return allQuotesArr;
+    case "LOAD_FAVES":
       return allQuotesArr;
     default:
       return state;

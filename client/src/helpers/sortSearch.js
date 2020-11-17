@@ -33,7 +33,7 @@ export const findQuotesByTag = (array, quotesState) => {
 
 // pass state object to sort new to old, pass "old" as str if you want oldest to newest
 export const sortByDate = (stateObj, str) => {
-  const old = str == "old";
+  const old = str === "old";
   const stateArray = Object.values(stateObj);
   const sorted = stateArray.sort((a, b) => {
     let dateA = new Date(a.createdAt);
@@ -48,7 +48,7 @@ export const getFaves = (quotesState) => {
   const quoteArray = [];
   const quoteStateArray = Object.values(quotesState);
   quoteStateArray.forEach((quote) => {
-    if (quote.fave == true) {
+    if (quote.fave === true) {
       quoteArray.push(quote);
     }
   });
