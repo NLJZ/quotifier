@@ -16,14 +16,15 @@ const QuoteContainer = (props) => {
 
   const id = props.id;
   const quote = useSelector((state) => state.quotes[`${id}`]);
-  const source = useSelector((state) => state.sources[quote.source]);
+  const sources = useSelector((state) => state.sources);
+  const source = sources.quote;
   const quoteBodyClean = cleanHtml(quote.body);
   const quoteBody = ReactHtmlParser(quoteBodyClean);
   const quoteNotes = quote.userNotes;
   const quoteLocation = quote.location;
   let sourceTitle = null;
   let sourceInfo = null;
-  if (quote.source !== undefined) {
+  if (source !== undefined) {
     sourceTitle = source.sourceTitle;
     sourceInfo = ReactHtmlParser(source.sourceInfo);
   }

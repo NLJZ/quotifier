@@ -6,14 +6,14 @@ import { useDispatch, useSelector } from "react-redux";
 const axios = require("axios");
 
 const NewQuoteForm = (props) => {
-  const [id, setId] = useState("");
-  const [user, setUser] = useState("");
+  // const [id, setId] = useState("");
+  // const [user, setUser] = useState("");
   const [body, setBody] = useState("");
   const [source, setSource] = useState("hello");
-  const [tags, setTags] = useState("");
+  const [tags, setTags] = useState([]);
   const [userNotes, setUserNotes] = useState("");
   const [location, setLocation] = useState("");
-  const [fave, setFave] = useState("");
+  const [fave, setFave] = useState(false);
   const [redirect, setRedirect] = useState(null);
   const dispatch = useDispatch();
 
@@ -25,14 +25,12 @@ const NewQuoteForm = (props) => {
       "Content-Type": "application/json",
     },
     data: {
-      _id: id,
-      user: user,
-      body: body,
-      source: source,
-      tags: tags,
-      userNotes,
-      location: location,
-      fave: fave,
+      body: string,
+      source: ,
+      tags: array,
+      userNotes: string,
+      location: string,
+      fave: true,
     },
   };
 
@@ -91,8 +89,6 @@ const NewQuoteForm = (props) => {
       />
 
       <select
-        // type="quoteBody"
-        // name="quoteBody"
         className="input"
         onChange={(e) => changeSource(e.target.value)}
         value={source}
@@ -104,7 +100,7 @@ const NewQuoteForm = (props) => {
       </select>
 
       <input
-        type="tags"
+        type="text"
         name="tags"
         className="input"
         onChange={(e) => setTags(e.target.value)}
@@ -113,7 +109,7 @@ const NewQuoteForm = (props) => {
       />
 
       <input
-        type="userNotes"
+        type="text"
         name="userNotes"
         className="input"
         onChange={(e) => setUserNotes(e.target.value)}
@@ -122,7 +118,7 @@ const NewQuoteForm = (props) => {
       />
 
       <input
-        type="location"
+        type="text"
         name="location"
         className="input"
         onChange={(e) => setLocation(e.target.value)}
@@ -131,7 +127,7 @@ const NewQuoteForm = (props) => {
       />
 
       <input
-        type="fave"
+        type=""
         name="fave"
         className="input"
         onChange={(e) => setFave(e.target.value)}

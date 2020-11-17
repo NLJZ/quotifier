@@ -7,7 +7,7 @@ const WorkspaceMain = () => {
   const quoteViewerOn = useSelector((state) => state.quoteViewer);
 
   return (
-    <div className="workspace-main">
+    <div className="ws-main">
       {quoteViewerOn ? <QuoteViewer /> : <Greeting />}
     </div>
   );
