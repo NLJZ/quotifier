@@ -21,8 +21,8 @@ const RegisterForm = () => {
       "Content-Type": "application/json",
     },
     data: {
-      userFirst: userFirst,
-      userLast: userLast,
+      userFirst: string,
+      userLast: string,
       email: email,
       password: password,
     },
@@ -57,7 +57,7 @@ const RegisterForm = () => {
   return (
     <form className="reg-form" onSubmit={handleSubmit}>
       <input
-        type="firstName"
+        type="text"
         name="firstName"
         className="input"
         onChange={(e) => setFirst(e.target.value)}
@@ -66,7 +66,7 @@ const RegisterForm = () => {
         required
       />
       <input
-        type="lastName"
+        type="text"
         name="lastName"
         className="input"
         onChange={(e) => setLast(e.target.value)}
