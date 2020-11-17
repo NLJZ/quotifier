@@ -44,7 +44,6 @@ export const sortByDate = (stateObj, str) => {
 };
 
 // get all favorites
-
 export const getFaves = (quotesState) => {
   const quoteArray = [];
   const quoteStateArray = Object.values(quotesState);
