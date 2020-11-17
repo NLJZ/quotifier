@@ -42,3 +42,16 @@ export const sortByDate = (stateObj, str) => {
   });
   return sorted;
 };
+
+// get all favorites
+
+export const getFaves = (quotesState) => {
+  const quoteArray = [];
+  const quoteStateArray = Object.values(quotesState);
+  quoteStateArray.forEach((quote) => {
+    if (quote.fave == true) {
+      quoteArray.push(quote);
+    }
+  });
+  return quoteArray;
+};

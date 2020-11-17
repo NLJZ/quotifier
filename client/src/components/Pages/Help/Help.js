@@ -4,6 +4,7 @@ import {
   getAllTags,
   findQuotesByTag,
   sortByDate,
+  getFaves,
 } from "../../../helpers/sortSearch.js";
 
 function Help() {
@@ -13,10 +14,14 @@ function Help() {
     ["pessimism", "Dogs", "test TEST tesT"],
     quotes
   );
-  const sortedQuotesByDate = sortByDate(quotes, "new");
+  const sortedQuotesNewestFirst = sortByDate(quotes, "new");
+  const sortedQuotesOldestFirst = sortByDate(quotes, "old");
+  const favorites = getFaves(quotes);
   console.log(tags);
   console.log(quotesWithTag);
-  console.log(sortedQuotesByDate);
+  console.log(sortedQuotesNewestFirst);
+  console.log(sortedQuotesOldestFirst);
+  console.log(favorites);
   return (
     <div className="help">
       <h2>help</h2>
