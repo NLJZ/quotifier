@@ -98,11 +98,9 @@ const NewQuoteForm = (props) => {
         value={source}
         required
       >
-        {/* <option value={obj.forEach((element) => element)}> */}
         {allSourcesOnly.map((item) => (
           <option>{item}</option>
         ))}
-        {/* </option> */}
       </select>
 
       <input
