@@ -26,11 +26,11 @@ const NewQuoteForm = (props) => {
     },
     data: {
       body: string,
-      source: ,
+      source: source.id,
       tags: array,
       userNotes: string,
       location: string,
-      fave: true,
+      fave: boolean,
     },
   };
 
@@ -79,7 +79,7 @@ const NewQuoteForm = (props) => {
   return (
     <form className="new-quote-form-form" onSubmit={handleSubmit}>
       <input
-        type="quoteBody"
+        type="text"
         name="quoteBody"
         className="input"
         onChange={(e) => setBody(e.target.value)}
@@ -92,7 +92,6 @@ const NewQuoteForm = (props) => {
         className="input"
         onChange={(e) => changeSource(e.target.value)}
         value={source}
-        required
       >
         {allSourcesOnly.map((item) => (
           <option>{item}</option>
