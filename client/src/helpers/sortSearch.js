@@ -1,11 +1,20 @@
-export const getAllTags = (quotes) => {
-  const quoteArray = Object.values(quotes);
+// pass the state of quotes (from redux) into this function to return all tags in quotes
+export const getAllTags = (quotesState) => {
   const tagArray = [];
-  quoteArray.forEach((quote) => {
+  Object.values(quotesState).forEach((quote) => {
     if (quote.tags !== undefined) {
-      tagArray.push(...quote.tags);
+      quote.tags.forEach((tag) => {
+        if (tagArray.includes(tag) !== true) {
+          tagArray.push(tag);
+        }
+      });
     }
   });
-  const allTags = [...new Set(tagArray)];
-  return allTags;
+  return tagArray;
+};
+
+// pass an array of quotes and the state of quotes (from redux) to find all quotes with any of the tags
+export const findQuotesByTag = (array, quotesState) => {
+  const quoteArray = [];
+  const tagArray = array;
 };
