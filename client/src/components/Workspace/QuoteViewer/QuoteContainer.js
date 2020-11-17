@@ -16,7 +16,9 @@ const QuoteContainer = (props) => {
 
   const id = props.id;
   const quote = useSelector((state) => state.quotes[`${id}`]);
-  const source = useSelector((state) => state.sources[quote.source]);
+  const source = useSelector((state) => state.sources);
+  // const source = useSelector((state) => state.sources[quote.source]);
+
   const quoteBodyClean = cleanHtml(quote.body);
   const quoteBody = ReactHtmlParser(quoteBodyClean);
   const quoteNotes = quote.userNotes;
