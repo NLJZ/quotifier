@@ -5,12 +5,10 @@ const quotesReducer = (state = [], action) => {
   switch (action.type) {
     case "SHOW_ALL_QUOTES":
       const baseState = [];
-      const newArr = sortByDate(action.payload, "new");
+      const arr = sortByDate(action.payload, "new");
       const allQuotesArr = produce(baseState, (draft) => {
-        newArr.forEach((quoteID) => draft.push(quoteID));
+        arr.forEach((quote) => draft.push(quote));
       });
-      return allQuotesArr;
-    case "LOAD_FAVES":
       return allQuotesArr;
     default:
       return state;
