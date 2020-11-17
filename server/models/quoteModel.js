@@ -6,14 +6,14 @@ const quoteSchema = Schema(
   {
     _id: Schema.Types.ObjectId,
     user: { type: Schema.Types.ObjectId, ref: "User" },
-    body: { type: String },
+    body: { type: String, default: "" },
     tags: {
       type: Array,
       default: undefined,
     },
-    userNotes: { type: String },
-    location: { type: String },
-    source: { type: String },
+    userNotes: { type: String, default: "" },
+    location: { type: String, default: "" },
+    source: { type: String, default: "" },
     fave: { type: Boolean, default: false },
   },
   { timestamps: true }
