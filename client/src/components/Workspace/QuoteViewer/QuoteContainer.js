@@ -11,22 +11,22 @@ const QuoteContainer = (props) => {
   const quoteBody = ReactHtmlParser(quoteBodyClean);
   const quoteNotes = quote.userNotes;
   const quoteLocation = quote.location;
-  const sourceTitle = source.sourceTitle;
-  const sourceInfo = ReactHtmlParser(source.sourceInfo);
+  let sourceTitle = null;
+  let sourceInfo = null;
+  if (quote.source !== undefined) {
+    sourceTitle = source.sourceTitle;
+    sourceInfo = ReactHtmlParser(source.sourceInfo);
+  }
   const quoteTags = quote.tags;
   let renderTags;
   if (quoteTags !== undefined) {
     renderTags = quoteTags.map((val, i) => {
-      if (val !== undefined) {
-        return (
-          <li className="comma" key={i}>
-            {val}
-          </li>
-        );
-      }
+      return val !== undefined ? (
+        <li className="comma" key={i}>
+          {val}
+        </li>
+      ) : null;
     });
-  } else {
-    renderTags = null;
   }
 
   return (
