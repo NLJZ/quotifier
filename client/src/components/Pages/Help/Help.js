@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import {
   getAllTags,
   findQuotesByTag,
-  sortNewToOld,
+  sortByDate,
 } from "../../../helpers/sortSearch.js";
 
 function Help() {
@@ -13,7 +13,7 @@ function Help() {
     ["pessimism", "Dogs", "test TEST tesT"],
     quotes
   );
-  const sortedQuotesByDate = sortNewToOld(quotes);
+  const sortedQuotesByDate = sortByDate(quotes, "new");
   console.log(tags);
   console.log(quotesWithTag);
   console.log(sortedQuotesByDate);

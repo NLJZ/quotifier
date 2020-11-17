@@ -31,12 +31,14 @@ export const findQuotesByTag = (array, quotesState) => {
   return quoteArray;
 };
 
-export const sortNewToOld = (state) => {
-  const stateArray = Object.values(state);
+// pass state object to sort new to old, pass "old" as str if you want oldest to newest
+export const sortByDate = (stateObj, str) => {
+  const old = str == "old";
+  const stateArray = Object.values(stateObj);
   const sorted = stateArray.sort((a, b) => {
     let dateA = new Date(a.createdAt);
     let dateB = new Date(b.createdAt);
-    return dateB - dateA;
+    return old ? dateA - dateB : dateB - dateA;
   });
   return sorted;
 };
