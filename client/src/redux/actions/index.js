@@ -77,6 +77,13 @@ export const showRecentQuotes = (quotes) => {
   };
 };
 
+export const showFavoriteQuotes = (quotes) => {
+  return {
+    type: "SHOW_FAVORITE_QUOTES",
+    payload: quotes,
+  };
+};
+
 export const filterQuotesByTag = (tags) => {
   return {
     type: "FILTER_QUOTES_BY_TAG",
