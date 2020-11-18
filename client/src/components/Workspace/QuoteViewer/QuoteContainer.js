@@ -16,24 +16,27 @@ const QuoteContainer = (props) => {
 
   const id = props.id;
   const quote = useSelector((state) => state.quotes[`${id}`]);
-  const source = useSelector((state) => state.sources[quote.source]);
+  const sources = useSelector((state) => state.sources);
+  const source = sources.quote;
   const quoteBodyClean = cleanHtml(quote.body);
   const quoteBody = ReactHtmlParser(quoteBodyClean);
   const quoteNotes = quote.userNotes;
   const quoteLocation = quote.location;
-  const sourceTitle = source.sourceTitle;
-  const sourceInfo = ReactHtmlParser(source.sourceInfo);
+  let sourceTitle = null;
+  let sourceInfo = null;
+  if (source !== undefined) {
+    sourceTitle = source.sourceTitle;
+    sourceInfo = ReactHtmlParser(source.sourceInfo);
+  }
   const quoteTags = quote.tags;
   let renderTags;
   if (quoteTags !== undefined) {
     renderTags = quoteTags.map((val, i) => {
-      if (val !== undefined) {
-        return (
-          <li className="comma" key={i}>
-            {val}
-          </li>
-        );
-      }
+      return val !== undefined ? (
+        <li className="comma" key={i}>
+          {val}
+        </li>
+      ) : null;
     });
   } else {
     renderTags = null;
@@ -70,29 +73,22 @@ const QuoteContainer = (props) => {
   }
 
   let buttonOpen = (
-    <button onClick={openContainer}>
-      <FontAwesomeIcon
-        className="ws-menu-top-icon-single"
-        icon={faPlusCircle}
-      />
-    </button>
+    <FontAwesomeIcon className="ws-menu-top-icon-single" icon={faPlusCircle} />
   );
 
   if (!isOff) {
     buttonOpen = (
-      <button onClick={openContainer}>
-        <FontAwesomeIcon
-          className="ws-menu-top-icon-single"
-          icon={faMinusCircle}
-        />
-      </button>
+      <FontAwesomeIcon
+        className="ws-menu-top-icon-single"
+        icon={faMinusCircle}
+      />
     );
   }
 
   return (
     <div className="quote-container-closed text">
       {quoteContainer}
-      {buttonOpen}
+      <button onClick={openContainer}> {buttonOpen}</button>
     </div>
   );
 };
