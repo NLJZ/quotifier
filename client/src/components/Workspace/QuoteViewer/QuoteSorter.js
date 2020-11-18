@@ -6,10 +6,6 @@ const QuoteSorter = () => {
   const [active, setActive] = useState(null);
   const dispatch = useDispatch();
 
-  const activeButton = (num) => {
-    setActive(num);
-  };
-
   const sortNew = () => {
     dispatch(sortNewToOld());
   };
