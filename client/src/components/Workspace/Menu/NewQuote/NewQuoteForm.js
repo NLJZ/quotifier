@@ -1,20 +1,16 @@
 import React, { useState } from "react";
-import { Redirect } from "react-router-dom";
 import { addQuote, showAllSources } from "../../../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 
 const axios = require("axios");
 
 const NewQuoteForm = (props) => {
-  // const [id, setId] = useState("");
-  // const [user, setUser] = useState("");
   const [body, setBody] = useState("");
   const [source, setSource] = useState("");
   const [tags, setTags] = useState([]);
   const [userNotes, setUserNotes] = useState("");
   const [location, setLocation] = useState("");
   const [fave, setFave] = useState(false);
-  const [redirect, setRedirect] = useState(null);
   const dispatch = useDispatch();
 
   const options = {
@@ -39,40 +35,9 @@ const NewQuoteForm = (props) => {
   //---------------------------------------------------
   const allSources = Object.values(sources);
   console.log("allSources", allSources);
-  //---------------------------------------------------
-  // const id = allSources.map((item) => item._id);
-  // console.log("id", id);
-  // //---------------------------------------------------
-  const sourceOnly = allSources.map((item) => item.sourceTitle);
-  console.log("sourceOnly", sourceOnly);
-  // //---------------------------------------------------
-  // let keys = id;
-  // let values = sourceOnly;
-  // let sourceKey = {};
-  // keys.forEach((key, i) => (sourceKey[key] = values[i]));
-  // console.log("sourceKey", sourceKey);
-  // //---------------------------------------------------
-  // let sourceKeyKeys = Object.keys(sourceKey);
-  // let sourceKeyValues = Object.values(sourceKey);
-  // //---------------------------------------------------
-  // //---------------------------------------------------
-  // const keyValue = () => {
-  //   for (const [key, value] of Object.entries(sourceKey)) {
-  //     // return `<option key=${key}>${value}</option>`;
-  //     // return <option key={key}>{value}</option>;
-  //     return console.log(`${key}:${value}`);
-  //   }
-  // };
-  // console.log(keyValue());
-  //---------------------------------------------------
 
-  // const changeSource = (sourceOnly) => {
-  //   setSource(sourceOnly);
-  // };
-  // console.log(changeSource);
-
-  const changeSource = (allSources) => {
-    setSource(allSources);
+  const changeSource = (source) => {
+    setSource(source);
   };
   console.log(changeSource);
 
@@ -81,11 +46,9 @@ const NewQuoteForm = (props) => {
       .then((response) => {
         let quote = response.data.quote;
         dispatch(addQuote(quote));
-        setRedirect(true);
       })
       .catch((error) => {
         console.log(error.response);
-        alert(`${error.response.data.errors.quote}`);
       });
   };
 
@@ -94,14 +57,10 @@ const NewQuoteForm = (props) => {
     submitForm();
   };
 
-  if (redirect) {
-    return <Redirect to="/" />;
-  }
-
   return (
     <form className="new-quote-form-form" onSubmit={handleSubmit}>
       <input
-        type="text"
+        type="textarea"
         name="quoteBody"
         className="input"
         onChange={(e) => setBody(e.target.value)}
@@ -109,16 +68,15 @@ const NewQuoteForm = (props) => {
         autoComplete="on"
         required
       />
-
+      <label for="source-selector">choose an existing source</label>
       <select
         className="input"
         onChange={(e) => changeSource(e.target.value)}
         value={source}
       >
-        {" "}
         {allSources.map((item) => (
-          <option key={Object.values(item._id)}>
-            {Object.values(item.sourceTitle)}
+          <option key={item._id} value={item._id}>
+            {item.sourceTitle}
           </option>
         ))}
       </select>
