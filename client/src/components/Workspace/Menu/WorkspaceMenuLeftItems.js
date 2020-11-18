@@ -11,7 +11,6 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 //-------------components----------------------------------
 import AllQuotes from "./AllQuotes.js";
-import RecentQuotes from "./RecentQuotes.js";
 import NewQuoteFormButton from "./NewQuoteButton.js";
 
 const WorkspaceMenuLeftItems = () => {
@@ -70,7 +69,9 @@ const WorkspaceMenuLeftItems = () => {
         </li>
       </ul>
 
-      <RecentQuotes />
+      <li className="workspace-menu-left-items-link">
+        <Link to="/recent">Recent </Link>
+      </li>
 
       <AllQuotes />
 
