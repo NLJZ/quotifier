@@ -5,6 +5,7 @@ import sources from "./getUserSources";
 import filteredQuotes from "./filteredQuotes";
 import favorites from "./getFaves";
 import quoteViewer from "./views";
+import tags from "./tagsReducer";
 import { combineReducers } from "redux";
 
 const appReducer = combineReducers({
@@ -12,6 +13,7 @@ const appReducer = combineReducers({
   isLogged,
   quotes,
   sources,
+  tags,
   favorites,
   filteredQuotes,
   quoteViewer,

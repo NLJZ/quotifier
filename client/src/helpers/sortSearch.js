@@ -1,7 +1,7 @@
 // pass the state of quotes (from redux) into this function to return all tags in quotes
-export const getAllTags = (quotesState) => {
+export const getAllTags = (quotesArr) => {
   const tagArray = [];
-  Object.values(quotesState).forEach((quote) => {
+  quotesArr.forEach((quote) => {
     if (quote.tags !== undefined) {
       quote.tags.forEach((tag) => {
         if (tagArray.includes(tag) !== true) {
@@ -44,10 +44,9 @@ export const sortByDate = (stateObj, str) => {
 };
 
 // get all favorites
-export const getFaves = (quotes) => {
+export const getFaves = (quotesArr) => {
   const quoteArray = [];
-  // const quoteStateArray = Object.values(quotesState);
-  quotes.forEach((quote) => {
+  quotesArr.forEach((quote) => {
     if (quote.fave === true) {
       quoteArray.push(quote);
     }
