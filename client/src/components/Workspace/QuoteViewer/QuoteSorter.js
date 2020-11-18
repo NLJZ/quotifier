@@ -1,10 +1,18 @@
 import React, { useState } from "react";
+import { sortNewToOld, sortOldToNew } from "../../../redux/actions";
+import { useDispatch, useSelector } from "react-redux";
 
 const QuoteSorter = () => {
   const [active, setActive] = useState(1);
+  const dispatch = useDispatch();
 
-  const activeButton = (num) => {
-    setActive(num);
+  const activeButton = async (num) => {
+    await setActive(num);
+    if (active === 1) {
+      dispatch(sortNewToOld());
+    } else {
+      dispatch(sortOldToNew());
+    }
   };
 
   return (
