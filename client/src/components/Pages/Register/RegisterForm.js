@@ -21,8 +21,8 @@ const RegisterForm = () => {
       "Content-Type": "application/json",
     },
     data: {
-      userFirst: string,
-      userLast: string,
+      userFirst: userFirst,
+      userLast: userLast,
       email: email,
       password: password,
     },

@@ -9,7 +9,7 @@ const NewQuoteForm = (props) => {
   // const [id, setId] = useState("");
   // const [user, setUser] = useState("");
   const [body, setBody] = useState("");
-  const [source, setSource] = useState("hello");
+  const [source, setSource] = useState("");
   const [tags, setTags] = useState([]);
   const [userNotes, setUserNotes] = useState("");
   const [location, setLocation] = useState("");
@@ -25,30 +25,43 @@ const NewQuoteForm = (props) => {
       "Content-Type": "application/json",
     },
     data: {
-      body: string,
-      source: source.id,
-      tags: array,
-      userNotes: string,
-      location: string,
-      fave: boolean,
+      body: body,
+      source: source,
+      tags: tags,
+      userNotes: userNotes,
+      location: location,
+      fave: fave,
     },
   };
-
+  //---------------------------------------------------
   const sources = useSelector((state) => state.sources);
-  console.log(sources);
+  console.log("sources", sources);
+  //---------------------------------------------------
   const allSources = Object.values(sources);
-  console.log(allSources);
-  const allSourcesOnly = Object.values(
-    allSources.map((item) => item.sourceTitle)
-  );
-  console.log(allSourcesOnly);
+  console.log("allSources", allSources);
+  //---------------------------------------------------
+  const id = allSources.map((item) => item._id);
+  console.log("id", id);
+  //---------------------------------------------------
+  const sourceOnly = allSources.map((item) => item.sourceTitle);
+  console.log("sourceOnly", sourceOnly);
+  //---------------------------------------------------
+  let keys = id;
+  let values = sourceOnly;
+  let sourceKey = {};
+  keys.forEach((key, i) => (sourceKey[key] = values[i]));
+  console.log("quoteKey", sourceKey);
+  //---------------------------------------------------
+  const keyValue = () => {
+    for (const [key, value] of Object.entries(sourceKey)) {
+      return console.log(`${key}:${value}`);
+    }
+  };
+  keyValue();
+  //---------------------------------------------------
 
-  const obj = Object.keys(allSourcesOnly).map((key) => [allSourcesOnly[key]]);
-  console.log(obj);
-  console.log(obj.map((key) => obj[key]));
-
-  const changeSource = (allSourcesOnly) => {
-    setSource(allSourcesOnly.map((item) => item));
+  const changeSource = (sourceOnly) => {
+    setSource(sourceOnly);
   };
   console.log(changeSource);
 
@@ -61,9 +74,7 @@ const NewQuoteForm = (props) => {
       })
       .catch((error) => {
         console.log(error.response);
-        alert(
-          `${error.response.data.errors.email} ${error.response.data.errors.password}`
-        );
+        alert(`${error.response.data.errors.quote}`);
       });
   };
 
@@ -93,9 +104,7 @@ const NewQuoteForm = (props) => {
         onChange={(e) => changeSource(e.target.value)}
         value={source}
       >
-        {allSourcesOnly.map((item) => (
-          <option>{item}</option>
-        ))}
+        <option></option>
       </select>
 
       <input
