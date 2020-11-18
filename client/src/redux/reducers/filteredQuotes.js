@@ -19,22 +19,10 @@ const quotesReducer = (state = [], action) => {
       const favoriteQuotes = getFaves(faveQuoteArr);
       return favoriteQuotes;
     case "SORT_NEW_TO_OLD":
-      const base = [...state];
-      const newnewArray = sortByDate(base, "old");
-      const sortedNewToOld = produce(newnewArray, (draft) => {
-        newnewArray.forEach((item) => {
-          draft.push(item);
-        });
-      });
+      const sortedNewToOld = sortByDate([...state], "new");
       return sortedNewToOld;
     case "SORT_OLD_TO_NEW":
-      const newBase = [...state];
-      const arrayToChange = sortByDate(newBase, "old");
-      const sortedOldToNew = produce(arrayToChange, (draft) => {
-        arrayToChange.forEach((item) => {
-          draft.push(item);
-        });
-      });
+      const sortedOldToNew = sortByDate([...state], "old");
       return sortedOldToNew;
     default:
       return state;

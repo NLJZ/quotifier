@@ -3,16 +3,19 @@ import { sortNewToOld, sortOldToNew } from "../../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 
 const QuoteSorter = () => {
-  const [active, setActive] = useState(1);
+  const [active, setActive] = useState(null);
   const dispatch = useDispatch();
 
-  const activeButton = async (num) => {
-    await setActive(num);
-    if (active === 1) {
-      dispatch(sortNewToOld());
-    } else {
-      dispatch(sortOldToNew());
-    }
+  const activeButton = (num) => {
+    setActive(num);
+  };
+
+  const sortNew = () => {
+    dispatch(sortNewToOld());
+  };
+
+  const sortOld = () => {
+    dispatch(sortOldToNew());
   };
 
   return (
@@ -23,7 +26,7 @@ const QuoteSorter = () => {
           <button
             className={active === 1 ? "active" : null}
             onClick={() => {
-              activeButton(1);
+              sortNew();
             }}
           >
             newest
@@ -33,7 +36,7 @@ const QuoteSorter = () => {
           <button
             className={active === 2 ? "active" : null}
             onClick={() => {
-              activeButton(2);
+              sortOld();
             }}
           >
             oldest
