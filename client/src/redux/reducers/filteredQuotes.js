@@ -14,6 +14,10 @@ const quotesReducer = (state = [], action) => {
       const quoteArr = sortByDate(action.payload, "new");
       const recentQuotesArr = quoteArr.slice(0, 5);
       return recentQuotesArr;
+    case "SHOW_FAVORITE_QUOTES":
+      const faveQuoteArr = sortByDate(action.payload, "new");
+      const favoriteQuotes = getFaves(faveQuoteArr);
+      return favoriteQuotes;
     default:
       return state;
   }
