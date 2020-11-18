@@ -1,12 +1,39 @@
-import React from "react";
-import WorkspaceMenuLeftItems from "./WorkspaceMenuLeftItems";
+import React, { useState, useRef, Fragment } from "react";
+//-------------components----------------------------------
+import WorkspaceMenuLeftOpen from "./WorkspaceMenuLeft/WorkspaceMenuLeftOpen";
+import WorkspaceMenuLeftCollapsed from "./WorkspaceMenuLeft/WorkspaceMenuLeftCollapsed";
+//----------------icons-----------------------
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFolderMinus, faFolderPlus } from "@fortawesome/free-solid-svg-icons";
 
-const WorkspaceMenuLeft = () => {
+const WorkspaceMenuLeftItems = () => {
+  // const dropdownRef = useRef(null);
+  const [isClosed, setIsClosed] = useState(false);
+  const onClickClose = () => setIsClosed(!isClosed);
+
+  let WorkspaceMenuLeft = <WorkspaceMenuLeftOpen />;
+  if (isClosed) {
+    WorkspaceMenuLeft = <WorkspaceMenuLeftCollapsed />;
+  }
+
+  let WorkspaceMenuLeftButton = (
+    <FontAwesomeIcon className="icn-folder" icon={faFolderMinus} />
+  );
+  if (isClosed) {
+    WorkspaceMenuLeftButton = (
+      <FontAwesomeIcon className="icn-folder" icon={faFolderPlus} />
+    );
+  }
+
   return (
-    <div className="workspace-menu-left">
-      <WorkspaceMenuLeftItems />
-    </div>
+    <React.Fragment>
+      {WorkspaceMenuLeft}
+      <button className="ws-menu-left-icon-folder" onClick={onClickClose}>
+        {" "}
+        {WorkspaceMenuLeftButton}
+      </button>
+    </React.Fragment>
   );
 };
 
-export default WorkspaceMenuLeft;
+export default WorkspaceMenuLeftItems;

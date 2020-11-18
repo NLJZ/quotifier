@@ -1,0 +1,30 @@
+.footer-all {
+  padding: 3rem;
+  width: 100%;
+  background-color: $base-color-dark;
+  display: flex;
+  justify-content: center;
+}
+
+.footer p {
+  margin: 0;
+}
+
+ul.footer-left {
+  padding: 2rem;
+}
+
+ul.footer-middle {
+  padding: 2rem;
+}
+
+.footer-right {
+  display: flex;
+  align-items: center;
+  padding: 2rem 4rem;
+}
+
+p.text-footer a:link {
+  text-decoration: none;
+  border: 0;
+}

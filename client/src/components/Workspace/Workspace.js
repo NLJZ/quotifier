@@ -1,16 +1,16 @@
 import React from "react";
-import WorkspaceMenuLeft from "./Menu/WorkspaceMenuLeft";
 import WorkspaceMain from "./WorkspaceMain";
+import WorkspaceMenuLeft from "./Menu/WorkspaceMenuLeft";
 
 const Workspace = () => {
   return (
-    <div className="workspace">
-      <div className="workspace-left">
+    <div className="ws">
+      <section className="ws-left">
         <WorkspaceMenuLeft />
-      </div>
-      <div className="workspace-right">
+      </section>
+      <section className="ws-right">
         <WorkspaceMain />
-      </div>
+      </section>
     </div>
   );
 };

@@ -1,0 +1,68 @@
+.ws {
+  @include minHeightComponents;
+  background-color: $mid-color-dark;
+  width: 100%;
+  display: flex;
+  transform: translateY(60px);
+}
+
+.ws-right {
+  background-color: yellow;
+  width: 85%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.ws-main {
+  height: 100%;
+  width: 100%;
+  background-color: $base-color-light;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.ws-main-text {
+  padding-top: 2rem;
+  max-width: 40rem;
+}
+
+//----------------workspace-all-quotes--------------------
+
+div.quote-container-open {
+  border: 1px solid black;
+  margin: 2rem;
+  border-radius: 20px;
+  box-shadow: 10px 10px grey;
+}
+
+div.quote-container-closed {
+  border: 1px solid black;
+  margin: 2rem;
+  border-radius: 20px;
+  box-shadow: 10px 10px grey;
+  display: flex;
+  flex-direction: column;
+}
+
+div.quote-container-open > *:hover,
+div.quote-container-closed > *:hover,
+div.quote-container-open > * > *:hover,
+div.quote-container-closed > * > *:hover,
+div.quote-container-open > * > * > *:hover,
+div.quote-container-closed > * > * > *:hover {
+  color: grey;
+  cursor: pointer;
+}
+
+div.quote-container-closed button {
+  align-self: flex-end;
+}
+
+//---------new quote form----------------
+
+.new-quote-form-input-quote {
+  height: 10rem;
+}

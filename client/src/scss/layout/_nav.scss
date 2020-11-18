@@ -1,9 +1,8 @@
-//-----------------main-nav--------------------------
+//-----------------main-nav-top-------------------------
 
 .nav-container {
   background-color: $mid-color-light;
   min-width: 100%;
-  // border: rgb(0, 255, 13) solid 1px;
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
@@ -31,7 +30,6 @@
 }
 
 .nav-link {
-  // border: 1px black solid;
   width: 7rem;
   height: 2.5rem;
   margin: 0 0.5rem;
@@ -49,7 +47,7 @@
   padding: 1rem;
 }
 
-//--------------------login-nav-----------------------------
+//--------------------login-nav-top----------------------------
 
 .menu-top-icons {
   // border: 1px rgb(0, 35, 231) solid;
@@ -59,25 +57,32 @@
 
 //--------------------workspace-nav-left-----------------
 
-.workspace-menu-left {
-  @include justifyCenter;
+.ws-left {
   padding-top: 2rem;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 20vh;
+  border: yellow 1px solid;
+  display: flex;
+  background: $mid-color-dark;
+  width: 15%;
+  min-height: 100vh;
 }
 
-.workspace-menu-left-items {
+.ws-menu-left-items {
   width: 100%;
 }
 
-.workspace-menu-left-items-link {
+.ws-menu-left-items-link {
   padding: 1rem;
   @include justifyCenter;
 }
 
-.workspace-menu-left-items-link:hover {
+.ws-menu-left-items-link:hover {
   border-bottom: 1px $base-color-light solid;
 }
 
-.workspace-menu-left-items-button {
+.ws-menu-left-items-button {
   @include buttonUnStyle;
 }
 
@@ -89,341 +94,24 @@
   border: 1px solid white;
 }
 
-//--------------------menu top dropdown-button from icon ----------------
-
-.dropdown-menu1-container {
-  position: relative;
-}
-
-.dropdown-menu1 {
-  background: $base-color-light;
-  border-radius: 8px;
-  position: absolute;
-  top: 75px;
-  right: -80px;
-  width: 300px;
-  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(-300px);
-  transform: translateX(-90px);
-  transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
-}
-
-.dropdown-menu1.active {
-  opacity: 1;
-  visibility: visible;
-  // transform: translateY();
-}
-
-.dropdown-menu1 ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.dropdown-menu1 li {
-  border-bottom: 1px solid $mid-color-dark;
-}
-
-.dropdown-menu1 li a {
-  text-decoration: none;
-  color: $base-color-dark;
-  padding: 15px 20px;
-  display: block;
-}
-
-.menu-top-icons-button {
+.ws-menu-left-items-search-bar {
   @include buttonUnStyle;
-  padding: 15px 20px;
-}
-
-.dropdown-menu1-trigger {
-  background: #f0000000;
-  border-radius: 90px;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 4px 6px;
-  // box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-  border: none;
-  vertical-align: middle;
-  transition: box-shadow 0.4s ease;
-  outline: none;
-  color: $base-color-dark;
-}
-
-.dropdown-menu1-trigger:hover {
-  color: $mid-color-mid;
-}
-
-.dropdown-menu1-trigger span {
-  font-weight: 700;
-  vertical-align: middle;
-  font-size: 14px;
-  margin: 0 10px;
-}
-
-//--------------------menu top dropdown-button from icon logout----------------
-
-.dropdown-menu2-container {
-  position: relative;
-}
-
-.dropdown-menu2 {
-  background: $base-color-light;
-  border-radius: 8px;
-  position: absolute;
-  top: 75px;
-  right: -80px;
-  width: 300px;
-  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(-300px);
-  transform: translateX(-90px);
-  transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
-}
-
-.dropdown-menu2.active {
-  opacity: 1;
-  visibility: visible;
-  // transform: translateY();
-}
-
-.dropdown-menu2 ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.dropdown-menu2 li {
-  border-bottom: 1px solid $mid-color-dark;
-}
-
-.dropdown-menu2 li a {
-  text-decoration: none;
-  color: $base-color-dark;
-  padding: 15px 20px;
-  display: block;
-}
-
-.dropdown-menu2-trigger {
-  background: #ff000000;
-  border-radius: 90px;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 4px 6px;
-  // box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-  border: none;
-  vertical-align: middle;
-  transition: box-shadow 0.4s ease;
-  outline: none;
-}
-
-.dropdown-menu2-trigger:hover {
-  color: $mid-color-mid;
-}
-
-.dropdown-menu2-trigger span {
-  font-weight: 700;
-  vertical-align: middle;
-  font-size: 14px;
-  margin: 0 10px;
-}
-
-.dropdown-menu2-trigger img {
-  // border-radius: 90px;
-}
-
-//--------------------menu left dropdown-button from icon----------------
-
-.menu-left-container {
-  position: relative;
-}
-
-.menu-left {
-  opacity: 0;
-  visibility: hidden;
-  position: absolute;
-}
-
-.menu-left.active {
-  opacity: 1;
-  visibility: visible;
-  position: relative;
-  top: 0px;
-  bottom: 20px;
-  right: 0px;
-  background-color: $mid-color-dark;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-}
-
-.menu-left ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.menu-left li {
-  border-bottom: 1px solid $base-color-light;
-}
-
-.menu-left li a {
-  text-decoration: none;
+  background-color: $mid-color-light;
+  // background: url("search.png");
+  border-radius: 30px;
+  border: $mid-color-light solid 1px;
   color: $base-color-light;
-  padding: 15px 20px;
-  display: block;
+  padding: 0.5rem 1.5rem;
+  width: fit-content;
+  margin: 0 2rem;
 }
 
-.menu-left-trigger {
-  // background: $base-color-light;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 4px 6px;
-  border: none;
-  vertical-align: middle;
+//--------------------workspace-nav-left-collapsible-----------------
+
+.folder-menu {
+}
+.icon-folder-trigger {
 }
 
-.menu-left-trigger:hover {
-  color: $mid-color-light;
-  outline: none;
-  border: 0;
+.ws-menu-left-button-collapsible {
 }
-
-.menu-left-trigger span {
-  font-weight: 700;
-  vertical-align: middle;
-  font-size: 14px;
-  margin: 0 10px;
-}
-
-li.workspace-menu-left-icon-single:hover {
-  text-decoration: none;
-  outline: none;
-  border: 0;
-  border: none;
-}
-
-.workspace-menu-left-icon-single.active {
-  transform: rotate(90deg);
-  border: 0;
-}
-
-li.workspace-menu-left-items-link button {
-  @include buttonUnStyle;
-  color: $base-color-light;
-}
-
-//--------------------new-quote-form----------------
-
-.new-quote-form-container {
-  // position: relative;
-}
-
-.new-quote-form {
-  background: rgba(248, 0, 0, 0.397);
-  position: fixed;
-  top: 0px;
-  right: 0px;
-  width: 100vw;
-  height: 100vh;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.new-quote-form.active {
-  opacity: 1;
-  visibility: visible;
-}
-
-.new-quote-form-form {
-  // list-style: none;
-  padding: 3rem;
-  margin: 0;
-  background-color: $base-color-light;
-  border: rgb(0, 0, 0) solid 1px;
-  @include justifyCenter;
-  flex-direction: column;
-  align-items: center;
-  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
-  position: absolute;
-}
-
-.new-quote-form-input {
-  // border: yellow solid 1px;
-}
-.new-quote-form-trigger {
-  background: #f0000000;
-  border-radius: 90px;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 4px 6px;
-  // box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-  border: none;
-  vertical-align: middle;
-  transition: box-shadow 0.4s ease;
-  outline: none;
-  color: $base-color-dark;
-}
-
-.new-quote-form-trigger:hover {
-  color: $mid-color-mid;
-}
-
-.new-quote-form-trigger span {
-  font-weight: 700;
-  vertical-align: middle;
-  font-size: 14px;
-  margin: 0 10px;
-}
-
-//-----------------media queries-----------------------------
-
-//--------------------workspace-nav-left-----------------
-
-@media only screen and (max-width: 800px) {
-  .workspace-left {
-    min-width: 20vw;
-    background-color: purple;
-  }
-
-  .workspace-menu-left {
-    display: flex;
-    justify-content: left;
-    padding-top: 2rem;
-    background-color: red;
-  }
-
-  .workspace-menu-left-items {
-    //  width: 100%;
-  }
-
-  .workspace-menu-left-items-link {
-    padding: 1rem;
-    @include justifyCenter;
-  }
-
-  .workspace-menu-left-items-link:hover {
-    border-bottom: 1px $base-color-light solid;
-  }
-
-  // .workspace-menu-left-items-button {
-  //   @include buttonUnStyle;
-  // }
-}
-
-//--------------------workspace-nav-collapsible-----------------

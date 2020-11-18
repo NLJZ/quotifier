@@ -30,17 +30,17 @@ function NavLoginIconThreeDots() {
   //------------------------------------------------------------------------
 
   return (
-    <div className="dropdown-menu2-container">
-      <button onClick={onClick} className="dropdown-menu2-trigger">
+    <div className="dd-menu-dts-container">
+      <button onClick={onClick} className="dd-menu-dts-trigger">
         <FontAwesomeIcon
-          className="workspace-menu-top-icon-single"
+          className="ws-menu-top-icon-single"
           icon={faEllipsisV}
         />
       </button>
 
       <nav
         ref={dropdownRef}
-        className={`dropdown-menu2 ${isActive ? "active" : "inactive"}`}
+        className={`dd-menu-dts ${isActive ? "active" : "inactive"}`}
       >
         <ul>
           <li>
