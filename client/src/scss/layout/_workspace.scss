@@ -27,7 +27,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
   .sort-container {
+    display: flex;
+    justify-content: flex-end;
+    margin: 0 2rem;
     ul {
       display: inline-flex;
       align-items: center;
@@ -39,6 +43,7 @@
         }
         button:hover {
           background-color: #03a6a6;
+          cursor: pointer;
         }
         .active {
           background-color: #012626;

@@ -18,6 +18,12 @@ const quotesReducer = (state = [], action) => {
       const faveQuoteArr = sortByDate(action.payload, "new");
       const favoriteQuotes = getFaves(faveQuoteArr);
       return favoriteQuotes;
+    case "SORT_NEW_TO_OLD":
+      let sortedNewToOld;
+      return sortedNewToOld;
+    case "SORT_OLD_TO_NEW":
+      let sortedOldToNew;
+      return sortedOldToNew;
     default:
       return state;
   }

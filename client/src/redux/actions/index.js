@@ -130,3 +130,15 @@ export const showAllSources = (sources) => {
     payload: sources,
   };
 };
+
+export const sortNewToOld = () => {
+  return {
+    type: "SORT_NEW_TO_OLD",
+  };
+};
+
+export const sortOldToNew = () => {
+  return {
+    type: "SORT_OLD_TO_NEW",
+  };
+};
