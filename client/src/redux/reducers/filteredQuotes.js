@@ -10,6 +10,10 @@ const quotesReducer = (state = [], action) => {
         arr.forEach((quote) => draft.push(quote));
       });
       return allQuotesArr;
+    case "SHOW_RECENT_QUOTES":
+      const quoteArr = sortByDate(action.payload, "new");
+      const recentQuotesArr = quoteArr.slice(0, 5);
+      return recentQuotesArr;
     default:
       return state;
   }
