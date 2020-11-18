@@ -4,15 +4,11 @@ import QuoteViewer from "./QuoteViewer/QuoteViewer.js";
 import Greeting from "./Greeting";
 
 const WorkspaceMain = () => {
-  const quoteViewer = useSelector((state) => state.quoteViewer);
-  let MainContent = Greeting;
-  if (quoteViewer) {
-    MainContent = QuoteViewer;
-  }
+  const quoteViewerOn = useSelector((state) => state.quoteViewer);
 
   return (
-    <div className="ws-main">
-      <MainContent />
+    <div className="workspace-main">
+      {quoteViewerOn ? <QuoteViewer /> : <Greeting />}
     </div>
   );
 };
