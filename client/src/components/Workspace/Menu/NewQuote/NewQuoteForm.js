@@ -40,28 +40,39 @@ const NewQuoteForm = (props) => {
   const allSources = Object.values(sources);
   console.log("allSources", allSources);
   //---------------------------------------------------
-  const id = allSources.map((item) => item._id);
-  console.log("id", id);
-  //---------------------------------------------------
+  // const id = allSources.map((item) => item._id);
+  // console.log("id", id);
+  // //---------------------------------------------------
   const sourceOnly = allSources.map((item) => item.sourceTitle);
   console.log("sourceOnly", sourceOnly);
-  //---------------------------------------------------
-  let keys = id;
-  let values = sourceOnly;
-  let sourceKey = {};
-  keys.forEach((key, i) => (sourceKey[key] = values[i]));
-  console.log("quoteKey", sourceKey);
-  //---------------------------------------------------
-  const keyValue = () => {
-    for (const [key, value] of Object.entries(sourceKey)) {
-      return console.log(`${key}:${value}`);
-    }
-  };
-  keyValue();
+  // //---------------------------------------------------
+  // let keys = id;
+  // let values = sourceOnly;
+  // let sourceKey = {};
+  // keys.forEach((key, i) => (sourceKey[key] = values[i]));
+  // console.log("sourceKey", sourceKey);
+  // //---------------------------------------------------
+  // let sourceKeyKeys = Object.keys(sourceKey);
+  // let sourceKeyValues = Object.values(sourceKey);
+  // //---------------------------------------------------
+  // //---------------------------------------------------
+  // const keyValue = () => {
+  //   for (const [key, value] of Object.entries(sourceKey)) {
+  //     // return `<option key=${key}>${value}</option>`;
+  //     // return <option key={key}>{value}</option>;
+  //     return console.log(`${key}:${value}`);
+  //   }
+  // };
+  // console.log(keyValue());
   //---------------------------------------------------
 
-  const changeSource = (sourceOnly) => {
-    setSource(sourceOnly);
+  // const changeSource = (sourceOnly) => {
+  //   setSource(sourceOnly);
+  // };
+  // console.log(changeSource);
+
+  const changeSource = (allSources) => {
+    setSource(allSources);
   };
   console.log(changeSource);
 
@@ -104,7 +115,12 @@ const NewQuoteForm = (props) => {
         onChange={(e) => changeSource(e.target.value)}
         value={source}
       >
-        <option></option>
+        {" "}
+        {allSources.map((item) => (
+          <option key={Object.values(item._id)}>
+            {Object.values(item.sourceTitle)}
+          </option>
+        ))}
       </select>
 
       <input
