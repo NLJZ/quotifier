@@ -70,6 +70,41 @@ export const showAllQuotes = (quotes) => {
   };
 };
 
+export const showRecentQuotes = (quotes) => {
+  return {
+    type: "SHOW_RECENT_QUOTES",
+    payload: quotes,
+  };
+};
+
+export const filterQuotesByTag = (tags) => {
+  return {
+    type: "FILTER_QUOTES_BY_TAG",
+    payload: tags,
+  };
+};
+
+export const filterQuotesByFave = (quotes) => {
+  return {
+    type: "FILTER_QUOTES_BY_FAVE",
+    payload: quotes,
+  };
+};
+
+export const loadFaves = (quotes) => {
+  return {
+    type: "LOAD_FAVES",
+    payload: quotes,
+  };
+};
+
+export const loadTags = (tags) => {
+  return {
+    type: "LOAD_TAGS",
+    payload: tags,
+  };
+};
+
 export const quoteViewerOn = () => {
   return {
     type: "QUOTE_VIEWER_ON",

@@ -1,23 +1,23 @@
 import React from "react";
-import { showAllQuotes, quoteViewerOn } from "../../../redux/actions";
+import { showRecentQuotes, quoteViewerOn } from "../../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 
-const AllQuotes = () => {
+const RecentQuotes = () => {
   const dispatch = useDispatch();
   const quotesState = useSelector((state) => state.quotes);
   const showQuotes = () => {
-    dispatch(showAllQuotes(quotesState));
+    dispatch(showRecentQuotes(quotesState));
     dispatch(quoteViewerOn());
   };
   return (
     <React.Fragment>
       <li className="workspace-menu-left-items-link">
         <button onClick={showQuotes} type="submit">
-          All Quotes
+          Recent
         </button>
       </li>
     </React.Fragment>
   );
 };
 
-export default AllQuotes;
+export default RecentQuotes;
