@@ -5,6 +5,7 @@ import {
   loadSources,
   getUser,
   loadQuotes,
+  loadFaves,
 } from "../../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { getSources, getQuotes } from "../../../helpers/getUserData";
@@ -38,6 +39,7 @@ const LoginForm = () => {
     const quotes = await getQuotes();
     await dispatch(loadQuotes(quotes));
     await dispatch(loadSources(sources));
+    await dispatch(loadFaves(quotes));
   };
 
   const submitForm = async () => {

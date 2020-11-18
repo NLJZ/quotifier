@@ -3,6 +3,7 @@ import userName from "./userData";
 import quotes from "./getUserQuotes";
 import sources from "./getUserSources";
 import filteredQuotes from "./filteredQuotes";
+import favorites from "./getFaves";
 import quoteViewer from "./views";
 import { combineReducers } from "redux";
 
@@ -11,6 +12,7 @@ const appReducer = combineReducers({
   isLogged,
   quotes,
   sources,
+  favorites,
   filteredQuotes,
   quoteViewer,
 });

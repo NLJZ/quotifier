@@ -44,10 +44,10 @@ export const sortByDate = (stateObj, str) => {
 };
 
 // get all favorites
-export const getFaves = (quotesState) => {
+export const getFaves = (quotes) => {
   const quoteArray = [];
-  const quoteStateArray = Object.values(quotesState);
-  quoteStateArray.forEach((quote) => {
+  // const quoteStateArray = Object.values(quotesState);
+  quotes.forEach((quote) => {
     if (quote.fave === true) {
       quoteArray.push(quote);
     }
