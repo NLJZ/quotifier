@@ -3,7 +3,7 @@ const headerReducer = (state = "", action) => {
     case "SHOW_ALL_QUOTES":
       return "All Quotes";
     case "SHOW_RECENT_QUOTES":
-      return "Recent Quotes";
+      return "Recent";
     case "SHOW_FAVORITE_QUOTES":
       return "Favorites";
     default:

@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import QuoteContainer from "./QuoteContainer";
+import QuoteSorter from "./QuoteSorter";
 
 const QuoteViewer = () => {
   const headerText = useSelector((state) => state.workspaceHeader);
@@ -11,6 +12,7 @@ const QuoteViewer = () => {
   return (
     <div>
       <h1>{headerText}</h1>
+      <QuoteSorter />
       {QuotesToRender}
     </div>
   );
