@@ -42,7 +42,7 @@ const NewQuoteForm = (props) => {
     },
   };
 
-  const optionsSource = {
+  const optionSource = {
     url: "/api/v1/data/addSource",
     mode: "cors",
     method: "POST",
@@ -61,7 +61,7 @@ const NewQuoteForm = (props) => {
   // console.log(changeSource);
 
   const submitFormQuote = async () => {
-    await axios(options)
+    await axios(optionQuote)
       .then((response) => {
         let quote = response.data.quote;
         dispatch(addQuote(quote));
@@ -73,7 +73,7 @@ const NewQuoteForm = (props) => {
   };
 
   const submitFormSource = async () => {
-    await axios(options2)
+    await axios(optionSource)
       .then((response) => {
         let source = response.data.source;
         dispatch(addSource(source));
