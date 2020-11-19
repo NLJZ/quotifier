@@ -35,6 +35,8 @@ const NewQuoteForm = (props) => {
     data: {
       body: body,
       source: source,
+      sourceTitle: sourceTitle,
+      sourceInfo: sourceInfo,
       tags: tagsArr,
       userNotes: userNotes,
       location: location,
@@ -54,30 +56,32 @@ const NewQuoteForm = (props) => {
       sourceInfo: sourceInfo,
     },
   };
+  let returnedSource;
 
   const changeSource = (source) => {
     setSource(source);
   };
   // console.log(changeSource);
 
-  const submitFormQuote = async () => {
-    await axios(optionQuote)
+  const submitFormSource = async () => {
+    await axios(optionSource)
       .then((response) => {
-        let quote = response.data.quote;
-        dispatch(addQuote(quote));
-        console.log(response);
+        let source = response.data;
+        dispatch(addSource(source));
+        console.log(source._id);
+        returnedSource = `${source._id}`;
       })
       .catch((error) => {
         console.log(error.response);
       });
   };
 
-  const submitFormSource = async () => {
-    await axios(optionSource)
+  const submitFormQuote = async () => {
+    await axios(optionQuote)
       .then((response) => {
-        let source = response.data.source;
-        dispatch(addSource(source));
-        console.log(response);
+        let quote = response.data;
+        dispatch(addQuote(quote));
+        console.log(quote);
       })
       .catch((error) => {
         console.log(error.response);
@@ -86,10 +90,13 @@ const NewQuoteForm = (props) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    submitFormQuote();
-    submitFormSource();
-  };
+    await submitFormSource();
 
+    if (returnedSource !== undefined) {
+      changeSource(returnedSource);
+    }
+    submitFormQuote();
+  };
   const addTags = (e) => {
     e.preventDefault();
     setTagsArr([...tagsArr, tags]);
@@ -115,7 +122,7 @@ const NewQuoteForm = (props) => {
         <select
           className="input"
           onChange={(e) => changeSource(e.target.value)}
-          value={null}
+          value={sources._id}
         >
           {/* <option value={null}></option> */}
 
