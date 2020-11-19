@@ -1,4 +1,8 @@
-import { sortByDate, getFaves } from "../../helpers/sortSearch";
+import {
+  sortByDate,
+  getFaves,
+  findQuotesByTag,
+} from "../../helpers/sortSearch";
 import produce from "immer";
 
 const quotesReducer = (state = [], action) => {
@@ -24,6 +28,9 @@ const quotesReducer = (state = [], action) => {
     case "SORT_OLD_TO_NEW":
       const sortedOldToNew = sortByDate([...state], "old");
       return sortedOldToNew;
+    case "FILTER_QUOTES_BY_TAG":
+      const filteredByTag = findQuotesByTag(action.payload, [...state]);
+      return filteredByTag;
     default:
       return state;
   }

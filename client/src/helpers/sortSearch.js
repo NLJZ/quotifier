@@ -13,16 +13,16 @@ export const getAllTags = (quotesArr) => {
   return tagArray;
 };
 
-// pass an array of quotes and the state of quotes (from redux) to find all quotes including any one of the tags
-export const findQuotesByTag = (array, quotesState) => {
+// pass an array of tags and an array of quotes to find all quotes including any one of the tags
+export const findQuotesByTag = (array, quotes) => {
   const quoteArray = [];
-  const quoteStateArray = Object.values(quotesState);
+  const quoteStateArray = quotes;
   const tagArray = array.map((tag) => tag.toLowerCase());
   tagArray.forEach((tag) => {
     quoteStateArray.forEach((quote) => {
       if (quote.tags !== undefined) {
         const tagsToLower = quote.tags.map((value) => value.toLowerCase());
-        if (tagsToLower.includes(tag)) {
+        if (tagsToLower.includes(tag) && quoteArray.includes(quote) !== true) {
           quoteArray.push(quote);
         }
       }

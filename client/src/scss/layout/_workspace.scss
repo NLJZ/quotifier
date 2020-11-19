@@ -52,6 +52,23 @@
     }
   }
 }
+.filter-container {
+  display: inline-flex;
+  margin: 0 2rem;
+  .hide {
+    display: none;
+  }
+  .show {
+    display: block;
+  }
+  .tagsFilter {
+    border: 1px solid black;
+    width: fit-content;
+    padding: 1rem;
+    background-color: #ddd;
+    position: absolute;
+  }
+}
 
 .ws-main-text {
   padding-top: 2rem;
