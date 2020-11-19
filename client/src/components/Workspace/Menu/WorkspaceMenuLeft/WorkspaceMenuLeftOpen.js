@@ -7,6 +7,8 @@ import { faPlay, faPlus, faSearch } from "@fortawesome/free-solid-svg-icons";
 //-------------components----------------------------------
 import AllQuotes from "../AllQuotes.js";
 import NewQuoteFormButton from "../NewQuote/NewQuoteButton.js";
+import RecentQuotes from "../RecentQuotes";
+import FavoriteQuotes from "../FavoriteQuotes";
 
 const WorkspaceMenuLeftOpen = () => {
   const dropdownRef = useRef(null);
@@ -37,7 +39,7 @@ const WorkspaceMenuLeftOpen = () => {
           </button>
         </li>
 
-        <li className="ws-menu-left-items-link">
+        {/* <li className="ws-menu-left-items-link">
           <button
             className="ws-menu-left-items-button menu-left-trigger"
             onClick={onClickDrop}
@@ -65,11 +67,10 @@ const WorkspaceMenuLeftOpen = () => {
           <li>
             <Link to="/lastquote3">last quote 3 </Link>
           </li>
-        </ul>
+        </ul> */}
+        <FavoriteQuotes />
 
-        <li className="ws-menu-left-items-link">
-          <Link to="/recent">Recent </Link>
-        </li>
+        <RecentQuotes />
 
         <AllQuotes />
 

@@ -13,15 +13,15 @@ import cleanHtml from "../../../utils/cleanHtml";
 const QuoteContainer = (props) => {
   const [isOff, setIsOff] = useState(true);
   const openContainer = () => setIsOff(!isOff);
-
   const id = props.id;
   const quote = useSelector((state) => state.quotes[`${id}`]);
   const sources = useSelector((state) => state.sources);
-  const source = sources.quote;
   const quoteBodyClean = cleanHtml(quote.body);
   const quoteBody = ReactHtmlParser(quoteBodyClean);
   const quoteNotes = quote.userNotes;
   const quoteLocation = quote.location;
+  const sourceId = quote.source;
+  const source = sources[sourceId];
   let sourceTitle = null;
   let sourceInfo = null;
   if (source !== undefined) {
