@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { sortNewToOld, sortOldToNew } from "../../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 
 const QuoteSorter = () => {
-  const [active, setActive] = useState(null);
   const dispatch = useDispatch();
 
   const sortNew = () => {
@@ -20,7 +19,6 @@ const QuoteSorter = () => {
         <li>sort:</li>
         <li>
           <button
-            className={active === 1 ? "active" : null}
             onClick={() => {
               sortNew();
             }}
@@ -30,7 +28,6 @@ const QuoteSorter = () => {
         </li>
         <li>
           <button
-            className={active === 2 ? "active" : null}
             onClick={() => {
               sortOld();
             }}
