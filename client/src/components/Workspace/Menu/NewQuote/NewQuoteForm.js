@@ -1,21 +1,31 @@
-import React, { useState } from "react";
-import { addQuote, showAllSources } from "../../../../redux/actions";
+import React, { useState, useRef } from "react";
+import { addQuote, addSource, showAllSources } from "../../../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
-import NewQuoteFormTags from "./NewQuoteFormTags";
 
 const axios = require("axios");
 
 const NewQuoteForm = (props) => {
+  //---------------------------------------------------
+  const sources = useSelector((state) => state.sources);
+  //---------------------------------------------------
+  const allSources = Object.values(sources);
+
   const [body, setBody] = useState("");
-  const [source, setSource] = useState("");
+  const [source, setSource] = useState(allSources[0]._id);
   const [tags, setTags] = useState("");
-  // const [tags, setTags] = useState([{ text: "first tag" }]);
+  const [tagsArr, setTagsArr] = useState([]);
   const [userNotes, setUserNotes] = useState("");
   const [location, setLocation] = useState("");
   const [fave, setFave] = useState(false);
+  const [sourceTitle, setSourceTitle] = useState("");
+  const [sourceInfo, setSourceInfo] = useState("");
   const dispatch = useDispatch();
 
-  const options = {
+  const dropdownRef = useRef(null);
+  const [isClicked, setIsClicked] = useState(false);
+  const onClickSource = () => setIsClicked(!isClicked);
+
+  const optionQuote = {
     url: "/api/v1/data/addQuote",
     mode: "cors",
     method: "POST",
@@ -25,30 +35,49 @@ const NewQuoteForm = (props) => {
     data: {
       body: body,
       source: source,
-      tags: tags,
+      tags: tagsArr,
       userNotes: userNotes,
       location: location,
       fave: fave,
     },
   };
 
-  //---------------------------------------------------
-  const sources = useSelector((state) => state.sources);
-  console.log("sources", sources);
-  //---------------------------------------------------
-  const allSources = Object.values(sources);
-  console.log("allSources", allSources);
+  const optionsSource = {
+    url: "/api/v1/data/addSource",
+    mode: "cors",
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    data: {
+      sourceTitle: sourceTitle,
+      sourceInfo: sourceInfo,
+    },
+  };
 
   const changeSource = (source) => {
     setSource(source);
   };
-  console.log(changeSource);
+  // console.log(changeSource);
 
-  const submitForm = async () => {
+  const submitFormQuote = async () => {
     await axios(options)
       .then((response) => {
         let quote = response.data.quote;
         dispatch(addQuote(quote));
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error.response);
+      });
+  };
+
+  const submitFormSource = async () => {
+    await axios(options2)
+      .then((response) => {
+        let source = response.data.source;
+        dispatch(addSource(source));
+        console.log(response);
       })
       .catch((error) => {
         console.log(error.response);
@@ -57,14 +86,12 @@ const NewQuoteForm = (props) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    submitForm();
+    submitFormQuote();
+    submitFormSource();
   };
-
-  const [tagsArr, setTagsArr] = useState([]);
 
   const addTags = (e) => {
     e.preventDefault();
-    // tagsArr.push(tags);
     setTagsArr([...tagsArr, tags]);
     setTags("");
   };
@@ -82,22 +109,59 @@ const NewQuoteForm = (props) => {
         required
       />
       <label>choose an existing source</label>
-      <select
-        className="input"
-        onChange={(e) => changeSource(e.target.value)}
-        value={source}
+
+      <div>
+        {" "}
+        <select
+          className="input"
+          onChange={(e) => changeSource(e.target.value)}
+          value={null}
+        >
+          {/* <option value={null}></option> */}
+
+          {allSources.map((item) => (
+            <option key={item._id} value={item._id}>
+              {item.sourceTitle}
+            </option>
+          ))}
+        </select>
+        <button className="ns-form-trigger" onClick={onClickSource}>
+          add source
+        </button>
+      </div>
+
+      <div
+        ref={dropdownRef}
+        className={`ns-form ${isClicked ? "active" : "inactive"}`}
       >
-        {allSources.map((item) => (
-          <option key={item._id} value={item._id}>
-            {item.sourceTitle}
-          </option>
-        ))}
-      </select>
+        <label>enter a title here:</label>
+        <input
+          type="textarea"
+          name="sourceTitle"
+          className="input"
+          onChange={(e) => setSourceTitle(e.target.value)}
+          placeholder="enter source Title"
+          autoComplete="on"
+          required
+        />
+
+        <label>enter the author here:</label>
+        <input
+          type="textarea"
+          name="sourceInfo"
+          className="input"
+          onChange={(e) => setSourceInfo(e.target.value)}
+          placeholder="enter source info"
+          autoComplete="on"
+          required
+        />
+      </div>
 
       <label>select your tags:</label>
       <div className="tags-button">
         <input
           type="text"
+          name="tags"
           className="input"
           value={tags}
           onChange={(e) => {
@@ -111,7 +175,7 @@ const NewQuoteForm = (props) => {
             return <li key={i}>{tag}</li>;
           })}
 
-          <li>hello</li>
+          <li>first tag</li>
         </ul>
       </div>
 
@@ -138,7 +202,7 @@ const NewQuoteForm = (props) => {
       <label>choose an existing source</label>
 
       <input
-        type=""
+        type="checkbox"
         name="fave"
         className="input"
         onChange={(e) => setFave(e.target.value)}
