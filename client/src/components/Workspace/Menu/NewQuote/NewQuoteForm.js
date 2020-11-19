@@ -1,20 +1,18 @@
 import React, { useState } from "react";
-import { Redirect } from "react-router-dom";
 import { addQuote, showAllSources } from "../../../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
+import NewQuoteFormTags from "./NewQuoteFormTags";
 
 const axios = require("axios");
 
 const NewQuoteForm = (props) => {
-  // const [id, setId] = useState("");
-  // const [user, setUser] = useState("");
   const [body, setBody] = useState("");
   const [source, setSource] = useState("");
-  const [tags, setTags] = useState([]);
+  const [tags, setTags] = useState("");
+  // const [tags, setTags] = useState([{ text: "first tag" }]);
   const [userNotes, setUserNotes] = useState("");
   const [location, setLocation] = useState("");
   const [fave, setFave] = useState(false);
-  const [redirect, setRedirect] = useState(null);
   const dispatch = useDispatch();
 
   const options = {
@@ -33,35 +31,16 @@ const NewQuoteForm = (props) => {
       fave: fave,
     },
   };
+
   //---------------------------------------------------
   const sources = useSelector((state) => state.sources);
   console.log("sources", sources);
   //---------------------------------------------------
   const allSources = Object.values(sources);
   console.log("allSources", allSources);
-  //---------------------------------------------------
-  const id = allSources.map((item) => item._id);
-  console.log("id", id);
-  //---------------------------------------------------
-  const sourceOnly = allSources.map((item) => item.sourceTitle);
-  console.log("sourceOnly", sourceOnly);
-  //---------------------------------------------------
-  let keys = id;
-  let values = sourceOnly;
-  let sourceKey = {};
-  keys.forEach((key, i) => (sourceKey[key] = values[i]));
-  console.log("quoteKey", sourceKey);
-  //---------------------------------------------------
-  const keyValue = () => {
-    for (const [key, value] of Object.entries(sourceKey)) {
-      return console.log(`${key}:${value}`);
-    }
-  };
-  keyValue();
-  //---------------------------------------------------
 
-  const changeSource = (sourceOnly) => {
-    setSource(sourceOnly);
+  const changeSource = (source) => {
+    setSource(source);
   };
   console.log(changeSource);
 
@@ -70,11 +49,9 @@ const NewQuoteForm = (props) => {
       .then((response) => {
         let quote = response.data.quote;
         dispatch(addQuote(quote));
-        setRedirect(true);
       })
       .catch((error) => {
         console.log(error.response);
-        alert(`${error.response.data.errors.quote}`);
       });
   };
 
@@ -83,14 +60,20 @@ const NewQuoteForm = (props) => {
     submitForm();
   };
 
-  if (redirect) {
-    return <Redirect to="/" />;
-  }
+  const [tagsArr, setTagsArr] = useState([]);
+
+  const addTags = (e) => {
+    e.preventDefault();
+    // tagsArr.push(tags);
+    setTagsArr([...tagsArr, tags]);
+    setTags("");
+  };
 
   return (
     <form className="new-quote-form-form" onSubmit={handleSubmit}>
+      <label>enter your quote here:</label>
       <input
-        type="text"
+        type="textarea"
         name="quoteBody"
         className="input"
         onChange={(e) => setBody(e.target.value)}
@@ -98,23 +81,41 @@ const NewQuoteForm = (props) => {
         autoComplete="on"
         required
       />
-
+      <label>choose an existing source</label>
       <select
         className="input"
         onChange={(e) => changeSource(e.target.value)}
         value={source}
       >
-        <option></option>
+        {allSources.map((item) => (
+          <option key={item._id} value={item._id}>
+            {item.sourceTitle}
+          </option>
+        ))}
       </select>
 
-      <input
-        type="text"
-        name="tags"
-        className="input"
-        onChange={(e) => setTags(e.target.value)}
-        placeholder="enter your tags"
-        autoComplete="on"
-      />
+      <label>select your tags:</label>
+      <div className="tags-button">
+        <input
+          type="text"
+          className="input"
+          value={tags}
+          onChange={(e) => {
+            setTags(e.target.value);
+          }}
+        />
+
+        <button onClick={(e) => addTags(e)}>click</button>
+        <ul>
+          {tagsArr.map((tag, i) => {
+            return <li key={i}>{tag}</li>;
+          })}
+
+          <li>hello</li>
+        </ul>
+      </div>
+
+      <label>choose an existing source</label>
 
       <input
         type="text"
@@ -124,6 +125,7 @@ const NewQuoteForm = (props) => {
         placeholder="userNotes"
         autoComplete="on"
       />
+      <label>choose an existing source</label>
 
       <input
         type="text"
@@ -133,6 +135,7 @@ const NewQuoteForm = (props) => {
         placeholder="location"
         autoComplete="on"
       />
+      <label>choose an existing source</label>
 
       <input
         type=""
