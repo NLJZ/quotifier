@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import { addQuote, showAllSources } from "../../../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
+import NewQuoteFormTags from "./NewQuoteFormTags";
 
 const axios = require("axios");
 
 const NewQuoteForm = (props) => {
   const [body, setBody] = useState("");
   const [source, setSource] = useState("");
-  const [tags, setTags] = useState([]);
+  const [tags, setTags] = useState("");
+  // const [tags, setTags] = useState([{ text: "first tag" }]);
   const [userNotes, setUserNotes] = useState("");
   const [location, setLocation] = useState("");
   const [fave, setFave] = useState(false);
@@ -29,6 +31,7 @@ const NewQuoteForm = (props) => {
       fave: fave,
     },
   };
+
   //---------------------------------------------------
   const sources = useSelector((state) => state.sources);
   console.log("sources", sources);
@@ -57,8 +60,18 @@ const NewQuoteForm = (props) => {
     submitForm();
   };
 
+  const [tagsArr, setTagsArr] = useState([]);
+
+  const addTags = (e) => {
+    e.preventDefault();
+    // tagsArr.push(tags);
+    setTagsArr([...tagsArr, tags]);
+    setTags("");
+  };
+
   return (
     <form className="new-quote-form-form" onSubmit={handleSubmit}>
+      <label>enter your quote here:</label>
       <input
         type="textarea"
         name="quoteBody"
@@ -68,7 +81,7 @@ const NewQuoteForm = (props) => {
         autoComplete="on"
         required
       />
-      <label for="source-selector">choose an existing source</label>
+      <label>choose an existing source</label>
       <select
         className="input"
         onChange={(e) => changeSource(e.target.value)}
@@ -81,14 +94,28 @@ const NewQuoteForm = (props) => {
         ))}
       </select>
 
-      <input
-        type="text"
-        name="tags"
-        className="input"
-        onChange={(e) => setTags(e.target.value)}
-        placeholder="enter your tags"
-        autoComplete="on"
-      />
+      <label>select your tags:</label>
+      <div className="tags-button">
+        <input
+          type="text"
+          className="input"
+          value={tags}
+          onChange={(e) => {
+            setTags(e.target.value);
+          }}
+        />
+
+        <button onClick={(e) => addTags(e)}>click</button>
+        <ul>
+          {tagsArr.map((tag, i) => {
+            return <li key={i}>{tag}</li>;
+          })}
+
+          <li>hello</li>
+        </ul>
+      </div>
+
+      <label>choose an existing source</label>
 
       <input
         type="text"
@@ -98,6 +125,7 @@ const NewQuoteForm = (props) => {
         placeholder="userNotes"
         autoComplete="on"
       />
+      <label>choose an existing source</label>
 
       <input
         type="text"
@@ -107,6 +135,7 @@ const NewQuoteForm = (props) => {
         placeholder="location"
         autoComplete="on"
       />
+      <label>choose an existing source</label>
 
       <input
         type=""
