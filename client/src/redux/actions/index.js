@@ -77,6 +77,13 @@ export const showRecentQuotes = (quotes) => {
   };
 };
 
+export const showFavoriteQuotes = (quotes) => {
+  return {
+    type: "SHOW_FAVORITE_QUOTES",
+    payload: quotes,
+  };
+};
+
 export const filterQuotesByTag = (tags) => {
   return {
     type: "FILTER_QUOTES_BY_TAG",
@@ -121,5 +128,17 @@ export const showAllSources = (sources) => {
   return {
     type: "SHOW_ALL_SOURCES",
     payload: sources,
+  };
+};
+
+export const sortNewToOld = () => {
+  return {
+    type: "SORT_NEW_TO_OLD",
+  };
+};
+
+export const sortOldToNew = () => {
+  return {
+    type: "SORT_OLD_TO_NEW",
   };
 };
