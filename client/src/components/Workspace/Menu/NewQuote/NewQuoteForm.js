@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { addQuote, addSource, showAllSources } from "../../../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -11,19 +11,31 @@ const NewQuoteForm = (props) => {
   const allSources = Object.values(sources);
 
   const [body, setBody] = useState("");
-  const [source, setSource] = useState(allSources[0]._id);
+  const [sourceId, setSourceId] = useState(undefined);
   const [tags, setTags] = useState("");
   const [tagsArr, setTagsArr] = useState([]);
   const [userNotes, setUserNotes] = useState("");
   const [location, setLocation] = useState("");
   const [fave, setFave] = useState(false);
+  const [sourceAdded, setSourceAdded] = useState(false);
+  const [quoteAdded, setQuoteAdded] = useState(false);
   const [sourceTitle, setSourceTitle] = useState("");
   const [sourceInfo, setSourceInfo] = useState("");
   const dispatch = useDispatch();
 
   const dropdownRef = useRef(null);
   const [isClicked, setIsClicked] = useState(false);
-  const onClickSource = () => setIsClicked(!isClicked);
+  const onClickSource = (e) => {
+    e.preventDefault();
+    setIsClicked(!isClicked);
+  };
+
+  useEffect(() => {
+    if (sourceAdded === true) {
+      submitFormQuote();
+      setSourceAdded(false);
+    }
+  });
 
   const optionQuote = {
     url: "/api/v1/data/addQuote",
@@ -34,7 +46,7 @@ const NewQuoteForm = (props) => {
     },
     data: {
       body: body,
-      source: source,
+      source: sourceId,
       tags: tagsArr,
       userNotes: userNotes,
       location: location,
@@ -55,29 +67,33 @@ const NewQuoteForm = (props) => {
     },
   };
 
-  const changeSource = (source) => {
-    setSource(source);
+  const changeSourceId = (source) => {
+    setSourceId(source);
   };
-  // console.log(changeSource);
 
-  const submitFormQuote = async () => {
-    await axios(optionQuote)
+  const submitFormSource = async () => {
+    let newSource;
+    await axios(optionSource)
       .then((response) => {
-        let quote = response.data.quote;
-        dispatch(addQuote(quote));
-        console.log(response);
+        let source = response.data;
+        dispatch(addSource(source));
+        console.log(`${source._id}`);
+        changeSourceId(`${source._id}`);
+        setSourceAdded(true);
       })
       .catch((error) => {
         console.log(error.response);
       });
+    return newSource;
   };
 
-  const submitFormSource = async () => {
-    await axios(optionSource)
+  const submitFormQuote = async () => {
+    await axios(optionQuote)
       .then((response) => {
-        let source = response.data.source;
-        dispatch(addSource(source));
-        console.log(response);
+        let quote = response.data;
+        dispatch(addQuote(quote));
+        console.log(quote);
+        setQuoteAdded(true);
       })
       .catch((error) => {
         console.log(error.response);
@@ -86,8 +102,11 @@ const NewQuoteForm = (props) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    submitFormQuote();
-    submitFormSource();
+    if (sourceTitle !== "") {
+      await submitFormSource();
+    } else {
+      await submitFormQuote();
+    }
   };
 
   const addTags = (e) => {
@@ -106,6 +125,7 @@ const NewQuoteForm = (props) => {
         onChange={(e) => setBody(e.target.value)}
         placeholder="enter your quote"
         autoComplete="on"
+        value={body}
         required
       />
       <label>choose an existing source</label>
@@ -114,10 +134,10 @@ const NewQuoteForm = (props) => {
         {" "}
         <select
           className="input"
-          onChange={(e) => changeSource(e.target.value)}
-          value={null}
+          onChange={(e) => changeSourceId(e.target.value)}
+          value={sourceId}
         >
-          {/* <option value={null}></option> */}
+          <option value={null}>add an existing source</option>
 
           {allSources.map((item) => (
             <option key={item._id} value={item._id}>
@@ -138,22 +158,22 @@ const NewQuoteForm = (props) => {
         <input
           type="textarea"
           name="sourceTitle"
+          value={sourceTitle}
           className="input"
           onChange={(e) => setSourceTitle(e.target.value)}
           placeholder="enter source Title"
           autoComplete="on"
-          required
         />
 
         <label>enter the author here:</label>
         <input
           type="textarea"
           name="sourceInfo"
+          value={sourceInfo}
           className="input"
           onChange={(e) => setSourceInfo(e.target.value)}
           placeholder="enter source info"
           autoComplete="on"
-          required
         />
       </div>
 
@@ -174,8 +194,6 @@ const NewQuoteForm = (props) => {
           {tagsArr.map((tag, i) => {
             return <li key={i}>{tag}</li>;
           })}
-
-          <li>first tag</li>
         </ul>
       </div>
 
@@ -184,6 +202,7 @@ const NewQuoteForm = (props) => {
       <input
         type="text"
         name="userNotes"
+        value={userNotes}
         className="input"
         onChange={(e) => setUserNotes(e.target.value)}
         placeholder="userNotes"
@@ -194,6 +213,7 @@ const NewQuoteForm = (props) => {
       <input
         type="text"
         name="location"
+        value={location}
         className="input"
         onChange={(e) => setLocation(e.target.value)}
         placeholder="location"
@@ -204,6 +224,7 @@ const NewQuoteForm = (props) => {
       <input
         type="checkbox"
         name="fave"
+        value={fave}
         className="input"
         onChange={(e) => setFave(e.target.value)}
         placeholder="fave"
