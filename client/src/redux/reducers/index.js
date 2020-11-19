@@ -5,6 +5,7 @@ import sources from "./getUserSources";
 import filteredQuotes from "./filteredQuotes";
 import favorites from "./getFaves";
 import quoteViewer from "./views";
+import currentView from "./currentView";
 import tags from "./tagsReducer";
 import workspaceHeader from "./headerText";
 import { combineReducers } from "redux";
@@ -18,6 +19,7 @@ const appReducer = combineReducers({
   favorites,
   filteredQuotes,
   quoteViewer,
+  currentView,
   workspaceHeader,
 });
 

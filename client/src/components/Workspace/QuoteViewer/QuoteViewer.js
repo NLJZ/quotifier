@@ -1,5 +1,5 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import QuoteContainer from "./QuoteContainer";
 import QuoteSorter from "./QuoteSorter";
 import QuoteFilter from "./QuoteFilter";

@@ -1,9 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { filterQuotesByTag } from "../../../redux/actions/";
+import {
+  filterQuotesByTag,
+  showAllQuotes,
+  showFavoriteQuotes,
+  showRecentQuotes,
+} from "../../../redux/actions/";
 
 const QuoteFilter = () => {
   const dispatch = useDispatch();
+  const currentView = useSelector((state) => state.currentView);
   const tags = useSelector((state) => state.tags);
   const [show, setShow] = useState(false);
   const [tagArray, setTags] = useState([]);
