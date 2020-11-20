@@ -1,5 +1,9 @@
 import React from "react";
-import { showFavoriteQuotes, quoteViewerOn } from "../../../redux/actions";
+import {
+  showFavoriteQuotes,
+  quoteViewerOn,
+  resetTagFilter,
+} from "../../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 
 const RecentQuotes = () => {
@@ -8,6 +12,7 @@ const RecentQuotes = () => {
   const showQuotes = () => {
     dispatch(showFavoriteQuotes(quotesState));
     dispatch(quoteViewerOn());
+    dispatch(resetTagFilter());
   };
   return (
     <React.Fragment>

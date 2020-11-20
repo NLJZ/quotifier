@@ -38,6 +38,7 @@ const QuoteFilterTags = (props) => {
   const apply = () => {
     showAll();
     dispatch(filterQuotesByTag(tagFilterArray));
+    showIt();
   };
 
   const reset = () => {
