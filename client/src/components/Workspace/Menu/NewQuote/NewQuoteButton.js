@@ -10,22 +10,19 @@ function NewQuoteFormButton() {
   const onOpenCloseClick = () => setIsActive(!isActive);
 
   return (
-    <div className="new-quote-form-container">
+    <div className="nq-form-container">
       <button
         onClick={onOpenCloseClick}
-        className="ws-menu-left-items-button-new-quote new-quote-form-trigger"
+        className="ws-menu-left-items-button-new-quote nq-form-trigger"
       >
         <FontAwesomeIcon className="test-test" icon={faPlus} />
         new quote
       </button>
 
-      <div className={`new-quote-form ${isActive ? "active" : "inactive"}`}>
+      <div className={`nq-form ${isActive ? "active" : "inactive"}`}>
         <NewQuoteForm />
 
-        <button
-          onClick={onOpenCloseClick}
-          className="new-quote-form-button-close"
-        >
+        <button onClick={onOpenCloseClick} className="nq-form-button-close">
           close
         </button>
       </div>

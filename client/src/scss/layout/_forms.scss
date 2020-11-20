@@ -20,11 +20,11 @@
 
 //--------------------new-quote-form----------------
 
-.new-quote-form-container {
+.nq-form-container {
   // position: relative;
 }
 
-.new-quote-form {
+.nq-form {
   background: rgba(248, 0, 0, 0.397);
   position: fixed;
   top: 0px;
@@ -39,12 +39,12 @@
   align-items: center;
 }
 
-.new-quote-form.active {
+.nq-form.active {
   opacity: 1;
   visibility: visible;
 }
 
-.new-quote-form-form {
+.nq-form-form {
   // list-style: none;
   @include justifyCenter;
   padding: 3rem;
@@ -58,10 +58,10 @@
   position: absolute;
 }
 
-.new-quote-form-input {
+.nq-form-input {
   // border: yellow solid 1px;
 }
-.new-quote-form-trigger {
+.nq-form-trigger {
   background: #f0000000;
   border-radius: 90px;
   cursor: pointer;
@@ -77,11 +77,11 @@
   color: $base-color-dark;
 }
 
-.new-quote-form-trigger:hover {
+.nq-form-trigger:hover {
   color: $mid-color-mid;
 }
 
-.new-quote-form-trigger span {
+.nq-form-trigger span {
   font-weight: 700;
   vertical-align: middle;
   font-size: 14px;

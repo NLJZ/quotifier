@@ -80,7 +80,7 @@ button.about-single-button-dark {
 li.ws-menu-left-items-link,
 .menu-left.active,
 .ws-menu-left-items-button-big a,
-li.ws-menu-left-items-button-big button {
+li.ws-menu-left-items-button-big {
   font-family: "Source Sans Pro";
   font-size: 1.3rem;
   color: $base-color-light;
@@ -113,6 +113,10 @@ li.ws-menu-left-items-link a {
   // border: black 1px solid;
   align-self: flex-start;
   margin-left: 2rem;
+}
+
+.col-1-of-1 label {
+  color: $base-color-dark;
 }
 
 //-------------workspace all quotes----------------------

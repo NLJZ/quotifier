@@ -116,7 +116,7 @@ const NewQuoteForm = (props) => {
   };
 
   return (
-    <form className="new-quote-form-form" onSubmit={handleSubmit}>
+    <form className="nq-form-form" onSubmit={handleSubmit}>
       <div class="form-row-label">
         <div class="col-1-of-1">
           <label>enter your quote here:</label>
@@ -228,12 +228,6 @@ const NewQuoteForm = (props) => {
               setTags(e.target.value);
             }}
           />
-          {/* <ul>
-              {tagsArr.map((tag, i) => {
-                return <li key={i}>{tag}</li>;
-              })}
-            </ul> */}
-          {/* </div> */}
         </div>
         <div class="col-2-of-2">
           {" "}

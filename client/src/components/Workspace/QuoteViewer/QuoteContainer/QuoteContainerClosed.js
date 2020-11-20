@@ -16,9 +16,10 @@ const QuoteContainerClosed = (props) => {
         <p className="bold">Title:</p> <p> {shortSourceTitle}</p>
       </span>
       <span>"{shortQuoteBody}"</span>
-      <ul className="quoteTags">
-        <li className="bold">Tags: </li>
-        {shortTags}
+
+      <ul className="qcc-tags">
+        <p className="bold">Tags: </p>
+        <li className="qcc-tags-single">{shortTags} </li>
       </ul>
     </>
   );

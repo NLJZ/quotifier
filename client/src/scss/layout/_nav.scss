@@ -83,7 +83,7 @@
 }
 
 .ws-menu-left-items-button {
-  @include buttonUnStyle;
+  // @include buttonUnStyle;
 }
 
 .search-placeholder {
@@ -96,11 +96,11 @@
 
 .ws-menu-left-items-search-bar {
   @include buttonUnStyle;
-  background-color: $mid-color-light;
+  background-color: $base-color-light;
   // background: url("search.png");
   border-radius: 30px;
   border: $mid-color-light solid 1px;
-  color: $base-color-light;
+  color: $base-color-dark;
   padding: 0.5rem 1.5rem;
   width: fit-content;
   margin: 0 2rem;
@@ -110,6 +110,7 @@
 
 .folder-menu {
 }
+
 .icon-folder-trigger {
 }
 

@@ -6,10 +6,16 @@ const QuoteContainerOpen = (props) => {
   return (
     <React.Fragment>
       <span>"{props.quoteBody}"</span>
-      <ul className="quoteTags">
+      {/* <ul className="quoteTags">
         <li className="bold">Tags: </li>
         {props.tags}
+      </ul> */}
+
+      <ul className="qcc-tags">
+        <p className="bold">Tags: </p>
+        <li className="qcc-tags-single">{props.tags} </li>
       </ul>
+
       <span>
         <p className="bold">Notes:</p> <p> {props.quoteNotes}</p>
       </span>

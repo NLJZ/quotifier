@@ -40,20 +40,24 @@
 
 //-------workspace-menu-left--------------------------
 
-.ws-menu-left-items-button.menu-left-trigger {
-  color: $base-color-light;
-  padding-right: 0.5rem;
+.ws-menu-left-items-button-new-quote {
+  background-color: $mid-color-dark;
+  border: none;
+}
+.ws-menu-left-items-buttons.menu-left-trigger {
+  // color: $base-color-light;
+  // padding-right: 0.5rem;
 }
 
-li.ws-menu-left-items-button-big button {
-  @include buttonUnStyle;
-  background-color: $mid-color-mid;
-  border-radius: 30px;
-  border: $mid-color-light solid 1px;
-  padding: 0.2rem 1.5rem;
+li.ws-menu-left-items-button-big {
+  // @include buttonUnStyle;
+  // background-color: $mid-color-mid;
+  // border-radius: 30px;
+  // border: $mid-color-light solid 1px;
+  // padding: 0.2rem 1.5rem;
 }
 
-.ws-menu-left-items-button-big {
+li.ws-menu-left-items-button-big {
   padding: 0.8rem 1rem;
   // border: 1px $base-color-light solid;
   @include justifyCenter;
@@ -71,8 +75,7 @@ li.ws-menu-left-items-button-big button {
   padding-right: 0.5rem;
 }
 
-.ws-menu-left-items-button-big a:hover,
-li.ws-menu-left-items-button-big button:hover {
+.ws-menu-left-items-button-big a:hover {
   background-color: $mid-color-light;
   cursor: pointer;
   transform: translateY(3px);
@@ -106,7 +109,7 @@ button.ws-menu-left-icon-folder {
 
 //--------------workspace-new-quote-form---------------------------
 
-.new-quote-form-button-close {
+.nq-form-button-close {
   align-self: flex-start;
   position: relative;
   top: 80px;
@@ -116,23 +119,22 @@ button.ws-menu-left-icon-folder {
 button.nq-button {
   @include buttonUnStyle;
   background-color: $base-color-light;
-  padding: 0.5rem;
+  border: $base-color-dark solid 1px;
+  padding: 0.5rem 1.5rem;
+  border-radius: 30px;
   // margin-top: 2rem;
 }
 
+.button.nq-button a {
+  @include buttonUnStyle;
+  color: $base-color-dark;
+}
+
 .nq-button-submit {
+  @include buttonUnStyle;
   margin-top: 2rem;
-}
-
-.col-tags ul {
-  display: flex;
-  flex-direction: row;
-  list-style-type: none;
-}
-
-.col-tags li {
-  border: 1px black solid;
-  padding: 0.3rem 0.5rem;
-  border-radius: 20px;
-  margin: 0.2rem;
+  border: $base-color-dark solid 1px;
+  padding: 0.5rem;
+  padding: 0.5rem 1.5rem;
+  border-radius: 30px;
 }
