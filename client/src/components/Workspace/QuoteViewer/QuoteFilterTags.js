@@ -6,6 +6,7 @@ import {
   showFavoriteQuotes,
   showRecentQuotes,
   addToTagFilter,
+  resetTagFilter,
 } from "../../../redux/actions/";
 
 const QuoteFilterTags = (props) => {
@@ -16,26 +17,33 @@ const QuoteFilterTags = (props) => {
   const tags = useSelector((state) => state.tags);
   const [show, setShow] = useState(false);
 
-  function handleClick(tag) {
+  const handleClick = (tag) => {
     dispatch(addToTagFilter(tag));
-  }
+  };
 
   const showIt = () => {
     setShow(!show);
   };
 
-  // const runTagFilter = () => {
-  //   if (currentView === "all") {
-  //     dispatch(showAllQuotes(quotesState));
-  //   } else if (currentView === "favorites") {
-  //     dispatch(showFavoriteQuotes(quotesState));
-  //   } else if (currentView === "recent") {
-  //     dispatch(showRecentQuotes(quotesState));
-  //   }
-  //   if (tagArray && tagArray.length) {
-  //     dispatch(filterQuotesByTag(tagArray));
-  //   }
-  // };
+  const showAll = () => {
+    if (currentView === "all") {
+      dispatch(showAllQuotes(quotesState));
+    } else if (currentView === "recent") {
+      dispatch(showRecentQuotes(quotesState));
+    } else if (currentView === "favorites") {
+      dispatch(showFavoriteQuotes(quotesState));
+    }
+  };
+
+  const apply = () => {
+    showAll();
+    dispatch(filterQuotesByTag(tagFilterArray));
+  };
+
+  const reset = () => {
+    dispatch(resetTagFilter());
+    showAll();
+  };
 
   const renderFilterTags = tagFilterArray.map((tag, i) => {
     return <li key={i}>{tag}</li>;
@@ -56,6 +64,8 @@ const QuoteFilterTags = (props) => {
       <div className="tagsDropdown">
         <button onClick={showIt}>Tags</button>
         <div className={`tagsFilter ${show ? "show" : "hide"}`}>
+          <button onClick={apply}>APPLY</button>
+          <button onClick={reset}>CLEAR</button>
           <ul className="filter-tags-list">
             <li>Added:</li>
             {renderFilterTags}

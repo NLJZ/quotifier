@@ -149,3 +149,9 @@ export const addToTagFilter = (tag) => {
     payload: tag,
   };
 };
+
+export const resetTagFilter = () => {
+  return {
+    type: "RESET_TAG_FILTER",
+  };
+};

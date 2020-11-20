@@ -4,8 +4,9 @@ const tagFilterReducer = (state = [], action) => {
     case "ADD_TO_TAG_FILTER":
       const base = [...state, action.payload];
       return base;
-    case "QUOTE_VIEWER_OFF":
-      return false;
+    case "RESET_TAG_FILTER":
+      const resetArr = [];
+      return resetArr;
     default:
       return state;
   }
