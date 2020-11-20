@@ -111,17 +111,28 @@ div.quote-container-closed button {
 
 //---------quote-container---------------
 
-.qcc-tags {
+.qc-span {
+  display: flex;
+  flex-direction: row;
+  margin: 0.5rem 0;
+}
+
+.bold {
+  margin-right: 0.5rem;
+}
+
+ul.qc-tags {
+  display: flex;
+  flex-direction: row;
+  margin: 0.5rem 0;
+}
+
+.qc-tags-single {
   display: flex;
   flex-direction: row;
 }
 
-.qcc-tags-single {
-  display: flex;
-  flex-direction: row;
-}
-
-.qcc-tags-single li {
+.qc-tags-single li {
   border: 1px black solid;
   margin: 0 0.5rem;
   border-radius: 20px;
