@@ -7,9 +7,10 @@ import {
   showRecentQuotes,
 } from "../../../redux/actions/";
 
-const QuoteFilter = () => {
+const QuoteFilterTags = () => {
   const dispatch = useDispatch();
   const currentView = useSelector((state) => state.currentView);
+  const quotesState = useSelector((state) => state.quotes);
   const tags = useSelector((state) => state.tags);
   const [show, setShow] = useState(false);
   const [tagArray, setTags] = useState([]);
@@ -34,8 +35,16 @@ const QuoteFilter = () => {
   };
 
   const runTagFilter = () => {
-    console.log(tagArray);
-    dispatch(filterQuotesByTag(tagArray));
+    if (currentView === "all") {
+      dispatch(showAllQuotes(quotesState));
+    } else if (currentView === "favorites") {
+      dispatch(showFavoriteQuotes(quotesState));
+    } else if (currentView === "recent") {
+      dispatch(showRecentQuotes(quotesState));
+    }
+    if (tagArray && tagArray.length) {
+      dispatch(filterQuotesByTag(tagArray));
+    }
   };
 
   const renderTags = tags.map((tag, i) => (
@@ -52,7 +61,6 @@ const QuoteFilter = () => {
 
   return (
     <section className="filter-container">
-      filter:
       <div className="tagsDropdown">
         <button onClick={showIt}>Tags</button>
         <div className={`tagsFilter ${show ? "show" : "hide"}`}>
@@ -65,4 +73,4 @@ const QuoteFilter = () => {
   );
 };
 
-export default QuoteFilter;
+export default QuoteFilterTags;
