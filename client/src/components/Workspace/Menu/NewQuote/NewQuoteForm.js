@@ -117,35 +117,18 @@ const NewQuoteForm = (props) => {
 
   return (
     <form className="nq-form-form" onSubmit={handleSubmit}>
-      <div class="form-row-label">
-        <div class="col-1-of-1">
-          <label>enter your quote here:</label>
-        </div>
-      </div>
-
-      <div class="form-row-input">
-        <div class="col-1-of-2">
-          <input
-            type="textarea"
-            name="quoteBody"
-            className="nq-input-body"
-            onChange={(e) => setBody(e.target.value)}
-            placeholder="enter your quote"
-            autoComplete="on"
-            value={body}
-            required
-          />{" "}
-        </div>
+      {/* <div class="form-row-label">
         <div class="col-2-of-2"></div>
-      </div>
-
-      <div class="form-row-label">
+        <div class="col-2-of-2"></div>
         <div class="col-1-of-1">
           <label>choose an existing source</label>
         </div>
-      </div>
+      </div> */}
 
       <div class="form-row-input">
+        <div class="col-left">
+          <p className="nqf-bold">Source:</p>
+        </div>
         <div class="col-1-of-2">
           <select
             className="nq-input"
@@ -173,10 +156,14 @@ const NewQuoteForm = (props) => {
         ref={dropdownRef}
         className={`ns-form ${isClicked ? "active" : "inactive"}`}
       >
-        <div class="form-row-label">
+        {/* <div class="form-row-label">
+          <div class="col-2-of-2"></div>
           <label>enter a title here:</label>
-        </div>
+        </div> */}
         <div class="form-row-input">
+          <div class="col-left">
+            <p className="nqf-bold">Source Title:</p>
+          </div>
           <div class="col-1-of-2">
             <input
               type="textarea"
@@ -190,10 +177,17 @@ const NewQuoteForm = (props) => {
           </div>{" "}
           <div class="col-2-of-2"></div>
         </div>
-        <div class="form-row-label">
-          <label>enter the author here:</label>
-        </div>
+        {/* <div class="form-row-label">
+          <div class="col-2-of-2"></div>
+          <div class="col-1-of-1">
+            {" "}
+            <label>enter the author here:</label>
+          </div>
+        </div> */}
         <div class="form-row-input">
+          <div class="col-left">
+            <p className="nqf-bold">Source Info:</p>
+          </div>
           <div class="col-1-of-2">
             <input
               type="textarea"
@@ -209,14 +203,44 @@ const NewQuoteForm = (props) => {
         </div>
       </div>
 
-      <div class="form-row-label">
+      {/* <div class="form-row-label">
+        <div class="col-2-of-2"></div>
+        <div class="col-1-of-1">
+          <label>enter your quote here:</label>
+        </div>
+      </div> */}
+
+      <div class="form-row-input">
+        <div class="col-left">
+          <p className="nqf-bold">Quote:</p>
+        </div>
+        <div class="col-1-of-2">
+          <input
+            type="textarea"
+            name="quoteBody"
+            className="nq-input-body"
+            onChange={(e) => setBody(e.target.value)}
+            placeholder="enter your quote"
+            autoComplete="on"
+            value={body}
+            required
+          />{" "}
+        </div>
+        <div class="col-2-of-2"></div>
+      </div>
+
+      {/* <div class="form-row-label">
+        <div class="col-2-of-2"></div>
         <div class="col-1-of-1">
           {" "}
           <label>select your tags:</label>
         </div>
-      </div>
+      </div> */}
 
       <div class="form-row-input">
+        <div class="col-left">
+          <p className="nqf-bold">Tags:</p>
+        </div>
         <div class="col-1-of-2">
           {/* <div className="tags-button"> */}
           <input
@@ -237,6 +261,7 @@ const NewQuoteForm = (props) => {
         </div>
       </div>
       <div class="form-row-input">
+        <div class="col-left"></div>
         <div class="col-1-of-2 col-tags">
           {" "}
           <ul>
@@ -249,14 +274,18 @@ const NewQuoteForm = (props) => {
         <div class="col-2-of-2"></div>
       </div>
 
-      <div class="form-row-label">
+      {/* <div class="form-row-label">
+        <div class="col-2-of-2"></div>
         <div class="col-1-of-1">
           {" "}
           <label>enter your notes</label>
         </div>
-      </div>
+      </div> */}
 
       <div class="form-row-input">
+        <div class="col-left">
+          <p className="nqf-bold">Quote:</p>
+        </div>
         <div class="col-1-of-2">
           {" "}
           <input
@@ -272,14 +301,18 @@ const NewQuoteForm = (props) => {
         <div class="col-2-of-2"></div>
       </div>
 
-      <div class="form-row-label">
+      {/* <div class="form-row-label">
+        <div class="col-2-of-2"></div>
         <div class="col-1-of-1">
           {" "}
           <label>enter the page</label>
         </div>{" "}
-      </div>
+      </div> */}
 
       <div class="form-row-input">
+        <div class="col-left">
+          <p className="nqf-bold">Page:</p>
+        </div>
         <div class="col-1-of-2">
           <input
             type="text"
@@ -294,18 +327,23 @@ const NewQuoteForm = (props) => {
         <div class="col-2-of-2"></div>
       </div>
 
-      <div class="form-row-label">
+      {/* <div class="form-row-label">
+        <div class="col-2-of-2"></div>
         <div class="col-1-of-1">
           <label>do you want to save as favorite?</label>
         </div>{" "}
-      </div>
+      </div> */}
+
       <div class="form-row-input">
-        <div class="col-1-of-2">
+        <div class="col-left">
+          <p className="nqf-bold">Favorite:</p>
+        </div>
+        <div class="col-fav">
           <input
             type="checkbox"
             name="fave"
             value={fave}
-            className="nq-input"
+            className="nq-input-fav"
             onChange={(e) => setFave(e.target.value)}
             placeholder="fave"
             autoComplete="on"

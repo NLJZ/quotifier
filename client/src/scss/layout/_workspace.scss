@@ -64,7 +64,7 @@ div.quote-container {
   border: 1px solid black;
   margin: 2rem;
   border-radius: 20px;
-  box-shadow: 10px 10px grey;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.486);
 }
 
 div.quote-container:hover {
@@ -77,14 +77,14 @@ div.quote-container-open {
   border: 1px solid black;
   margin: 2rem;
   border-radius: 20px;
-  box-shadow: 10px 10px grey;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.486);
 }
 
 div.quote-container-closed {
   border: 1px solid black;
   margin: 2rem;
   border-radius: 20px;
-  box-shadow: 10px 10px grey;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.486);
   display: flex;
   flex-direction: column;
 }
