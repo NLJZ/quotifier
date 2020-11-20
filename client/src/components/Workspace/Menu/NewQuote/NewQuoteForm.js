@@ -128,7 +128,7 @@ const NewQuoteForm = (props) => {
           <input
             type="textarea"
             name="quoteBody"
-            className="nq-input"
+            className="nq-input-body"
             onChange={(e) => setBody(e.target.value)}
             placeholder="enter your quote"
             autoComplete="on"
