@@ -142,3 +142,10 @@ export const sortOldToNew = () => {
     type: "SORT_OLD_TO_NEW",
   };
 };
+
+export const addToTagFilter = (tag) => {
+  return {
+    type: "ADD_TO_TAG_FILTER",
+    payload: tag,
+  };
+};
