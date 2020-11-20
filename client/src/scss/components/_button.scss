@@ -112,3 +112,27 @@ button.ws-menu-left-icon-folder {
   top: 80px;
   right: -1000px;
 }
+
+button.nq-button {
+  @include buttonUnStyle;
+  background-color: $base-color-light;
+  padding: 0.5rem;
+  // margin-top: 2rem;
+}
+
+.nq-button-submit {
+  margin-top: 2rem;
+}
+
+.col-tags ul {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+}
+
+.col-tags li {
+  border: 1px black solid;
+  padding: 0.3rem 0.5rem;
+  border-radius: 20px;
+  margin: 0.2rem;
+}

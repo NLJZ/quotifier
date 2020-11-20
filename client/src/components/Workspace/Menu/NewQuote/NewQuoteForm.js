@@ -117,122 +117,217 @@ const NewQuoteForm = (props) => {
 
   return (
     <form className="new-quote-form-form" onSubmit={handleSubmit}>
-      <label>enter your quote here:</label>
-      <input
-        type="textarea"
-        name="quoteBody"
-        className="input"
-        onChange={(e) => setBody(e.target.value)}
-        placeholder="enter your quote"
-        autoComplete="on"
-        value={body}
-        required
-      />
-      <label>choose an existing source</label>
+      <div class="form-row-label">
+        <div class="col-1-of-1">
+          <label>enter your quote here:</label>
+        </div>
+      </div>
 
-      <div>
-        {" "}
-        <select
-          className="input"
-          onChange={(e) => changeSourceId(e.target.value)}
-          value={sourceId}
-        >
-          <option value={null}>add an existing source</option>
+      <div class="form-row-input">
+        <div class="col-1-of-2">
+          <input
+            type="textarea"
+            name="quoteBody"
+            className="nq-input"
+            onChange={(e) => setBody(e.target.value)}
+            placeholder="enter your quote"
+            autoComplete="on"
+            value={body}
+            required
+          />{" "}
+        </div>
+        <div class="col-2-of-2"></div>
+      </div>
 
-          {allSources.map((item) => (
-            <option key={item._id} value={item._id}>
-              {item.sourceTitle}
-            </option>
-          ))}
-        </select>
-        <button className="ns-form-trigger" onClick={onClickSource}>
-          add source
-        </button>
+      <div class="form-row-label">
+        <div class="col-1-of-1">
+          <label>choose an existing source</label>
+        </div>
+      </div>
+
+      <div class="form-row-input">
+        <div class="col-1-of-2">
+          <select
+            className="nq-input"
+            onChange={(e) => changeSourceId(e.target.value)}
+            value={sourceId}
+          >
+            <option value={null}>add an existing source</option>
+
+            {allSources.map((item) => (
+              <option key={item._id} value={item._id}>
+                {item.sourceTitle}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div class="col-2-of-2">
+          {" "}
+          <button className="nq-button ns-form-trigger" onClick={onClickSource}>
+            add source
+          </button>
+        </div>
       </div>
 
       <div
         ref={dropdownRef}
         className={`ns-form ${isClicked ? "active" : "inactive"}`}
       >
-        <label>enter a title here:</label>
-        <input
-          type="textarea"
-          name="sourceTitle"
-          value={sourceTitle}
-          className="input"
-          onChange={(e) => setSourceTitle(e.target.value)}
-          placeholder="enter source Title"
-          autoComplete="on"
-        />
-
-        <label>enter the author here:</label>
-        <input
-          type="textarea"
-          name="sourceInfo"
-          value={sourceInfo}
-          className="input"
-          onChange={(e) => setSourceInfo(e.target.value)}
-          placeholder="enter source info"
-          autoComplete="on"
-        />
+        <div class="form-row-label">
+          <label>enter a title here:</label>
+        </div>
+        <div class="form-row-input">
+          <div class="col-1-of-2">
+            <input
+              type="textarea"
+              name="sourceTitle"
+              value={sourceTitle}
+              className="nq-input"
+              onChange={(e) => setSourceTitle(e.target.value)}
+              placeholder="enter source Title"
+              autoComplete="on"
+            />
+          </div>{" "}
+          <div class="col-2-of-2"></div>
+        </div>
+        <div class="form-row-label">
+          <label>enter the author here:</label>
+        </div>
+        <div class="form-row-input">
+          <div class="col-1-of-2">
+            <input
+              type="textarea"
+              name="sourceInfo"
+              value={sourceInfo}
+              className="nq-input"
+              onChange={(e) => setSourceInfo(e.target.value)}
+              placeholder="enter source info"
+              autoComplete="on"
+            />{" "}
+          </div>{" "}
+          <div class="col-2-of-2"></div>
+        </div>
       </div>
 
-      <label>select your tags:</label>
-      <div className="tags-button">
-        <input
-          type="text"
-          name="tags"
-          className="input"
-          value={tags}
-          onChange={(e) => {
-            setTags(e.target.value);
-          }}
-        />
-
-        <button onClick={(e) => addTags(e)}>click</button>
-        <ul>
-          {tagsArr.map((tag, i) => {
-            return <li key={i}>{tag}</li>;
-          })}
-        </ul>
+      <div class="form-row-label">
+        <div class="col-1-of-1">
+          {" "}
+          <label>select your tags:</label>
+        </div>
       </div>
 
-      <label>choose an existing source</label>
+      <div class="form-row-input">
+        <div class="col-1-of-2">
+          {/* <div className="tags-button"> */}
+          <input
+            type="text"
+            name="tags"
+            className="nq-input"
+            value={tags}
+            onChange={(e) => {
+              setTags(e.target.value);
+            }}
+          />
+          {/* <ul>
+              {tagsArr.map((tag, i) => {
+                return <li key={i}>{tag}</li>;
+              })}
+            </ul> */}
+          {/* </div> */}
+        </div>
+        <div class="col-2-of-2">
+          {" "}
+          <button className="nq-button" onClick={(e) => addTags(e)}>
+            click
+          </button>
+        </div>
+      </div>
+      <div class="form-row-input">
+        <div class="col-1-of-2 col-tags">
+          {" "}
+          <ul>
+            {tagsArr.map((tag, i) => {
+              return <li key={i}>{tag}</li>;
+            })}
+          </ul>
+        </div>
 
-      <input
-        type="text"
-        name="userNotes"
-        value={userNotes}
-        className="input"
-        onChange={(e) => setUserNotes(e.target.value)}
-        placeholder="userNotes"
-        autoComplete="on"
-      />
-      <label>choose an existing source</label>
+        <div class="col-2-of-2"></div>
+      </div>
 
-      <input
-        type="text"
-        name="location"
-        value={location}
-        className="input"
-        onChange={(e) => setLocation(e.target.value)}
-        placeholder="location"
-        autoComplete="on"
-      />
-      <label>choose an existing source</label>
+      <div class="form-row-label">
+        <div class="col-1-of-1">
+          {" "}
+          <label>enter your notes</label>
+        </div>
+      </div>
 
-      <input
-        type="checkbox"
-        name="fave"
-        value={fave}
-        className="input"
-        onChange={(e) => setFave(e.target.value)}
-        placeholder="fave"
-        autoComplete="on"
-      />
-      <button className="sign-in-button" type="submit" value="Submit">
-        Submit
-      </button>
+      <div class="form-row-input">
+        <div class="col-1-of-2">
+          {" "}
+          <input
+            type="text"
+            name="userNotes"
+            value={userNotes}
+            className="nq-input"
+            onChange={(e) => setUserNotes(e.target.value)}
+            placeholder="userNotes"
+            autoComplete="on"
+          />
+        </div>
+        <div class="col-2-of-2"></div>
+      </div>
+
+      <div class="form-row-label">
+        <div class="col-1-of-1">
+          {" "}
+          <label>enter the page</label>
+        </div>{" "}
+      </div>
+
+      <div class="form-row-input">
+        <div class="col-1-of-2">
+          <input
+            type="text"
+            name="location"
+            value={location}
+            className="nq-input"
+            onChange={(e) => setLocation(e.target.value)}
+            placeholder="location"
+            autoComplete="on"
+          />{" "}
+        </div>
+        <div class="col-2-of-2"></div>
+      </div>
+
+      <div class="form-row-label">
+        <div class="col-1-of-1">
+          <label>do you want to save as favorite?</label>
+        </div>{" "}
+      </div>
+      <div class="form-row-input">
+        <div class="col-1-of-2">
+          <input
+            type="checkbox"
+            name="fave"
+            value={fave}
+            className="nq-input"
+            onChange={(e) => setFave(e.target.value)}
+            placeholder="fave"
+            autoComplete="on"
+          />{" "}
+        </div>
+        <div class="col-2-of-2"></div>
+      </div>
+
+      <div class="form-row">
+        <div class="col-1-of-1-button">
+          {" "}
+          <button className="nq-button-submit" type="submit" value="Submit">
+            Submit
+          </button>
+        </div>
+      </div>
     </form>
   );
 };
