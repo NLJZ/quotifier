@@ -65,12 +65,14 @@
   border: yellow 1px solid;
   display: flex;
   background: $mid-color-dark;
-  // width: 15%;
   height: 80vh;
 }
 
 .ws-menu-left-items {
-  width: 100%;
+  // width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .ws-menu-left-items-link {
@@ -79,7 +81,8 @@
 }
 
 .ws-menu-left-items-link:hover {
-  border-bottom: 1px $base-color-light solid;
+  // border-bottom: 1px $base-color-light solid;
+  background-color: $mid-color-light;
 }
 
 .ws-menu-left-items-button {
@@ -100,10 +103,8 @@
   // background: url("search.png");
   border-radius: 30px;
   border: $mid-color-light solid 1px;
-  // color: $base-color-dark;
   padding: 0.5rem 1rem;
   width: auto;
-  // margin: 0 2rem;
 }
 
 //--------------------workspace-nav-left-collapsible-----------------

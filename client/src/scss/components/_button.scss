@@ -57,7 +57,8 @@ li.ws-menu-left-items-button-big {
   // padding: 0.2rem 1.5rem;
 }
 
-li.ws-menu-left-items-button-big {
+li.ws-menu-left-items-button-big,
+.sws-menu-left-items-button-big-col {
   padding: 0.8rem 1rem;
   // border: 1px $base-color-light solid;
   @include justifyCenter;
