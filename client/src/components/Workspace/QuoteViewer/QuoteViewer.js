@@ -10,10 +10,10 @@ const QuoteViewer = () => {
     <QuoteContainer id={quote._id} key={quote._id} />
   ));
   return (
-    <div>
+    <div className="qv">
       <h1>{headerText}</h1>
       <QuoteSorter />
-      {QuotesToRender}
+      <div className="qv-quotes-to-render">{QuotesToRender}</div>
     </div>
   );
 };

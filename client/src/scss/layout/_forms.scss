@@ -62,23 +62,26 @@
   // border: yellow solid 1px;
 }
 .nq-form-trigger {
-  background: #f0000000;
+  background: $mid-color-dark;
   border-radius: 90px;
   cursor: pointer;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 4px 6px;
+  padding: 0.5rem 1.5rem;
   // box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-  border: none;
+  border: 1px $base-color-light solid;
   vertical-align: middle;
   transition: box-shadow 0.4s ease;
   outline: none;
-  color: $base-color-dark;
+  color: $base-color-light;
+  box-shadow: 1px 1px 3px $base-color-light;
 }
 
 .nq-form-trigger:hover {
-  color: $mid-color-mid;
+  color: $base-color-light;
+  background: $mid-color-mid;
+  transform: translateY(4px);
 }
 
 .nq-form-trigger span {

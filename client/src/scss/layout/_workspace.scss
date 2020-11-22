@@ -138,3 +138,16 @@ ul.qc-tags {
   border-radius: 20px;
   padding: 0 1rem;
 }
+
+//------quoteviewer-----------------------------ö
+
+.qv {
+}
+
+.qv-quotes-to-render {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  // border: 1px black solid;
+}

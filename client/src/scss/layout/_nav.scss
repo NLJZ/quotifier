@@ -65,8 +65,8 @@
   border: yellow 1px solid;
   display: flex;
   background: $mid-color-dark;
-  width: 15%;
-  min-height: 100vh;
+  // width: 15%;
+  height: 80vh;
 }
 
 .ws-menu-left-items {
@@ -74,7 +74,7 @@
 }
 
 .ws-menu-left-items-link {
-  padding: 1rem;
+  padding: 1rem 0;
   @include justifyCenter;
 }
 
@@ -100,10 +100,10 @@
   // background: url("search.png");
   border-radius: 30px;
   border: $mid-color-light solid 1px;
-  color: $base-color-dark;
-  padding: 0.5rem 1.5rem;
-  width: fit-content;
-  margin: 0 2rem;
+  // color: $base-color-dark;
+  padding: 0.5rem 1rem;
+  width: auto;
+  // margin: 0 2rem;
 }
 
 //--------------------workspace-nav-left-collapsible-----------------

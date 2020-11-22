@@ -31,7 +31,7 @@ const NewQuoteForm = (props) => {
   };
 
   useEffect(() => {
-    if (sourceAdded === true) {
+    if (Boolean(sourceAdded)) {
       submitFormQuote();
       setSourceAdded(false);
     }
@@ -117,14 +117,6 @@ const NewQuoteForm = (props) => {
 
   return (
     <form className="nq-form-form" onSubmit={handleSubmit}>
-      {/* <div class="form-row-label">
-        <div class="col-2-of-2"></div>
-        <div class="col-2-of-2"></div>
-        <div class="col-1-of-1">
-          <label>choose an existing source</label>
-        </div>
-      </div> */}
-
       <div class="form-row-input">
         <div class="col-left">
           <p className="nqf-bold">Source:</p>
@@ -156,10 +148,6 @@ const NewQuoteForm = (props) => {
         ref={dropdownRef}
         className={`ns-form ${isClicked ? "active" : "inactive"}`}
       >
-        {/* <div class="form-row-label">
-          <div class="col-2-of-2"></div>
-          <label>enter a title here:</label>
-        </div> */}
         <div class="form-row-input">
           <div class="col-left">
             <p className="nqf-bold">Source Title:</p>
@@ -177,13 +165,7 @@ const NewQuoteForm = (props) => {
           </div>{" "}
           <div class="col-2-of-2"></div>
         </div>
-        {/* <div class="form-row-label">
-          <div class="col-2-of-2"></div>
-          <div class="col-1-of-1">
-            {" "}
-            <label>enter the author here:</label>
-          </div>
-        </div> */}
+
         <div class="form-row-input">
           <div class="col-left">
             <p className="nqf-bold">Source Info:</p>
@@ -203,13 +185,6 @@ const NewQuoteForm = (props) => {
         </div>
       </div>
 
-      {/* <div class="form-row-label">
-        <div class="col-2-of-2"></div>
-        <div class="col-1-of-1">
-          <label>enter your quote here:</label>
-        </div>
-      </div> */}
-
       <div class="form-row-input">
         <div class="col-left">
           <p className="nqf-bold">Quote:</p>
@@ -228,14 +203,6 @@ const NewQuoteForm = (props) => {
         </div>
         <div class="col-2-of-2"></div>
       </div>
-
-      {/* <div class="form-row-label">
-        <div class="col-2-of-2"></div>
-        <div class="col-1-of-1">
-          {" "}
-          <label>select your tags:</label>
-        </div>
-      </div> */}
 
       <div class="form-row-input">
         <div class="col-left">
@@ -274,20 +241,11 @@ const NewQuoteForm = (props) => {
         <div class="col-2-of-2"></div>
       </div>
 
-      {/* <div class="form-row-label">
-        <div class="col-2-of-2"></div>
-        <div class="col-1-of-1">
-          {" "}
-          <label>enter your notes</label>
-        </div>
-      </div> */}
-
       <div class="form-row-input">
         <div class="col-left">
           <p className="nqf-bold">Quote:</p>
         </div>
         <div class="col-1-of-2">
-          {" "}
           <input
             type="text"
             name="userNotes"
@@ -300,14 +258,6 @@ const NewQuoteForm = (props) => {
         </div>
         <div class="col-2-of-2"></div>
       </div>
-
-      {/* <div class="form-row-label">
-        <div class="col-2-of-2"></div>
-        <div class="col-1-of-1">
-          {" "}
-          <label>enter the page</label>
-        </div>{" "}
-      </div> */}
 
       <div class="form-row-input">
         <div class="col-left">
@@ -322,17 +272,10 @@ const NewQuoteForm = (props) => {
             onChange={(e) => setLocation(e.target.value)}
             placeholder="location"
             autoComplete="on"
-          />{" "}
+          />
         </div>
         <div class="col-2-of-2"></div>
       </div>
-
-      {/* <div class="form-row-label">
-        <div class="col-2-of-2"></div>
-        <div class="col-1-of-1">
-          <label>do you want to save as favorite?</label>
-        </div>{" "}
-      </div> */}
 
       <div class="form-row-input">
         <div class="col-left">
@@ -347,7 +290,7 @@ const NewQuoteForm = (props) => {
             onChange={(e) => setFave(e.target.value)}
             placeholder="fave"
             autoComplete="on"
-          />{" "}
+          />
         </div>
         <div class="col-2-of-2"></div>
       </div>

@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 //----------------icons-----------------------
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faPlus, faTimes } from "@fortawesome/free-solid-svg-icons";
 //-----components--------------------------
 import NewQuoteForm from "./NewQuoteForm";
 
@@ -23,7 +23,7 @@ function NewQuoteFormButton() {
         <NewQuoteForm />
 
         <button onClick={onOpenCloseClick} className="nq-form-button-close">
-          close
+          <FontAwesomeIcon className="test-test" icon={faTimes} />
         </button>
       </div>
     </div>

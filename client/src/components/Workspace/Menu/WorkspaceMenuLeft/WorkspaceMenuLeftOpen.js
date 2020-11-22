@@ -6,14 +6,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay, faPlus, faSearch } from "@fortawesome/free-solid-svg-icons";
 //-------------components----------------------------------
 import AllQuotes from "../AllQuotes.js";
+import NewSourceFormButton from "../NewSource/NewSourceButton.js";
 import NewQuoteFormButton from "../NewQuote/NewQuoteButton.js";
 import RecentQuotes from "../RecentQuotes";
 import FavoriteQuotes from "../FavoriteQuotes";
 
 const WorkspaceMenuLeftOpen = () => {
-  const dropdownRef = useRef(null);
-  const [isActive, setIsActive] = useState(false);
-  const onClickDrop = () => setIsActive(!isActive);
+  // const dropdownRef = useRef(null);
+  // const [isActive, setIsActive] = useState(false);
+  // const onClickDrop = () => setIsActive(!isActive);
   // const iconSearch = <FontAwesomeIcon className="test-test" icon={faSearch} />;
   return (
     <>
@@ -28,16 +29,19 @@ const WorkspaceMenuLeftOpen = () => {
         </li>
 
         <li className="ws-menu-left-items-button-big ">
-          {" "}
           <NewQuoteFormButton />
         </li>
 
         <li className="ws-menu-left-items-button-big ">
+          <NewSourceFormButton />
+        </li>
+
+        {/* <li className="ws-menu-left-items-button-big ">
           <button className="ws-menu-left-items-button-new-quote">
             <FontAwesomeIcon className="test-test" icon={faPlus} />
             new source
           </button>
-        </li>
+        </li> */}
 
         {/* <li className="ws-menu-left-items-link">
           <button
