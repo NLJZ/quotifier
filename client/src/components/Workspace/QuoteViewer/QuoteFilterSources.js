@@ -13,8 +13,8 @@ const QuoteFilterSources = (props) => {
   const dispatch = useDispatch();
   const currentView = props.currentView;
   const quotesState = useSelector((state) => state.quotes);
-  const sourceFilterArray = useSelector((state) => state.tagFilter);
-  const sources = useSelector((state) => state.tags);
+  const sourceFilterArray = useSelector((state) => state.sourceFilter);
+  const sources = useSelector((state) => state.sources.values);
   const [show, setShow] = useState(false);
 
   const handleClick = (tag) => {
@@ -63,7 +63,7 @@ const QuoteFilterSources = (props) => {
   return (
     <section className="filter-container">
       <div className="tagsDropdown">
-        <button onClick={showIt}>Tags</button>
+        <button onClick={showIt}>sources</button>
         <div className={`tagsFilter ${show ? "show" : "hide"}`}>
           <button onClick={apply}>APPLY</button>
           <button onClick={reset}>CLEAR</button>
