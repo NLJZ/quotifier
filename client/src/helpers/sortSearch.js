@@ -31,6 +31,12 @@ export const findQuotesByTag = (array, quotes) => {
   return quoteArray;
 };
 
+export const findQuotesBySource = (array, quotes) => {
+  const quoteArray = [];
+  const sourceArray = array.map((source) => source._id);
+  return quoteArray;
+};
+
 // pass state object to sort new to old, pass "old" as str if you want oldest to newest
 export const sortByDate = (stateObj, str) => {
   const old = str === "old";

@@ -91,6 +91,13 @@ export const filterQuotesByTag = (tags) => {
   };
 };
 
+export const filterQuotesBySource = (sources) => {
+  return {
+    type: "FILTER_QUOTES_BY_SOURCE",
+    payload: sources,
+  };
+};
+
 export const filterQuotesByFave = (quotes) => {
   return {
     type: "FILTER_QUOTES_BY_FAVE",
@@ -153,5 +160,18 @@ export const addToTagFilter = (tag) => {
 export const resetTagFilter = () => {
   return {
     type: "RESET_TAG_FILTER",
+  };
+};
+
+export const addToSourceFilter = (source) => {
+  return {
+    type: "ADD_TO_SOURCE_FILTER",
+    payload: source,
+  };
+};
+
+export const resetSourceFilter = () => {
+  return {
+    type: "RESET_SOURCE_FILTER",
   };
 };
