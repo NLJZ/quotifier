@@ -86,6 +86,10 @@
   width: 100%;
 }
 
+.ws-menu-left-items-button-big-col:hover {
+  background-color: $mid-color-light;
+}
+
 .ws-menu-left-items-button {
   // @include buttonUnStyle;
 }
