@@ -1,11 +1,18 @@
+.sort-filter {
+  display: inline-flex;
+}
+
 .filter-container {
   display: inline-flex;
-  margin: 0 2rem;
   .hide {
     display: none;
   }
   .show {
     display: block;
+  }
+  button {
+    border: 1px solid#012626;
+    border-radius: 5px;
   }
   .tagsFilter {
     border: 1px solid black;
@@ -19,6 +26,30 @@
     }
     li:first-child {
       font-weight: bold;
+    }
+  }
+}
+
+.sort-filter-container {
+  display: flex;
+  justify-content: flex-end;
+  margin: 0 2rem;
+  ul {
+    display: inline-flex;
+    align-items: center;
+    li {
+      padding-right: 0.5rem;
+      button {
+        border: 1px solid#012626;
+        border-radius: 5px;
+      }
+      button:hover {
+        background-color: #03a6a6;
+        cursor: pointer;
+      }
+      button:focus {
+        outline-color: #03a6a6;
+      }
     }
   }
 }

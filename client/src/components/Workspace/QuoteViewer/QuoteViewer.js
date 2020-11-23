@@ -15,8 +15,10 @@ const QuoteViewer = () => {
   return (
     <div>
       <h1>{headerText}</h1>
-      <QuoteFilterTags currentView={currentView} />
-      <QuoteSorter />
+      <div className="sort-filter">
+        <QuoteFilterTags currentView={currentView} />
+        <QuoteSorter />
+      </div>
       {QuotesToRender}
     </div>
   );

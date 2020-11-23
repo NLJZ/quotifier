@@ -37,7 +37,9 @@ const QuoteFilterTags = (props) => {
 
   const apply = () => {
     showAll();
-    dispatch(filterQuotesByTag(tagFilterArray));
+    if (Array.isArray(tagFilterArray) || tagFilterArray.length) {
+      dispatch(filterQuotesByTag(tagFilterArray));
+    }
     showIt();
   };
 
@@ -48,14 +50,6 @@ const QuoteFilterTags = (props) => {
 
   const renderFilterTags = tagFilterArray.map((tag, i) => {
     return <li key={i}>{tag}</li>;
-  });
-
-  const renderFilteredByArea = tagFilterArray.map((tag, i) => {
-    return (
-      <span className="tag" key={i}>
-        {tag}{" "}
-      </span>
-    );
   });
 
   const renderTags = tags.map((tag, i) => {
@@ -88,7 +82,6 @@ const QuoteFilterTags = (props) => {
           <button>Run Filter</button>
         </div>
       </div>
-      <div className="filtered-by">{renderFilteredByArea}</div>
     </section>
   );
 };
