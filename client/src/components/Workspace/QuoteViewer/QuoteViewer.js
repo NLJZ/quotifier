@@ -17,7 +17,7 @@ const QuoteViewer = () => {
     <div>
       <h1>{headerText}</h1>
       <QuoteFilterTags currentView={currentView} />
-      {/* <QuoteFilterSources currentView={currentView} /> */}
+      <QuoteFilterSources currentView={currentView} />
       <QuoteSorter />
       {QuotesToRender}
     </div>

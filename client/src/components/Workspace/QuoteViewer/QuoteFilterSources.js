@@ -14,15 +14,17 @@ const QuoteFilterSources = (props) => {
   const currentView = props.currentView;
   const quotesState = useSelector((state) => state.quotes);
   const sourceFilterArray = useSelector((state) => state.sourceFilter);
-  const sources = useSelector((state) => state.sources.values);
+  const sources = useSelector((state) => state.sources);
+  const sourcesArray = Object.values(sources);
+  console.log(sourcesArray);
   const [show, setShow] = useState(false);
-
-  const handleClick = (tag) => {
-    dispatch(addToSourceFilter(tag));
-  };
 
   const showIt = () => {
     setShow(!show);
+  };
+
+  const handleClick = (source) => {
+    dispatch(addToSourceFilter(source));
   };
 
   const showAll = () => {
@@ -47,14 +49,17 @@ const QuoteFilterSources = (props) => {
   };
 
   const renderFilterSources = sourceFilterArray.map((source, i) => {
-    return <li key={i}>{source}</li>;
+    let sourceId = source;
+    let filteredSourceTitle = sources[sourceId].sourceTitle;
+    console.log(`filtered source title = ${filteredSourceTitle}`);
+    return <li key={i}>{filteredSourceTitle}</li>;
   });
 
-  const renderSources = sources.map((source, i) => {
-    if (!sourceFilterArray.includes(source)) {
+  const renderSources = sourcesArray.map((source, i) => {
+    if (!sourceFilterArray.includes(source._id)) {
       return (
-        <li key={i} onClick={() => handleClick(`${source}`)}>
-          {source}
+        <li key={i} onClick={() => handleClick(`${source._id}`)}>
+          {source.sourceTitle}
         </li>
       );
     }
@@ -65,7 +70,7 @@ const QuoteFilterSources = (props) => {
       <div className="tagsDropdown">
         <button onClick={showIt}>sources</button>
         <div className={`tagsFilter ${show ? "show" : "hide"}`}>
-          <button onClick={apply}>APPLY</button>
+          <button>APPLY</button>
           <button onClick={reset}>CLEAR</button>
           <ul className="filter-tags-list">
             <li>Added:</li>
@@ -78,7 +83,6 @@ const QuoteFilterSources = (props) => {
           <button>Run Filter</button>
         </div>
       </div>
-      <div className="sourcesFilter"></div>
     </section>
   );
 };

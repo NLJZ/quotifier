@@ -33,7 +33,15 @@ export const findQuotesByTag = (array, quotes) => {
 
 export const findQuotesBySource = (array, quotes) => {
   const quoteArray = [];
-  const sourceArray = array.map((source) => source._id);
+  const quoteStateArray = quotes;
+  const sourceArray = array;
+  sourceArray.foreach((source) => {
+    quoteStateArray.forEach((quote) => {
+      if (quote.source == source) {
+        quoteArray.push(quote);
+      }
+    });
+  });
   return quoteArray;
 };
 

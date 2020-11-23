@@ -34,7 +34,7 @@ const quotesReducer = (state = [], action) => {
       return filteredByTag;
     case "FILTER_QUOTES_BY_SOURCE":
       const filteredBySource = findQuotesBySource(action.payload, [...state]);
-      return filteredByTag;
+      return filteredBySource;
     default:
       return state;
   }

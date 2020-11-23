@@ -12,10 +12,11 @@ import {
 const QuoteFilterTags = (props) => {
   const dispatch = useDispatch();
   const currentView = props.currentView;
+  const [show, setShow] = useState(false);
   const quotesState = useSelector((state) => state.quotes);
+
   const tagFilterArray = useSelector((state) => state.tagFilter);
   const tags = useSelector((state) => state.tags);
-  const [show, setShow] = useState(false);
 
   const handleClick = (tag) => {
     dispatch(addToTagFilter(tag));
