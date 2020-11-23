@@ -37,7 +37,7 @@ const QuoteFilterTags = (props) => {
 
   const apply = () => {
     showAll();
-    if (Array.isArray(tagFilterArray) || tagFilterArray.length) {
+    if (!tagFilterArray.length < 1) {
       dispatch(filterQuotesByTag(tagFilterArray));
     }
     showIt();
@@ -49,13 +49,17 @@ const QuoteFilterTags = (props) => {
   };
 
   const renderFilterTags = tagFilterArray.map((tag, i) => {
-    return <li key={i}>{tag}</li>;
+    return (
+      <li className="tags" key={i}>
+        {tag}
+      </li>
+    );
   });
 
   const renderTags = tags.map((tag, i) => {
     if (!tagFilterArray.includes(tag)) {
       return (
-        <li key={i} onClick={() => handleClick(`${tag}`)}>
+        <li className="tags" key={i} onClick={() => handleClick(`${tag}`)}>
           {tag}
         </li>
       );
@@ -67,19 +71,26 @@ const QuoteFilterTags = (props) => {
   return (
     <section className="filter-container">
       <div className="tagsDropdown">
-        filter:<button onClick={showIt}>tag</button>
+        <ul className="sort-filter-options">
+          <li>filter by:</li>
+          <li>
+            <button onClick={showIt}>tag</button>
+          </li>
+        </ul>
         <div className={`tagsFilter ${show ? "show" : "hide"}`}>
-          <button onClick={apply}>APPLY</button>
-          <button onClick={reset}>CLEAR</button>
+          <div className="filter-button-holder">
+            <button onClick={apply}>APPLY</button>
+            <button onClick={reset}>CLEAR</button>
+          </div>
           <ul className="filter-tags-list">
             <li>Added:</li>
             {renderFilterTags}
           </ul>
+          <hr />
           <ul className="tags-list">
             <li>Add To Filter:</li>
             {renderTags}
           </ul>
-          <button>Run Filter</button>
         </div>
       </div>
     </section>
