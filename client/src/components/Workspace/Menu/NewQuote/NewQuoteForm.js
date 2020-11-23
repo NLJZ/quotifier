@@ -231,11 +231,11 @@ const NewQuoteForm = (props) => {
         <div class="col-left"></div>
         <div class="col-1-of-2 col-tags">
           {" "}
-          <ul>
+          <div>
             {tagsArr.map((tag, i) => {
-              return <li key={i}>{tag}</li>;
+              return <span key={i}>{tag}</span>;
             })}
-          </ul>
+          </div>
         </div>
 
         <div class="col-2-of-2"></div>
@@ -243,7 +243,7 @@ const NewQuoteForm = (props) => {
 
       <div class="form-row-input">
         <div class="col-left">
-          <p className="nqf-bold">Quote:</p>
+          <p className="nqf-bold">Notes:</p>
         </div>
         <div class="col-1-of-2">
           <input

@@ -143,13 +143,14 @@
   width: 10rem;
 }
 
-.col-tags ul {
+.col-tags div {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   list-style-type: none;
 }
 
-.col-tags li {
+.col-tags span {
   border: 1px black solid;
   padding: 0.3rem 1rem;
   border-radius: 30px;
