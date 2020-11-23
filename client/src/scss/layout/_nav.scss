@@ -78,6 +78,7 @@
 .ws-menu-left-items-link {
   padding: 1rem 0;
   @include justifyCenter;
+  // align-self: flex-start;
 }
 
 .ws-menu-left-items-link:hover {

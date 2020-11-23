@@ -190,7 +190,7 @@ const NewQuoteForm = (props) => {
           <p className="nqf-bold">Quote:</p>
         </div>
         <div class="col-1-of-2">
-          <input
+          <textarea
             type="textarea"
             name="quoteBody"
             className="nq-input-body"

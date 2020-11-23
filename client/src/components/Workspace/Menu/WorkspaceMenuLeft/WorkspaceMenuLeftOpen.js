@@ -36,42 +36,6 @@ const WorkspaceMenuLeftOpen = () => {
           <NewSourceFormButton />
         </li>
 
-        {/* <li className="ws-menu-left-items-button-big ">
-          <button className="ws-menu-left-items-button-new-quote">
-            <FontAwesomeIcon className="test-test" icon={faPlus} />
-            new source
-          </button>
-        </li> */}
-
-        {/* <li className="ws-menu-left-items-link">
-          <button
-            className="ws-menu-left-items-button menu-left-trigger"
-            onClick={onClickDrop}
-          >
-            <FontAwesomeIcon
-              className={`ws-menu-left-icon-single ${
-                isActive ? "active" : "inactive"
-              }`}
-              icon={faPlay}
-            />
-          </button>
-          Favourites
-        </li>
-
-        <ul
-          ref={dropdownRef}
-          className={`ws-menu-left ${isActive ? "active" : "inactive"}`}
-        >
-          <li>
-            <Link to="/lastquote1">last quote 1 </Link>
-          </li>
-          <li>
-            <Link to="/lastquote2">last quote 2 </Link>
-          </li>
-          <li>
-            <Link to="/lastquote3">last quote 3 </Link>
-          </li>
-        </ul> */}
         <FavoriteQuotes />
 
         <RecentQuotes />

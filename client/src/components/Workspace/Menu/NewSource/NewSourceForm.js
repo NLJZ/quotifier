@@ -127,10 +127,6 @@ const NewSourceForm = (props) => {
         </div>
       </div>
     </form>
-    //   <button onClick={onOpenCloseClick} className="nq-form-button-close">
-    //     close
-    //   </button>
-    // </div>
   );
 };
 

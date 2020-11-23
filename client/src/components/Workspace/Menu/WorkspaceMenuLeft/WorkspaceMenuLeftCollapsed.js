@@ -10,6 +10,7 @@ import {
   faFolderPlus,
   faStar,
   faEye,
+  faBinoculars,
 } from "@fortawesome/free-solid-svg-icons";
 //-------------components----------------------------------
 import AllQuotes from "../AllQuotes.js";
@@ -29,23 +30,23 @@ const WorkspaceMenuLeftCollapsed = () => {
           <FontAwesomeIcon className="test-test" icon={faSearch} />
         </li>
 
-        <li className="ws-menu-left-items-button-big-col ">
+        <li className="ws-menu-left-items-button-big-col">
           <FontAwesomeIcon className="test-test" icon={faPlus} />
         </li>
 
-        <li className="ws-menu-left-items-button-big-col ">
+        <li className="ws-menu-left-items-button-big-col">
           <FontAwesomeIcon className="test-test" icon={faPlus} />
         </li>
 
-        <li className="ws-menu-left-items-button-big-col ">
+        <li className="ws-menu-left-items-button-big-col">
           <FontAwesomeIcon className="test-test" icon={faStar} />
         </li>
 
-        <li className="ws-menu-left-items-button-big-col ">
-          <FontAwesomeIcon className="test-test" icon={faPlus} />
+        <li className="ws-menu-left-items-button-big-col">
+          <FontAwesomeIcon className="test-test" icon={faBinoculars} />
         </li>
 
-        <li className="ws-menu-left-items-button-big-col ">
+        <li className="ws-menu-left-items-button-big-col">
           <FontAwesomeIcon className="test-test" icon={faEye} />
         </li>
       </ul>
