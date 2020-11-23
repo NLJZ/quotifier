@@ -14,8 +14,8 @@ const QuoteSorter = () => {
   };
 
   return (
-    <section className="sort-container">
-      <ul className="sort-options">
+    <section className="sort-filter-container">
+      <ul className="sort-filter-options">
         <li>sort:</li>
         <li>
           <button
