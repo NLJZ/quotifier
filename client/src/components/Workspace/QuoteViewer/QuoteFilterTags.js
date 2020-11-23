@@ -81,6 +81,7 @@ const QuoteFilterTags = (props) => {
           <div className="filter-button-holder">
             <button onClick={apply}>APPLY</button>
             <button onClick={reset}>CLEAR</button>
+            <button onClick={showIt}>CLOSE</button>
           </div>
           <ul className="filter-tags-list">
             <li>Added:</li>

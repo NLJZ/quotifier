@@ -13,12 +13,11 @@
   button:focus {
     outline-color: #03a6a6;
   }
-}
-
-.tags {
-  border: 1px solid black;
-  padding: 0.2rem 0.5rem;
-  border-radius: 0.3rem;
+  .tags {
+    border: 1px solid black;
+    padding: 0.2rem 0.5rem;
+    border-radius: 0.3rem;
+  }
 }
 
 .filter-container {
