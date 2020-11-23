@@ -65,25 +65,34 @@
   border: yellow 1px solid;
   display: flex;
   background: $mid-color-dark;
-  width: 15%;
-  min-height: 100vh;
+  height: 80vh;
 }
 
 .ws-menu-left-items {
-  width: 100%;
+  // width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .ws-menu-left-items-link {
-  padding: 1rem;
+  padding: 1rem 0;
   @include justifyCenter;
+  // align-self: flex-start;
 }
 
 .ws-menu-left-items-link:hover {
-  border-bottom: 1px $base-color-light solid;
+  // border-bottom: 1px $base-color-light solid;
+  background-color: $mid-color-light;
+  width: 100%;
+}
+
+.ws-menu-left-items-button-big-col:hover {
+  background-color: $mid-color-light;
 }
 
 .ws-menu-left-items-button {
-  @include buttonUnStyle;
+  // @include buttonUnStyle;
 }
 
 .search-placeholder {
@@ -96,20 +105,19 @@
 
 .ws-menu-left-items-search-bar {
   @include buttonUnStyle;
-  background-color: $mid-color-light;
+  background-color: $base-color-light;
   // background: url("search.png");
   border-radius: 30px;
   border: $mid-color-light solid 1px;
-  color: $base-color-light;
-  padding: 0.5rem 1.5rem;
-  width: fit-content;
-  margin: 0 2rem;
+  padding: 0.5rem 1rem;
+  width: auto;
 }
 
 //--------------------workspace-nav-left-collapsible-----------------
 
 .folder-menu {
 }
+
 .icon-folder-trigger {
 }
 

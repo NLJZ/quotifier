@@ -80,10 +80,16 @@ button.about-single-button-dark {
 li.ws-menu-left-items-link,
 .menu-left.active,
 .ws-menu-left-items-button-big a,
-li.ws-menu-left-items-button-big button {
+li.ws-menu-left-items-button-big {
   font-family: "Source Sans Pro";
   font-size: 1.3rem;
   color: $base-color-light;
+}
+
+.ws-menu-left-items-button-big-col {
+  color: $base-color-light;
+  font-size: 2rem;
+  padding: 0.7rem 1rem;
 }
 
 li.ws-menu-left-items-link a {
@@ -113,6 +119,23 @@ li.ws-menu-left-items-link a {
   // border: black 1px solid;
   align-self: flex-start;
   margin-left: 2rem;
+}
+
+.col-1-of-1 label {
+  color: $base-color-dark;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.nqf-bold {
+  color: $base-color-dark;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.col-1-of-2,
+.col-tags {
+  color: $base-color-dark;
 }
 
 //-------------workspace all quotes----------------------

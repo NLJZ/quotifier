@@ -225,3 +225,26 @@ li.ws-menu-left-items-link button {
   @include buttonUnStyle;
   color: $base-color-light;
 }
+
+//-------------------------------------------
+
+.ns-form-container {
+}
+
+.ns-form {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+}
+
+.ns-form-trigger {
+  cursor: pointer;
+}
+
+.ns-form.active {
+  opacity: 1;
+  visibility: visible;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}

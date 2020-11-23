@@ -20,12 +20,12 @@
 
 //--------------------new-quote-form----------------
 
-.new-quote-form-container {
+.nq-form-container {
   // position: relative;
 }
 
-.new-quote-form {
-  background: rgba(248, 0, 0, 0.397);
+.nq-form {
+  background: $mid-color-dark;
   position: fixed;
   top: 0px;
   right: 0px;
@@ -39,50 +39,137 @@
   align-items: center;
 }
 
-.new-quote-form.active {
+.nq-form.active {
   opacity: 1;
   visibility: visible;
 }
 
-.new-quote-form-form {
+.nq-form-form {
   // list-style: none;
+  @include justifyCenter;
   padding: 3rem;
   margin: 0;
   background-color: $base-color-light;
   border: rgb(0, 0, 0) solid 1px;
-  @include justifyCenter;
+  border-radius: 20px;
   flex-direction: column;
   align-items: center;
-  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.726);
   position: absolute;
 }
 
-.new-quote-form-input {
+.nq-form-input {
   // border: yellow solid 1px;
 }
-.new-quote-form-trigger {
-  background: #f0000000;
+.nq-form-trigger {
+  background: $mid-color-dark;
   border-radius: 90px;
   cursor: pointer;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 4px 6px;
+  padding: 0.5rem 1.5rem;
   // box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-  border: none;
+  border: 1px $base-color-light solid;
   vertical-align: middle;
   transition: box-shadow 0.4s ease;
   outline: none;
-  color: $base-color-dark;
+  color: $base-color-light;
+  box-shadow: 1px 1px 3px $base-color-light;
 }
 
-.new-quote-form-trigger:hover {
-  color: $mid-color-mid;
+.nq-form-trigger:hover {
+  color: $base-color-light;
+  background: $mid-color-mid;
+  transform: translateY(4px);
 }
 
-.new-quote-form-trigger span {
+.nq-form-trigger span {
   font-weight: 700;
   vertical-align: middle;
   font-size: 14px;
   margin: 0 10px;
 }
+
+.nq-input {
+  width: 28rem;
+  height: 3rem;
+  margin: 1rem;
+  border-radius: 25px;
+  padding-left: 1rem;
+  outline: none;
+  background-color: $base-color-light;
+}
+
+.nq-input-body {
+  width: 28rem;
+  height: 15rem;
+  margin: 1rem;
+  border-radius: 25px;
+  padding-left: 1rem;
+  outline: none;
+  background-color: $base-color-light;
+}
+
+//-----form grid--------
+
+.form-row-label,
+.form-row-input {
+  display: flex;
+}
+
+.col-1-of-1 {
+  // border: 1px solid yellow;
+  width: 40rem;
+}
+
+.col-1-of-2 {
+  // border: 1px solid yellow;
+  width: 30rem;
+}
+
+.col-2-of-2 {
+  display: flex;
+  align-items: center;
+  // border: 1px solid yellow;
+  width: 10rem;
+}
+
+.col-left {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  // border: 1px solid yellow;
+  width: 10rem;
+}
+
+.col-tags ul {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+}
+
+.col-tags li {
+  border: 1px black solid;
+  padding: 0.3rem 1rem;
+  border-radius: 30px;
+  margin: 0.2rem;
+}
+
+.col-fav {
+  width: 30rem;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.nq-input-fav {
+  justify-content: flex-start;
+
+  width: 3rem;
+  height: 1.5rem;
+  margin: 1rem;
+  border-radius: 25px;
+  padding-left: 1rem;
+  outline: none;
+}
+//---------------------------------------

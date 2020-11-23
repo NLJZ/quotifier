@@ -6,14 +6,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay, faPlus, faSearch } from "@fortawesome/free-solid-svg-icons";
 //-------------components----------------------------------
 import AllQuotes from "../AllQuotes.js";
+import NewSourceFormButton from "../NewSource/NewSourceButton.js";
 import NewQuoteFormButton from "../NewQuote/NewQuoteButton.js";
 import RecentQuotes from "../RecentQuotes";
 import FavoriteQuotes from "../FavoriteQuotes";
 
 const WorkspaceMenuLeftOpen = () => {
-  const dropdownRef = useRef(null);
-  const [isActive, setIsActive] = useState(false);
-  const onClickDrop = () => setIsActive(!isActive);
+  // const dropdownRef = useRef(null);
+  // const [isActive, setIsActive] = useState(false);
+  // const onClickDrop = () => setIsActive(!isActive);
   // const iconSearch = <FontAwesomeIcon className="test-test" icon={faSearch} />;
   return (
     <>
@@ -28,46 +29,13 @@ const WorkspaceMenuLeftOpen = () => {
         </li>
 
         <li className="ws-menu-left-items-button-big ">
-          {" "}
           <NewQuoteFormButton />
         </li>
 
         <li className="ws-menu-left-items-button-big ">
-          <button className="ws-menu-left-items-button-new-quote">
-            <FontAwesomeIcon className="test-test" icon={faPlus} />
-            new source
-          </button>
+          <NewSourceFormButton />
         </li>
 
-        {/* <li className="ws-menu-left-items-link">
-          <button
-            className="ws-menu-left-items-button menu-left-trigger"
-            onClick={onClickDrop}
-          >
-            <FontAwesomeIcon
-              className={`ws-menu-left-icon-single ${
-                isActive ? "active" : "inactive"
-              }`}
-              icon={faPlay}
-            />
-          </button>
-          Favourites
-        </li>
-
-        <ul
-          ref={dropdownRef}
-          className={`ws-menu-left ${isActive ? "active" : "inactive"}`}
-        >
-          <li>
-            <Link to="/lastquote1">last quote 1 </Link>
-          </li>
-          <li>
-            <Link to="/lastquote2">last quote 2 </Link>
-          </li>
-          <li>
-            <Link to="/lastquote3">last quote 3 </Link>
-          </li>
-        </ul> */}
         <FavoriteQuotes />
 
         <RecentQuotes />

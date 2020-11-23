@@ -13,13 +13,13 @@ const QuoteViewer = () => {
   ));
 
   return (
-    <div>
+    <div className="qv">
       <h1>{headerText}</h1>
       <div className="sort-filter">
         <QuoteFilterTags currentView={currentView} />
         <QuoteSorter />
       </div>
-      {QuotesToRender}
+      <div className="qv-quotes-to-render">{QuotesToRender}</div>
     </div>
   );
 };
