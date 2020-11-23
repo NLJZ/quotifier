@@ -73,6 +73,71 @@
   margin: 0 10px;
 }
 
+//--------menu top dropdown-button from hamburger responsive icon ---------//
+
+.dd-resp-menu-container {
+  // position: relative;
+}
+
+.dd-resp-menu {
+  background: $mid-color-dark;
+  position: absolute;
+  width: 100%;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.431);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
+}
+
+.dd-resp-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dd-resp-menu li {
+  border-bottom: 1px solid $mid-color-light;
+}
+
+.dd-resp-menu li:hover {
+  background-color: $mid-color-mid;
+}
+
+.dd-resp-menu li a {
+  text-decoration: none;
+  color: $base-color-light;
+  padding: 15px 20px;
+  display: block;
+  font-size: 1.5rem;
+}
+
+.dd-resp-menu-trigger {
+  background: #fd020200;
+  // border-radius: 90px;
+  // cursor: pointer;
+  // display: flex;
+  // justify-content: space-between;
+  // align-items: center;
+  padding: 4px 6px;
+  // box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  border: none;
+  // vertical-align: middle;
+  transition: box-shadow 0.4s ease;
+  outline: none;
+  color: $base-color-dark;
+}
+
+.dd-resp-menu-trigger:hover {
+  color: $mid-color-mid;
+}
+
+.dd-resp-menu-trigger span {
+  // font-weight: 700;
+  // vertical-align: middle;
+  // font-size: 14px;
+  // margin: 0 10px;
+}
+
 //--------menu top dropdown-button from icon logout---------//
 
 .dd-menu-dts-container {

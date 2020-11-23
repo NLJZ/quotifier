@@ -18,12 +18,10 @@ const RecentQuotes = () => {
   };
   return (
     <React.Fragment>
-      <li className="ws-menu-left-items-link">
-        <button onClick={showQuotes} type="submit">
-          <FontAwesomeIcon className="test-test" icon={faBinoculars} />
-          Recent
-        </button>
-      </li>
+      <button onClick={showQuotes} type="submit">
+        <FontAwesomeIcon className="test-test" icon={faBinoculars} />
+        Recent
+      </button>
     </React.Fragment>
   );
 };

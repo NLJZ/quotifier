@@ -1,11 +1,44 @@
 //-----------------media queries-----------------------------
 
+//-----quote viewer---------------------------
+
 //--------------------workspace-nav-left-responsive---------------
 
+//--------------------login-nav-top----------------------------
+
+@media only screen and (min-width: 800px) {
+  .menu-top-icons-resp {
+    // border: 1px yellow solid;
+    visibility: hidden;
+  }
+}
+
 @media only screen and (max-width: 800px) {
-  .ws-left {
-    min-width: 20vw;
-    background-color: purple;
+  .dd-resp-menu.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  div.ws-main {
+    // background-color: blue;
+  }
+
+  .qv {
+    // background-color: yellow;
+  }
+
+  section.ws-left {
+    // min-width: 20vw;
+    // background-color: purple;
+    visibility: hidden;
+    width: 0;
+    // background-color: blue;
+  }
+
+  div.ws {
+    background-color: $base-color-light;
+    display: flex;
+    justify-content: center;
   }
 
   .ws-menu-left {

@@ -175,3 +175,25 @@ button.qc-button {
   outline: none;
   padding-bottom: 0;
 }
+
+//----responsive--menu-----
+
+li.ws-resp-menu-items button {
+  @include buttonUnStyle;
+  padding: 1rem;
+  color: $base-color-light;
+  font-size: 1.5rem;
+}
+
+@media only screen and (max-width: 800px) {
+  button.ws-menu-left-items-button-new-quote {
+    background-color: pink;
+    @include buttonUnStyle;
+    border: 0;
+  }
+
+  .nq-form-trigger button:hover {
+    @include buttonUnStyle;
+    border: 0;
+  }
+}

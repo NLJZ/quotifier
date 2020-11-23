@@ -36,11 +36,15 @@ const WorkspaceMenuLeftOpen = () => {
           <NewSourceFormButton />
         </li>
 
-        <FavoriteQuotes />
-
-        <RecentQuotes />
-
-        <AllQuotes />
+        <li className="ws-menu-left-items-link">
+          <FavoriteQuotes />
+        </li>
+        <li className="ws-menu-left-items-link">
+          <RecentQuotes />
+        </li>
+        <li className="ws-menu-left-items-link">
+          <AllQuotes />
+        </li>
 
         <li className="ws-menu-left-items-link folder-menu"></li>
       </ul>{" "}
