@@ -50,6 +50,14 @@ const QuoteFilterTags = (props) => {
     return <li key={i}>{tag}</li>;
   });
 
+  const renderFilteredByArea = tagFilterArray.map((tag, i) => {
+    return (
+      <span className="tag" key={i}>
+        {tag}{" "}
+      </span>
+    );
+  });
+
   const renderTags = tags.map((tag, i) => {
     if (!tagFilterArray.includes(tag)) {
       return (
@@ -65,7 +73,7 @@ const QuoteFilterTags = (props) => {
   return (
     <section className="filter-container">
       <div className="tagsDropdown">
-        <button onClick={showIt}>Tags</button>
+        filter:<button onClick={showIt}>tag</button>
         <div className={`tagsFilter ${show ? "show" : "hide"}`}>
           <button onClick={apply}>APPLY</button>
           <button onClick={reset}>CLEAR</button>
@@ -80,6 +88,7 @@ const QuoteFilterTags = (props) => {
           <button>Run Filter</button>
         </div>
       </div>
+      <div className="filtered-by">{renderFilteredByArea}</div>
     </section>
   );
 };
