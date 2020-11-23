@@ -36,16 +36,15 @@
     display: block;
   }
   .tagsFilter {
-    margin-top: 1rem;
+    margin: 1rem;
     border: 1px solid black;
-    width: fit-content;
+    width: 100%;
     padding: 1rem;
     background-color: #ddd;
     position: absolute;
     max-height: 60vh;
     overflow-y: scroll;
-    max-width: 50rem;
-
+    max-width: 40rem;
     ul {
       padding: 1rem 0;
       display: flex;
