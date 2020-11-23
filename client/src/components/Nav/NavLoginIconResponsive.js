@@ -48,7 +48,7 @@ function NavLoginIconAvatar() {
           <li className="ws-resp-menu-items ws-menu-left-items-search-li">
             <input
               type="text"
-              className="ws-menu-left-items-search-bar"
+              className="ws-resp-menu-items-search-bar"
               placeholder="find a quote"
               name="search"
             />

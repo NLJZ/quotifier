@@ -183,6 +183,21 @@ li.ws-resp-menu-items button {
   padding: 1rem;
   color: $base-color-light;
   font-size: 1.5rem;
+  box-shadow: none;
+  border: none;
+  border-radius: 0;
+}
+
+li.ws-resp-menu-items button:hover {
+  transform: none;
+}
+
+.ws-resp-menu-items-search-bar {
+  padding: 0.5rem;
+  padding-left: 1rem;
+  margin: 1rem;
+  border-radius: 30px;
+  outline: none;
 }
 
 @media only screen and (max-width: 800px) {
