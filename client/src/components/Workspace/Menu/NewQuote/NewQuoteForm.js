@@ -1,21 +1,43 @@
-import React, { useState } from "react";
-import { addQuote, showAllSources } from "../../../../redux/actions";
+import React, { useState, useRef, useEffect } from "react";
+import { addQuote, addSource, showAllSources } from "../../../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
-import NewQuoteFormTags from "./NewQuoteFormTags";
 
 const axios = require("axios");
 
 const NewQuoteForm = (props) => {
+  //---------------------------------------------------
+  const sources = useSelector((state) => state.sources);
+  //---------------------------------------------------
+  const allSources = Object.values(sources);
+
   const [body, setBody] = useState("");
-  const [source, setSource] = useState("");
+  const [sourceId, setSourceId] = useState(undefined);
   const [tags, setTags] = useState("");
-  // const [tags, setTags] = useState([{ text: "first tag" }]);
+  const [tagsArr, setTagsArr] = useState([]);
   const [userNotes, setUserNotes] = useState("");
   const [location, setLocation] = useState("");
   const [fave, setFave] = useState(false);
+  const [sourceAdded, setSourceAdded] = useState(false);
+  const [quoteAdded, setQuoteAdded] = useState(false);
+  const [sourceTitle, setSourceTitle] = useState("");
+  const [sourceInfo, setSourceInfo] = useState("");
   const dispatch = useDispatch();
 
-  const options = {
+  const dropdownRef = useRef(null);
+  const [isClicked, setIsClicked] = useState(false);
+  const onClickSource = (e) => {
+    e.preventDefault();
+    setIsClicked(!isClicked);
+  };
+
+  useEffect(() => {
+    if (Boolean(sourceAdded)) {
+      submitFormQuote();
+      setSourceAdded(false);
+    }
+  });
+
+  const optionQuote = {
     url: "/api/v1/data/addQuote",
     mode: "cors",
     method: "POST",
@@ -24,31 +46,55 @@ const NewQuoteForm = (props) => {
     },
     data: {
       body: body,
-      source: source,
-      tags: tags,
+      source: sourceId,
+      tags: tagsArr,
       userNotes: userNotes,
       location: location,
       fave: fave,
     },
   };
 
-  //---------------------------------------------------
-  const sources = useSelector((state) => state.sources);
-  console.log("sources", sources);
-  //---------------------------------------------------
-  const allSources = Object.values(sources);
-  console.log("allSources", allSources);
-
-  const changeSource = (source) => {
-    setSource(source);
+  const optionSource = {
+    url: "/api/v1/data/addSource",
+    mode: "cors",
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    data: {
+      sourceTitle: sourceTitle,
+      sourceInfo: sourceInfo,
+    },
   };
-  console.log(changeSource);
+  let returnedSource;
 
-  const submitForm = async () => {
-    await axios(options)
+  const changeSourceId = (source) => {
+    setSourceId(source);
+  };
+
+  const submitFormSource = async () => {
+    let newSource;
+    await axios(optionSource)
       .then((response) => {
-        let quote = response.data.quote;
+        let source = response.data;
+        dispatch(addSource(source));
+        console.log(`${source._id}`);
+        changeSourceId(`${source._id}`);
+        setSourceAdded(true);
+      })
+      .catch((error) => {
+        console.log(error.response);
+      });
+    return newSource;
+  };
+
+  const submitFormQuote = async () => {
+    await axios(optionQuote)
+      .then((response) => {
+        let quote = response.data;
         dispatch(addQuote(quote));
+        console.log(quote);
+        setQuoteAdded(true);
       })
       .catch((error) => {
         console.log(error.response);
@@ -57,97 +103,206 @@ const NewQuoteForm = (props) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    submitForm();
+    if (sourceTitle !== "") {
+      await submitFormSource();
+    } else {
+      await submitFormQuote();
+    }
   };
-
-  const [tagsArr, setTagsArr] = useState([]);
-
   const addTags = (e) => {
     e.preventDefault();
-    // tagsArr.push(tags);
     setTagsArr([...tagsArr, tags]);
     setTags("");
   };
 
   return (
-    <form className="new-quote-form-form" onSubmit={handleSubmit}>
-      <label>enter your quote here:</label>
-      <input
-        type="textarea"
-        name="quoteBody"
-        className="input"
-        onChange={(e) => setBody(e.target.value)}
-        placeholder="enter your quote"
-        autoComplete="on"
-        required
-      />
-      <label>choose an existing source</label>
-      <select
-        className="input"
-        onChange={(e) => changeSource(e.target.value)}
-        value={source}
-      >
-        {allSources.map((item) => (
-          <option key={item._id} value={item._id}>
-            {item.sourceTitle}
-          </option>
-        ))}
-      </select>
+    <form className="nq-form-form" onSubmit={handleSubmit}>
+      <div class="form-row-input">
+        <div class="col-left">
+          <p className="nqf-bold">Source:</p>
+        </div>
+        <div class="col-1-of-2">
+          <select
+            className="nq-input"
+            onChange={(e) => changeSourceId(e.target.value)}
+            value={sourceId}
+          >
+            <option value={null}>add an existing source</option>
 
-      <label>select your tags:</label>
-      <div className="tags-button">
-        <input
-          type="text"
-          className="input"
-          value={tags}
-          onChange={(e) => {
-            setTags(e.target.value);
-          }}
-        />
-
-        <button onClick={(e) => addTags(e)}>click</button>
-        <ul>
-          {tagsArr.map((tag, i) => {
-            return <li key={i}>{tag}</li>;
-          })}
-
-          <li>hello</li>
-        </ul>
+            {allSources.map((item) => (
+              <option key={item._id} value={item._id}>
+                {item.sourceTitle}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div class="col-2-of-2">
+          {" "}
+          <button className="nq-button ns-form-trigger" onClick={onClickSource}>
+            add source
+          </button>
+        </div>
       </div>
 
-      <label>choose an existing source</label>
+      <div
+        ref={dropdownRef}
+        className={`ns-form ${isClicked ? "active" : "inactive"}`}
+      >
+        <div class="form-row-input">
+          <div class="col-left">
+            <p className="nqf-bold">Source Title:</p>
+          </div>
+          <div class="col-1-of-2">
+            <input
+              type="textarea"
+              name="sourceTitle"
+              value={sourceTitle}
+              className="nq-input"
+              onChange={(e) => setSourceTitle(e.target.value)}
+              placeholder="enter source Title"
+              autoComplete="on"
+            />
+          </div>{" "}
+          <div class="col-2-of-2"></div>
+        </div>
 
-      <input
-        type="text"
-        name="userNotes"
-        className="input"
-        onChange={(e) => setUserNotes(e.target.value)}
-        placeholder="userNotes"
-        autoComplete="on"
-      />
-      <label>choose an existing source</label>
+        <div class="form-row-input">
+          <div class="col-left">
+            <p className="nqf-bold">Source Info:</p>
+          </div>
+          <div class="col-1-of-2">
+            <input
+              type="textarea"
+              name="sourceInfo"
+              value={sourceInfo}
+              className="nq-input"
+              onChange={(e) => setSourceInfo(e.target.value)}
+              placeholder="enter source info"
+              autoComplete="on"
+            />{" "}
+          </div>{" "}
+          <div class="col-2-of-2"></div>
+        </div>
+      </div>
 
-      <input
-        type="text"
-        name="location"
-        className="input"
-        onChange={(e) => setLocation(e.target.value)}
-        placeholder="location"
-        autoComplete="on"
-      />
-      <label>choose an existing source</label>
+      <div class="form-row-input">
+        <div class="col-left">
+          <p className="nqf-bold">Quote:</p>
+        </div>
+        <div class="col-1-of-2">
+          <textarea
+            type="textarea"
+            name="quoteBody"
+            className="nq-input-body"
+            onChange={(e) => setBody(e.target.value)}
+            placeholder="enter your quote"
+            autoComplete="on"
+            value={body}
+            required
+          />{" "}
+        </div>
+        <div class="col-2-of-2"></div>
+      </div>
 
-      <input
-        type=""
-        name="fave"
-        className="input"
-        onChange={(e) => setFave(e.target.value)}
-        placeholder="fave"
-        autoComplete="on"
-      />
-      <button className="sign-in-button" type="submit" value="Submit">
-        Submit
-      </button>
+      <div class="form-row-input">
+        <div class="col-left">
+          <p className="nqf-bold">Tags:</p>
+        </div>
+        <div class="col-1-of-2">
+          {/* <div className="tags-button"> */}
+          <input
+            type="text"
+            name="tags"
+            className="nq-input"
+            value={tags}
+            onChange={(e) => {
+              setTags(e.target.value);
+            }}
+          />
+        </div>
+        <div class="col-2-of-2">
+          {" "}
+          <button className="nq-button" onClick={(e) => addTags(e)}>
+            click
+          </button>
+        </div>
+      </div>
+      <div class="form-row-input">
+        <div class="col-left"></div>
+        <div class="col-1-of-2 col-tags">
+          {" "}
+          <ul>
+            {tagsArr.map((tag, i) => {
+              return <li key={i}>{tag}</li>;
+            })}
+          </ul>
+        </div>
+
+        <div class="col-2-of-2"></div>
+      </div>
+
+      <div class="form-row-input">
+        <div class="col-left">
+          <p className="nqf-bold">Quote:</p>
+        </div>
+        <div class="col-1-of-2">
+          <input
+            type="text"
+            name="userNotes"
+            value={userNotes}
+            className="nq-input"
+            onChange={(e) => setUserNotes(e.target.value)}
+            placeholder="userNotes"
+            autoComplete="on"
+          />
+        </div>
+        <div class="col-2-of-2"></div>
+      </div>
+
+      <div class="form-row-input">
+        <div class="col-left">
+          <p className="nqf-bold">Page:</p>
+        </div>
+        <div class="col-1-of-2">
+          <input
+            type="text"
+            name="location"
+            value={location}
+            className="nq-input"
+            onChange={(e) => setLocation(e.target.value)}
+            placeholder="location"
+            autoComplete="on"
+          />
+        </div>
+        <div class="col-2-of-2"></div>
+      </div>
+
+      <div class="form-row-input">
+        <div class="col-left">
+          <p className="nqf-bold">Favorite:</p>
+        </div>
+        <div class="col-fav">
+          <input
+            type="checkbox"
+            name="fave"
+            value={fave}
+            className="nq-input-fav"
+            onChange={(e) => setFave(e.target.value)}
+            placeholder="fave"
+            autoComplete="on"
+          />
+        </div>
+        <div class="col-2-of-2"></div>
+      </div>
+
+      <div class="form-row">
+        <div class="col-1-of-1-button">
+          {" "}
+          <button className="nq-button-submit" type="submit" value="Submit">
+            Submit
+          </button>
+        </div>
+      </div>
     </form>
   );
 };

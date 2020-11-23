@@ -40,20 +40,25 @@
 
 //-------workspace-menu-left--------------------------
 
-.ws-menu-left-items-button.menu-left-trigger {
-  color: $base-color-light;
-  padding-right: 0.5rem;
+.ws-menu-left-items-button-new-quote {
+  // background-color: $mid-color-dark;
+  // border: $base-color-light;
+}
+.ws-menu-left-items-buttons.menu-left-trigger {
+  // color: $base-color-light;
+  // padding-right: 0.5rem;
 }
 
-li.ws-menu-left-items-button-big button {
-  @include buttonUnStyle;
-  background-color: $mid-color-mid;
-  border-radius: 30px;
-  border: $mid-color-light solid 1px;
-  padding: 0.2rem 1.5rem;
+li.ws-menu-left-items-button-big {
+  // @include buttonUnStyle;
+  // background-color: $mid-color-mid;
+  // border-radius: 30px;
+  // border: $mid-color-light solid 1px;
+  // padding: 0.2rem 1.5rem;
 }
 
-.ws-menu-left-items-button-big {
+li.ws-menu-left-items-button-big,
+.sws-menu-left-items-button-big-col {
   padding: 0.8rem 1rem;
   // border: 1px $base-color-light solid;
   @include justifyCenter;
@@ -71,8 +76,7 @@ li.ws-menu-left-items-button-big button {
   padding-right: 0.5rem;
 }
 
-.ws-menu-left-items-button-big a:hover,
-li.ws-menu-left-items-button-big button:hover {
+.ws-menu-left-items-button-big a:hover {
   background-color: $mid-color-light;
   cursor: pointer;
   transform: translateY(3px);
@@ -106,9 +110,68 @@ button.ws-menu-left-icon-folder {
 
 //--------------workspace-new-quote-form---------------------------
 
-.new-quote-form-button-close {
+.nq-form-button-close,
+.ns-form-button-close {
+  @include buttonUnStyle;
   align-self: flex-start;
   position: relative;
-  top: 80px;
-  right: -1000px;
+
+  border: $base-color-dark 1px solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  padding: 0 1rem;
+  padding-left: 1rem;
+  padding-right: 0.5rem;
+  background-color: $base-color-light;
+  border-radius: 50px;
+  box-shadow: 2px 3px 5px $base-color-dark;
+}
+
+.ns-form-button-close {
+  top: 360px;
+  right: -490px;
+}
+
+.nq-form-button-close {
+  top: 95px;
+  right: -490px;
+}
+
+.nq-form-button-close:hover,
+.ns-form-button-close:hover {
+  transform: translateY(10px);
+}
+
+button.nq-button {
+  @include buttonUnStyle;
+  background-color: $base-color-light;
+  border: $base-color-dark solid 1px;
+  padding: 0.5rem 1.5rem;
+  border-radius: 30px;
+  // margin-top: 2rem;
+}
+
+.button.nq-button a {
+  @include buttonUnStyle;
+  color: $base-color-dark;
+}
+
+.nq-button-submit {
+  @include buttonUnStyle;
+  margin-top: 2rem;
+  border: $base-color-dark solid 1px;
+  padding: 0.5rem;
+  padding: 0.5rem 1.5rem;
+  border-radius: 30px;
+}
+
+//------------quote-container---------------
+
+button.qc-button {
+  border: none;
+  margin-bottom: 0;
+  outline: none;
+  padding-bottom: 0;
 }

@@ -8,10 +8,10 @@
 
 .ws-right {
   background-color: yellow;
-  width: 85%;
+  // width: 85%;
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
+  // flex-direction: column;
   h1 {
     font-size: 3rem;
     text-align: center;
@@ -60,18 +60,31 @@
 
 //----------------workspace-all-quotes--------------------
 
+div.quote-container {
+  border: 1px solid black;
+  margin: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.486);
+}
+
+div.quote-container:hover {
+  color: grey;
+  cursor: pointer;
+  transform: translateY(10px);
+}
+
 div.quote-container-open {
   border: 1px solid black;
   margin: 2rem;
   border-radius: 20px;
-  box-shadow: 10px 10px grey;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.486);
 }
 
 div.quote-container-closed {
   border: 1px solid black;
   margin: 2rem;
   border-radius: 20px;
-  box-shadow: 10px 10px grey;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.486);
   display: flex;
   flex-direction: column;
 }
@@ -94,4 +107,47 @@ div.quote-container-closed button {
 
 .new-quote-form-input-quote {
   height: 10rem;
+}
+
+//---------quote-container---------------
+
+.qc-span {
+  display: flex;
+  flex-direction: row;
+  margin: 0.5rem 0;
+}
+
+.bold {
+  margin-right: 0.5rem;
+}
+
+ul.qc-tags {
+  display: flex;
+  flex-direction: row;
+  margin: 0.5rem 0;
+}
+
+.qc-tags-single {
+  display: flex;
+  flex-direction: row;
+}
+
+.qc-tags-single li {
+  border: 1px black solid;
+  margin: 0 0.5rem;
+  border-radius: 20px;
+  padding: 0 1rem;
+}
+
+//------quoteviewer-----------------------------ö
+
+.qv {
+}
+
+.qv-quotes-to-render {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  // border: 1px black solid;
 }

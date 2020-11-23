@@ -8,6 +8,9 @@ import {
   faPlus,
   faSearch,
   faFolderPlus,
+  faStar,
+  faEye,
+  faBinoculars,
 } from "@fortawesome/free-solid-svg-icons";
 //-------------components----------------------------------
 import AllQuotes from "../AllQuotes.js";
@@ -23,57 +26,29 @@ const WorkspaceMenuLeftCollapsed = () => {
   return (
     <>
       <ul className="ws-menu-left-items menu-left-container">
-        <li className="ws-menu-left-items-button-big ws-menu-left-items-search-li">
+        <li className="ws-menu-left-items-button-big-col ws-menu-left-items-search-li">
+          <FontAwesomeIcon className="test-test" icon={faSearch} />
+        </li>
+
+        <li className="ws-menu-left-items-button-big-col">
           <FontAwesomeIcon className="test-test" icon={faPlus} />
         </li>
 
-        <li className="ws-menu-left-items-button-big ">
+        <li className="ws-menu-left-items-button-big-col">
           <FontAwesomeIcon className="test-test" icon={faPlus} />
         </li>
 
-        <li className="ws-menu-left-items-button-big ">
-          <button className="ws-menu-left-items-button-new-quote">
-            <FontAwesomeIcon className="test-test" icon={faPlus} />
-          </button>
+        <li className="ws-menu-left-items-button-big-col">
+          <FontAwesomeIcon className="test-test" icon={faStar} />
         </li>
 
-        <li className="ws-menu-left-items-link">
-          <button
-            className="ws-menu-left-items-button menu-left-trigger"
-            onClick={onClickDrop}
-          >
-            <FontAwesomeIcon
-              className={`ws-menu-left-icon-single ${
-                isActive ? "active" : "inactive"
-              }`}
-              icon={faPlay}
-            />
-          </button>
+        <li className="ws-menu-left-items-button-big-col">
+          <FontAwesomeIcon className="test-test" icon={faBinoculars} />
         </li>
 
-        <ul
-          ref={dropdownRef}
-          className={`ws-menu-left ${isActive ? "active" : "inactive"}`}
-        >
-          <li>
-            <Link to="/lastquote1">last quote 1 </Link>
-          </li>
-          <li>
-            <Link to="/lastquote2">last quote 2 </Link>
-          </li>
-          <li>
-            <Link to="/lastquote3">last quote 3 </Link>
-          </li>
-        </ul>
-
-        <li className="ws-menu-left-items-link">
-          <Link to="/recent">Recent </Link>
+        <li className="ws-menu-left-items-button-big-col">
+          <FontAwesomeIcon className="test-test" icon={faEye} />
         </li>
-
-        {/* <AllQuotes /> */}
-        <FontAwesomeIcon className="test-test" icon={faPlus} />
-
-        <li className="ws-menu-left-items-link folder-menu"></li>
       </ul>
     </>
   );

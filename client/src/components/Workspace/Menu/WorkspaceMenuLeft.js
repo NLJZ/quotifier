@@ -29,7 +29,6 @@ const WorkspaceMenuLeftItems = () => {
     <React.Fragment>
       {WorkspaceMenuLeft}
       <button className="ws-menu-left-icon-folder" onClick={onClickClose}>
-        {" "}
         {WorkspaceMenuLeftButton}
       </button>
     </React.Fragment>

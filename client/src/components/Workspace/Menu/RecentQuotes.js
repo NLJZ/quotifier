@@ -1,6 +1,8 @@
 import React from "react";
 import { showRecentQuotes, quoteViewerOn } from "../../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBinoculars } from "@fortawesome/free-solid-svg-icons";
 
 const RecentQuotes = () => {
   const dispatch = useDispatch();
@@ -13,6 +15,7 @@ const RecentQuotes = () => {
     <React.Fragment>
       <li className="ws-menu-left-items-link">
         <button onClick={showQuotes} type="submit">
+          <FontAwesomeIcon className="test-test" icon={faBinoculars} />
           Recent
         </button>
       </li>
