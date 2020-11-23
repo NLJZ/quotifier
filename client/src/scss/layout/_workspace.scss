@@ -88,17 +88,16 @@ div.quote-container-closed {
   flex-direction: column;
 }
 
-div.quote-container-open > *:hover,
-div.quote-container-closed > *:hover,
 div.quote-container-open > * > *:hover,
 div.quote-container-closed > * > *:hover,
 div.quote-container-open > * > * > *:hover,
 div.quote-container-closed > * > * > *:hover,
 div.quote-container-open > * > * > * > *:hover,
 div.quote-container-closed > * > * > * > *:hover,
-div.quote-container-open > * > * > * > * > *:hover,
-div.quote-container-closed > * > * > * > * > *:hover {
-  color: grey;
+// div.quote-container-open > * > * > * > * > *:hover,
+// div.quote-container-closed > * > * > * > * > *:hover,
+span.qc-span-quote > *:hover {
+  color: $mid-color-mid;
   cursor: pointer;
 }
 
@@ -124,12 +123,6 @@ div.quote-container-closed button {
   margin-right: 0.5rem;
 }
 
-ul.qc-tags {
-  display: flex;
-  flex-direction: row;
-  margin: 0.5rem 0;
-}
-
 .qc-tags-single {
   display: flex;
   flex-direction: row;
@@ -143,6 +136,13 @@ ul.qc-tags {
   padding: 0 1rem;
   font-size: 1rem;
   list-style-type: none;
+}
+
+.qc-tags-single > *:hover {
+  transform: translateY(5px);
+  background-color: $mid-color-light;
+  color: $base-color-dark;
+  cursor: pointer;
 }
 
 .qc-tags-single p {

@@ -2,9 +2,6 @@ import React from "react";
 
 const QuoteContainerClosed = (props) => {
   const shortQuoteBody = props.quoteBody;
-
-  const shortQuoteNotes = props.quoteNotes;
-
   const shortSourceTitle = props.sourceTitle;
   const shortTags = props.tags;
 
@@ -15,7 +12,7 @@ const QuoteContainerClosed = (props) => {
       <span className="qc-span">
         <p className="bold">Source:</p> <p> {shortSourceTitle}</p>
       </span>
-      <span className="qc-span">
+      <span className="qc-span qc-span-quote">
         <p className="bold">Quote:</p>"{shortQuoteBody}"
       </span>
 
