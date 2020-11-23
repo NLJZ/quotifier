@@ -35,9 +35,9 @@ export const findQuotesBySource = (array, quotes) => {
   const quoteArray = [];
   const quoteStateArray = quotes;
   const sourceArray = array;
-  sourceArray.foreach((source) => {
+  sourceArray.forEach((source) => {
     quoteStateArray.forEach((quote) => {
-      if (quote.source == source) {
+      if (quote.source === source) {
         quoteArray.push(quote);
       }
     });

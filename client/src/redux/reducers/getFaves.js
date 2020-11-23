@@ -1,5 +1,4 @@
-import { sortByDate, getFaves } from "../../helpers/sortSearch";
-import produce from "immer";
+import { getFaves } from "../../helpers/sortSearch";
 
 const favesReducer = (state = [], action) => {
   switch (action.type) {

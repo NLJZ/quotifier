@@ -1,4 +1,3 @@
-import produce from "immer";
 const tagFilterReducer = (state = [], action) => {
   switch (action.type) {
     case "ADD_TO_TAG_FILTER":

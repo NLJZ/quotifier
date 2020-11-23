@@ -1,5 +1,4 @@
 import { getAllTags } from "../../helpers/sortSearch";
-import produce from "immer";
 
 const favesReducer = (state = [], action) => {
   switch (action.type) {

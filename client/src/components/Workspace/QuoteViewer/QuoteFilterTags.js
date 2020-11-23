@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   filterQuotesByTag,
@@ -14,7 +14,6 @@ const QuoteFilterTags = (props) => {
   const currentView = props.currentView;
   const [show, setShow] = useState(false);
   const quotesState = useSelector((state) => state.quotes);
-
   const tagFilterArray = useSelector((state) => state.tagFilter);
   const tags = useSelector((state) => state.tags);
 
@@ -58,6 +57,8 @@ const QuoteFilterTags = (props) => {
           {tag}
         </li>
       );
+    } else {
+      return null;
     }
   });
 
@@ -79,7 +80,6 @@ const QuoteFilterTags = (props) => {
           <button>Run Filter</button>
         </div>
       </div>
-      <div className="sourcesFilter"></div>
     </section>
   );
 };

@@ -9,7 +9,6 @@ import currentView from "./currentView";
 import tags from "./tagsReducer";
 import workspaceHeader from "./headerText";
 import tagFilter from "./tagFilter";
-import sourceFilter from "./sourceFilter";
 import { combineReducers } from "redux";
 
 const appReducer = combineReducers({
@@ -21,7 +20,6 @@ const appReducer = combineReducers({
   favorites,
   filteredQuotes,
   tagFilter,
-  sourceFilter,
   quoteViewer,
   currentView,
   workspaceHeader,
