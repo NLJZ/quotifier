@@ -79,7 +79,7 @@ const QuoteContainer = (props) => {
   }
 
   return (
-    <div className="quote-container-closed text">
+    <div className="quote-container-closed qc-text">
       {quoteContainer}
       <button className="qc-button" onClick={openContainer}>
         {buttonOpen}

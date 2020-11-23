@@ -13,10 +13,13 @@ const QuoteContainerOpen = (props) => {
         <p className="bold">Quote:</p>"{props.quoteBody}"
       </span>
 
-      <ul className="qc-tags">
-        <p className="bold">Tags: </p>
-        <li className="qc-tags-single">{props.tags} </li>
-      </ul>
+      <div className="qc-tags">
+        <span className="qc-tags-single">
+          {" "}
+          <p className="bold">Tags: </p>
+          {props.tags}{" "}
+        </span>
+      </div>
 
       <span className="qc-span">
         <p className="bold">Notes:</p> <p> {props.quoteNotes}</p>
