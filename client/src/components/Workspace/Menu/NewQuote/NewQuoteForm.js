@@ -151,11 +151,11 @@ const NewQuoteForm = (props) => {
 
   return (
     <form className="nq-form-form" onSubmit={handleSubmit}>
-      <div class="form-row-input">
-        <div class="col-left">
+      <div className="form-row-input">
+        <div className="col-left">
           <p className="nqf-bold">Source:</p>
         </div>
-        <div class="col-1-of-2">
+        <div className="col-1-of-2">
           <select
             className="nq-input"
             onChange={(e) => changeSourceId(e.target.value)}
@@ -170,7 +170,7 @@ const NewQuoteForm = (props) => {
             ))}
           </select>
         </div>
-        <div class="col-2-of-2">
+        <div className="col-2-of-2">
           {" "}
           <button className="nq-button ns-form-trigger" onClick={onClickSource}>
             add source
@@ -182,11 +182,11 @@ const NewQuoteForm = (props) => {
         ref={dropdownRef}
         className={`ns-form ${isClicked ? "active" : "inactive"}`}
       >
-        <div class="form-row-input">
-          <div class="col-left">
+        <div className="form-row-input">
+          <div className="col-left">
             <p className="nqf-bold">Source Title:</p>
           </div>
-          <div class="col-1-of-2">
+          <div className="col-1-of-2">
             <input
               type="textarea"
               name="sourceTitle"
@@ -197,14 +197,14 @@ const NewQuoteForm = (props) => {
               autoComplete="on"
             />
           </div>{" "}
-          <div class="col-2-of-2"></div>
+          <div className="col-2-of-2"></div>
         </div>
 
-        <div class="form-row-input">
-          <div class="col-left">
+        <div className="form-row-input">
+          <div className="col-left">
             <p className="nqf-bold">Source Info:</p>
           </div>
-          <div class="col-1-of-2">
+          <div className="col-1-of-2">
             <input
               type="textarea"
               name="sourceInfo"
@@ -215,15 +215,15 @@ const NewQuoteForm = (props) => {
               autoComplete="on"
             />{" "}
           </div>{" "}
-          <div class="col-2-of-2"></div>
+          <div className="col-2-of-2"></div>
         </div>
       </div>
 
-      <div class="form-row-input">
-        <div class="col-left">
+      <div className="form-row-input">
+        <div className="col-left">
           <p className="nqf-bold">Quote:</p>
         </div>
-        <div class="col-1-of-2">
+        <div className="col-1-of-2">
           <textarea
             type="textarea"
             name="quoteBody"
@@ -235,14 +235,14 @@ const NewQuoteForm = (props) => {
             required
           />{" "}
         </div>
-        <div class="col-2-of-2"></div>
+        <div className="col-2-of-2"></div>
       </div>
 
-      <div class="form-row-input">
-        <div class="col-left">
+      <div className="form-row-input">
+        <div className="col-left">
           <p className="nqf-bold">Tags:</p>
         </div>
-        <div class="col-1-of-2">
+        <div className="col-1-of-2">
           {/* <div className="tags-button"> */}
           <input
             type="text"
@@ -254,16 +254,16 @@ const NewQuoteForm = (props) => {
             }}
           />
         </div>
-        <div class="col-2-of-2">
+        <div className="col-2-of-2">
           {" "}
           <button className="nq-button" onClick={(e) => addTags(e)}>
             click
           </button>
         </div>
       </div>
-      <div class="form-row-input">
-        <div class="col-left"></div>
-        <div class="col-1-of-2 col-tags">
+      <div className="form-row-input">
+        <div className="col-left"></div>
+        <div className="col-1-of-2 col-tags">
           {" "}
           <div>
             {tagsArr.map((tag, i) => {
@@ -272,14 +272,14 @@ const NewQuoteForm = (props) => {
           </div>
         </div>
 
-        <div class="col-2-of-2"></div>
+        <div className="col-2-of-2"></div>
       </div>
 
-      <div class="form-row-input">
-        <div class="col-left">
+      <div className="form-row-input">
+        <div className="col-left">
           <p className="nqf-bold">Notes:</p>
         </div>
-        <div class="col-1-of-2">
+        <div className="col-1-of-2">
           <input
             type="text"
             name="userNotes"
@@ -290,14 +290,14 @@ const NewQuoteForm = (props) => {
             autoComplete="on"
           />
         </div>
-        <div class="col-2-of-2"></div>
+        <div className="col-2-of-2"></div>
       </div>
 
-      <div class="form-row-input">
-        <div class="col-left">
+      <div className="form-row-input">
+        <div className="col-left">
           <p className="nqf-bold">Page:</p>
         </div>
-        <div class="col-1-of-2">
+        <div className="col-1-of-2">
           <input
             type="text"
             name="location"
@@ -308,14 +308,14 @@ const NewQuoteForm = (props) => {
             autoComplete="on"
           />
         </div>
-        <div class="col-2-of-2"></div>
+        <div className="col-2-of-2"></div>
       </div>
 
-      <div class="form-row-input">
-        <div class="col-left">
+      <div className="form-row-input">
+        <div className="col-left">
           <p className="nqf-bold">Favorite:</p>
         </div>
-        <div class="col-fav">
+        <div className="col-fav">
           <input
             type="checkbox"
             name="fave"
@@ -326,11 +326,11 @@ const NewQuoteForm = (props) => {
             autoComplete="on"
           />
         </div>
-        <div class="col-2-of-2"></div>
+        <div className="col-2-of-2"></div>
       </div>
 
-      <div class="form-row">
-        <div class="col-1-of-1-button">
+      <div className="form-row">
+        <div className="col-1-of-1-button">
           {" "}
           <button className="nq-button-submit" type="submit" value="Submit">
             Submit

@@ -83,11 +83,11 @@ const NewSourceForm = (props) => {
   return (
     // <div className={`nq-form ${isActive ? "active" : "inactive"}`}>
     <form className="nq-form-form" onSubmit={handleSubmit}>
-      <div class="form-row-input">
-        <div class="col-left">
+      <div className="form-row-input">
+        <div className="col-left">
           <p className="nqf-bold">Source Title:</p>
         </div>
-        <div class="col-1-of-2">
+        <div className="col-1-of-2">
           <input
             type="textarea"
             name="sourceTitle"
@@ -98,14 +98,14 @@ const NewSourceForm = (props) => {
             autoComplete="on"
           />
         </div>
-        <div class="col-2-of-2"></div>
+        <div className="col-2-of-2"></div>
       </div>
 
-      <div class="form-row-input">
-        <div class="col-left">
+      <div className="form-row-input">
+        <div className="col-left">
           <p className="nqf-bold">Source Info:</p>
         </div>
-        <div class="col-1-of-2">
+        <div className="col-1-of-2">
           <input
             type="textarea"
             name="sourceInfo"
@@ -116,11 +116,11 @@ const NewSourceForm = (props) => {
             autoComplete="on"
           />{" "}
         </div>{" "}
-        <div class="col-2-of-2"></div>
+        <div className="col-2-of-2"></div>
       </div>
 
-      <div class="form-row">
-        <div class="col-1-of-1-button">
+      <div className="form-row">
+        <div className="col-1-of-1-button">
           <button
             // onClick={onOpenCloseClick}
             className="nq-button-submit"
