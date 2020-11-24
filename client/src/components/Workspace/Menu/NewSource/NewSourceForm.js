@@ -45,6 +45,10 @@ const NewSourceForm = (props) => {
   //     setSourceId(source);
   //   };
 
+  function closeForm() {
+    props.closeForm();
+  }
+
   const submitFormSource = async () => {
     let newSource;
     await axios(optionSource)
@@ -54,6 +58,7 @@ const NewSourceForm = (props) => {
         console.log(`${source._id}`);
         // changeSourceId(`${source._id}`);
         // setSourceAdded(true);
+        closeForm();
       })
       .catch((error) => {
         console.log(error.response);

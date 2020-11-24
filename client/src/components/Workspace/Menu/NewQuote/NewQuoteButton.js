@@ -20,7 +20,7 @@ function NewQuoteFormButton() {
       </button>
 
       <div className={`nq-form ${isActive ? "active" : "inactive"}`}>
-        <NewQuoteForm />
+        <NewQuoteForm closeForm={onOpenCloseClick} isActive={isActive} />
 
         <button onClick={onOpenCloseClick} className="nq-form-button-close">
           <FontAwesomeIcon className="test-test" icon={faTimes} />

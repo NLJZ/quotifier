@@ -1,5 +1,12 @@
 import React, { useState, useRef, useEffect } from "react";
-import { addQuote, addSource, showAllSources } from "../../../../redux/actions";
+import {
+  addQuote,
+  addSource,
+  showAllSources,
+  showAllQuotes,
+  showRecentQuotes,
+  showFavoriteQuotes,
+} from "../../../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { getOneQuote } from "../../../../helpers/getUserData";
 
@@ -22,7 +29,8 @@ const NewQuoteForm = (props) => {
   const [quoteAdded, setQuoteAdded] = useState(false);
   const [sourceTitle, setSourceTitle] = useState("");
   const [sourceInfo, setSourceInfo] = useState("");
-  const currentView = props.currentView;
+  const quotesState = useSelector((state) => state.quotes);
+  const currentView = useSelector((state) => state.currentView);
   const dispatch = useDispatch();
 
   const dropdownRef = useRef(null);
@@ -36,8 +44,18 @@ const NewQuoteForm = (props) => {
     if (Boolean(sourceAdded)) {
       submitFormQuote();
       setSourceAdded(false);
+      showAll();
+      closeForm();
+    } else if (Boolean(quoteAdded)) {
+      setQuoteAdded(false);
+      showAll();
+      closeForm();
     }
   });
+
+  function closeForm() {
+    props.closeForm();
+  }
 
   const optionQuote = {
     url: "/api/v1/data/addQuote",
@@ -74,15 +92,15 @@ const NewQuoteForm = (props) => {
     setSourceId(source);
   };
 
-  // const showAll = () => {
-  //   if (currentView === "all") {
-  //     dispatch(showAllQuotes(quotesState));
-  //   } else if (currentView === "recent") {
-  //     dispatch(showRecentQuotes(quotesState));
-  //   } else if (currentView === "favorites") {
-  //     dispatch(showFavoriteQuotes(quotesState));
-  //   }
-  // };
+  const showAll = () => {
+    if (currentView === "all") {
+      dispatch(showAllQuotes(quotesState));
+    } else if (currentView === "recent") {
+      dispatch(showRecentQuotes(quotesState));
+    } else if (currentView === "favorites") {
+      dispatch(showFavoriteQuotes(quotesState));
+    }
+  };
 
   const submitFormSource = async () => {
     let newSource;

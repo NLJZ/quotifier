@@ -8,7 +8,7 @@ import {
   loadFaves,
   loadTags,
 } from "../../../redux/actions";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { getSources, getQuotes } from "../../../helpers/getUserData";
 import LoadingAnimation from "../../Animation/LoadingAnimation";
 
