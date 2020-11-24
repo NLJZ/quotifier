@@ -138,7 +138,10 @@ const NewQuoteForm = (props) => {
         </div>
         <div class="col-2-of-2">
           {" "}
-          <button className="nq-button ns-form-trigger" onClick={onClickSource}>
+          <button
+            className="nq-button ns-form-trigger nq-form-button"
+            onClick={onClickSource}
+          >
             add source
           </button>
         </div>
@@ -222,8 +225,11 @@ const NewQuoteForm = (props) => {
         </div>
         <div class="col-2-of-2">
           {" "}
-          <button className="nq-button" onClick={(e) => addTags(e)}>
-            click
+          <button
+            className="nq-button nq-form-button"
+            onClick={(e) => addTags(e)}
+          >
+            add tag
           </button>
         </div>
       </div>
@@ -298,7 +304,11 @@ const NewQuoteForm = (props) => {
       <div class="form-row">
         <div class="col-1-of-1-button">
           {" "}
-          <button className="nq-button-submit" type="submit" value="Submit">
+          <button
+            className="nq-button-submit nq-form-button"
+            type="submit"
+            value="Submit"
+          >
             Submit
           </button>
         </div>

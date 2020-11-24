@@ -93,7 +93,7 @@ const NewSourceForm = (props) => {
             autoComplete="on"
           />
         </div>
-        <div class="col-2-of-2"></div>
+        {/* <div class="col-2-of-2"></div> */}
       </div>
 
       <div class="form-row-input">
@@ -111,7 +111,7 @@ const NewSourceForm = (props) => {
             autoComplete="on"
           />{" "}
         </div>{" "}
-        <div class="col-2-of-2"></div>
+        {/* <div class="col-2-of-2"></div> */}
       </div>
 
       <div class="form-row">

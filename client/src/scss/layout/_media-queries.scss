@@ -1,9 +1,3 @@
-//-----------------media queries-----------------------------
-
-//-----quote viewer---------------------------
-
-//--------------------workspace-nav-left-responsive---------------
-
 //--------------------login-nav-top----------------------------
 
 @media only screen and (min-width: 800px) {
@@ -19,6 +13,8 @@
     visibility: visible;
   }
 
+  //-----workspace---//
+
   div.ws-main {
     // background-color: blue;
   }
@@ -28,8 +24,6 @@
   }
 
   section.ws-left {
-    // min-width: 20vw;
-    // background-color: purple;
     visibility: hidden;
     width: 0;
     // background-color: blue;
@@ -45,7 +39,6 @@
     display: flex;
     justify-content: left;
     padding-top: 2rem;
-    background-color: red;
   }
 
   .ws-menu-left-items {
@@ -61,78 +54,81 @@
     border-bottom: 1px $base-color-light solid;
   }
 
-  // .workspace-menu-left-items-button {
-  //   @include buttonUnStyle;
-  // }
+  //---------form---------//
 
-  // .nq-form-form {
-  //   // list-style: none;
-  //   @include justifyCenter;
-  //   padding: 3rem;
-  //   margin: 0;
-  //   background-color: $base-color-light;
-  //   border: rgb(0, 0, 0) solid 1px;
-  //   border-radius: 20px;
-  //   flex-direction: column;
-  //   align-items: center;
-  //   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.726);
-  //   position: absolute;
-  // }
+  .nq-form-form {
+    padding: 1.5rem;
+  }
 
   .nq-input {
     width: 18rem;
-    // height: 3rem;
-    // margin: 1rem;
-    // border-radius: 25px;
-    // padding-left: 1rem;
-    // outline: none;
-    // background-color: $base-color-light;
+    height: 2.5rem;
   }
 
   .nq-input-body {
     width: 18rem;
-    height: 15rem;
-    margin: 1rem;
-    border-radius: 25px;
-    padding-left: 1rem;
-    outline: none;
-    background-color: $base-color-light;
+    height: 10rem;
   }
 
-  //-----form grid--------
+  .nq-input,
+  .nq-input-body {
+    margin: 0.5rem;
+  }
+
+  .nq-form-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .nq-form-button-close,
+  .ns-form-button-close {
+    // align-self: center;
+    // position: fixed;
+    border: yellow 1px solid;
+  }
+
+  .ns-form-button-close {
+    // top: -200px;
+    // right: 0px;
+  }
+
+  .nq-form-button-close {
+    top: -500px;
+    right: -490px;
+  }
+
+  //-----form grid-------//
 
   .form-row-label,
   .form-row-input {
     display: flex;
-    flex-direction: column;
-    border: 1px black solid;
+    flex-direction: row;
+    // border: 1px black solid;
   }
 
   .col-1-of-1 {
-    // border: 1px solid yellow;
     width: 30rem;
+    // border: 1px solid red;
   }
 
   .col-1-of-2 {
-    // border: 1px solid yellow;
-    width: 20rem;
+    width: 19rem;
+    // border: 1px solid green;
   }
 
   .col-2-of-2 {
     display: flex;
-    // align-items: center;
-    border: 1px solid yellow;
-    justify-content: center;
     // border: 1px solid yellow;
-    width: 100%;
+    justify-content: flex-start;
+    width: 6.5rem;
   }
 
   .col-left {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    // border: 1px solid yellow;
-    width: 10rem;
+    width: 5rem;
+    // border: 1px solid blue;
   }
 
   .col-tags div {
@@ -143,21 +139,20 @@
   }
 
   .col-tags span {
-    border: 1px black solid;
+    // border: 1px black solid;
     padding: 0.3rem 1rem;
     border-radius: 30px;
     margin: 0.2rem;
   }
 
   .col-fav {
-    width: 30rem;
+    width: 19rem;
     display: flex;
     justify-content: center;
   }
 
   .nq-input-fav {
     justify-content: center;
-
     width: 3rem;
     height: 1.5rem;
     margin: 1rem;
@@ -166,17 +161,19 @@
     outline: none;
   }
 
-  //----buttons----
+  //----buttons----//
 
-  .nq-button {
-    color: $base-color-dark;
-    border: 1px solid black;
+  .nq-button-submit {
+    margin-top: 1rem;
   }
 
+  .nq-button,
+  button.nq-form-button,
   li.ws-resp-menu-items button {
-    // display: flex;
-    // justify-self: center;
-    // border: 1px solid black;
-    // color: $base-color-dark;
+    color: $base-color-dark;
+    border: 1px black solid;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border-radius: 30px;
   }
 }
