@@ -13,12 +13,16 @@ import FavoriteQuotes from "../FavoriteQuotes";
 
 const WorkspaceMenuLeftOpen = () => {
   // const dropdownRef = useRef(null);
-  // const [isActive, setIsActive] = useState(false);
-  // const onClickDrop = () => setIsActive(!isActive);
+  const [isActive, setIsActive] = useState(false);
+  const onClickInactive = () => setIsActive(true);
   // const iconSearch = <FontAwesomeIcon className="test-test" icon={faSearch} />;
   return (
     <>
-      <ul className="ws-menu-left-items ws-menu-left-container">
+      <ul
+        className={`ws-menu-left-test ${
+          isActive ? "inactive" : "active"
+        } ws-menu-left-items ws-menu-left-container`}
+      >
         <li className="ws-menu-left-items-button-big ws-menu-left-items-search-li">
           <input
             type="text"
@@ -29,7 +33,7 @@ const WorkspaceMenuLeftOpen = () => {
         </li>
 
         <li className="ws-menu-left-items-button-big ">
-          <NewQuoteFormButton />
+          <NewQuoteFormButton onClick={onClickInactive} />
         </li>
 
         <li className="ws-menu-left-items-button-big ">

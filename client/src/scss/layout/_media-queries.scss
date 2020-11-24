@@ -75,16 +75,19 @@
     margin: 0.5rem;
   }
 
-  .nq-form-container {
-    display: flex;
-    flex-direction: column;
+  .nq-form {
+    // display: flex;
+    // flex-direction: column;
+    border: 1px yellow solid;
   }
 
   .nq-form-button-close,
   .ns-form-button-close {
-    // align-self: center;
+    align-self: center;
     // position: fixed;
-    border: yellow 1px solid;
+    // border: yellow 1px solid;
+    width: 3rem;
+    height: 3rem;
   }
 
   .ns-form-button-close {
@@ -93,8 +96,8 @@
   }
 
   .nq-form-button-close {
-    top: -500px;
-    right: -490px;
+    // top: -500px;
+    // right: -490px;
   }
 
   //-----form grid-------//
@@ -113,12 +116,12 @@
 
   .col-1-of-2 {
     width: 19rem;
-    // border: 1px solid green;
+    border: 1px solid green;
   }
 
   .col-2-of-2 {
     display: flex;
-    // border: 1px solid yellow;
+    border: 1px solid yellow;
     justify-content: flex-start;
     width: 6.5rem;
   }
@@ -128,7 +131,7 @@
     align-items: center;
     justify-content: flex-end;
     width: 5rem;
-    // border: 1px solid blue;
+    border: 1px solid blue;
   }
 
   .col-tags div {
@@ -167,13 +170,18 @@
     margin-top: 1rem;
   }
 
-  .nq-button,
-  button.nq-form-button,
-  li.ws-resp-menu-items button {
-    color: $base-color-dark;
-    border: 1px black solid;
-    padding: 0.5rem;
-    font-size: 1rem;
+  // button {
+  //   color: $base-color-dark;
+  //   border: 1px black solid;
+  //   padding: 0.5rem;
+  //   font-size: 1rem;
+  //   border-radius: 30px;
+  // }
+
+  .nq-button {
+    background-color: $base-color-light;
+    border: $base-color-dark solid 1px;
+    padding: 0.5rem 1.5rem;
     border-radius: 30px;
   }
 }
