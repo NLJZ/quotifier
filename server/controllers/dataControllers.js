@@ -46,7 +46,7 @@ dataControllers.addSource = async (req, res) => {
 dataControllers.addQuote = async (req, res) => {
   const currentUser = res.locals.user;
   Source.findById(req.body.source)
-    .then((source) => {
+    .then(async (source) => {
       if (source) {
         const quote = new Quote({
           _id: new mongoose.Types.ObjectId(),

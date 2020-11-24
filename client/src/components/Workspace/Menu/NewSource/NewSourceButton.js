@@ -20,7 +20,7 @@ function NewSourceFormButton() {
       </button>
 
       <div className={`nq-form ${isActive ? "active" : "inactive"}`}>
-        <NewSourceForm />
+        <NewSourceForm closeForm={onOpenCloseClick} isActive={isActive} />
 
         <button onClick={onOpenCloseClick} className="ns-form-button-close">
           <FontAwesomeIcon className="test-test" icon={faTimes} />
