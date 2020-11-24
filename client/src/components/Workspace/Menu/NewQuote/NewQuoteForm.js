@@ -6,6 +6,7 @@ import {
   showAllQuotes,
   showRecentQuotes,
   showFavoriteQuotes,
+  loadTags,
 } from "../../../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { getOneQuote } from "../../../../helpers/getUserData";
@@ -95,10 +96,13 @@ const NewQuoteForm = (props) => {
   const showAll = () => {
     if (currentView === "all") {
       dispatch(showAllQuotes(quotesState));
+      dispatch(loadTags(Object.values(quotesState)));
     } else if (currentView === "recent") {
       dispatch(showRecentQuotes(quotesState));
+      dispatch(loadTags(Object.values(quotesState)));
     } else if (currentView === "favorites") {
       dispatch(showFavoriteQuotes(quotesState));
+      dispatch(loadTags(Object.values(quotesState)));
     }
   };
 
