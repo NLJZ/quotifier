@@ -34,21 +34,39 @@ const NewQuoteForm = (props) => {
   const dispatch = useDispatch();
 
   const dropdownRef = useRef(null);
+
   const [isClicked, setIsClicked] = useState(false);
   const onClickSource = (e) => {
     e.preventDefault();
     setIsClicked(!isClicked);
   };
 
+  function clearState() {
+    setBody("");
+    setSourceId(undefined);
+    setTags("");
+    setTagsArr([]);
+    setUserNotes("");
+    setLocation("");
+    setFave(false);
+    setSourceAdded(false);
+    setQuoteAdded(false);
+    setSourceTitle("");
+    setSourceInfo("");
+    setIsClicked(false);
+  }
+
   useEffect(() => {
     if (Boolean(sourceAdded)) {
       submitFormQuote();
       setSourceAdded(false);
       showAll();
+      clearState();
       closeForm();
     } else if (Boolean(quoteAdded)) {
       setQuoteAdded(false);
       showAll();
+      clearState();
       closeForm();
     }
   });
@@ -86,7 +104,6 @@ const NewQuoteForm = (props) => {
       sourceInfo: sourceInfo,
     },
   };
-  let returnedSource;
 
   const changeSourceId = (source) => {
     setSourceId(source);
@@ -109,7 +126,6 @@ const NewQuoteForm = (props) => {
         console.log(response);
         let source = response.data;
         dispatch(addSource(source));
-        console.log(`${source._id}`);
         changeSourceId(`${source._id}`);
         setSourceAdded(true);
       })
