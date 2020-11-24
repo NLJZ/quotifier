@@ -64,4 +64,119 @@
   // .workspace-menu-left-items-button {
   //   @include buttonUnStyle;
   // }
+
+  // .nq-form-form {
+  //   // list-style: none;
+  //   @include justifyCenter;
+  //   padding: 3rem;
+  //   margin: 0;
+  //   background-color: $base-color-light;
+  //   border: rgb(0, 0, 0) solid 1px;
+  //   border-radius: 20px;
+  //   flex-direction: column;
+  //   align-items: center;
+  //   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.726);
+  //   position: absolute;
+  // }
+
+  .nq-input {
+    width: 18rem;
+    // height: 3rem;
+    // margin: 1rem;
+    // border-radius: 25px;
+    // padding-left: 1rem;
+    // outline: none;
+    // background-color: $base-color-light;
+  }
+
+  .nq-input-body {
+    width: 18rem;
+    height: 15rem;
+    margin: 1rem;
+    border-radius: 25px;
+    padding-left: 1rem;
+    outline: none;
+    background-color: $base-color-light;
+  }
+
+  //-----form grid--------
+
+  .form-row-label,
+  .form-row-input {
+    display: flex;
+    flex-direction: column;
+    border: 1px black solid;
+  }
+
+  .col-1-of-1 {
+    // border: 1px solid yellow;
+    width: 30rem;
+  }
+
+  .col-1-of-2 {
+    // border: 1px solid yellow;
+    width: 20rem;
+  }
+
+  .col-2-of-2 {
+    display: flex;
+    // align-items: center;
+    border: 1px solid yellow;
+    justify-content: center;
+    // border: 1px solid yellow;
+    width: 100%;
+  }
+
+  .col-left {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    // border: 1px solid yellow;
+    width: 10rem;
+  }
+
+  .col-tags div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    list-style-type: none;
+  }
+
+  .col-tags span {
+    border: 1px black solid;
+    padding: 0.3rem 1rem;
+    border-radius: 30px;
+    margin: 0.2rem;
+  }
+
+  .col-fav {
+    width: 30rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  .nq-input-fav {
+    justify-content: center;
+
+    width: 3rem;
+    height: 1.5rem;
+    margin: 1rem;
+    border-radius: 25px;
+    padding-left: 1rem;
+    outline: none;
+  }
+
+  //----buttons----
+
+  .nq-button {
+    color: $base-color-dark;
+    border: 1px solid black;
+  }
+
+  li.ws-resp-menu-items button {
+    display: flex;
+    justify-self: center;
+    border: 1px solid black;
+    color: $base-color-dark;
+  }
 }
