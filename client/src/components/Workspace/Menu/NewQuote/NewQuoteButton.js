@@ -20,13 +20,15 @@ function NewQuoteFormButton() {
         new quote
       </button>
 
-      <div className={`nq-form ${isActive ? "active" : "inactive"}`}>
-        <NewQuoteForm closeForm={onCloseClick} isActive={isActive} />
+      {isActive ? (
+        <div className={`nq-form ${isActive ? "active" : "inactive"}`}>
+          <NewQuoteForm closeForm={onCloseClick} isActive={isActive} />
 
-        <button onClick={onCloseClick} className="nq-form-button-close">
-          <FontAwesomeIcon className="test-test" icon={faTimes} />
-        </button>
-      </div>
+          <button onClick={onCloseClick} className="nq-form-button-close">
+            <FontAwesomeIcon className="test-test" icon={faTimes} />
+          </button>
+        </div>
+      ) : null}
     </div>
   );
 }
