@@ -9,13 +9,18 @@ const persistConfig = {
   storage,
 };
 
+const middleware =
+  process.env.NODE_ENV !== "production"
+    ? [require("redux-immutable-state-invariant").default(), thunk]
+    : [thunk];
+
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 export const store = createStore(
   persistedReducer,
-  composeEnhancers(applyMiddleware(thunk))
+  composeEnhancers(applyMiddleware(...middleware))
 );
 
 export const persistor = persistStore(store);
