@@ -8,9 +8,10 @@ import produce from "immer";
 const quotesReducer = (state = [], action) => {
   switch (action.type) {
     case "SHOW_ALL_QUOTES":
-      const baseState = [];
       const arr = sortByDate(action.payload, "new");
+      let baseState = [...state];
       const allQuotesArr = produce(baseState, (draft) => {
+        draft.splice(0, draft.length);
         arr.forEach((quote) => draft.push(quote));
       });
       return allQuotesArr;

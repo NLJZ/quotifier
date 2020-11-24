@@ -7,25 +7,28 @@ import NewQuoteForm from "./NewQuoteForm";
 
 function NewQuoteFormButton() {
   const [isActive, setIsActive] = useState(false);
-  const onOpenCloseClick = () => setIsActive(!isActive);
+  const onCloseClick = () => setIsActive(false);
+  const onOpenClick = () => setIsActive(true);
 
   return (
     <div className="nq-form-container">
       <button
-        onClick={onOpenCloseClick}
+        onClick={onOpenClick}
         className="ws-menu-left-items-button-new-quote nq-form-trigger"
       >
         <FontAwesomeIcon className="test-test" icon={faPlus} />
         new quote
       </button>
 
-      <div className={`nq-form ${isActive ? "active" : "inactive"}`}>
-        <NewQuoteForm />
+      {isActive ? (
+        <div className={`nq-form ${isActive ? "active" : "inactive"}`}>
+          <NewQuoteForm closeForm={onCloseClick} isActive={isActive} />
 
-        <button onClick={onOpenCloseClick} className="nq-form-button-close">
-          <FontAwesomeIcon className="test-test" icon={faTimes} />
-        </button>
-      </div>
+          <button onClick={onCloseClick} className="nq-form-button-close">
+            <FontAwesomeIcon className="test-test" icon={faTimes} />
+          </button>
+        </div>
+      ) : null}
     </div>
   );
 }

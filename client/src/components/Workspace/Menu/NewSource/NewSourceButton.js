@@ -19,13 +19,15 @@ function NewSourceFormButton() {
         new source
       </button>
 
-      <div className={`nq-form ${isActive ? "active" : "inactive"}`}>
-        <NewSourceForm />
+      {isActive ? (
+        <div className={`nq-form ${isActive ? "active" : "inactive"}`}>
+          <NewSourceForm closeForm={onOpenCloseClick} isActive={isActive} />
 
-        <button onClick={onOpenCloseClick} className="ns-form-button-close">
-          <FontAwesomeIcon className="test-test" icon={faTimes} />
-        </button>
-      </div>
+          <button onClick={onOpenCloseClick} className="ns-form-button-close">
+            <FontAwesomeIcon className="test-test" icon={faTimes} />
+          </button>
+        </div>
+      ) : null}
     </div>
   );
 }
