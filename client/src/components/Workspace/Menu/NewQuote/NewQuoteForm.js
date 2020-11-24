@@ -7,6 +7,7 @@ import {
   showRecentQuotes,
   showFavoriteQuotes,
   loadTags,
+  loadFaves,
 } from "../../../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { getOneQuote } from "../../../../helpers/getUserData";
@@ -37,6 +38,9 @@ const NewQuoteForm = (props) => {
   const dropdownRef = useRef(null);
 
   const [isClicked, setIsClicked] = useState(false);
+  function clickFave() {
+    setFave(!fave);
+  }
   const onClickSource = (e) => {
     e.preventDefault();
     setIsClicked(!isClicked);
@@ -100,9 +104,11 @@ const NewQuoteForm = (props) => {
     } else if (currentView === "recent") {
       dispatch(showRecentQuotes(quotesState));
       dispatch(loadTags(Object.values(quotesState)));
+      dispatch(loadFaves(Object.values(quotesState)));
     } else if (currentView === "favorites") {
       dispatch(showFavoriteQuotes(quotesState));
       dispatch(loadTags(Object.values(quotesState)));
+      dispatch(loadFaves(Object.values(quotesState)));
     }
   };
 
@@ -322,9 +328,8 @@ const NewQuoteForm = (props) => {
           <input
             type="checkbox"
             name="fave"
-            value={fave}
             className="nq-input-fav"
-            onChange={(e) => setFave(e.target.value)}
+            onChange={clickFave}
             placeholder="fave"
             autoComplete="on"
           />
