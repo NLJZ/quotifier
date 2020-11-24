@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { addQuote, addSource, showAllSources } from "../../../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
+import { getOneQuote } from "../../../../helpers/getUserData";
 
 const axios = require("axios");
 
@@ -21,6 +22,7 @@ const NewQuoteForm = (props) => {
   const [quoteAdded, setQuoteAdded] = useState(false);
   const [sourceTitle, setSourceTitle] = useState("");
   const [sourceInfo, setSourceInfo] = useState("");
+  const currentView = props.currentView;
   const dispatch = useDispatch();
 
   const dropdownRef = useRef(null);
@@ -72,10 +74,21 @@ const NewQuoteForm = (props) => {
     setSourceId(source);
   };
 
+  // const showAll = () => {
+  //   if (currentView === "all") {
+  //     dispatch(showAllQuotes(quotesState));
+  //   } else if (currentView === "recent") {
+  //     dispatch(showRecentQuotes(quotesState));
+  //   } else if (currentView === "favorites") {
+  //     dispatch(showFavoriteQuotes(quotesState));
+  //   }
+  // };
+
   const submitFormSource = async () => {
     let newSource;
     await axios(optionSource)
       .then((response) => {
+        console.log(response);
         let source = response.data;
         dispatch(addSource(source));
         console.log(`${source._id}`);
@@ -90,9 +103,12 @@ const NewQuoteForm = (props) => {
 
   const submitFormQuote = async () => {
     await axios(optionQuote)
-      .then((response) => {
+      .then(async (response) => {
+        console.log(response);
         let quote = response.data;
-        dispatch(addQuote(quote));
+        const quoteFetch = await getOneQuote(quote._id);
+        const newQuote = quoteFetch[0];
+        dispatch(addQuote(newQuote));
         console.log(quote);
         setQuoteAdded(true);
       })
