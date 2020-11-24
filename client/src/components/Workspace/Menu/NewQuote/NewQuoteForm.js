@@ -41,32 +41,15 @@ const NewQuoteForm = (props) => {
     setIsClicked(!isClicked);
   };
 
-  function clearState() {
-    setBody("");
-    setSourceId(undefined);
-    setTags("");
-    setTagsArr([]);
-    setUserNotes("");
-    setLocation("");
-    setFave(false);
-    setSourceAdded(false);
-    setQuoteAdded(false);
-    setSourceTitle("");
-    setSourceInfo("");
-    setIsClicked(false);
-  }
-
   useEffect(() => {
     if (Boolean(sourceAdded)) {
       submitFormQuote();
       setSourceAdded(false);
       showAll();
-      clearState();
       closeForm();
     } else if (Boolean(quoteAdded)) {
       setQuoteAdded(false);
       showAll();
-      clearState();
       closeForm();
     }
   });
