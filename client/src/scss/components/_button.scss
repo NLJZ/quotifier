@@ -202,13 +202,13 @@ li.ws-resp-menu-items button:hover {
 
 @media only screen and (max-width: 800px) {
   button.ws-menu-left-items-button-new-quote {
-    background-color: pink;
-    @include buttonUnStyle;
-    border: 0;
+    // background-color: pink;
+    // @include buttonUnStyle;
+    // border: 0;
   }
 
   .nq-form-trigger button:hover {
-    @include buttonUnStyle;
-    border: 0;
+    // @include buttonUnStyle;
+    // border: 0;
   }
 }
