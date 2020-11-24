@@ -1,10 +1,9 @@
-//------home section--------------------------------------
+//------home section--------//
 
 .about-single-button-dark {
   @include singleButton;
   background-color: $mid-color-mid;
   width: 10rem;
-  // padding: 1rem 2rem;
   margin-right: 2rem;
   outline: none;
 }
@@ -32,36 +31,19 @@
   box-shadow: 5px 10px rgba(14, 13, 13, 0.233);
 }
 
-//-------workspace-menu-top--------------------------
+//-------workspace-menu-top-----------//
 
-// .ws-menu-top-button-single {
-//   margin: 1rem 2rem;
-// }
-
-//-------workspace-menu-left--------------------------
-
-.ws-menu-left-items-button-new-quote {
-  // background-color: $mid-color-dark;
-  // border: $base-color-light;
-}
-.ws-menu-left-items-buttons.menu-left-trigger {
-  // color: $base-color-light;
-  // padding-right: 0.5rem;
-}
-
-li.ws-menu-left-items-button-big {
-  // @include buttonUnStyle;
-  // background-color: $mid-color-mid;
-  // border-radius: 30px;
-  // border: $mid-color-light solid 1px;
-  // padding: 0.2rem 1.5rem;
-}
+//-------workspace-menu-left----------//
 
 li.ws-menu-left-items-button-big,
-.sws-menu-left-items-button-big-col {
+.ws-menu-left-items-button-big-col {
   padding: 0.8rem 1rem;
   // border: 1px $base-color-light solid;
   @include justifyCenter;
+}
+
+.ws-menu-left-items-button-big-col:hover {
+  // background-color: $mid-color-light;
 }
 
 .ws-menu-left-items-button-big:first-child {
@@ -91,7 +73,16 @@ button.ws-menu-left-icon-folder {
   color: $base-color-light;
 }
 
-//---------------login-form-----------------------------
+.ws-menu-left-items-button-new-quote {
+  display: flex;
+  align-self: flex-start;
+}
+
+.ws-menu-left-items-button {
+  // @include buttonUnStyle;
+}
+
+//--------login-form-----------//
 
 .sign-in-button,
 .register-button {
@@ -108,14 +99,13 @@ button.ws-menu-left-icon-folder {
   outline: none;
 }
 
-//--------------workspace-new-quote-form---------------------------
+//--------workspace-new-quote-form-------//
 
 .nq-form-button-close,
 .ns-form-button-close {
   @include buttonUnStyle;
   align-self: flex-start;
   position: relative;
-
   border: $base-color-dark 1px solid;
   display: flex;
   justify-content: center;
@@ -167,7 +157,7 @@ button.nq-button {
   border-radius: 30px;
 }
 
-//------------quote-container---------------
+//-------quote-container-------//
 
 button.qc-button {
   border: none;
@@ -175,3 +165,27 @@ button.qc-button {
   outline: none;
   padding-bottom: 0;
 }
+
+//----responsive--menu-----//
+
+// li.ws-resp-menu-items {
+//   @include buttonUnStyle;
+//   padding: 1rem;
+//   color: $base-color-light;
+//   font-size: 1.5rem;
+//   box-shadow: none;
+//   border: none;
+//   border-radius: 0;
+// }
+
+// .ws-menu-left-items-button-big:hover {
+//   transform: none;
+// }
+
+// .ws-resp-menu-items-search-bar {
+//   padding: 0.5rem;
+//   padding-left: 1rem;
+//   margin: 1rem;
+//   border-radius: 30px;
+//   outline: none;
+// }

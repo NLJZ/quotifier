@@ -18,7 +18,7 @@ function App() {
   const isLogged = useSelector((state) => state.isLogged);
   return (
     <Router>
-      <div className="app">
+      <div className="app app-all">
         {isLogged ? <NavLogin /> : <Nav />}
         <Switch>
           <Route

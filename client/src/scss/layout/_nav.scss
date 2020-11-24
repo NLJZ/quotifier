@@ -16,7 +16,8 @@
 .nav-container-login {
   min-width: 100%;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  // justify-content: flex-end;
   background-color: $mid-color-light;
   position: fixed;
   z-index: 2;
@@ -50,9 +51,9 @@
 //--------------------login-nav-top----------------------------
 
 .menu-top-icons {
-  // border: 1px rgb(0, 35, 231) solid;
   display: flex;
   padding-right: 1rem;
+  // border: 1px blue solid;
 }
 
 //--------------------workspace-nav-left-----------------
@@ -61,12 +62,22 @@
   padding-top: 2rem;
   flex-direction: column;
   justify-content: space-between;
-  height: 20vh;
-  border: yellow 1px solid;
+  // height: 20vh;
+  // border: yellow 1px solid;
   display: flex;
   background: $mid-color-dark;
-  height: 80vh;
+  height: 95vh;
+  // position: fixed;
+  // z-index: 1;
+  // top: 0;
+  // left: 0;
 }
+
+// .ws-menu-left {
+//   display: flex;
+//   justify-content: left;
+//   padding-top: 2rem;
+// }
 
 .ws-menu-left-items {
   // width: 100%;
@@ -75,7 +86,7 @@
   align-items: center;
 }
 
-.ws-menu-left-items-link {
+li.ws-menu-left-items-link {
   padding: 1rem 0;
   @include justifyCenter;
   // align-self: flex-start;
@@ -84,15 +95,9 @@
 .ws-menu-left-items-link:hover {
   // border-bottom: 1px $base-color-light solid;
   background-color: $mid-color-light;
+  border-bottom: 1px $base-color-light solid;
+
   width: 100%;
-}
-
-.ws-menu-left-items-button-big-col:hover {
-  background-color: $mid-color-light;
-}
-
-.ws-menu-left-items-button {
-  // @include buttonUnStyle;
 }
 
 .search-placeholder {
@@ -111,15 +116,4 @@
   border: $mid-color-light solid 1px;
   padding: 0.5rem 1rem;
   width: auto;
-}
-
-//--------------------workspace-nav-left-collapsible-----------------
-
-.folder-menu {
-}
-
-.icon-folder-trigger {
-}
-
-.ws-menu-left-button-collapsible {
 }

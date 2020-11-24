@@ -17,11 +17,9 @@ const AllQuotes = () => {
   };
   return (
     <React.Fragment>
-      <li className="ws-menu-left-items-link">
-        <button onClick={showQuotes} type="submit">
-          <FontAwesomeIcon className="test-test" icon={faEye} /> All Quotes
-        </button>
-      </li>
+      <button onClick={showQuotes} type="submit">
+        <FontAwesomeIcon className="test-test" icon={faEye} /> All Quotes
+      </button>
     </React.Fragment>
   );
 };

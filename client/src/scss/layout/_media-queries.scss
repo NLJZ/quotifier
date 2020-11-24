@@ -1,34 +1,220 @@
-//-----------------media queries-----------------------------
+//--------------------login-nav-top----------------------------
 
-//--------------------workspace-nav-left-responsive---------------
+@media only screen and (min-width: 800px) {
+  .menu-top-icons-resp {
+    // border: 1px yellow solid;
+    visibility: hidden;
+  }
+}
 
 @media only screen and (max-width: 800px) {
-  .ws-left {
-    min-width: 20vw;
-    background-color: purple;
+  .dd-resp-menu.active {
+    opacity: 1;
+    visibility: visible;
   }
 
-  .ws-menu-left {
+  //-----workspace---//
+
+  div.ws-main {
+    // background-color: blue;
+  }
+
+  .qv {
+    // background-color: yellow;
+  }
+
+  section.ws-left {
+    visibility: hidden;
+    width: 0;
+    // background-color: blue;
+  }
+
+  div.ws {
+    background-color: $base-color-light;
     display: flex;
-    justify-content: left;
-    padding-top: 2rem;
-    background-color: red;
+    justify-content: center;
   }
 
-  .ws-menu-left-items {
-    //  width: 100%;
+  //---------form---------//
+
+  .nq-form-form {
+    padding: 1.5rem;
   }
 
-  .ws-menu-left-items-link {
+  .nq-input {
+    width: 18rem;
+    height: 2.5rem;
+  }
+
+  .nq-input-body {
+    width: 18rem;
+    height: 10rem;
+  }
+
+  .nq-input,
+  .nq-input-body {
+    margin: 0.5rem;
+  }
+
+  .nq-form {
+    // display: flex;
+    // flex-direction: column;
+    border: 1px yellow solid;
+  }
+
+  //-----form grid-------//
+
+  .form-row-label,
+  .form-row-input {
+    display: flex;
+    flex-direction: row;
+    // border: 1px black solid;
+  }
+
+  .col-1-of-1 {
+    width: 30rem;
+    // border: 1px solid red;
+  }
+
+  .col-1-of-2 {
+    width: 19rem;
+    // border: 1px solid green;
+  }
+
+  .col-2-of-2 {
+    display: flex;
+    // border: 1px solid yellow;
+    justify-content: flex-start;
+    width: 8rem;
+  }
+
+  .col-left {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 5rem;
+    // border: 1px solid blue;
+  }
+
+  .col-tags div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    list-style-type: none;
+  }
+
+  .col-tags span {
+    // border: 1px black solid;
+    padding: 0.3rem 1rem;
+    border-radius: 30px;
+    margin: 0.2rem;
+  }
+
+  .col-fav {
+    width: 19rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  .nq-input-fav {
+    justify-content: center;
+    width: 3rem;
+    height: 1.5rem;
+    margin: 1rem;
+    border-radius: 25px;
+    padding-left: 1rem;
+    outline: none;
+  }
+
+  //----buttons----//
+
+  .nq-button-submit {
+    margin-top: 1rem;
+  }
+
+  .nq-button,
+  .nq-button-submit {
+    background-color: $base-color-light;
+    border: $base-color-dark solid 1px;
+    padding: 0.4rem 1rem;
+    border-radius: 30px;
+    font-size: 1rem;
+  }
+
+  .nq-button:hover,
+  .nq-button-submit:hover {
+    background-color: $mid-color-light;
+    border: $base-color-dark solid 1px;
+  }
+
+  .nq-form {
+    position: absolute;
+    // display: flex;
+    // flex-direction: column;
+    background-color: $mid-color-dark;
+    height: 100vh;
+  }
+
+  .nq-form-form {
+    position: relative;
+  }
+
+  .nq-form-button-close,
+  .ns-form-button-close {
+    position: relative;
+    width: 3rem;
+    height: 3rem;
+    border: 2px black solid;
+  }
+
+  .ns-form-button-close {
+    top: 100px;
+    right: -10px;
+  }
+
+  .nq-form-button-close {
+    top: 700px;
+    right: 0px;
+  }
+
+  //----responsive menu dropdown
+
+  .ws-resp-menu-items > * {
+    @include buttonUnStyle;
     padding: 1rem;
-    @include justifyCenter;
+    color: $base-color-light;
+    font-size: 1.5rem;
+    box-shadow: none;
+    border: none;
+    border-radius: 0;
+    padding-left: 1rem;
   }
 
-  .ws-menu-left-items-link:hover {
-    border-bottom: 1px $base-color-light solid;
+  .ws-resp-menu-button > * > * {
+    border: none;
+    box-shadow: none;
+    padding: 0;
+  }
+  .ws-menu-left-items-search-li {
+    padding: 0.8rem;
   }
 
-  // .workspace-menu-left-items-button {
-  //   @include buttonUnStyle;
-  // }
+  .ws-resp-menu-button > * > * :hover {
+    transform: none;
+  }
+
+  .ws-resp-menu-items-search-bar {
+    padding: 0.3rem;
+    padding-left: 1rem;
+    border-radius: 30px;
+    outline: none;
+  }
+
+  .ws-menu-left-items-button-new-quote {
+    @include buttonUnStyle;
+  }
+
+  .ws-menu-left-items-button-new-quote:hover {
+    transform: none;
+  }
 }
