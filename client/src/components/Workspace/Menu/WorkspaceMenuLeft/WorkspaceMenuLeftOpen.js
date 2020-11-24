@@ -18,11 +18,7 @@ const WorkspaceMenuLeftOpen = () => {
   // const iconSearch = <FontAwesomeIcon className="test-test" icon={faSearch} />;
   return (
     <>
-      <ul
-        className={`ws-menu-left-test ${
-          isActive ? "inactive" : "active"
-        } ws-menu-left-items ws-menu-left-container`}
-      >
+      <ul className="ws-menu-left-items ws-menu-left-container">
         <li className="ws-menu-left-items-button-big ws-menu-left-items-search-li">
           <input
             type="text"
@@ -33,7 +29,7 @@ const WorkspaceMenuLeftOpen = () => {
         </li>
 
         <li className="ws-menu-left-items-button-big ">
-          <NewQuoteFormButton onClick={onClickInactive} />
+          <NewQuoteFormButton />
         </li>
 
         <li className="ws-menu-left-items-button-big ">

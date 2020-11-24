@@ -53,7 +53,7 @@
 .menu-top-icons {
   display: flex;
   padding-right: 1rem;
-  border: 1px blue solid;
+  // border: 1px blue solid;
 }
 
 //--------------------workspace-nav-left-----------------
@@ -62,12 +62,22 @@
   padding-top: 2rem;
   flex-direction: column;
   justify-content: space-between;
-  height: 20vh;
-  border: yellow 1px solid;
+  // height: 20vh;
+  // border: yellow 1px solid;
   display: flex;
   background: $mid-color-dark;
-  height: 80vh;
+  height: 95vh;
+  // position: fixed;
+  // z-index: 1;
+  // top: 0;
+  // left: 0;
 }
+
+// .ws-menu-left {
+//   display: flex;
+//   justify-content: left;
+//   padding-top: 2rem;
+// }
 
 .ws-menu-left-items {
   // width: 100%;
@@ -85,15 +95,9 @@ li.ws-menu-left-items-link {
 .ws-menu-left-items-link:hover {
   // border-bottom: 1px $base-color-light solid;
   background-color: $mid-color-light;
+  border-bottom: 1px $base-color-light solid;
+
   width: 100%;
-}
-
-.ws-menu-left-items-button-big-col:hover {
-  background-color: $mid-color-light;
-}
-
-.ws-menu-left-items-button {
-  // @include buttonUnStyle;
 }
 
 .search-placeholder {

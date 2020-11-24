@@ -36,10 +36,14 @@
 //-------workspace-menu-left----------//
 
 li.ws-menu-left-items-button-big,
-.sws-menu-left-items-button-big-col {
+.ws-menu-left-items-button-big-col {
   padding: 0.8rem 1rem;
   // border: 1px $base-color-light solid;
   @include justifyCenter;
+}
+
+.ws-menu-left-items-button-big-col:hover {
+  // background-color: $mid-color-light;
 }
 
 .ws-menu-left-items-button-big:first-child {
@@ -72,6 +76,10 @@ button.ws-menu-left-icon-folder {
 .ws-menu-left-items-button-new-quote {
   display: flex;
   align-self: flex-start;
+}
+
+.ws-menu-left-items-button {
+  // @include buttonUnStyle;
 }
 
 //--------login-form-----------//
@@ -160,24 +168,24 @@ button.qc-button {
 
 //----responsive--menu-----//
 
-li.ws-resp-menu-items button {
-  @include buttonUnStyle;
-  padding: 1rem;
-  color: $base-color-light;
-  font-size: 1.5rem;
-  box-shadow: none;
-  border: none;
-  border-radius: 0;
-}
+// li.ws-resp-menu-items {
+//   @include buttonUnStyle;
+//   padding: 1rem;
+//   color: $base-color-light;
+//   font-size: 1.5rem;
+//   box-shadow: none;
+//   border: none;
+//   border-radius: 0;
+// }
 
-li.ws-resp-menu-items button:hover {
-  transform: none;
-}
+// .ws-menu-left-items-button-big:hover {
+//   transform: none;
+// }
 
-.ws-resp-menu-items-search-bar {
-  padding: 0.5rem;
-  padding-left: 1rem;
-  margin: 1rem;
-  border-radius: 30px;
-  outline: none;
-}
+// .ws-resp-menu-items-search-bar {
+//   padding: 0.5rem;
+//   padding-left: 1rem;
+//   margin: 1rem;
+//   border-radius: 30px;
+//   outline: none;
+// }

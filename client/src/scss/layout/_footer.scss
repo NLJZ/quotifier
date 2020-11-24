@@ -4,6 +4,9 @@
   background-color: $base-color-dark;
   display: flex;
   justify-content: center;
+  align-self: flex-end;
+  // position: fixed;
+  // bottom: 0;
 }
 
 .footer p {

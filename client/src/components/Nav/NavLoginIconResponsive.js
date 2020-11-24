@@ -10,6 +10,7 @@ import NewSourceFormButton from "../Workspace/Menu/NewSource/NewSourceButton";
 import NewQuoteFormButton from "../Workspace/Menu/NewQuote/NewQuoteButton";
 import RecentQuotes from "../Workspace/Menu/RecentQuotes";
 import FavoriteQuotes from "../Workspace/Menu/FavoriteQuotes";
+import WorkspaceMenuLeftOpen from "../Workspace/Menu/WorkspaceMenuLeft/WorkspaceMenuLeftOpen";
 
 function NavLoginIconAvatar() {
   const dropdownRef = useRef(null);
@@ -44,8 +45,9 @@ function NavLoginIconAvatar() {
         ref={dropdownRef}
         className={`dd-resp-menu ${isActive ? "active" : "inactive"}`}
       >
-        <ul>
-          <li className="ws-resp-menu-items ws-menu-left-items-search-li">
+        {/* <WorkspaceMenuLeftOpen /> */}
+        <ul className="ws-resp-menu-all">
+          <li className="ws-menu-left-items-search-li">
             <input
               type="text"
               className="ws-resp-menu-items-search-bar"
@@ -53,10 +55,10 @@ function NavLoginIconAvatar() {
               name="search"
             />
           </li>
-          <li className="ws-resp-menu-items ">
+          <li className="ws-resp-menu-items ws-resp-menu-button ">
             <NewQuoteFormButton />
           </li>
-          <li className="ws-resp-menu-items ">
+          <li className="ws-resp-menu-items ws-resp-menu-button">
             <NewSourceFormButton />
           </li>
           <li className="ws-resp-menu-items">
