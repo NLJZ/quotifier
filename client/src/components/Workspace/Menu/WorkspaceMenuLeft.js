@@ -4,7 +4,10 @@ import WorkspaceMenuLeftOpen from "./WorkspaceMenuLeft/WorkspaceMenuLeftOpen";
 import WorkspaceMenuLeftCollapsed from "./WorkspaceMenuLeft/WorkspaceMenuLeftCollapsed";
 //----------------icons-----------------------
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFolderMinus, faFolderPlus } from "@fortawesome/free-solid-svg-icons";
+import {
+  faChevronRight,
+  faChevronLeft,
+} from "@fortawesome/free-solid-svg-icons";
 
 const WorkspaceMenuLeftItems = () => {
   // const dropdownRef = useRef(null);
@@ -17,11 +20,11 @@ const WorkspaceMenuLeftItems = () => {
   }
 
   let WorkspaceMenuLeftButton = (
-    <FontAwesomeIcon className="icn-folder" icon={faFolderMinus} />
+    <FontAwesomeIcon className="icn-folder" icon={faChevronLeft} />
   );
   if (isClosed) {
     WorkspaceMenuLeftButton = (
-      <FontAwesomeIcon className="icn-folder" icon={faFolderPlus} />
+      <FontAwesomeIcon className="icn-folder" icon={faChevronRight} />
     );
   }
 
