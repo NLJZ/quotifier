@@ -46,7 +46,20 @@
 }
 
 .sign-up {
-  background-color: $mid-color-mid;
-  // background-image: url("./img/home-element-image.jpg");
+  background-color: $mid-color-dark;
   @include minHeightComponents;
+  color: $base-color-light;
+}
+
+//-------text-------------------
+
+.text {
+  max-width: 65rem;
+  padding: 3rem;
+}
+
+//-------------------------------
+
+.home-header {
+  margin-bottom: 0;
 }

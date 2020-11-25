@@ -1,11 +1,26 @@
+.h2-forms {
+  padding: 3rem;
+}
+
 //---------------login-reg-form-----------------------------
 
 .login-form,
 .reg-form {
-  border: 2px solid $mid-color-mid;
+  // border: 2px solid $mid-color-mid;
   padding: 4rem 4rem;
   border-radius: 20px;
-  box-shadow: 5px 10px rgba(14, 13, 13, 0.233);
+  box-shadow: 0 15px 10px rgba(14, 13, 13, 0.294);
+  background-color: $base-color-light;
+}
+
+.input-login,
+.input-reg {
+  width: 20rem;
+  height: 3rem;
+  margin: 1rem;
+  // border-radius: 25px;
+  padding-left: 1rem;
+  outline: none;
   background-color: $base-color-light;
 }
 
