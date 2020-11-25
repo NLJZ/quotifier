@@ -275,6 +275,21 @@ li.ws-menu-left-icon-single:hover {
 li.ws-menu-left-items-link button {
   @include buttonUnStyle;
   color: $base-color-light;
+  width: 100%;
+  // height: 100%;
+  // background-color: yellow;
+  padding: 1.3rem 0;
+}
+
+li.ws-menu-left-items-link button.active {
+  color: $base-color-light;
+  background-color: yellow;
+}
+
+li.ws-menu-left-items-link.active {
+  background-color: yellow;
+
+  color: $base-color-light;
 }
 
 //-------------------------------------------

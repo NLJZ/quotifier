@@ -4,25 +4,20 @@ import { Link } from "react-router-dom";
 //----------------icons-----------------------
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faPlay,
   faPlus,
   faSearch,
-  faFolderPlus,
   faStar,
   faEye,
   faBinoculars,
 } from "@fortawesome/free-solid-svg-icons";
-//-------------components----------------------------------
-import AllQuotes from "../AllQuotes.js";
-import NewQuoteFormButton from "../NewQuote/NewQuoteButton.js";
 
 const WorkspaceMenuLeftCollapsed = () => {
-  const dropdownRef = useRef(null);
-  const [isActive, setIsActive] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
-  const onClickOpen = () => setIsOpen(!isOpen);
-  const onClickDrop = () => setIsActive(!isActive);
-  const iconSearch = <FontAwesomeIcon className="test-test" icon={faSearch} />;
+  // const dropdownRef = useRef(null);
+  // const [isActive, setIsActive] = useState(false);
+  // const [isOpen, setIsOpen] = useState(false);
+  // const onClickOpen = () => setIsOpen(!isOpen);
+  // const onClickDrop = () => setIsActive(!isActive);
+  // const iconSearch = <FontAwesomeIcon className="test-test" icon={faSearch} />;
   return (
     <>
       <ul className="ws-menu-left-items menu-left-container">

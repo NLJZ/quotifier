@@ -37,13 +37,22 @@
 
 li.ws-menu-left-items-button-big,
 .ws-menu-left-items-button-big-col {
-  padding: 0.8rem 1rem;
+  padding: 1.5rem 2rem;
   // border: 1px $base-color-light solid;
   @include justifyCenter;
 }
 
+.ws-menu-left-items-button-big-col {
+  padding: 1.8rem 1rem;
+}
+
 .ws-menu-left-items-button-big-col:hover {
-  // background-color: $mid-color-light;
+  background-color: $mid-color-mid;
+  cursor: pointer;
+}
+
+.nq-form-container button {
+  padding: 0.4rem 5rem;
 }
 
 .ws-menu-left-items-button-big:first-child {
@@ -51,7 +60,7 @@ li.ws-menu-left-items-button-big,
 }
 
 .ws-menu-left-items-button-big:nth-child(3) {
-  padding-bottom: 2rem;
+  padding-bottom: 3.5rem;
 }
 
 .test-test {
@@ -76,10 +85,6 @@ button.ws-menu-left-icon-folder {
 .ws-menu-left-items-button-new-quote {
   display: flex;
   align-self: flex-start;
-}
-
-.ws-menu-left-items-button {
-  // @include buttonUnStyle;
 }
 
 //--------login-form-----------//
