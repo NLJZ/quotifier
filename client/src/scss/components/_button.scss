@@ -51,9 +51,9 @@ li.ws-menu-left-items-button-big,
   cursor: pointer;
 }
 
-.nq-form-container button {
-  padding: 0.4rem 5rem;
-}
+// .nq-form-container button {
+//   padding: 0.4rem 5rem;
+// }
 
 .ws-menu-left-items-button-big:first-child {
   padding-top: 2rem;
@@ -85,6 +85,7 @@ button.ws-menu-left-icon-folder {
 .ws-menu-left-items-button-new-quote {
   display: flex;
   align-self: flex-start;
+  padding: 0.4rem 5rem;
 }
 
 //--------login-form-----------//
