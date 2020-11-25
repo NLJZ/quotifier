@@ -11,6 +11,8 @@ import {
 } from "../../../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { getOneQuote } from "../../../../helpers/getUserData";
+//----components-----
+// import NewQuoteFormTags from "./NewQuoteForm/NewQuoteFormTags";
 
 const axios = require("axios");
 
@@ -35,6 +37,9 @@ const NewQuoteForm = (props) => {
   const quotesState = useSelector((state) => state.quotes);
   const currentView = useSelector((state) => state.currentView);
   const dispatch = useDispatch();
+
+  console.log(tags);
+  console.log(tagsArr);
 
   const dropdownRef = useRef(null);
 
@@ -155,9 +160,20 @@ const NewQuoteForm = (props) => {
     }
   };
   const addTags = (e) => {
-    e.preventDefault();
-    setTagsArr([...tagsArr, tags]);
-    setTags("");
+    if (tags.length !== 0) {
+      e.preventDefault();
+      setTags("");
+      setTagsArr([...tagsArr, tags]);
+    } else {
+      e.preventDefault();
+      setTags("");
+    }
+  };
+
+  const handleTagDelete = (idx) => {
+    const temp = [...tagsArr];
+    temp.splice(idx, 1);
+    setTagsArr(temp);
   };
 
   return (
@@ -281,10 +297,25 @@ const NewQuoteForm = (props) => {
       <div className="form-row-input">
         <div className="col-left"></div>
         <div className="col-1-of-2 col-tags">
-          {" "}
           <div>
-            {tagsArr.map((tag, i) => {
-              return <span key={i}>{tag}</span>;
+            {tagsArr.map((tag, idx) => {
+              if (tags.length === 0) {
+                return (
+                  <div key={idx}>
+                    <span key={idx}>
+                      {tag}{" "}
+                      <button
+                        className="remove-tag-button"
+                        onClick={() => handleTagDelete(idx)}
+                      >
+                        x
+                      </button>
+                    </span>
+                  </div>
+                );
+              } else {
+                return null;
+              }
             })}
           </div>
         </div>
