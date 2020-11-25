@@ -1,9 +1,4 @@
 import React, { useState, useRef, Fragment } from "react";
-//---------Routing-------------------------------
-import { Link } from "react-router-dom";
-//----------------icons-----------------------
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlay, faPlus, faSearch } from "@fortawesome/free-solid-svg-icons";
 //-------------components----------------------------------
 import AllQuotes from "../AllQuotes.js";
 import NewSourceFormButton from "../NewSource/NewSourceButton.js";
@@ -12,10 +7,8 @@ import RecentQuotes from "../RecentQuotes";
 import FavoriteQuotes from "../FavoriteQuotes";
 
 const WorkspaceMenuLeftOpen = () => {
-  // const dropdownRef = useRef(null);
   const [isActive, setIsActive] = useState(false);
   const onClickInactive = () => setIsActive(true);
-  // const iconSearch = <FontAwesomeIcon className="test-test" icon={faSearch} />;
   return (
     <>
       <ul className="ws-menu-left-items ws-menu-left-container">
@@ -39,9 +32,11 @@ const WorkspaceMenuLeftOpen = () => {
         <li className="ws-menu-left-items-link">
           <FavoriteQuotes />
         </li>
+
         <li className="ws-menu-left-items-link">
           <RecentQuotes />
         </li>
+
         <li className="ws-menu-left-items-link">
           <AllQuotes />
         </li>

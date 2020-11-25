@@ -86,9 +86,11 @@
   align-items: center;
 }
 
-li.ws-menu-left-items-link {
-  padding: 1rem 0;
+.ws-menu-left-items-link {
+  // padding: 1rem 0;
+  width: 100%;
   @include justifyCenter;
+  background-color: $mid-color-mid;
   // align-self: flex-start;
 }
 
@@ -96,7 +98,6 @@ li.ws-menu-left-items-link {
   // border-bottom: 1px $base-color-light solid;
   background-color: $mid-color-light;
   border-bottom: 1px $base-color-light solid;
-
   width: 100%;
 }
 
@@ -114,6 +115,6 @@ li.ws-menu-left-items-link {
   // background: url("search.png");
   border-radius: 30px;
   border: $mid-color-light solid 1px;
-  padding: 0.5rem 1rem;
+  padding: 0.2rem 1rem;
   width: auto;
 }
