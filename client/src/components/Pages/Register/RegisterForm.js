@@ -59,7 +59,7 @@ const RegisterForm = () => {
       <input
         type="text"
         name="firstName"
-        className="input"
+        className="input-reg"
         onChange={(e) => setFirst(e.target.value)}
         placeholder="firstName"
         autoComplete="on"
@@ -68,7 +68,7 @@ const RegisterForm = () => {
       <input
         type="text"
         name="lastName"
-        className="input"
+        className="input-reg"
         onChange={(e) => setLast(e.target.value)}
         placeholder="lastName"
         autoComplete="on"
@@ -77,7 +77,7 @@ const RegisterForm = () => {
       <input
         type="email"
         name="email"
-        className="input"
+        className="input-reg"
         onChange={(e) => setEmail(e.target.value)}
         placeholder="email"
         autoComplete="on"
@@ -86,7 +86,7 @@ const RegisterForm = () => {
       <input
         type="password"
         name="password"
-        className="input"
+        className="input-reg"
         onChange={(e) => setPassword(e.target.value)}
         placeholder="password"
         autoComplete="on"

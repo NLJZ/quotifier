@@ -4,7 +4,7 @@ import RegisterForm from "./RegisterForm";
 function Register() {
   return (
     <div className="register">
-      <h2 className="h2-forms home-header">please register here</h2>
+      <h2 className="h2-forms home-header">Please register here</h2>
       <RegisterForm />
     </div>
   );

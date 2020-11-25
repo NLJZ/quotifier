@@ -1,34 +1,40 @@
 //------home section--------//
 
-.about-single-button-dark {
-  @include singleButton;
-  background-color: $mid-color-mid;
-  width: 10rem;
-  margin-right: 2rem;
-  outline: none;
-}
-
-.about-single-button-dark:hover {
-  background-color: $mid-color-light;
-  transform: translateY(3px);
-  box-shadow: 5px 10px rgba(14, 13, 13, 0.233);
-}
-
 .about-single-button {
-  margin: 1rem;
+  // margin: 1rem;
 }
 
-.sign-up-single-button-light {
-  @include singleButton;
+.about-buttons {
+  padding: 1rem;
+}
+.about-single-button-dark {
+  // @include singleButton;
   background-color: $mid-color-light;
+  width: 15rem;
+  margin-right: 2rem;
   outline: none;
   padding: 1rem 3rem;
 }
 
-.sign-up-single-button-light:hover {
+.about-single-button-dark:hover {
   background-color: $mid-color-mid;
   transform: translateY(3px);
   box-shadow: 5px 10px rgba(14, 13, 13, 0.233);
+}
+
+.sign-up-single-button-light {
+  // @include singleButton;
+  background-color: $mid-color-dark;
+  outline: none;
+  padding: 1rem 3rem;
+  color: $base-color-light;
+  border: 1px solid $base-color-light;
+}
+
+.sign-up-single-button-light:hover {
+  background-color: $mid-color-light;
+  transform: translateY(3px);
+  box-shadow: 0 5px 10px rgba(248, 248, 248, 0.575);
 }
 
 //-------workspace-menu-top-----------//
