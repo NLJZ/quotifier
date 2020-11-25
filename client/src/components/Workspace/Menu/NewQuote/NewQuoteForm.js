@@ -29,6 +29,7 @@ const NewQuoteForm = (props) => {
   const [fave, setFave] = useState(false);
   const [sourceAdded, setSourceAdded] = useState(false);
   const [quoteAdded, setQuoteAdded] = useState(false);
+  const [readyToClose, setReadyToClose] = useState(false);
   const [sourceTitle, setSourceTitle] = useState("");
   const [sourceInfo, setSourceInfo] = useState("");
   const quotesState = useSelector((state) => state.quotes);
@@ -51,10 +52,11 @@ const NewQuoteForm = (props) => {
       submitFormQuote();
       setSourceAdded(false);
       showAll();
-      closeForm();
     } else if (Boolean(quoteAdded)) {
       setQuoteAdded(false);
       showAll();
+      setReadyToClose(true);
+    } else if (Boolean(readyToClose)) {
       closeForm();
     }
   });
