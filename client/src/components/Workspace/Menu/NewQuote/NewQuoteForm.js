@@ -299,23 +299,19 @@ const NewQuoteForm = (props) => {
         <div className="col-1-of-2 col-tags">
           <div>
             {tagsArr.map((tag, idx) => {
-              if (tags.length === 0) {
-                return (
-                  <div key={idx}>
-                    <span key={idx}>
-                      {tag}{" "}
-                      <button
-                        className="remove-tag-button"
-                        onClick={() => handleTagDelete(idx)}
-                      >
-                        x
-                      </button>
-                    </span>
-                  </div>
-                );
-              } else {
-                return null;
-              }
+              return (
+                <div key={idx}>
+                  <span key={idx}>
+                    {tag}{" "}
+                    <button
+                      className="remove-tag-button"
+                      onClick={() => handleTagDelete(idx)}
+                    >
+                      x
+                    </button>
+                  </span>
+                </div>
+              );
             })}
           </div>
         </div>
