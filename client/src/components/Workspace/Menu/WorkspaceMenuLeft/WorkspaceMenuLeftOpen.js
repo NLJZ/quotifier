@@ -5,6 +5,7 @@ import NewSourceFormButton from "../NewSource/NewSourceButton.js";
 import NewQuoteFormButton from "../NewQuote/NewQuoteButton.js";
 import RecentQuotes from "../RecentQuotes";
 import FavoriteQuotes from "../FavoriteQuotes";
+import SearchBar from "../SearchBar";
 
 const WorkspaceMenuLeftOpen = () => {
   const [isActive, setIsActive] = useState(false);
@@ -13,12 +14,7 @@ const WorkspaceMenuLeftOpen = () => {
     <>
       <ul className="ws-menu-left-items ws-menu-left-container">
         <li className="ws-menu-left-items-button-big ws-menu-left-items-search-li">
-          <input
-            type="text"
-            className="ws-menu-left-items-search-bar"
-            placeholder="find a quote"
-            name="search"
-          />
+          <SearchBar />
         </li>
 
         <li className="ws-menu-left-items-button-big ">
