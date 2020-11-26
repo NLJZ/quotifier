@@ -3,6 +3,7 @@ import {
   showRecentQuotes,
   quoteViewerOn,
   resetTagFilter,
+  resetSourceFilter,
 } from "../../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -15,6 +16,7 @@ const RecentQuotes = () => {
     dispatch(showRecentQuotes(quotesState));
     dispatch(quoteViewerOn());
     dispatch(resetTagFilter());
+    dispatch(resetSourceFilter());
   };
   return (
     <React.Fragment>

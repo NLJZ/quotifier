@@ -23,7 +23,7 @@
 .filter-container {
   margin: 0 0 0 2rem;
   display: inline-flex;
-  .tagsDropdown {
+  .filterButtons {
     button {
       padding-left: 0.5 rem;
     }
@@ -34,36 +34,37 @@
   .show {
     display: block;
   }
-  .tagsFilter {
-    margin: 1rem;
-    border: 1px solid black;
-    padding: 1rem;
-    background-color: #ddd;
-    position: absolute;
-    overflow-y: scroll;
-    max-width: 40rem;
-    ul {
-      padding: 1rem 0;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-    li:first-child {
-      font-weight: bold;
-    }
-    li {
-      margin: 0.2rem;
-    }
-    .tags-list {
-      li:first-child:hover {
-        background-color: #ddd;
-        cursor: default;
-      }
+}
 
-      li:hover {
-        background-color: #03a6a6;
-        cursor: pointer;
-      }
+.filterDropdown {
+  margin: 2.5rem 1rem 1rem 1rem;
+  border: 1px solid black;
+  padding: 1rem;
+  background-color: #ddd;
+  position: absolute;
+  overflow-y: scroll;
+  max-width: 40rem;
+  ul {
+    padding: 1rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  li:first-child {
+    font-weight: bold;
+  }
+  li {
+    margin: 0.2rem;
+  }
+  .tags-list {
+    li:first-child:hover {
+      background-color: #ddd;
+      cursor: default;
+    }
+
+    li:hover {
+      background-color: #03a6a6;
+      cursor: pointer;
     }
   }
 }

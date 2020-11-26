@@ -23,14 +23,6 @@ const QuoteFilterTags = (props) => {
   const sourceFilterArray = useSelector((state) => state.sourceFilter);
   const sources = useSelector((state) => Object.values(state.sources));
 
-  const handleClick = (tag) => {
-    dispatch(addToTagFilter(tag));
-  };
-
-  const showIt = () => {
-    setShow(!show);
-  };
-
   const showAll = () => {
     if (currentView === "all") {
       dispatch(showAllQuotes(quotesState));
@@ -40,7 +32,16 @@ const QuoteFilterTags = (props) => {
       dispatch(showFavoriteQuotes(quotesState));
     }
   };
+
   // Tag methods
+  const handleClick = (tag) => {
+    dispatch(addToTagFilter(tag));
+  };
+
+  const showIt = () => {
+    setShow(!show);
+  };
+
   const apply = () => {
     showAll();
     if (!tagFilterArray.length < 1) {
@@ -133,53 +134,49 @@ const QuoteFilterTags = (props) => {
 
   return (
     <section className="filter-container">
-      <div className="tagsDropdown">
+      <div className="filterButtons">
         <ul className="sort-filter-options">
           <li>filter by:</li>
           <li>
             <button onClick={showIt}>tag</button>
           </li>
-        </ul>
-        <div className={`tagsFilter ${show ? "show" : "hide"}`}>
-          <div className="filter-button-holder">
-            <button onClick={apply}>APPLY</button>
-            <button onClick={reset}>CLEAR</button>
-            <button onClick={showIt}>CLOSE</button>
-          </div>
-          <ul className="filter-tags-list">
-            <li>Added:</li>
-            {renderFilterTags}
-          </ul>
-          <hr />
-          <ul className="tags-list">
-            <li>Add To Filter:</li>
-            {renderTags}
-          </ul>
-        </div>
-      </div>
-      {/* sources */}
-      <div className="tagsDropdown">
-        <ul className="sort-filter-options">
           <li>
             <button onClick={showSourceOptions}>source</button>
           </li>
         </ul>
-        <div className={`tagsFilter ${showSources ? "show" : "hide"}`}>
-          <div className="filter-button-holder">
-            <button onClick={applySourceFilter}>APPLY</button>
-            <button onClick={resetSource}>CLEAR</button>
-            <button onClick={showSourceOptions}>CLOSE</button>
-          </div>
-          <ul className="filter-tags-list">
-            <li>Added:</li>
-            {renderFilterSources}
-          </ul>
-          <hr />
-          <ul className="tags-list">
-            <li>Add To Filter:</li>
-            {renderSources}
-          </ul>
+      </div>
+      <div className={`filterDropdown ${show ? "show" : "hide"}`}>
+        <div className="filter-button-holder">
+          <button onClick={apply}>APPLY</button>
+          <button onClick={reset}>CLEAR</button>
+          <button onClick={showIt}>CLOSE</button>
         </div>
+        <ul className="filter-tags-list">
+          <li>Added:</li>
+          {renderFilterTags}
+        </ul>
+        <hr />
+        <ul className="tags-list">
+          <li>Add To Filter:</li>
+          {renderTags}
+        </ul>
+      </div>
+      {/* sources */}
+      <div className={`filterDropdown ${showSources ? "show" : "hide"}`}>
+        <div className="filter-button-holder">
+          <button onClick={applySourceFilter}>APPLY</button>
+          <button onClick={resetSource}>CLEAR</button>
+          <button onClick={showSourceOptions}>CLOSE</button>
+        </div>
+        <ul className="filter-tags-list">
+          <li>Added:</li>
+          {renderFilterSources}
+        </ul>
+        <hr />
+        <ul className="tags-list">
+          <li>Add To Filter:</li>
+          {renderSources}
+        </ul>
       </div>
     </section>
   );
