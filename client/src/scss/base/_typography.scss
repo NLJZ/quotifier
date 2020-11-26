@@ -149,13 +149,18 @@ li.ws-menu-left-items-link a {
 //-------------workspace all quotes----------------------
 
 //applies style to all children of this element
-div.quote-container-open > *,
-div.quote-container-closed > *,
-div.quote-container-open > * > *,
-div.quote-container-closed > * > * {
+
+div.qc > *,
+div.qc > * > * {
   font-size: 1.5rem;
 }
 
 .bold {
   font-weight: bold;
+}
+
+//------quote-container--------//
+
+button.qc-button-edit {
+  font-size: 1rem;
 }

@@ -1,6 +1,4 @@
 import React from "react";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faMinusCircle } from "@fortawesome/free-solid-svg-icons";
 
 const QuoteContainerOpen = (props) => {
   return (
@@ -9,15 +7,15 @@ const QuoteContainerOpen = (props) => {
         <p className="bold">Source:</p> <p>{props.sourceTitle}</p>
       </span>
       <span className="qc-span">
-        {" "}
-        <p className="bold">Quote:</p>"{props.quoteBody}"
+        <p className="bold">Quote:</p>
+        <p>"{props.quoteBody}</p>"
       </span>
 
       <div className="qc-tags">
         <span className="qc-tags-single">
           {" "}
           <p className="bold">Tags: </p>
-          {props.tags}{" "}
+          {props.tags}
         </span>
       </div>
 
@@ -25,7 +23,6 @@ const QuoteContainerOpen = (props) => {
         <p className="bold">Notes:</p> <p> {props.quoteNotes}</p>
       </span>
       <span className="qc-span">
-        {" "}
         <p className="bold">Location:</p> <p>{props.quoteLocation}</p>
       </span>
 

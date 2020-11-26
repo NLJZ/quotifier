@@ -79,7 +79,11 @@ const QuoteContainer = (props) => {
   }
 
   return (
-    <div className="quote-container-closed qc-text">
+    <div className="qc qc-text">
+      <span className="qc-buttons">
+        <button className="qc-button-edit">edit</button>
+        <button className="qc-button-edit">delete</button>
+      </span>
       {quoteContainer}
       <button className="qc-button" onClick={openContainer}>
         {buttonOpen}
