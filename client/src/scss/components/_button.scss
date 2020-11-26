@@ -180,7 +180,11 @@ button.qc-button {
 }
 
 button.qc-button-edit:first-child {
-  margin-right: 0.5rem;
+  margin-right: 1rem;
+}
+
+button.qc-button-edit {
+  border: none;
 }
 
 //----responsive--menu-----//
