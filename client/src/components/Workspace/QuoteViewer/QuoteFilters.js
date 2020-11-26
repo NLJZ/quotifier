@@ -9,6 +9,7 @@ import {
   resetTagFilter,
   addToSourceFilter,
   resetSourceFilter,
+  filterQuotesBySource,
 } from "../../../redux/actions/";
 
 const QuoteFilterTags = (props) => {
@@ -45,12 +46,18 @@ const QuoteFilterTags = (props) => {
     if (!tagFilterArray.length < 1) {
       dispatch(filterQuotesByTag(tagFilterArray));
     }
+    if (!sourceFilterArray.length < 1) {
+      dispatch(filterQuotesBySource(sourceFilterArray));
+    }
     showIt();
   };
 
   const reset = () => {
     dispatch(resetTagFilter());
     showAll();
+    if (!sourceFilterArray.length < 1) {
+      dispatch(filterQuotesBySource(sourceFilterArray));
+    }
   };
 
   const renderFilterTags = tagFilterArray.map((tag, i) => {
@@ -86,7 +93,10 @@ const QuoteFilterTags = (props) => {
   const applySourceFilter = () => {
     showAll();
     if (!tagFilterArray.length < 1) {
-      // dispatch(filterQuotesBySource(sourceFilterArray));
+      dispatch(filterQuotesByTag(tagFilterArray));
+    }
+    if (!sourceFilterArray.length < 1) {
+      dispatch(filterQuotesBySource(sourceFilterArray));
     }
     showSourceOptions();
   };
@@ -94,6 +104,9 @@ const QuoteFilterTags = (props) => {
   const resetSource = () => {
     dispatch(resetSourceFilter());
     showAll();
+    if (!tagFilterArray.length < 1) {
+      dispatch(filterQuotesByTag(tagFilterArray));
+    }
   };
 
   const renderFilterSources = sourceFilterArray.map((source, i) => {
