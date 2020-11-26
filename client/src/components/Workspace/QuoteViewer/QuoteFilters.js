@@ -10,6 +10,7 @@ import {
   addToSourceFilter,
   resetSourceFilter,
   filterQuotesBySource,
+  setActiveFilters,
 } from "../../../redux/actions/";
 
 const QuoteFilterTags = (props) => {
@@ -17,11 +18,24 @@ const QuoteFilterTags = (props) => {
   const currentView = props.currentView;
   const [show, setShow] = useState(false);
   const [showSources, setShowSources] = useState(false);
+  const [filter, setFilter] = useState(false);
   const quotesState = useSelector((state) => state.quotes);
   const tagFilterArray = useSelector((state) => state.tagFilter);
   const tags = useSelector((state) => state.tags);
   const sourceFilterArray = useSelector((state) => state.sourceFilter);
   const sources = useSelector((state) => Object.values(state.sources));
+
+  useEffect(() => {
+    if (Boolean(filter)) {
+      const tagFilters = tagFilterArray;
+      const sourceFilters = sourceFilterArray.map(
+        (source) => source.sourceTitle
+      );
+      const newFilters = [...tagFilters, ...sourceFilters];
+      dispatch(setActiveFilters(newFilters));
+      setFilter(false);
+    }
+  });
 
   const showAll = () => {
     if (currentView === "all") {
@@ -31,6 +45,10 @@ const QuoteFilterTags = (props) => {
     } else if (currentView === "favorites") {
       dispatch(showFavoriteQuotes(quotesState));
     }
+  };
+
+  const combineFilters = () => {
+    setFilter(true);
   };
 
   // Tag methods
@@ -54,10 +72,12 @@ const QuoteFilterTags = (props) => {
       dispatch(filterQuotesBySource(sourceFilterArray));
     }
     showIt();
+    combineFilters();
   };
 
   const reset = () => {
     dispatch(resetTagFilter());
+    combineFilters();
     showAll();
     if (!sourceFilterArray.length < 1) {
       dispatch(filterQuotesBySource(sourceFilterArray));
@@ -106,10 +126,12 @@ const QuoteFilterTags = (props) => {
       dispatch(filterQuotesBySource(sourceFilterArray));
     }
     showSourceOptions();
+    combineFilters();
   };
 
-  const resetSource = () => {
+  const resetSource = async () => {
     dispatch(resetSourceFilter());
+    combineFilters();
     showAll();
     if (!tagFilterArray.length < 1) {
       dispatch(filterQuotesByTag(tagFilterArray));
@@ -125,7 +147,7 @@ const QuoteFilterTags = (props) => {
   });
 
   const renderSources = sources.map((source, i) => {
-    if (!sourceFilterArray.includes(source._id)) {
+    if (!sourceFilterArray.includes(source)) {
       return (
         <li className="tags" key={i} onClick={() => handleClickSource(source)}>
           {source.sourceTitle}

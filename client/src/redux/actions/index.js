@@ -175,3 +175,17 @@ export const resetSourceFilter = () => {
     type: "RESET_SOURCE_FILTER",
   };
 };
+
+export const setActiveFilters = (tags, sources) => {
+  return {
+    type: "SET_ACTIVE_FILTERS",
+    payload: tags,
+    sources,
+  };
+};
+
+export const resetActiveFilters = () => {
+  return {
+    type: "RESET_ACTIVE_FILTERS",
+  };
+};
