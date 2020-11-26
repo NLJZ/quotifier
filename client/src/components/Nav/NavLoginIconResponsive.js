@@ -45,7 +45,6 @@ function NavLoginIconAvatar() {
         ref={dropdownRef}
         className={`dd-resp-menu ${isActive ? "active" : "inactive"}`}
       >
-        {/* <WorkspaceMenuLeftOpen /> */}
         <ul className="ws-resp-menu-all">
           <li className="ws-menu-left-items-search-li">
             <input
