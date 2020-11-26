@@ -5,7 +5,7 @@
   max-width: 40rem;
 }
 
-//----------------------------//
+//--------------workspace --------------//
 
 .ws {
   @include minHeightComponents;
@@ -43,30 +43,15 @@
   max-width: 40rem;
 }
 
-//----------------workspace-all-quotes--------------------
+//---------new quote form----------------
 
-div.quote-container {
-  border: 1px solid black;
-  margin: 2rem;
-  border-radius: 20px;
-  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.486);
+.new-quote-form-input-quote {
+  height: 10rem;
 }
 
-div.quote-container:hover {
-  color: grey;
-  cursor: pointer;
-  transform: translateY(10px);
-}
+//---------quote-container---------------
 
-div.quote-container-open {
-  border: 1px solid black;
-  margin: 2rem;
-  padding: 4rem;
-  border-radius: 20px;
-  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.486);
-}
-
-div.quote-container-closed {
+div.qc {
   border: 1px solid black;
   margin: 2rem;
   padding: 4rem;
@@ -77,37 +62,28 @@ div.quote-container-closed {
   max-width: 50rem;
 }
 
-div.quote-container-open > * > *:hover,
-div.quote-container-closed > * > *:hover,
-div.quote-container-open > * > * > *:hover,
-div.quote-container-closed > * > * > *:hover,
-div.quote-container-open > * > * > * > *:hover,
-div.quote-container-closed > * > * > * > *:hover,
+// div.qc button {
+//   // justify-items: flex-end;
+//   border: 1px solid yellow;
+//   justify-content: flex-end;
+// }
+
+div.qc > * > *:hover,
+div.qc > * > * > *:hover,
+div.qc > * > * > * > *:hover,
 span.qc-span-quote > *:hover {
   color: $mid-color-mid;
   cursor: pointer;
 }
 
-div.quote-container-closed button {
-  align-self: flex-end;
+div.qc span {
+  display: flex;
 }
-
-//---------new quote form----------------
-
-.new-quote-form-input-quote {
-  height: 10rem;
-}
-
-//---------quote-container---------------
 
 .qc-span {
   display: flex;
   flex-direction: row;
   margin: 0.5rem 0;
-}
-
-.bold {
-  margin-right: 0.5rem;
 }
 
 .qc-tags-single {
@@ -141,26 +117,21 @@ div.quote-container-closed button {
   align-self: center;
 }
 
-.quote-container-closed {
-}
-
 .qc-text {
   max-width: 90rem;
   padding: 2rem 3rem;
 }
 
-//------quoteviewer-----------------------------ö
+.bold {
+  margin-right: 0.5rem;
+}
 
-// .qv {
-//   background-color: yellow;
-// }
+//------quoteviewer-----------------------------ö
 
 .qv-quotes-to-render {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  // flex-wrap: wrap;
-  // border: 1px black solid;
 }
 
 .qv {

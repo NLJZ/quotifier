@@ -57,10 +57,6 @@ li.ws-menu-left-items-button-big,
   cursor: pointer;
 }
 
-// .nq-form-container button {
-//   padding: 0.4rem 5rem;
-// }
-
 .ws-menu-left-items-button-big:first-child {
   padding-top: 2rem;
 }
@@ -176,31 +172,22 @@ button.qc-button {
   margin-bottom: 0;
   outline: none;
   padding-bottom: 0;
+  align-self: flex-end;
+}
+
+.qc-buttons {
+  align-self: flex-end;
+}
+
+button.qc-button-edit:first-child {
+  margin-right: 1rem;
+}
+
+button.qc-button-edit {
+  border: none;
 }
 
 //----responsive--menu-----//
-
-// li.ws-resp-menu-items {
-//   @include buttonUnStyle;
-//   padding: 1rem;
-//   color: $base-color-light;
-//   font-size: 1.5rem;
-//   box-shadow: none;
-//   border: none;
-//   border-radius: 0;
-// }
-
-// .ws-menu-left-items-button-big:hover {
-//   transform: none;
-// }
-
-// .ws-resp-menu-items-search-bar {
-//   padding: 0.5rem;
-//   padding-left: 1rem;
-//   margin: 1rem;
-//   border-radius: 30px;
-//   outline: none;
-// }
 
 //----remove-tag----------//
 

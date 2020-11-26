@@ -3,7 +3,12 @@ import { useSelector, useDispatch } from "react-redux";
 import ReactHtmlParser from "react-html-parser";
 //-------icons------------------------
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlusCircle, faMinusCircle } from "@fortawesome/free-solid-svg-icons";
+import {
+  faPlusCircle,
+  faMinusCircle,
+  faEdit,
+  faTrashAlt,
+} from "@fortawesome/free-solid-svg-icons";
 //-------components-----------------
 import QuoteContainerOpen from "./QuoteContainer/QuoteContainerOpen";
 import QuoteContainerClosed from "./QuoteContainer/QuoteContainerClosed";
@@ -79,7 +84,17 @@ const QuoteContainer = (props) => {
   }
 
   return (
-    <div className="quote-container-closed qc-text">
+    <div className="qc qc-text">
+      <span className="qc-buttons">
+        <button className="qc-button-edit">
+          {" "}
+          <FontAwesomeIcon icon={faEdit} />
+        </button>
+        <button className="qc-button-edit">
+          {" "}
+          <FontAwesomeIcon icon={faTrashAlt} />
+        </button>
+      </span>
       {quoteContainer}
       <button className="qc-button" onClick={openContainer}>
         {buttonOpen}
