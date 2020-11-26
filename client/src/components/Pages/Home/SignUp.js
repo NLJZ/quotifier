@@ -9,7 +9,7 @@ function SignUp() {
   }, []);
 
   return (
-    <section className="sign-up section">
+    <section className="sign-up section-scroll">
       <div className="home-element-content" data-aos="zoom-in">
         <h2 className="home-header">Sign Up!</h2>
         <p className="text">
