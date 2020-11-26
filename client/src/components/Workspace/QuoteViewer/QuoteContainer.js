@@ -87,11 +87,9 @@ const QuoteContainer = (props) => {
     <div className="qc qc-text">
       <span className="qc-buttons">
         <button className="qc-button-edit">
-          {" "}
           <FontAwesomeIcon icon={faEdit} />
         </button>
         <button className="qc-button-edit">
-          {" "}
           <FontAwesomeIcon icon={faTrashAlt} />
         </button>
       </span>

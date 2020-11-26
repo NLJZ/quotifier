@@ -96,13 +96,13 @@
   // padding: 1rem 0;
   width: 100%;
   @include justifyCenter;
-  background-color: $mid-color-mid;
+  background-color: $mid-color-dark;
   // align-self: flex-start;
 }
 
 .ws-menu-left-items-link:hover {
   // border-bottom: 1px $base-color-light solid;
-  background-color: $mid-color-light;
+  background-color: $mid-color-mid;
   border-bottom: 1px $base-color-light solid;
   width: 100%;
 }
