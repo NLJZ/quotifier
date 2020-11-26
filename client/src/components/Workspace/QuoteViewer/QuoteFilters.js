@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   filterQuotesByTag,
@@ -39,6 +39,9 @@ const QuoteFilterTags = (props) => {
   };
 
   const showIt = () => {
+    if (showSources) {
+      setShowSources(false);
+    }
     setShow(!show);
   };
 
@@ -88,6 +91,9 @@ const QuoteFilterTags = (props) => {
   };
 
   const showSourceOptions = () => {
+    if (show) {
+      setShow(false);
+    }
     setShowSources(!showSources);
   };
 
@@ -129,8 +135,6 @@ const QuoteFilterTags = (props) => {
       return null;
     }
   });
-
-  // Source methods
 
   return (
     <section className="filter-container">
