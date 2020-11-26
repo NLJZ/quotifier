@@ -9,7 +9,7 @@ function About() {
   }, []);
 
   return (
-    <section className="about section">
+    <section className="about section-scroll">
       <div className="home-element-content" data-aos="zoom-in">
         <h2 className="home-header">Welcome!</h2>
         <p className="text">

@@ -11,7 +11,7 @@ function Quote() {
   }, []);
 
   return (
-    <section className="quote section">
+    <section className="quote section-scroll">
       <div data-aos="zoom-in">
         <p className="text-quote">
           "never miss a quote again! with quotifier you can keep all your quotes
