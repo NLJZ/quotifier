@@ -2,7 +2,8 @@ import React from "react";
 import { useSelector } from "react-redux";
 import QuoteContainer from "./QuoteContainer";
 import QuoteSorter from "./QuoteSorter";
-import QuoteFilterTags from "./QuoteFilterTags";
+import QuoteFilters from "./QuoteFilters";
+import CurrentFilters from "./CurrentFilters";
 
 const QuoteViewer = () => {
   const headerText = useSelector((state) => state.workspaceHeader);
@@ -16,9 +17,10 @@ const QuoteViewer = () => {
     <div className="qv">
       <h1>{headerText}</h1>
       <div className="sort-filter">
-        <QuoteFilterTags currentView={currentView} />
+        <QuoteFilters currentView={currentView} />
         <QuoteSorter />
       </div>
+      <CurrentFilters />
       <div className="qv-quotes-to-render">{QuotesToRender}</div>
     </div>
   );

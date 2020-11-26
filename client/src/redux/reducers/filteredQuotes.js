@@ -2,6 +2,7 @@ import {
   sortByDate,
   getFaves,
   findQuotesByTag,
+  findQuotesBySource,
 } from "../../helpers/sortSearch";
 import produce from "immer";
 
@@ -32,6 +33,9 @@ const quotesReducer = (state = [], action) => {
     case "FILTER_QUOTES_BY_TAG":
       const filteredByTag = findQuotesByTag(action.payload, [...state]);
       return filteredByTag;
+    case "FILTER_QUOTES_BY_SOURCE":
+      const filteredBySource = findQuotesBySource(action.payload, [...state]);
+      return filteredBySource;
     default:
       return state;
   }

@@ -22,8 +22,8 @@
 
 .filter-container {
   margin: 0 0 0 2rem;
-  display: inline-flex;
-  .tagsDropdown {
+  display: flex;
+  .filterButtons {
     button {
       padding-left: 0.5 rem;
     }
@@ -34,38 +34,37 @@
   .show {
     display: block;
   }
-  .tagsFilter {
-    margin: 1rem;
-    border: 1px solid black;
-    width: 100%;
-    padding: 1rem;
-    background-color: #ddd;
-    position: absolute;
-    max-height: 60vh;
-    overflow-y: scroll;
-    max-width: 40rem;
-    ul {
-      padding: 1rem 0;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-    li:first-child {
-      font-weight: bold;
-    }
-    li {
-      margin: 0.2rem;
-    }
-    .tags-list {
-      li:first-child:hover {
-        background-color: #ddd;
-        cursor: default;
-      }
+}
 
-      li:hover {
-        background-color: #03a6a6;
-        cursor: pointer;
-      }
+.filterDropdown {
+  margin: 2.5rem 1rem 1rem 1rem;
+  border: 1px solid black;
+  padding: 1rem;
+  background-color: #ddd;
+  position: absolute;
+  overflow-y: scroll;
+  max-width: 40rem;
+  ul {
+    padding: 1rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  li:first-child {
+    font-weight: bold;
+  }
+  li {
+    margin: 0.2rem;
+  }
+  .tags-list {
+    li:first-child:hover {
+      background-color: #ddd;
+      cursor: default;
+    }
+
+    li:hover {
+      background-color: #03a6a6;
+      cursor: pointer;
     }
   }
 }
@@ -94,5 +93,21 @@
 .filter-button-holder {
   button {
     margin-left: 0.5rem;
+  }
+}
+
+.current-filters {
+  margin: 1rem 2rem;
+  li {
+    display: inline;
+    margin-right: 0.5rem;
+    border: 1px solid #222;
+    border-radius: 0.5rem;
+    padding: 0.2rem;
+    background-color: #ddd;
+  }
+  li:first-child {
+    border: none;
+    background-color: transparent;
   }
 }
