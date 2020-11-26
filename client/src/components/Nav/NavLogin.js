@@ -4,10 +4,10 @@ import NavLoginIconThreeDots from "./NavLoginIconThreeDots";
 import NavLoginIconResponsive from "./NavLoginIconResponsive";
 
 function NavLogin() {
-  const [width, setWidth] = React.useState(window.InnerWidth);
+  const [width, setWidth] = useState(window.InnerWidth);
   const breakPoint = 800;
 
-  React.useEffect(() => {
+  useEffect(() => {
     window.addEventListener("resize", () => setWidth(window.innerWidth));
   }, []);
   return (
