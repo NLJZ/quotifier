@@ -17,7 +17,7 @@ function NavLogin() {
           <NavLoginIconResponsive />
         </div>
       ) : (
-        <p className="nav-logo">"QUOTIFIER"</p>
+        <p className="nav-logo">"quotifier"</p>
       )}
 
       <div className="menu-top-icons ">
