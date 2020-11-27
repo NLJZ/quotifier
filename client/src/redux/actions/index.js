@@ -189,3 +189,10 @@ export const resetActiveFilters = () => {
     type: "RESET_ACTIVE_FILTERS",
   };
 };
+
+export const showSearchResults = (array) => {
+  return {
+    type: "SHOW_SEARCH_RESULTS",
+    payload: array,
+  };
+};

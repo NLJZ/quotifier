@@ -67,3 +67,39 @@ export const getFaves = (quotesArr) => {
   });
   return quoteArray;
 };
+
+// search all quotes and sources by string
+
+export const searchData = (str, quotesState, sourcesState) => {
+  let filteredQuotes = [];
+  const quotes = Object.values(quotesState);
+  const sources = Object.values(sourcesState);
+  const stringArray = str
+    .split(" ")
+    .map((item) => item.trim().toLowerCase())
+    .filter((item) => item !== "");
+  sources.forEach((source) => {
+    let sourceDataArr = [
+      ...source.sourceTitle.split(" ").map((item) => item.toLowerCase()),
+      ...source.sourceInfo.split(" ").map((item) => item.toLowerCase()),
+    ];
+    if (sourceDataArr.some((item) => stringArray.includes(item))) {
+      filteredQuotes.push(...source.quotes);
+    }
+  });
+  quotes.forEach((quote) => {
+    let quoteDataArr = [
+      ...quote.body.split(" ").map((item) => item.toLowerCase()),
+      ...quote.userNotes.split(" ").map((item) => item.toLowerCase()),
+      ...[quote.tags],
+    ];
+    if (
+      quoteDataArr.some((item) => stringArray.includes(item)) &&
+      !filteredQuotes.includes(quote._id)
+    ) {
+      filteredQuotes.push(...[quote._id]);
+    }
+  });
+  const filteredQuoteArray = filteredQuotes.map((item) => quotesState[item]);
+  return filteredQuoteArray;
+};

@@ -6,6 +6,8 @@ const headerReducer = (state = "", action) => {
       return "Recent";
     case "SHOW_FAVORITE_QUOTES":
       return "Favorites";
+    case "SHOW_SEARCH_RESULTS":
+      return "Search Results";
     default:
       return state;
   }
