@@ -81,7 +81,9 @@ const QuoteContainer = (props) => {
         tags={renderTags}
       />
     );
-  } else if (isEditable) {
+  }
+
+  if (isEditable) {
     quoteContainer = (
       <QuoteContainerEdit
         id={id}
@@ -101,6 +103,10 @@ const QuoteContainer = (props) => {
 
   if (!isOff) {
     buttonOpen = <FontAwesomeIcon icon={faMinusCircle} />;
+  }
+
+  if (isEditable) {
+    buttonOpen = null;
   }
 
   let buttonEdit = <FontAwesomeIcon icon={faEdit} />;

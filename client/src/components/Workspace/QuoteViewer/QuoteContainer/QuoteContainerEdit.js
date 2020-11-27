@@ -45,7 +45,6 @@ const QuoteContainerEdit = (props) => {
   //
   return (
     <React.Fragment>
-      {/* <span className="inline-text" ref={wrapperRef}> */}
       <form className="inline-text">
         <span
           className={`qc-span inline-text_copy inline-text__copy--${
@@ -73,7 +72,7 @@ const QuoteContainerEdit = (props) => {
           <p className="bold">Quote:</p>
           <input
             ref={inputRef}
-            type="text"
+            type="textarea"
             value={inputValueQuoteBody}
             onChange={(e) => {
               setInputValueQuoteBody(e.target.value);
@@ -139,18 +138,23 @@ const QuoteContainerEdit = (props) => {
           <p className="bold">Details:</p>{" "}
           <input
             ref={inputRef}
-            // set the width to the input length multiplied by the x height
-            // it's not quite right but gets it close
-
-            value={inputValueSourceTitle}
+            value={inputValueSourceInfo}
             onChange={(e) => {
-              setInputValueSourceTitle(e.target.value);
+              setInputValueSourceInfo(e.target.value);
             }}
             className={`qc-span inline-text_input inline-text_input--${
               isInputActive ? "active" : "hidden"
             }`}
           />
         </span>
+
+        <button
+          className="nq-button-submit nq-form-button"
+          type="submit"
+          value="Submit"
+        >
+          Submit
+        </button>
       </form>
     </React.Fragment>
   );
