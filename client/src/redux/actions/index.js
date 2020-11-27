@@ -190,11 +190,9 @@ export const resetActiveFilters = () => {
   };
 };
 
-export const showSearchResults = (string, quoteState, sourceState) => {
+export const showSearchResults = (array) => {
   return {
     type: "SHOW_SEARCH_RESULTS",
-    payload: string,
-    quoteState,
-    sourceState,
+    payload: array,
   };
 };

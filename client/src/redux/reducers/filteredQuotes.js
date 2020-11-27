@@ -38,7 +38,7 @@ const quotesReducer = (state = [], action) => {
       const filteredBySource = findQuotesBySource(action.payload, [...state]);
       return filteredBySource;
     case "SHOW_SEARCH_RESULTS":
-      const searchResults = searchData();
+      const searchResults = action.payload;
       return searchResults;
     default:
       return state;

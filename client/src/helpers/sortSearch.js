@@ -83,7 +83,7 @@ export const searchData = (str, quotesState, sourcesState) => {
       ...source.sourceTitle.split(" ").map((item) => item.toLowerCase()),
       ...source.sourceInfo.split(" ").map((item) => item.toLowerCase()),
     ];
-    if (sourceDataArr.some((r) => stringArray.includes(r))) {
+    if (sourceDataArr.some((item) => stringArray.includes(item))) {
       filteredQuotes.push(...source.quotes);
     }
   });
@@ -94,7 +94,7 @@ export const searchData = (str, quotesState, sourcesState) => {
       ...[quote.tags],
     ];
     if (
-      quoteDataArr.some((r) => stringArray.includes(r)) &&
+      quoteDataArr.some((item) => stringArray.includes(item)) &&
       !filteredQuotes.includes(quote._id)
     ) {
       filteredQuotes.push(...[quote._id]);

@@ -14,26 +14,34 @@ const SearchBar = () => {
   const dispatch = useDispatch();
   const quotesState = useSelector((state) => state.quotes);
   const sourcesState = useSelector((state) => state.sources);
-  const showQuotes = () => {
-    dispatch(quoteViewerOn());
-    dispatch(resetTagFilter());
-    dispatch(resetSourceFilter());
-    dispatch(resetActiveFilters());
+
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter" && searchText !== undefined) {
+      const searchArray = searchData(searchText, quotesState, sourcesState);
+      setSearchText("");
+      dispatch(showSearchResults(searchArray));
+      dispatch(quoteViewerOn());
+      dispatch(resetTagFilter());
+      dispatch(resetSourceFilter());
+      dispatch(resetActiveFilters());
+    }
   };
   searchData(
     "my giant     starfish  is a dog petzold",
     quotesState,
     sourcesState
   );
+
   return (
     <React.Fragment>
       <input
         type="text"
         value={searchText}
         className="ws-menu-left-items-search-bar"
-        placeholder="find a quote"
+        placeholder="search by keyword..."
         name="search"
         onChange={(e) => setSearchText(e.target.value)}
+        onKeyDown={handleKeyDown}
       />
     </React.Fragment>
   );
