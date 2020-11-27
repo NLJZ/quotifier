@@ -18,11 +18,8 @@ import cleanHtml from "../../../utils/cleanHtml";
 import {
   filterQuotesByTag,
   showAllQuotes,
-  showFavoriteQuotes,
-  showRecentQuotes,
   addToTagFilter,
   resetTagFilter,
-  addToSourceFilter,
   resetSourceFilter,
   resetActiveFilters,
   setActiveFilters,
@@ -52,10 +49,10 @@ const QuoteContainer = (props) => {
 
   const handleClick = (val) => {
     console.log(val);
-    // dispatch(resetTagFilter());
-    // dispatch(resetSourceFilter());
-    // dispatch(resetActiveFilters());
     dispatch(showAllQuotes(quotesState));
+    dispatch(resetTagFilter());
+    dispatch(resetSourceFilter());
+    dispatch(resetActiveFilters());
     dispatch(addToTagFilter(`${val}`));
     dispatch(setActiveFilters([`${val}`]));
     dispatch(filterQuotesByTag([`${val}`]));
