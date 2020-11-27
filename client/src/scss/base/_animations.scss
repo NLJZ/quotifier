@@ -16,3 +16,19 @@
     transform: rotate(360deg);
   }
 }
+
+//-------------scrolling animation-----------------//
+
+.section-scroll {
+  bottom: 0;
+  position: sticky;
+  z-index: -1;
+}
+
+.section-scroll:nth-child(2) {
+  z-index: -2;
+}
+
+.section-scroll:nth-child(3) {
+  z-index: -3;
+}
