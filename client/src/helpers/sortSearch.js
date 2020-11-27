@@ -87,7 +87,19 @@ export const searchData = (str, quotesState, sourcesState) => {
       filteredQuotes.push(...source.quotes);
     }
   });
-  console.log(stringArray);
-  console.log(filteredQuotes);
-  return stringArray;
+  quotes.forEach((quote) => {
+    let quoteDataArr = [
+      ...quote.body.split(" ").map((item) => item.toLowerCase()),
+      ...quote.userNotes.split(" ").map((item) => item.toLowerCase()),
+      ...[quote.tags],
+    ];
+    if (
+      quoteDataArr.some((r) => stringArray.includes(r)) &&
+      !filteredQuotes.includes(quote._id)
+    ) {
+      filteredQuotes.push(...[quote._id]);
+    }
+  });
+  const filteredQuoteArray = filteredQuotes.map((item) => quotesState[item]);
+  return filteredQuoteArray;
 };
