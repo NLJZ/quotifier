@@ -16,7 +16,7 @@ const SearchBar = () => {
   const sourcesState = useSelector((state) => state.sources);
 
   const handleKeyDown = (event) => {
-    if (event.key === "Enter" && searchText !== undefined) {
+    if (event.key === "Enter" && searchText.trim() !== "") {
       const searchArray = searchData(searchText, quotesState, sourcesState);
       setSearchText("");
       dispatch(showSearchResults(searchArray));
