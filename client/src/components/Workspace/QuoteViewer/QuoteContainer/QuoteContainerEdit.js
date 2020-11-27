@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
-import useKeypress from "./hooks/useKeypress";
-import useOnClickOutside from "./hooks/useOnClickOutside";
+// import useKeypress from "./hooks/useKeypress";
+// import useOnClickOutside from "./hooks/useOnClickOutside";
 
 const QuoteContainerEdit = (props) => {
   const [isInputActive, setIsInputActive] = useState(false);
@@ -33,28 +33,7 @@ const QuoteContainerEdit = (props) => {
   );
   console.log(inputValueSourceInfo);
 
-  // get the the wrapping span node
-  const wrapperRef = useRef(null);
-  //   const textRef = useRef(null);
   const inputRef = useRef(null);
-
-  const enter = useKeypress("Enter");
-  const esc = useKeypress("Escape");
-
-  // this hook takes a ref to watch and a function to run
-  // if the click happened outside
-  useOnClickOutside(wrapperRef, () => {
-    if (isInputActive) {
-      // save the value and close the editor
-      props.onSetText(inputValueSourceTitle);
-      props.onSetText(inputValueQuoteBody);
-      props.onSetText(inputValueTags);
-      props.onSetText(inputValueQuoteNotes);
-      props.onSetText(inputValueQuoteLocation);
-      props.onSetText(inputValueSourceInfo);
-      setIsInputActive(false);
-    }
-  });
 
   // focus the cursor in the input field on edit start
   useEffect(() => {
@@ -63,33 +42,11 @@ const QuoteContainerEdit = (props) => {
     }
   }, [isInputActive]);
 
-  useEffect(() => {
-    if (isInputActive) {
-      // if Enter is pressed, save the text and case the editor
-      if (enter) {
-        props.onSetText(inputValueSourceTitle);
-        props.onSetText(inputValueQuoteBody);
-        props.onSetText(inputValueTags);
-        props.onSetText(inputValueQuoteNotes);
-        props.onSetText(inputValueQuoteLocation);
-        props.onSetText(inputValueSourceInfo);
-        setIsInputActive(false);
-      }
-      // if Escape is pressed, revert the text and close the editor
-      if (esc) {
-        setInputValueSourceTitle(props.sourceTitle);
-        setInputValueQuoteBody(props.quoteBody);
-        setInputValueTags(props.tags);
-        setInputValueQuoteNotes(props.quoteNotes);
-        setInputValueQuoteLocation(props.quoteLocation);
-        setInputValueSourceInfo(props.sourceInfo);
-      }
-    }
-  }, [enter, esc]); // watch the Enter and Escape key presses
-
+  //
   return (
     <React.Fragment>
-      <span className="inline-text" ref={wrapperRef}>
+      {/* <span className="inline-text" ref={wrapperRef}> */}
+      <form className="inline-text">
         <span
           className={`qc-span inline-text_copy inline-text__copy--${
             !isInputActive ? "active" : "rest"
@@ -98,9 +55,6 @@ const QuoteContainerEdit = (props) => {
           <p className="bold">Source:</p>
           <input
             ref={inputRef}
-            // set the width to the input length multiplied by the x height
-            // it's not quite right but gets it close
-
             value={inputValueSourceTitle}
             onChange={(e) => {
               setInputValueSourceTitle(e.target.value);
@@ -110,7 +64,6 @@ const QuoteContainerEdit = (props) => {
             }`}
           />
         </span>
-        {/* </span> */}
 
         <span
           className={`qc-span inline-text_copy inline-text__copy--${
@@ -120,8 +73,6 @@ const QuoteContainerEdit = (props) => {
           <p className="bold">Quote:</p>
           <input
             ref={inputRef}
-            // set the width to the input length multiplied by the x height
-            // it's not quite right but gets it close
             type="text"
             value={inputValueQuoteBody}
             onChange={(e) => {
@@ -152,9 +103,6 @@ const QuoteContainerEdit = (props) => {
           <p className="bold">Notes:</p>{" "}
           <input
             ref={inputRef}
-            // set the width to the input length multiplied by the x height
-            // it's not quite right but gets it close
-
             value={inputValueQuoteNotes}
             onChange={(e) => {
               setInputValueQuoteNotes(e.target.value);
@@ -173,9 +121,6 @@ const QuoteContainerEdit = (props) => {
           <p className="bold">Location:</p>{" "}
           <input
             ref={inputRef}
-            // set the width to the input length multiplied by the x height
-            // it's not quite right but gets it close
-
             value={inputValueQuoteLocation}
             onChange={(e) => {
               setInputValueQuoteLocation(e.target.value);
@@ -206,7 +151,7 @@ const QuoteContainerEdit = (props) => {
             }`}
           />
         </span>
-      </span>
+      </form>
     </React.Fragment>
   );
 };

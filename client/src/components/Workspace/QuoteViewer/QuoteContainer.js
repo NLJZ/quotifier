@@ -22,7 +22,7 @@ const QuoteContainer = (props) => {
   const openContainer = () => setIsOff(!isOff);
 
   const [isEditable, setIsEditable] = useState(false);
-  const openEditable = () => setIsEditable(true);
+  const openEditable = () => setIsEditable(!isEditable);
 
   const id = props.id;
   const quote = useSelector((state) => state.quotes[`${id}`]);
@@ -103,11 +103,16 @@ const QuoteContainer = (props) => {
     buttonOpen = <FontAwesomeIcon icon={faMinusCircle} />;
   }
 
+  let buttonEdit = <FontAwesomeIcon icon={faEdit} />;
+  if (isEditable) {
+    buttonEdit = <button>done</button>;
+  }
+
   return (
     <div className="qc qc-text">
       <span className="qc-buttons">
         <button className="qc-button-edit" onClick={openEditable}>
-          <FontAwesomeIcon icon={faEdit} />
+          {buttonEdit}
         </button>
         <button className="qc-button-edit">
           <FontAwesomeIcon icon={faTrashAlt} />
