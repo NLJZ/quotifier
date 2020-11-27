@@ -14,6 +14,16 @@ import QuoteContainerOpen from "./QuoteContainer/QuoteContainerOpen";
 import QuoteContainerClosed from "./QuoteContainer/QuoteContainerClosed";
 //--------utils---------------------
 import cleanHtml from "../../../utils/cleanHtml";
+//---------redux--------------------
+import {
+  filterQuotesByTag,
+  showAllQuotes,
+  addToTagFilter,
+  resetTagFilter,
+  resetSourceFilter,
+  resetActiveFilters,
+  setActiveFilters,
+} from "../../../redux/actions";
 
 const QuoteContainer = (props) => {
   const [isOff, setIsOff] = useState(true);
@@ -23,22 +33,36 @@ const QuoteContainer = (props) => {
   const sources = useSelector((state) => state.sources);
   const quoteBodyClean = cleanHtml(quote.body);
   const quoteBody = ReactHtmlParser(quoteBodyClean);
+  const tagFilterArray = useSelector((state) => state.tagFilter);
+  const quotesState = useSelector((state) => state.quotes);
   const quoteNotes = quote.userNotes;
   const quoteLocation = quote.location;
   const sourceId = quote.source;
   const source = sources[sourceId];
+  const dispatch = useDispatch();
   let sourceTitle = null;
   let sourceInfo = null;
   if (source !== undefined) {
     sourceTitle = source.sourceTitle;
     sourceInfo = ReactHtmlParser(source.sourceInfo);
   }
+
+  const handleClick = (val) => {
+    console.log(val);
+    dispatch(showAllQuotes(quotesState));
+    dispatch(resetTagFilter());
+    dispatch(resetSourceFilter());
+    dispatch(resetActiveFilters());
+    dispatch(addToTagFilter(`${val}`));
+    dispatch(setActiveFilters([`${val}`]));
+    dispatch(filterQuotesByTag([`${val}`]));
+  };
   const quoteTags = quote.tags;
   let renderTags;
   if (quoteTags !== undefined) {
     renderTags = quoteTags.map((val, i) => {
       return val !== undefined ? (
-        <li className="comma" key={i}>
+        <li className="comma" key={i} onClick={() => handleClick(`${val}`)}>
           {val}
         </li>
       ) : null;
