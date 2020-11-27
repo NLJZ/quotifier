@@ -71,12 +71,23 @@ export const getFaves = (quotesArr) => {
 // search all quotes and sources by string
 
 export const searchData = (str, quotesState, sourcesState) => {
-  const quotes = quotesState.values;
-  const sources = sourcesState.values;
-  let stringArray = str
+  let filteredQuotes = [];
+  const quotes = Object.values(quotesState);
+  const sources = Object.values(sourcesState);
+  const stringArray = str
     .split(" ")
-    .map((item) => item.trim())
+    .map((item) => item.trim().toLowerCase())
     .filter((item) => item !== "");
+  sources.forEach((source) => {
+    let sourceDataArr = [
+      ...source.sourceTitle.split(" ").map((item) => item.toLowerCase()),
+      ...source.sourceInfo.split(" ").map((item) => item.toLowerCase()),
+    ];
+    if (sourceDataArr.some((r) => stringArray.includes(r))) {
+      filteredQuotes.push(...source.quotes);
+    }
+  });
   console.log(stringArray);
+  console.log(filteredQuotes);
   return stringArray;
 };

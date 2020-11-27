@@ -20,7 +20,11 @@ const SearchBar = () => {
     dispatch(resetSourceFilter());
     dispatch(resetActiveFilters());
   };
-  searchData("my giant     starfish  is a dog", quotesState, sourcesState);
+  searchData(
+    "my giant     starfish  is a dog petzold",
+    quotesState,
+    sourcesState
+  );
   return (
     <React.Fragment>
       <input
