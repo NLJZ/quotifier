@@ -75,13 +75,26 @@ export const searchData = (str, quotesState, sourcesState) => {
   const quotes = Object.values(quotesState);
   const sources = Object.values(sourcesState);
   const stringArray = str
+    .replace(/[\.,-\/#!$%\^&\*;:{}=\-_`~()@\+\?><\[\]\+]/g, "")
     .split(" ")
     .map((item) => item.trim().toLowerCase())
     .filter((item) => item !== "");
   sources.forEach((source) => {
     let sourceDataArr = [
-      ...source.sourceTitle.split(" ").map((item) => item.toLowerCase()),
-      ...source.sourceInfo.split(" ").map((item) => item.toLowerCase()),
+      ...source.sourceTitle
+        .split(" ")
+        .map((item) =>
+          item
+            .toLowerCase()
+            .replace(/[\.,-\/#!$%\^&\*;:{}=\-_`~()@\+\?><\[\]\+]/g, "")
+        ),
+      ...source.sourceInfo
+        .split(" ")
+        .map((item) =>
+          item
+            .toLowerCase()
+            .replace(/[\.,-\/#!$%\^&\*;:{}=\-_`~()@\+\?><\[\]\+]/g, "")
+        ),
     ];
     if (sourceDataArr.some((item) => stringArray.includes(item))) {
       filteredQuotes.push(...source.quotes);
@@ -89,8 +102,20 @@ export const searchData = (str, quotesState, sourcesState) => {
   });
   quotes.forEach((quote) => {
     let quoteDataArr = [
-      ...quote.body.split(" ").map((item) => item.toLowerCase()),
-      ...quote.userNotes.split(" ").map((item) => item.toLowerCase()),
+      ...quote.body
+        .split(" ")
+        .map((item) =>
+          item
+            .toLowerCase()
+            .replace(/[\.,-\/#!$%\^&\*;:{}=\-_`~()@\+\?><\[\]\+]/g, "")
+        ),
+      ...quote.userNotes
+        .split(" ")
+        .map((item) =>
+          item
+            .toLowerCase()
+            .replace(/[\.,-\/#!$%\^&\*;:{}=\-_`~()@\+\?><\[\]\+]/g, "")
+        ),
       ...[quote.tags],
     ];
     if (
