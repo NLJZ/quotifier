@@ -67,3 +67,16 @@ export const getFaves = (quotesArr) => {
   });
   return quoteArray;
 };
+
+// search all quotes and sources by string
+
+export const searchData = (str, quotesState, sourcesState) => {
+  const quotes = quotesState.values;
+  const sources = sourcesState.values;
+  let stringArray = str
+    .split(" ")
+    .map((item) => item.trim())
+    .filter((item) => item !== "");
+  console.log(stringArray);
+  return stringArray;
+};

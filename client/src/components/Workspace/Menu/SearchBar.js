@@ -7,18 +7,20 @@ import {
   resetActiveFilters,
 } from "../../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
+import { searchData } from "../../../helpers/sortSearch";
 
 const SearchBar = () => {
   const [searchText, setSearchText] = useState("");
   const dispatch = useDispatch();
   const quotesState = useSelector((state) => state.quotes);
+  const sourcesState = useSelector((state) => state.sources);
   const showQuotes = () => {
-    dispatch(showRecentQuotes(quotesState));
     dispatch(quoteViewerOn());
     dispatch(resetTagFilter());
     dispatch(resetSourceFilter());
     dispatch(resetActiveFilters());
   };
+  searchData("my giant     starfish  is a dog", quotesState, sourcesState);
   return (
     <React.Fragment>
       <input
