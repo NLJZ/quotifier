@@ -189,3 +189,12 @@ export const resetActiveFilters = () => {
     type: "RESET_ACTIVE_FILTERS",
   };
 };
+
+export const showSearchResults = (string, quoteState, sourceState) => {
+  return {
+    type: "SHOW_SEARCH_RESULTS",
+    payload: string,
+    quoteState,
+    sourceState,
+  };
+};

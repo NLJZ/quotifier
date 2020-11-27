@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import {
-  showRecentQuotes,
+  showSearchResults,
   quoteViewerOn,
   resetTagFilter,
   resetSourceFilter,
