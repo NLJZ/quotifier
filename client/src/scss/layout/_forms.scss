@@ -195,3 +195,10 @@
   visibility: hidden;
   opacity: 1;
 }
+
+//------editable-container-----------------
+
+.inline-text {
+  display: flex;
+  flex-direction: column;
+}
