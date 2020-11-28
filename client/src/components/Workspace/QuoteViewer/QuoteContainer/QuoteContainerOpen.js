@@ -7,7 +7,7 @@ const QuoteContainerOpen = (props) => {
         <p className="bold">Source:</p> <p>{props.sourceTitle}</p>
       </span>
       <span className="qc-span">
-        <p className="bold">Quote:</p>
+        <p className="bold bold-quote-main">Quote:</p>
         <p>"{props.quoteBody}</p>"
       </span>
 

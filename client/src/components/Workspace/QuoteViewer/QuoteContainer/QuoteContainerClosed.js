@@ -13,7 +13,7 @@ const QuoteContainerClosed = (props) => {
         <p className="bold">Source:</p> <p> {shortSourceTitle}</p>
       </span>
       <span className="qc-span qc-span-quote">
-        <p className="bold">Quote:</p>
+        <p className="bold bold-quote-main">Quote:</p>
         <p>"{shortQuoteBody}"</p>
       </span>
 

@@ -109,17 +109,24 @@ const QuoteContainer = (props) => {
     buttonOpen = null;
   }
 
-  let buttonEdit = <FontAwesomeIcon icon={faEdit} />;
+  let buttonEdit = (
+    <button className="qc-button-edit" onClick={openEditable}>
+      <FontAwesomeIcon icon={faEdit} />
+    </button>
+  );
   if (isEditable) {
-    buttonEdit = <button>done</button>;
+    buttonEdit = (
+      <button className="qc-button-edit" onClick={openEditable}>
+        done
+      </button>
+    );
   }
 
   return (
     <div className="qc qc-text">
       <span className="qc-buttons">
-        <button className="qc-button-edit" onClick={openEditable}>
-          {buttonEdit}
-        </button>
+        {buttonEdit}
+
         <button className="qc-button-edit">
           <FontAwesomeIcon icon={faTrashAlt} />
         </button>
