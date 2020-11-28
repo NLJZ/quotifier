@@ -1,6 +1,8 @@
 import React, { useState, useRef, useEffect } from "react";
 import { addQuote, addSource, showAllSources } from "../../../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
+import IsbnLookup from "../IsbnLookup";
+import LoadingAnimation from "../../../Animation/LoadingAnimation";
 
 const axios = require("axios");
 
@@ -11,6 +13,7 @@ const NewSourceForm = (props) => {
   //------------------source---------------------------------
   const [sourceTitle, setSourceTitle] = useState("");
   const [sourceInfo, setSourceInfo] = useState("");
+  const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
 
   //   const dropdownRef = useRef(null);
@@ -85,6 +88,25 @@ const NewSourceForm = (props) => {
     <form className="nq-form-form" onSubmit={handleSubmit}>
       <div className="form-row-input">
         <div className="col-left">
+          <p className="nqf-bold">Find Source:</p>
+        </div>
+        <div className="col-1-of-2">
+          {loading ? (
+            <LoadingAnimation />
+          ) : (
+            <IsbnLookup
+              setSourceTitle={setSourceTitle}
+              setSourceInfo={setSourceInfo}
+              setLoading={setLoading}
+              // , setSourceInfo, sourceTitle, sourceInfo)}
+            />
+          )}
+        </div>
+        <div className="col-2-of-2"></div>
+      </div>
+
+      <div className="form-row-input">
+        <div className="col-left">
           <p className="nqf-bold">Source Title:</p>
         </div>
         <div className="col-1-of-2">
@@ -122,9 +144,10 @@ const NewSourceForm = (props) => {
       <div className="form-row">
         <div className="col-1-of-1-button">
           <button
+            onClick={handleSubmit}
             // onClick={onOpenCloseClick}
             className="nq-button-submit"
-            type="submit"
+            type="button"
             value="Submit"
           >
             Submit
