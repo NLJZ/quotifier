@@ -38,8 +38,8 @@ const NewQuoteForm = (props) => {
   const currentView = useSelector((state) => state.currentView);
   const dispatch = useDispatch();
 
-  console.log(tags);
-  console.log(tagsArr);
+  // console.log(tags);
+  // console.log(tagsArr);
 
   const dropdownRef = useRef(null);
 
@@ -159,6 +159,7 @@ const NewQuoteForm = (props) => {
       await submitFormQuote();
     }
   };
+
   const addTags = (e) => {
     if (tags.length !== 0) {
       e.preventDefault();

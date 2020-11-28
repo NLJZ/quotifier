@@ -10,6 +10,11 @@ import {
   faEye,
   faBinoculars,
 } from "@fortawesome/free-solid-svg-icons";
+import FavoriteQuotesCollapsed from "../FavoriteQuotesCollapsed";
+import RecentQuotesCollapsed from "../RecentQuotesCollapsed";
+import AllQuotesCollapsed from "../AllQuotesCollapsed";
+import NewQuoteButtonCollapsed from "../NewQuote/NewQuoteButtonCollapsed";
+import NewSourceButtonCollapsed from "../NewSource/NewSourceButtonCollapsed";
 
 const WorkspaceMenuLeftCollapsed = () => {
   // const dropdownRef = useRef(null);
@@ -26,23 +31,23 @@ const WorkspaceMenuLeftCollapsed = () => {
         </li>
 
         <li className="ws-menu-left-items-button-big-col">
-          <FontAwesomeIcon className="test-test" icon={faPlus} />
+          <NewQuoteButtonCollapsed />{" "}
         </li>
 
         <li className="ws-menu-left-items-button-big-col">
-          <FontAwesomeIcon className="test-test" icon={faPlus} />
+          <NewSourceButtonCollapsed />{" "}
         </li>
 
         <li className="ws-menu-left-items-button-big-col">
-          <FontAwesomeIcon className="test-test" icon={faStar} />
+          <FavoriteQuotesCollapsed />
         </li>
 
         <li className="ws-menu-left-items-button-big-col">
-          <FontAwesomeIcon className="test-test" icon={faBinoculars} />
+          <RecentQuotesCollapsed />{" "}
         </li>
 
         <li className="ws-menu-left-items-button-big-col">
-          <FontAwesomeIcon className="test-test" icon={faEye} />
+          <AllQuotesCollapsed />{" "}
         </li>
       </ul>
     </>

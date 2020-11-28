@@ -76,6 +76,15 @@ span.qc-span-quote > *:hover {
   cursor: pointer;
 }
 
+p.bold-quote {
+  align-self: flex-start;
+  margin-top: 0.5rem;
+}
+
+p.bold-quote-main {
+  align-self: flex-start;
+}
+
 div.qc span {
   display: flex;
 }
@@ -84,6 +93,12 @@ div.qc span {
   display: flex;
   flex-direction: row;
   margin: 0.5rem 0;
+}
+
+.qc-span:nth-child(2n + 3) {
+  // border: yellow solid 1px;
+  align-content: flex-start;
+  align-self: flex-start;
 }
 
 .qc-tags-single {
@@ -124,6 +139,23 @@ div.qc span {
 
 .bold {
   margin-right: 0.5rem;
+}
+
+//------qc-editable----------------------//@include
+
+.editable-input {
+  background-color: $base-color-light;
+  border: none;
+  border-radius: 20px;
+  // height: 5rem;
+  padding-left: 1rem;
+}
+
+.editable-input-quote {
+  // height: 15rem;
+  // text-align: start;
+  width: 80rem;
+  height: fit-content;
 }
 
 //------quoteviewer-----------------------------ö

@@ -155,7 +155,6 @@ li.ws-menu-left-items-link a {
 //-------------workspace all quotes----------------------
 
 //applies style to all children of this element
-
 div.qc > *,
 div.qc > * > * {
   font-size: 1.5rem;
@@ -164,6 +163,17 @@ div.qc > * > * {
 .bold {
   font-weight: bold;
 }
+
+p.bold {
+  font-size: 1.5rem;
+  align-self: center;
+}
+
+// .qc-span input:nth-child(2) {
+//   height: 100px;
+//   border: 1px yellow solid;
+//   line-break: auto;
+// }
 
 //------quote-container--------//
 

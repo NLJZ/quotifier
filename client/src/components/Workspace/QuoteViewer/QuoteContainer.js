@@ -12,6 +12,8 @@ import {
 //-------components-----------------
 import QuoteContainerOpen from "./QuoteContainer/QuoteContainerOpen";
 import QuoteContainerClosed from "./QuoteContainer/QuoteContainerClosed";
+import QuoteContainerEdit from "./QuoteContainer/QuoteContainerEdit";
+
 //--------utils---------------------
 import cleanHtml from "../../../utils/cleanHtml";
 //---------redux--------------------
@@ -28,6 +30,10 @@ import {
 const QuoteContainer = (props) => {
   const [isOff, setIsOff] = useState(true);
   const openContainer = () => setIsOff(!isOff);
+
+  const [isEditable, setIsEditable] = useState(false);
+  const openEditable = () => setIsEditable(!isEditable);
+
   const id = props.id;
   const quote = useSelector((state) => state.quotes[`${id}`]);
   const sources = useSelector((state) => state.sources);
@@ -101,18 +107,50 @@ const QuoteContainer = (props) => {
     );
   }
 
+  if (isEditable) {
+    quoteContainer = (
+      <QuoteContainerEdit
+        id={id}
+        quote={quote}
+        source={source}
+        quoteBody={quoteBody}
+        quoteNotes={quoteNotes}
+        quoteLocation={quoteLocation}
+        sourceTitle={sourceTitle}
+        sourceInfo={sourceInfo}
+        tags={renderTags}
+      />
+    );
+  }
+
   let buttonOpen = <FontAwesomeIcon icon={faPlusCircle} />;
 
   if (!isOff) {
     buttonOpen = <FontAwesomeIcon icon={faMinusCircle} />;
   }
 
+  if (isEditable) {
+    buttonOpen = null;
+  }
+
+  let buttonEdit = (
+    <button className="qc-button-edit" onClick={openEditable}>
+      <FontAwesomeIcon icon={faEdit} />
+    </button>
+  );
+  if (isEditable) {
+    buttonEdit = (
+      <button className="qc-button-edit" onClick={openEditable}>
+        done
+      </button>
+    );
+  }
+
   return (
     <div className="qc qc-text">
       <span className="qc-buttons">
-        <button className="qc-button-edit">
-          <FontAwesomeIcon icon={faEdit} />
-        </button>
+        {buttonEdit}
+
         <button className="qc-button-edit">
           <FontAwesomeIcon icon={faTrashAlt} />
         </button>

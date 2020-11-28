@@ -175,7 +175,7 @@ button.qc-button {
   align-self: flex-end;
 }
 
-.qc-buttons {
+span.qc-buttons {
   align-self: flex-end;
 }
 
@@ -185,6 +185,30 @@ button.qc-button-edit:first-child {
 
 button.qc-button-edit {
   border: none;
+}
+
+//-------quote-container-editable------//
+
+div.qc-text {
+  // border: yellow 1px solid;
+  // justify-content: center;
+}
+
+div.qc button {
+  // display: flex;
+  // border: yellow 1px solid;
+  justify-content: center;
+}
+
+button.qce-form-button {
+  padding: 0 1rem;
+  justify-content: center;
+
+  font-size: 1rem;
+  align-self: flex-end;
+
+  border: red 1px solid;
+  // align-self: center;
 }
 
 //----responsive--menu-----//
