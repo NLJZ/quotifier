@@ -11,6 +11,7 @@ import workspaceHeader from "./headerText";
 import tagFilter from "./tagFilter";
 import sourceFilter from "./sourceFilter";
 import activeFilters from "./activeFilters";
+import lastSearch from "./lastSearched";
 import { combineReducers } from "redux";
 
 const appReducer = combineReducers({
@@ -21,6 +22,7 @@ const appReducer = combineReducers({
   tags,
   favorites,
   filteredQuotes,
+  lastSearch,
   tagFilter,
   sourceFilter,
   activeFilters,

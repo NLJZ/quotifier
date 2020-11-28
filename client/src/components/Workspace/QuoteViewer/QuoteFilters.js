@@ -11,7 +11,9 @@ import {
   resetSourceFilter,
   filterQuotesBySource,
   setActiveFilters,
+  showSearchResults,
 } from "../../../redux/actions/";
+import { searchData } from "../../../helpers/sortSearch";
 
 const QuoteFilterTags = (props) => {
   const dispatch = useDispatch();
@@ -20,6 +22,8 @@ const QuoteFilterTags = (props) => {
   const [showSources, setShowSources] = useState(false);
   const [filter, setFilter] = useState(false);
   const quotesState = useSelector((state) => state.quotes);
+  const sourcesState = useSelector((state) => state.sources);
+  const searchText = useSelector((state) => state.lastSearch);
   const tagFilterArray = useSelector((state) => state.tagFilter);
   const tags = useSelector((state) => state.tags);
   const sourceFilterArray = useSelector((state) => state.sourceFilter);
@@ -44,6 +48,10 @@ const QuoteFilterTags = (props) => {
       dispatch(showRecentQuotes(quotesState));
     } else if (currentView === "favorites") {
       dispatch(showFavoriteQuotes(quotesState));
+    } else if (currentView === "search") {
+      console.log(quotesState);
+      const searchArray = searchData(searchText, quotesState, sourcesState);
+      dispatch(showSearchResults(searchArray));
     }
   };
 

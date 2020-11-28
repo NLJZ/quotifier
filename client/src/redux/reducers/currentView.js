@@ -6,6 +6,8 @@ const quoteView = (state = "", action) => {
       return "all";
     case "SHOW_RECENT_QUOTES":
       return "recent";
+    case "SHOW_SEARCH_RESULTS":
+      return "search";
     case "QUOTE_VIEWER_OFF":
       return false;
     default:
