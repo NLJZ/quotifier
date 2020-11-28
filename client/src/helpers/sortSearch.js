@@ -106,7 +106,7 @@ export const searchData = (str, quotesState, sourcesState) => {
     console.log(filteredQuotes);
   });
   quotes.forEach((quote) => {
-    const quoteBody = quote.quoteBody ? quote.quoteBody : "";
+    const quoteBody = quote.body ? quote.body : "";
     const userNotes = quote.userNotes ? quote.userNotes : "";
     const tags = quote.tags ? quote.tags : [""];
     let quoteDataArr = [
@@ -132,6 +132,8 @@ export const searchData = (str, quotesState, sourcesState) => {
     ) {
       filteredQuotes.push(...[quote._id]);
     }
+    console.log(stringArray);
+    console.log(quoteDataArr);
   });
   const filteredQuoteArray = filteredQuotes.map((item) => quotesState[item]);
   return filteredQuoteArray;
