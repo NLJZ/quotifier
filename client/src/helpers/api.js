@@ -5,6 +5,7 @@ export const isbnSearch = async (isbn) => {
     const response = await axios.get(
       `https://www.googleapis.com/books/v1/volumes?q=ISBN:${isbn}`
     );
+    console.log(response);
     const data = await response.data.items[0].volumeInfo;
     console.log(data);
     return data;

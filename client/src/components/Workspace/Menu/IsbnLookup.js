@@ -12,12 +12,12 @@ const IsbnLookup = (props) => {
       if (data !== "Sorry, we could not find a book with that ISBN...") {
         props.setLoading(false);
         props.setSourceTitle(data.title);
-
-        const author = data.authors.join(", ");
+        const authors = data.authors ? data.authors.join(", ") : "";
+        const author = `by ${authors}`;
         const title = data.title ? data.title : "";
-        const publisher = data.publisher ? data.publisher : "";
+        const publisher = data.publisher ? `${data.publisher}, ` : "";
         const date = data.publishedDate ? data.publishedDate : "";
-        props.setSourceInfo(`${title} by ${author}. ${publisher} ${date}.`);
+        props.setSourceInfo(`${title} ${author}. ${publisher} ${date}.`);
       } else {
         props.setLoading(false);
         props.setSourceTitle(data);
