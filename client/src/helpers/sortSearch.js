@@ -106,22 +106,25 @@ export const searchData = (str, quotesState, sourcesState) => {
     console.log(filteredQuotes);
   });
   quotes.forEach((quote) => {
+    const quoteBody = quote.quoteBody ? quote.quoteBody : "";
+    const userNotes = quote.userNotes ? quote.userNotes : "";
+    const tags = quote.tags ? quote.tags : [""];
     let quoteDataArr = [
-      ...quote.body
+      ...quoteBody
         .split(" ")
         .map((item) =>
           item
             .toLowerCase()
             .replace(/[\.,-\/#!$%\^&\*;:{}=\-_`~()@\+\?><\[\]\+]/g, "")
         ),
-      ...quote.userNotes
+      ...userNotes
         .split(" ")
         .map((item) =>
           item
             .toLowerCase()
             .replace(/[\.,-\/#!$%\^&\*;:{}=\-_`~()@\+\?><\[\]\+]/g, "")
         ),
-      ...quote.tags,
+      ...tags,
     ];
     if (
       quoteDataArr.some((item) => stringArray.includes(item)) &&
