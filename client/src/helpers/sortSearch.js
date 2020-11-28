@@ -80,15 +80,17 @@ export const searchData = (str, quotesState, sourcesState) => {
     .map((item) => item.trim().toLowerCase())
     .filter((item) => item !== "");
   sources.forEach((source) => {
+    const sourceTitle = source.sourceTitle ? source.sourceTitle : "";
+    const sourceInfo = source.sourceInfo ? source.sourceInfo : "";
     let sourceDataArr = [
-      ...source.sourceTitle
+      ...sourceTitle
         .split(" ")
         .map((item) =>
           item
             .toLowerCase()
             .replace(/[\.,-\/#!$%\^&\*;:{}=\-_`~()@\+\?><\[\]\+]/g, "")
         ),
-      ...source.sourceInfo
+      ...sourceInfo
         .split(" ")
         .map((item) =>
           item
@@ -96,9 +98,12 @@ export const searchData = (str, quotesState, sourcesState) => {
             .replace(/[\.,-\/#!$%\^&\*;:{}=\-_`~()@\+\?><\[\]\+]/g, "")
         ),
     ];
+    console.log(sourceDataArr);
+
     if (sourceDataArr.some((item) => stringArray.includes(item))) {
       filteredQuotes.push(...source.quotes);
     }
+    console.log(filteredQuotes);
   });
   quotes.forEach((quote) => {
     let quoteDataArr = [
