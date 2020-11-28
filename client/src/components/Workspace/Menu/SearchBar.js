@@ -5,6 +5,7 @@ import {
   resetTagFilter,
   resetSourceFilter,
   resetActiveFilters,
+  saveSearchString,
 } from "../../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { searchData } from "../../../helpers/sortSearch";
@@ -18,6 +19,7 @@ const SearchBar = () => {
   const handleKeyDown = (event) => {
     if (event.key === "Enter" && searchText.trim() !== "") {
       const searchArray = searchData(searchText, quotesState, sourcesState);
+      dispatch(saveSearchString(searchText));
       setSearchText("");
       dispatch(showSearchResults(searchArray));
       dispatch(quoteViewerOn());
@@ -26,11 +28,6 @@ const SearchBar = () => {
       dispatch(resetActiveFilters());
     }
   };
-  searchData(
-    "my giant     starfish  is a dog petzold",
-    quotesState,
-    sourcesState
-  );
 
   return (
     <React.Fragment>

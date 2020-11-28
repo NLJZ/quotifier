@@ -196,3 +196,10 @@ export const showSearchResults = (array) => {
     payload: array,
   };
 };
+
+export const saveSearchString = (str) => {
+  return {
+    type: "SAVE_SEARCH_STRING",
+    payload: str,
+  };
+};
