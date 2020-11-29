@@ -13,65 +13,42 @@ import {
 
 const axios = require("axios");
 
+// const QuoteContainerEdit = ({ quote }) => {
+
 const QuoteContainerEdit = (props) => {
-  const sourceTitle = props.sourceTitle;
-  console.log(typeof sourceTitle);
-  console.log(sourceTitle);
-  const quoteBody = Object.values(props.quoteBody).join();
-  console.log(typeof quoteBody); // object
-  console.log(quoteBody); // object
-  const tags = Object.values(props.tags);
-  console.log(typeof tags); // object
-  console.log(Object.values(tags)); // object
-  const quoteNotes = props.quoteNotes;
-  console.log(typeof quoteNotes);
-  console.log(quoteNotes);
-  const quoteLocation = props.quoteLocation;
-  console.log(typeof quoteLocation);
-  console.log(quoteLocation);
-  const sourceInfo = Object.values(props.sourceInfo).join();
-  console.log(typeof sourceInfo); // object
-  console.log(sourceInfo); // object
+  const [inputValueSourceTitle, setInputValueSourceTitle] = useState(
+    props.source.sourceTitle
+  );
 
-  // const [inputValueSourceTitle, setInputValueSourceTitle] = useState(
-  //   props.sourceTitle
-  // );
+  const [inputValueQuoteBody, setInputValueQuoteBody] = useState(
+    props.quote.body
+  );
+  const tags = props.quote.tags;
+  const tagsArr = tags.map((item, i) => item);
+  const [inputValueTagsArr, setInputValueTagsArr] = useState([...tagsArr]);
+  const [inputValueTags, setInputValueTags] = useState("");
+  // const [tagsArr2, setTagsArr2] = useState([]);
 
-  const [inputValueSourceTitle, setInputValueSourceTitle] = useState({
-    sourceTitle,
-  });
+  const [inputValueQuoteNotes, setInputValueQuoteNotes] = useState(
+    props.quote.userNotes
+  );
+  const [inputValueQuoteLocation, setInputValueQuoteLocation] = useState(
+    props.quote.location
+  );
+  const [inputValueSourceInfo, setInputValueSourceInfo] = useState(
+    props.source.sourceInfo
+  );
 
-  // const [inputValueQuoteBody, setInputValueQuoteBody] = useState(
-  //   props.quoteBody
-  // );
-  // const [inputValueTags, setInputValueTags] = useState(props.tags);
-  // const [inputValueQuoteNotes, setInputValueQuoteNotes] = useState(
-  //   props.quoteNotes
-  // );
-  // const [inputValueQuoteLocation, setInputValueQuoteLocation] = useState(
-  //   props.quoteLocation
-  // );
-  // const [inputValueSourceInfo, setInputValueSourceInfo] = useState(
-  //   props.sourceInfo
-  // );
   const [sourceAdded, setSourceAdded] = useState(false);
   const [quoteAdded, setQuoteAdded] = useState(false);
   const [readyToClose, setReadyToClose] = useState(false);
   const quotesState = useSelector((state) => state.quotes);
-  console.log(quotesState);
-  const quote2 = Object.values(quotesState);
-  console.log(quote2);
-  const quoteMainBody = quote2.map((item) => item.body);
-  console.log(quoteMainBody);
-
   const currentView = useSelector((state) => state.currentView);
 
-  console.log("inputvaluesourcetitle", inputValueSourceTitle);
-  // console.log("inputvaluequotelocation", inputValueQuoteLocation);
-  // console.log("inputvaluequotenotes", inputValueQuoteNotes);
-  // console.log("inputvaluequotebody", inputValueQuoteBody);
-  // console.log("inputvaluetags", inputValueTags);
-  // console.log("inputvaluesouŕceinfo", inputValueSourceInfo);
+  useEffect(() => {
+    console.log(props.quote._id);
+    console.log(props.source._id);
+  });
 
   const dispatch = useDispatch();
 
@@ -94,22 +71,22 @@ const QuoteContainerEdit = (props) => {
   });
 
   const optionQuote = {
-    url: `/api/v1/data/updateQuote/:${props.id}`,
+    url: `/api/v1/data/updateQuote/:${props.quote._id}`,
     mode: "cors",
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
     },
     data: {
-      // body: inputValueQuoteBody,
-      // tags: inputValueTags,
-      // userNotes: inputValueQuoteNotes,
-      // location: inputValueQuoteLocation,
+      body: inputValueQuoteBody,
+      tags: inputValueTags,
+      userNotes: inputValueQuoteNotes,
+      location: inputValueQuoteLocation,
     },
   };
 
   const optionSource = {
-    url: `/api/v1/data/updateSource/:${props.source}`,
+    url: `/api/v1/data/updateSource/:${props.source._id}`,
     mode: "cors",
     method: "PATCH",
     headers: {
@@ -117,9 +94,7 @@ const QuoteContainerEdit = (props) => {
     },
     data: {
       sourceTitle: inputValueSourceTitle,
-
-      // sourceTitle: inputValueSourceTitle,
-      // sourceInfo: inputValueSourceInfo,
+      sourceInfo: inputValueSourceInfo,
     },
   };
 
@@ -139,31 +114,31 @@ const QuoteContainerEdit = (props) => {
   };
 
   const submitFormSource = async () => {
-    let newSource;
+    let updatedSource;
     await axios(optionSource)
       .then((response) => {
         console.log(response);
-        let source = response.data;
-        console.log(source);
-        dispatch(addSource(source));
+        let sourceData = response.data;
+        console.log(sourceData);
+        dispatch(addSource(sourceData));
         setSourceAdded(true);
       })
       .catch((error) => {
         console.log(error.response);
       });
-    return newSource;
+    return updatedSource;
   };
 
   const submitFormQuote = async () => {
     await axios(optionQuote)
       .then(async (response) => {
         console.log(response);
-        let quote = response.data;
-        console.log(quote);
-        const quoteFetch = await getOneQuote(quote._id);
-        const newQuote = quoteFetch[0];
-        console.log(newQuote);
-        dispatch(addQuote(newQuote));
+        let quoteData = response.data;
+        console.log(quoteData);
+        const quoteFetch = await getOneQuote(quoteData._id);
+        const updatedQuote = quoteFetch[0];
+        console.log(updatedQuote);
+        dispatch(addQuote(updatedQuote));
         setQuoteAdded(true);
       })
       .catch((error) => {
@@ -180,125 +155,114 @@ const QuoteContainerEdit = (props) => {
     }
   };
 
+  const addTags = (e) => {
+    // if (inputValueTags.length !== 0) {
+    e.preventDefault();
+    setInputValueTags("");
+    setInputValueTagsArr([...inputValueTagsArr, inputValueTags]);
+    // } else {
+    //   e.preventDefault();
+    //   setInputValueTags("");
+    // }
+  };
+
+  const handleKeypress = (e) => {
+    //it triggers by pressing the enter key
+    if (e.keyCode === 13) {
+      console.log("enter");
+      addTags();
+    }
+  };
+
   return (
     <React.Fragment>
       <form onSubmit={handleSubmit}>
-        <span
-        //   className={`qc-span inline-text_copy inline-text__copy--${
-        //     !isInputActive ? "active" : "rest"
-        //   }`}
-        >
-          <p className="bold">Source:</p>
+        <span>
+          <p className="bold bold-source">Source:</p>
           <input
-            // ref={inputRef}
             type="text"
-            // value={inputValueSourceTitle}
             value={inputValueSourceTitle}
             onChange={(e) => {
               setInputValueSourceTitle(e.target.value);
             }}
             className="qc-span editable-input"
-            // className={`qc-span editable-input inline-text_input inline-text_input--${
-            //   isInputActive ? "active" : "hidden"
-            // }`}
           />
         </span>
 
-        {/* <span
-        //   className={`qc-span inline-text_copy inline-text__copy--${
-        //     !isInputActive ? "active" : "rest"
-        //   }`}
-        >
+        <span>
           <p className="bold bold-quote">Quote:</p>
           <textarea
-            // ref={inputRef}
             type="text"
             value={inputValueQuoteBody}
             onChange={(e) => {
               setInputValueQuoteBody(e.target.value);
             }}
             className="qc-span editable-input editable-input-quote"
-
-            // className={`qc-span editable-input editable-input-quote inline-text_input inline-text_input--${
-            //   isInputActive ? "active" : "hidden"
-            // }`}
           ></textarea>
-        </span> */}
+        </span>
 
-        {/* <div className="qc-tags">
-          <span
-          // className={`qc-span inline-text_copy inline-text__copy--${
-          //   !isInputActive ? "active" : "rest"
-          // }`}
-          >
-            <p className="bold">Tags: </p>
-            <div className="qc-tags-single ">{props.tags}</div>
-          </span>
-        </div> */}
+        <span>
+          <p className="bold bold-tags">Tags: </p>
+          <div className="qce-tags">
+            <input
+              type="text"
+              value={inputValueTags}
+              onKeyPress={handleKeypress}
+              onChange={(e) => {
+                setInputValueTags(e.target.value);
+              }}
+              className="qc-span editable-input"
+            />
 
-        {/* <span
-        //   className={`qc-span inline-text_copy inline-text__copy--${
-        //     !isInputActive ? "active" : "rest"
-        //   }`}
-        >
-          <p className="bold">Notes:</p>{" "}
+            <div>
+              {inputValueTagsArr.map((tag, i) => {
+                return (
+                  <div key={i}>
+                    <span key={i}>{tag}</span>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </span>
+
+        <span>
+          <p className="bold bold-notes">Notes:</p>
           <input
-            // ref={inputRef}
             type="text"
             value={inputValueQuoteNotes}
             onChange={(e) => {
               setInputValueQuoteNotes(e.target.value);
             }}
             className="qc-span editable-input"
-            // className={`qc-span editable-input inline-text_input inline-text_input--${
-            //   isInputActive ? "active" : "hidden"
-            // }`}
           />
-        </span> */}
+        </span>
 
-        {/* <span
-        //   className={`qc-span inline-text_copy inline-text__copy--${
-        //     !isInputActive ? "active" : "rest"
-        //   }`}
-        >
-          <p className="bold">Location:</p>{" "}
+        <span>
+          <p className="bold bold-location">Location:</p>{" "}
           <input
-            // ref={inputRef}
             type="text"
             value={inputValueQuoteLocation}
             onChange={(e) => {
               setInputValueQuoteLocation(e.target.value);
             }}
             className="qc-span editable-input"
-            // className={`qc-span editable-input inline-text_input inline-text_input--${
-            //   isInputActive ? "active" : "hidden"
-            // }`}
           />
-        </span> */}
+        </span>
 
-        {/* <span
-        //   className={`qc-span inline-text_copy inline-text__copy--${
-        //     !isInputActive ? "active" : "rest"
-        //   }`}
-        >
-          <p className="bold">Details:</p>{" "}
+        <span>
+          <p className="bold bold-details">Details:</p>{" "}
           <input
-            // ref={inputRef}
             type="text"
             value={inputValueSourceInfo}
             onChange={(e) => {
               setInputValueSourceInfo(e.target.value);
             }}
             className="qc-span editable-input"
-
-            // className={`qc-span editable-input inline-text_input inline-text_input--${
-            //   isInputActive ? "active" : "hidden"
-            // }`}
           />
-        </span> */}
+        </span>
 
         <button
-          //   className="nq-button-submit qce-form-button"
           className=" qce-form-button nq-button-submit"
           type="submit"
           value="Submit"

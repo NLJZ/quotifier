@@ -4,7 +4,8 @@ const QuoteContainerOpen = (props) => {
   return (
     <React.Fragment>
       <span className="qc-span">
-        <p className="bold">Source:</p> <p>{props.sourceTitle}</p>
+        <p className="bold  bold-source-main">Source:</p>{" "}
+        <p>{props.sourceTitle}</p>
       </span>
       <span className="qc-span">
         <p className="bold bold-quote-main">Quote:</p>
@@ -14,20 +15,23 @@ const QuoteContainerOpen = (props) => {
       <div className="qc-tags">
         <span className="qc-tags-single">
           {" "}
-          <p className="bold">Tags: </p>
+          <p className="bold  bold-tags-main">Tags: </p>
           {props.tags}
         </span>
       </div>
 
       <span className="qc-span">
-        <p className="bold">Notes:</p> <p> {props.quoteNotes}</p>
+        <p className="bold  bold-notes-main">Notes:</p>{" "}
+        <p> {props.quoteNotes}</p>
       </span>
       <span className="qc-span">
-        <p className="bold">Location:</p> <p>{props.quoteLocation}</p>
+        <p className="bold  bold-location-main">Location:</p>{" "}
+        <p>{props.quoteLocation}</p>
       </span>
 
       <span className="qc-span">
-        <p className="bold">Details:</p> <p>{props.sourceInfo}</p>
+        <p className="bold  bold-details-main">Details:</p>{" "}
+        <p>{props.sourceInfo}</p>
       </span>
     </React.Fragment>
   );

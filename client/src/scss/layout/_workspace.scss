@@ -76,12 +76,22 @@ span.qc-span-quote > *:hover {
   cursor: pointer;
 }
 
-p.bold-quote {
+p.bold-quote,
+p.bold-source,
+p.bold-notes,
+p.bold-tags,
+p.bold-location,
+p.bold-details {
   align-self: flex-start;
   margin-top: 0.5rem;
 }
 
-p.bold-quote-main {
+p.bold-quote-main,
+p.bold-source-main,
+p.bold-notes-main,
+p.bold-tags-main,
+p.bold-location-main,
+p.bold-details-main {
   align-self: flex-start;
 }
 
@@ -156,6 +166,12 @@ div.qc span {
   // text-align: start;
   width: 80rem;
   height: fit-content;
+}
+
+.qce-tags {
+  padding-left: 1rem;
+  display: flex;
+  flex-direction: column;
 }
 
 //------quoteviewer-----------------------------ö

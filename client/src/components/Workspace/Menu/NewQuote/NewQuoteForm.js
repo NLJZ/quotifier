@@ -167,9 +167,9 @@ const NewQuoteForm = (props) => {
     }
   };
 
-  const handleTagDelete = (idx) => {
+  const handleTagDelete = (i) => {
     const temp = [...tagsArr];
-    temp.splice(idx, 1);
+    temp.splice(i, 1);
     setTagsArr(temp);
   };
 
@@ -295,14 +295,14 @@ const NewQuoteForm = (props) => {
         <div className="col-left"></div>
         <div className="col-1-of-2 col-tags">
           <div>
-            {tagsArr.map((tag, idx) => {
+            {tagsArr.map((tag, i) => {
               return (
-                <div key={idx}>
-                  <span key={idx}>
-                    {tag}{" "}
+                <div key={i}>
+                  <span key={i}>
+                    {tag}
                     <button
                       className="remove-tag-button"
-                      onClick={() => handleTagDelete(idx)}
+                      onClick={() => handleTagDelete(i)}
                     >
                       x
                     </button>
