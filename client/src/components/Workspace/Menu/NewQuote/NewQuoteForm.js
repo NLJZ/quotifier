@@ -10,7 +10,7 @@ import {
   loadFaves,
 } from "../../../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
-import { getOneQuote } from "../../../../helpers/getUserData";
+import { getOneQuote, getOneSource } from "../../../../helpers/getUserData";
 //----components-----
 // import NewQuoteFormTags from "./NewQuoteForm/NewQuoteFormTags";
 
@@ -143,7 +143,13 @@ const NewQuoteForm = (props) => {
         const quoteFetch = await getOneQuote(quote._id);
         const newQuote = quoteFetch[0];
         dispatch(addQuote(newQuote));
+        console.log(newQuote);
         console.log(quote);
+        if (newQuote.source !== "" || undefined) {
+          const sourceFetch = await getOneSource(quote.source);
+          const updatedSource = sourceFetch[0];
+          dispatch(addSource(updatedSource));
+        }
         setQuoteAdded(true);
       })
       .catch((error) => {
