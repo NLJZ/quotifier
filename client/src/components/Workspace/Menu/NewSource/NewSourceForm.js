@@ -13,7 +13,6 @@ const NewSourceForm = (props) => {
   //------------------source---------------------------------
   const [sourceTitle, setSourceTitle] = useState("");
   const [sourceInfo, setSourceInfo] = useState("");
-  const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
 
   //   const dropdownRef = useRef(null);
@@ -91,16 +90,10 @@ const NewSourceForm = (props) => {
           <p className="nqf-bold">Find Source:</p>
         </div>
         <div className="col-1-of-2">
-          {loading ? (
-            <LoadingAnimation />
-          ) : (
-            <IsbnLookup
-              setSourceTitle={setSourceTitle}
-              setSourceInfo={setSourceInfo}
-              setLoading={setLoading}
-              // , setSourceInfo, sourceTitle, sourceInfo)}
-            />
-          )}
+          <IsbnLookup
+            setSourceTitle={setSourceTitle}
+            setSourceInfo={setSourceInfo}
+          />
         </div>
         <div className="col-2-of-2"></div>
       </div>
