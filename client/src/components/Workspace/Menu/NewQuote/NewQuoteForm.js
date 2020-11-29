@@ -2,7 +2,6 @@ import React, { useState, useRef, useEffect } from "react";
 import {
   addQuote,
   addSource,
-  showAllSources,
   showAllQuotes,
   showRecentQuotes,
   showFavoriteQuotes,
@@ -37,9 +36,6 @@ const NewQuoteForm = (props) => {
   const quotesState = useSelector((state) => state.quotes);
   const currentView = useSelector((state) => state.currentView);
   const dispatch = useDispatch();
-
-  // console.log(tags);
-  // console.log(tagsArr);
 
   const dropdownRef = useRef(null);
 

@@ -14,41 +14,64 @@ import {
 const axios = require("axios");
 
 const QuoteContainerEdit = (props) => {
-  // const [isInputActive, setIsInputActive] = useState(false);
+  const sourceTitle = props.sourceTitle;
+  console.log(typeof sourceTitle);
+  console.log(sourceTitle);
+  const quoteBody = Object.values(props.quoteBody).join();
+  console.log(typeof quoteBody); // object
+  console.log(quoteBody); // object
+  const tags = Object.values(props.tags);
+  console.log(typeof tags); // object
+  console.log(Object.values(tags)); // object
+  const quoteNotes = props.quoteNotes;
+  console.log(typeof quoteNotes);
+  console.log(quoteNotes);
+  const quoteLocation = props.quoteLocation;
+  console.log(typeof quoteLocation);
+  console.log(quoteLocation);
+  const sourceInfo = Object.values(props.sourceInfo).join();
+  console.log(typeof sourceInfo); // object
+  console.log(sourceInfo); // object
 
-  const [inputValueSourceTitle, setInputValueSourceTitle] = useState(
-    props.sourceTitle
-  );
-  console.log(inputValueSourceTitle);
+  // const [inputValueSourceTitle, setInputValueSourceTitle] = useState(
+  //   props.sourceTitle
+  // );
 
-  const [inputValueQuoteBody, setInputValueQuoteBody] = useState(
-    props.quoteBody
-  );
-  console.log(inputValueQuoteBody);
+  const [inputValueSourceTitle, setInputValueSourceTitle] = useState({
+    sourceTitle,
+  });
 
-  const [inputValueTags, setInputValueTags] = useState(props.tags);
-  console.log(inputValueTags);
-
-  const [inputValueQuoteNotes, setInputValueQuoteNotes] = useState(
-    props.quoteNotes
-  );
-  console.log(inputValueQuoteNotes);
-
-  const [inputValueQuoteLocation, setInputValueQuoteLocation] = useState(
-    props.quoteLocation
-  );
-  console.log(inputValueQuoteLocation);
-
-  const [inputValueSourceInfo, setInputValueSourceInfo] = useState(
-    props.sourceInfo
-  );
-  console.log(inputValueSourceInfo);
-
+  // const [inputValueQuoteBody, setInputValueQuoteBody] = useState(
+  //   props.quoteBody
+  // );
+  // const [inputValueTags, setInputValueTags] = useState(props.tags);
+  // const [inputValueQuoteNotes, setInputValueQuoteNotes] = useState(
+  //   props.quoteNotes
+  // );
+  // const [inputValueQuoteLocation, setInputValueQuoteLocation] = useState(
+  //   props.quoteLocation
+  // );
+  // const [inputValueSourceInfo, setInputValueSourceInfo] = useState(
+  //   props.sourceInfo
+  // );
   const [sourceAdded, setSourceAdded] = useState(false);
   const [quoteAdded, setQuoteAdded] = useState(false);
   const [readyToClose, setReadyToClose] = useState(false);
   const quotesState = useSelector((state) => state.quotes);
+  console.log(quotesState);
+  const quote2 = Object.values(quotesState);
+  console.log(quote2);
+  const quoteMainBody = quote2.map((item) => item.body);
+  console.log(quoteMainBody);
+
   const currentView = useSelector((state) => state.currentView);
+
+  console.log("inputvaluesourcetitle", inputValueSourceTitle);
+  // console.log("inputvaluequotelocation", inputValueQuoteLocation);
+  // console.log("inputvaluequotenotes", inputValueQuoteNotes);
+  // console.log("inputvaluequotebody", inputValueQuoteBody);
+  // console.log("inputvaluetags", inputValueTags);
+  // console.log("inputvaluesouŕceinfo", inputValueSourceInfo);
 
   const dispatch = useDispatch();
 
@@ -78,10 +101,10 @@ const QuoteContainerEdit = (props) => {
       "Content-Type": "application/json",
     },
     data: {
-      body: inputValueQuoteBody,
-      tags: inputValueTags,
-      userNotes: inputValueQuoteNotes,
-      location: inputValueQuoteLocation,
+      // body: inputValueQuoteBody,
+      // tags: inputValueTags,
+      // userNotes: inputValueQuoteNotes,
+      // location: inputValueQuoteLocation,
     },
   };
 
@@ -94,7 +117,9 @@ const QuoteContainerEdit = (props) => {
     },
     data: {
       sourceTitle: inputValueSourceTitle,
-      sourceInfo: inputValueSourceInfo,
+
+      // sourceTitle: inputValueSourceTitle,
+      // sourceInfo: inputValueSourceInfo,
     },
   };
 
@@ -166,7 +191,8 @@ const QuoteContainerEdit = (props) => {
           <p className="bold">Source:</p>
           <input
             // ref={inputRef}
-            type="textarea"
+            type="text"
+            // value={inputValueSourceTitle}
             value={inputValueSourceTitle}
             onChange={(e) => {
               setInputValueSourceTitle(e.target.value);
@@ -178,7 +204,7 @@ const QuoteContainerEdit = (props) => {
           />
         </span>
 
-        <span
+        {/* <span
         //   className={`qc-span inline-text_copy inline-text__copy--${
         //     !isInputActive ? "active" : "rest"
         //   }`}
@@ -186,7 +212,7 @@ const QuoteContainerEdit = (props) => {
           <p className="bold bold-quote">Quote:</p>
           <textarea
             // ref={inputRef}
-            type="textarea"
+            type="text"
             value={inputValueQuoteBody}
             onChange={(e) => {
               setInputValueQuoteBody(e.target.value);
@@ -197,9 +223,9 @@ const QuoteContainerEdit = (props) => {
             //   isInputActive ? "active" : "hidden"
             // }`}
           ></textarea>
-        </span>
+        </span> */}
 
-        <div className="qc-tags">
+        {/* <div className="qc-tags">
           <span
           // className={`qc-span inline-text_copy inline-text__copy--${
           //   !isInputActive ? "active" : "rest"
@@ -208,9 +234,9 @@ const QuoteContainerEdit = (props) => {
             <p className="bold">Tags: </p>
             <div className="qc-tags-single ">{props.tags}</div>
           </span>
-        </div>
+        </div> */}
 
-        <span
+        {/* <span
         //   className={`qc-span inline-text_copy inline-text__copy--${
         //     !isInputActive ? "active" : "rest"
         //   }`}
@@ -218,7 +244,7 @@ const QuoteContainerEdit = (props) => {
           <p className="bold">Notes:</p>{" "}
           <input
             // ref={inputRef}
-            type="textarea"
+            type="text"
             value={inputValueQuoteNotes}
             onChange={(e) => {
               setInputValueQuoteNotes(e.target.value);
@@ -228,9 +254,9 @@ const QuoteContainerEdit = (props) => {
             //   isInputActive ? "active" : "hidden"
             // }`}
           />
-        </span>
+        </span> */}
 
-        <span
+        {/* <span
         //   className={`qc-span inline-text_copy inline-text__copy--${
         //     !isInputActive ? "active" : "rest"
         //   }`}
@@ -238,7 +264,7 @@ const QuoteContainerEdit = (props) => {
           <p className="bold">Location:</p>{" "}
           <input
             // ref={inputRef}
-            type="textarea"
+            type="text"
             value={inputValueQuoteLocation}
             onChange={(e) => {
               setInputValueQuoteLocation(e.target.value);
@@ -248,9 +274,9 @@ const QuoteContainerEdit = (props) => {
             //   isInputActive ? "active" : "hidden"
             // }`}
           />
-        </span>
+        </span> */}
 
-        <span
+        {/* <span
         //   className={`qc-span inline-text_copy inline-text__copy--${
         //     !isInputActive ? "active" : "rest"
         //   }`}
@@ -258,7 +284,7 @@ const QuoteContainerEdit = (props) => {
           <p className="bold">Details:</p>{" "}
           <input
             // ref={inputRef}
-            type="textarea"
+            type="text"
             value={inputValueSourceInfo}
             onChange={(e) => {
               setInputValueSourceInfo(e.target.value);
@@ -269,7 +295,7 @@ const QuoteContainerEdit = (props) => {
             //   isInputActive ? "active" : "hidden"
             // }`}
           />
-        </span>
+        </span> */}
 
         <button
           //   className="nq-button-submit qce-form-button"
