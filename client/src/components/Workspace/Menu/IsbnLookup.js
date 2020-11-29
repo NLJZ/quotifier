@@ -5,16 +5,21 @@ import LoadingAnimation from "../../Animation/LoadingAnimation";
 const IsbnLookup = (props) => {
   const [isbn, setIsbn] = useState("");
   const [searchResults, setSearchResults] = useState(null);
-  const [selectedSource, setSelectedSource] = useState("");
   const [loading, setLoading] = useState(false);
   let resultsList;
   if (searchResults !== null) {
     resultsList = searchResults.map((result, i) => {
-      const title = result.title !== undefined ? `${result.title} ` : "";
+      let title = result.title !== undefined ? `${result.title} ` : "";
       const author =
-        result.authors !== undefined ? `by ${result.authors[0]}` : "";
+        result.authors !== undefined ? `by ${result.authors.join(", ")}` : "";
+      const publisher = result.publisher ? `${result.publisher}, ` : "";
+      const date = result.publishedDate ? result.publishedDate : "";
+      const handleClick = () => {
+        props.setSourceInfo(`${title} ${author}. ${publisher} ${date}.`);
+        props.setSourceTitle(title);
+      };
       return (
-        <li className="result" key={i}>
+        <li className="result" key={i} onClick={handleClick}>
           {title}
           {author}
         </li>
@@ -26,10 +31,12 @@ const IsbnLookup = (props) => {
     if (event.key === "Enter" && isbn.trim() !== "") {
       setLoading(true);
       const results = await isbnSearch(isbn);
-
       if (results !== "Sorry, no matches found...") {
         setLoading(false);
         setSearchResults(results);
+      } else {
+        setLoading(false);
+        setSearchResults([{ title: results }]);
       }
       // props.setSourceTitle(data.title);
       // const authors = data.authors ? data.authors.join(", ") : "";
@@ -55,7 +62,7 @@ const IsbnLookup = (props) => {
           className="nq-input"
           onChange={(e) => setIsbn(e.target.value)}
           onKeyDown={handleKeyDown}
-          placeholder="autofill source details with ISBN..."
+          placeholder="Search for source..."
         ></input>
       )}
 

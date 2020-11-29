@@ -86,9 +86,7 @@ const NewSourceForm = (props) => {
     // <div className={`nq-form ${isActive ? "active" : "inactive"}`}>
     <form className="nq-form-form" onSubmit={handleSubmit}>
       <div className="form-row-input">
-        <div className="col-left">
-          <p className="nqf-bold">Find Source:</p>
-        </div>
+        <div className="col-left"></div>
         <div className="col-1-of-2">
           <IsbnLookup
             setSourceTitle={setSourceTitle}
