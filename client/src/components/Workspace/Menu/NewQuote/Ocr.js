@@ -1,28 +1,30 @@
 import React, { useState, useEffect, useRef } from "react";
-import { ocrApi } from "../../../../helpers/api";
+import { createWorker } from "tesseract.js";
 
 const Ocr = () => {
-  const [isActive, setIsActive] = useState(false);
   const [currentFile, setCurrentFile] = useState(null);
+  const [ocr, setOcr] = useState("Recognizing...");
+  useEffect(() => {
+    doOCR();
+  });
   console.log(currentFile);
+
   const handleChange = (e) => {
     setCurrentFile(e.target.files[0]);
+    doOCR();
   };
 
-  function getBase64(file) {
-    var reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = function () {
-      return reader.result;
-    };
-    reader.onerror = function (error) {
-      console.log("Error: ", error);
-    };
-  }
-
-  const handleClick = async (e) => {
-    e.preventDefault();
-    const results = await ocrApi(currentFile);
+  const worker = createWorker({
+    logger: (m) => console.log(m),
+  });
+  const doOCR = async () => {
+    await worker.load();
+    await worker.loadLanguage("eng");
+    await worker.initialize("eng");
+    const {
+      data: { text },
+    } = await worker.recognize(currentFile);
+    setOcr(text);
   };
 
   return (
@@ -34,7 +36,6 @@ const Ocr = () => {
         id="file"
         onChange={handleChange}
       ></input>
-      <button onClick={handleClick}>Submit</button>
     </div>
   );
 };
