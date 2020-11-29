@@ -75,7 +75,7 @@ export const searchData = (str, quotesState, sourcesState) => {
   const quotes = Object.values(quotesState);
   const sources = Object.values(sourcesState);
   const stringArray = str
-    .replace(/[\.,-\/#!$%\^&\*;:{}=\-_`~()@\+\?><\[\]\+]/g, "")
+    .replace(/[.,-/#!$%^&*;:{}=\-_`~()@+?><[\]+]/g, "")
     .split(" ")
     .map((item) => item.trim().toLowerCase())
     .filter((item) => item !== "");
@@ -86,24 +86,17 @@ export const searchData = (str, quotesState, sourcesState) => {
       ...sourceTitle
         .split(" ")
         .map((item) =>
-          item
-            .toLowerCase()
-            .replace(/[\.,-\/#!$%\^&\*;:{}=\-_`~()@\+\?><\[\]\+]/g, "")
+          item.toLowerCase().replace(/[.,-/#!$%^&*;:{}=\-_`~()@+?><[\]+]/g, "")
         ),
       ...sourceInfo
         .split(" ")
         .map((item) =>
-          item
-            .toLowerCase()
-            .replace(/[\.,-\/#!$%\^&\*;:{}=\-_`~()@\+\?><\[\]\+]/g, "")
+          item.toLowerCase().replace(/[.,-/#!$%^&*;:{}=\-_`~()@+?><[\]+]/g, "")
         ),
     ];
-    console.log(sourceDataArr);
-
     if (sourceDataArr.some((item) => stringArray.includes(item))) {
       filteredQuotes.push(...source.quotes);
     }
-    console.log(filteredQuotes);
   });
   quotes.forEach((quote) => {
     const quoteBody = quote.body ? quote.body : "";
@@ -113,9 +106,7 @@ export const searchData = (str, quotesState, sourcesState) => {
       ...quoteBody
         .split(" ")
         .map((item) =>
-          item
-            .toLowerCase()
-            .replace(/[\.,-\/#!$%\^&\*;:{}=\-_`~()@\+\?><\[\]\+]/g, "")
+          item.toLowerCase().replace(/[.,-/#!$%^&*;:{}=\-_`~()@+?><[\]+]/g, "")
         ),
       ...userNotes
         .split(" ")
@@ -132,8 +123,6 @@ export const searchData = (str, quotesState, sourcesState) => {
     ) {
       filteredQuotes.push(...[quote._id]);
     }
-    console.log(stringArray);
-    console.log(quoteDataArr);
   });
   const filteredQuoteArray = filteredQuotes.map((item) => quotesState[item]);
   return filteredQuoteArray;
