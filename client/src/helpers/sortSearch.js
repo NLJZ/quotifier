@@ -117,7 +117,6 @@ export const searchData = (str, quotesState, sourcesState) => {
         item.toLowerCase().replace(/[.,-/#!$%^&*;:{}=\-_`~()@+?><[\]+]/g, "")
       ),
     ];
-    console.log(quoteDataArr);
     if (
       quoteDataArr.some((item) => stringArray.includes(item)) &&
       !filteredQuotes.includes(quote._id)
