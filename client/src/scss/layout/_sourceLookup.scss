@@ -1,0 +1,11 @@
+.resultsBox {
+  margin-left: 1rem;
+  .result {
+    padding: 0 0.5rem;
+    color: #594f4c;
+  }
+  .result:hover {
+    cursor: pointer;
+    background-color: #bfaea8;
+  }
+}

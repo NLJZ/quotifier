@@ -18,8 +18,6 @@ const QuoteViewer = () => {
     return <span className="last-search">your search: "{lastSearch}"</span>;
   };
 
-  console.log(lastSearch);
-
   return (
     <div className="qv">
       <h1>{headerText}</h1>

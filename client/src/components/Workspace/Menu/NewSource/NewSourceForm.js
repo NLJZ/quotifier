@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { addQuote, addSource, showAllSources } from "../../../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
-import IsbnLookup from "../IsbnLookup";
+import SourceLookup from "../SourceLookup";
 import LoadingAnimation from "../../../Animation/LoadingAnimation";
 
 const axios = require("axios");
@@ -13,7 +13,6 @@ const NewSourceForm = (props) => {
   //------------------source---------------------------------
   const [sourceTitle, setSourceTitle] = useState("");
   const [sourceInfo, setSourceInfo] = useState("");
-  const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
 
   //   const dropdownRef = useRef(null);
@@ -87,20 +86,12 @@ const NewSourceForm = (props) => {
     // <div className={`nq-form ${isActive ? "active" : "inactive"}`}>
     <form className="nq-form-form" onSubmit={handleSubmit}>
       <div className="form-row-input">
-        <div className="col-left">
-          <p className="nqf-bold">Find Source:</p>
-        </div>
+        <div className="col-left"></div>
         <div className="col-1-of-2">
-          {loading ? (
-            <LoadingAnimation />
-          ) : (
-            <IsbnLookup
-              setSourceTitle={setSourceTitle}
-              setSourceInfo={setSourceInfo}
-              setLoading={setLoading}
-              // , setSourceInfo, sourceTitle, sourceInfo)}
-            />
-          )}
+          <SourceLookup
+            setSourceTitle={setSourceTitle}
+            setSourceInfo={setSourceInfo}
+          />
         </div>
         <div className="col-2-of-2"></div>
       </div>

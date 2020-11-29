@@ -1,16 +1,16 @@
 const axios = require("axios");
 
-export const isbnSearch = async (isbn) => {
+export const sourceSearch = async (string) => {
+  const searchString = encodeURIComponent(string);
   try {
     const response = await axios.get(
-      `https://www.googleapis.com/books/v1/volumes?q=${isbn}`
+      `https://www.googleapis.com/books/v1/volumes?q=${searchString}&langRestrict=en`
     );
-    console.log(response);
-    const data = await response.data.items[0].volumeInfo;
-    console.log(data);
-    return data;
+    const data = await response.data.items;
+    const bookResultArray = data.map((book) => book.volumeInfo);
+    return bookResultArray;
   } catch (err) {
-    const couldNotFind = "Sorry, we could not find a book with that ISBN...";
+    const couldNotFind = "Sorry, no matches found...";
     return couldNotFind;
   }
 };
