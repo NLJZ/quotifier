@@ -111,9 +111,7 @@ export const searchData = (str, quotesState, sourcesState) => {
       ...userNotes
         .split(" ")
         .map((item) =>
-          item
-            .toLowerCase()
-            .replace(/[\.,-\/#!$%\^&\*;:{}=\-_`~()@\+\?><\[\]\+]/g, "")
+          item.toLowerCase().replace(/[.,-/#!$%^&*;:{}=\-_`~()@+?><[\]+]/g, "")
         ),
       ...tags,
     ];
