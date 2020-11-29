@@ -6,7 +6,6 @@ export const isbnSearch = async (string) => {
     const response = await axios.get(
       `https://www.googleapis.com/books/v1/volumes?q=${searchString}&langRestrict=en`
     );
-    console.log(response);
     const data = await response.data.items;
     const bookResultArray = data.map((book) => book.volumeInfo);
     return bookResultArray;
