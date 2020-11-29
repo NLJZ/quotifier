@@ -15,7 +15,7 @@ const IsbnLookup = (props) => {
       const publisher = result.publisher ? `${result.publisher}, ` : "";
       const date = result.publishedDate ? result.publishedDate : "";
       const handleClick = () => {
-        props.setSourceInfo(`${title} ${author}. ${publisher} ${date}.`);
+        props.setSourceInfo(`${title}${author}. ${publisher} ${date}.`);
         props.setSourceTitle(title);
       };
       return (
