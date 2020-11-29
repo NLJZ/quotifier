@@ -14,3 +14,27 @@ export const sourceSearch = async (string) => {
     return couldNotFind;
   }
 };
+
+export const ocrApi = async (file) => {
+  // const ocrOptions = {
+  //   url: "https://api.ocr.space/parse/image",
+  //   base64image: `${file}`,
+  //   ocrengine: 1,
+  //   mode: "cors",
+  //   method: "POST",
+  //   headers: {
+  //     apikey: "b8d8f2a21588957",
+  //   },
+  // };
+  var settings = {
+    url: "https://api.ocr.space/parse/image",
+    method: "POST",
+    timeout: 0,
+    file: file,
+    headers: {},
+    mimeType: "multipart/form-data",
+  };
+  console.log(settings);
+  const response = await axios(settings);
+  console.log(response);
+};

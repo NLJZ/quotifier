@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { ocrApi } from "../../../../helpers/api";
 
 const Ocr = () => {
   const [isActive, setIsActive] = useState(false);
@@ -6,6 +7,22 @@ const Ocr = () => {
   console.log(currentFile);
   const handleChange = (e) => {
     setCurrentFile(e.target.files[0]);
+  };
+
+  function getBase64(file) {
+    var reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = function () {
+      return reader.result;
+    };
+    reader.onerror = function (error) {
+      console.log("Error: ", error);
+    };
+  }
+
+  const handleClick = async (e) => {
+    e.preventDefault();
+    const results = await ocrApi(currentFile);
   };
 
   return (
@@ -17,6 +34,7 @@ const Ocr = () => {
         id="file"
         onChange={handleChange}
       ></input>
+      <button onClick={handleClick}>Submit</button>
     </div>
   );
 };
