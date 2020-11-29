@@ -113,8 +113,11 @@ export const searchData = (str, quotesState, sourcesState) => {
         .map((item) =>
           item.toLowerCase().replace(/[.,-/#!$%^&*;:{}=\-_`~()@+?><[\]+]/g, "")
         ),
-      ...tags,
+      ...tags.map((item) =>
+        item.toLowerCase().replace(/[.,-/#!$%^&*;:{}=\-_`~()@+?><[\]+]/g, "")
+      ),
     ];
+    console.log(quoteDataArr);
     if (
       quoteDataArr.some((item) => stringArray.includes(item)) &&
       !filteredQuotes.includes(quote._id)
