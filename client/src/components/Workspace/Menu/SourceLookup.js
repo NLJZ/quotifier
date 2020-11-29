@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { isbnSearch } from "../../../helpers/api";
+import { sourceSearch } from "../../../helpers/api";
 import LoadingAnimation from "../../Animation/LoadingAnimation";
 
-const IsbnLookup = (props) => {
-  const [isbn, setIsbn] = useState("");
+const SourceLookup = (props) => {
+  const [userInput, setUserInput] = useState("");
   const [searchResults, setSearchResults] = useState(null);
   const [loading, setLoading] = useState(false);
   let resultsList;
@@ -27,9 +27,9 @@ const IsbnLookup = (props) => {
     });
   }
   const handleKeyDown = async (event) => {
-    if (event.key === "Enter" && isbn.trim() !== "") {
+    if (event.key === "Enter" && userInput.trim() !== "") {
       setLoading(true);
-      const results = await isbnSearch(isbn);
+      const results = await sourceSearch(userInput);
       if (results !== "Sorry, no matches found...") {
         setLoading(false);
         setSearchResults(results);
@@ -37,18 +37,6 @@ const IsbnLookup = (props) => {
         setLoading(false);
         setSearchResults([{ title: results }]);
       }
-      // props.setSourceTitle(data.title);
-      // const authors = data.authors ? data.authors.join(", ") : "";
-      // const author = `by ${authors}`;
-      // const title = data.title ? data.title : "";
-      // const publisher = data.publisher ? `${data.publisher}, ` : "";
-      // const date = data.publishedDate ? data.publishedDate : "";
-      // props.setSourceInfo(`${title} ${author}. ${publisher} ${date}.`);
-      // } else {
-      //   props.setLoading(false);
-      //   props.setSourceTitle(data);
-      //   props.setSourceInfo("");
-      // }
     }
   };
 
@@ -59,16 +47,18 @@ const IsbnLookup = (props) => {
       ) : (
         <input
           className="nq-input"
-          onChange={(e) => setIsbn(e.target.value)}
+          onChange={(e) => setUserInput(e.target.value)}
           onKeyDown={handleKeyDown}
           placeholder="Search for source..."
         ></input>
       )}
       {searchResults !== null ? (
-        <div>Search Results: {resultsList} </div>
+        <div className="resultsBox">
+          Search Results (click result to load): <ol>{resultsList}</ol>{" "}
+        </div>
       ) : null}
     </React.Fragment>
   );
 };
 
-export default IsbnLookup;
+export default SourceLookup;

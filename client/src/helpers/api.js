@@ -1,6 +1,6 @@
 const axios = require("axios");
 
-export const isbnSearch = async (string) => {
+export const sourceSearch = async (string) => {
   const searchString = encodeURIComponent(string);
   try {
     const response = await axios.get(

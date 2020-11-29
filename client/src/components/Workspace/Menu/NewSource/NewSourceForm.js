@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { addQuote, addSource, showAllSources } from "../../../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
-import IsbnLookup from "../IsbnLookup";
+import SourceLookup from "../SourceLookup";
 import LoadingAnimation from "../../../Animation/LoadingAnimation";
 
 const axios = require("axios");
@@ -88,7 +88,7 @@ const NewSourceForm = (props) => {
       <div className="form-row-input">
         <div className="col-left"></div>
         <div className="col-1-of-2">
-          <IsbnLookup
+          <SourceLookup
             setSourceTitle={setSourceTitle}
             setSourceInfo={setSourceInfo}
           />
