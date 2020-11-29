@@ -11,6 +11,7 @@ import {
 } from "../../../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { getOneQuote, getOneSource } from "../../../../helpers/getUserData";
+import Ocr from "./Ocr";
 //----components-----
 // import NewQuoteFormTags from "./NewQuoteForm/NewQuoteFormTags";
 
@@ -255,7 +256,7 @@ const NewQuoteForm = (props) => {
           <div className="col-2-of-2"></div>
         </div>
       </div>
-
+      <Ocr />
       <div className="form-row-input">
         <div className="col-left">
           <p className="nqf-bold">Quote:</p>
