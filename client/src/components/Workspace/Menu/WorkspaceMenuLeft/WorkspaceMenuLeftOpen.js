@@ -1,4 +1,4 @@
-import React, { useState, useRef, Fragment } from "react";
+import React from "react";
 //-------------components----------------------------------
 import AllQuotes from "../AllQuotes.js";
 import NewSourceFormButton from "../NewSource/NewSourceButton.js";
@@ -7,8 +7,6 @@ import RecentQuotes from "../RecentQuotes";
 import FavoriteQuotes from "../FavoriteQuotes";
 
 const WorkspaceMenuLeftOpen = () => {
-  const [isActive, setIsActive] = useState(false);
-  const onClickInactive = () => setIsActive(true);
   return (
     <>
       <ul className="ws-menu-left-items ws-menu-left-container">

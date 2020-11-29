@@ -14,7 +14,7 @@ import {
 const axios = require("axios");
 
 const QuoteContainerEdit = (props) => {
-  const [isInputActive, setIsInputActive] = useState(false);
+  // const [isInputActive, setIsInputActive] = useState(false);
 
   const [inputValueSourceTitle, setInputValueSourceTitle] = useState(
     props.sourceTitle
@@ -43,6 +43,7 @@ const QuoteContainerEdit = (props) => {
     props.sourceInfo
   );
   console.log(inputValueSourceInfo);
+
   const [sourceAdded, setSourceAdded] = useState(false);
   const [quoteAdded, setQuoteAdded] = useState(false);
   const [readyToClose, setReadyToClose] = useState(false);
@@ -70,7 +71,7 @@ const QuoteContainerEdit = (props) => {
   });
 
   const optionQuote = {
-    url: "/api/v1/data/updateQuote/:id",
+    url: `/api/v1/data/updateQuote/:${props.id}`,
     mode: "cors",
     method: "PATCH",
     headers: {
@@ -85,7 +86,7 @@ const QuoteContainerEdit = (props) => {
   };
 
   const optionSource = {
-    url: "/api/v1/data/updateSource/:id",
+    url: `/api/v1/data/updateSource/:${props.source}`,
     mode: "cors",
     method: "PATCH",
     headers: {
@@ -136,18 +137,22 @@ const QuoteContainerEdit = (props) => {
         console.log(quote);
         const quoteFetch = await getOneQuote(quote._id);
         const newQuote = quoteFetch[0];
+        console.log(newQuote);
         dispatch(addQuote(newQuote));
         setQuoteAdded(true);
       })
       .catch((error) => {
-        console.log(error.response);
+        console.log("this is an error", error.response);
       });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    submitFormSource();
-    submitFormQuote();
+    if (inputValueSourceTitle !== "") {
+      await submitFormSource();
+    } else {
+      await submitFormQuote();
+    }
   };
 
   return (
@@ -268,7 +273,7 @@ const QuoteContainerEdit = (props) => {
 
         <button
           //   className="nq-button-submit qce-form-button"
-          className=" qce-form-button"
+          className=" qce-form-button nq-button-submit"
           type="submit"
           value="Submit"
         >
