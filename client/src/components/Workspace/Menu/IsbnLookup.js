@@ -25,7 +25,6 @@ const IsbnLookup = (props) => {
         </li>
       );
     });
-    console.log("searchresults", searchResults);
   }
   const handleKeyDown = async (event) => {
     if (event.key === "Enter" && isbn.trim() !== "") {
@@ -65,8 +64,9 @@ const IsbnLookup = (props) => {
           placeholder="Search for source..."
         ></input>
       )}
-
-      <div>Search Results: {resultsList} </div>
+      {searchResults !== null ? (
+        <div>Search Results: {resultsList} </div>
+      ) : null}
     </React.Fragment>
   );
 };
