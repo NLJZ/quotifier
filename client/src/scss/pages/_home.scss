@@ -30,6 +30,16 @@
 .about {
   background-color: $mid-color-light;
   @include minHeightComponents;
+  // background-image: url("../../components/Pages/Home/img/booksstapple.jpg");
+  padding: 200px 0;
+  background-image: linear-gradient(
+      to right bottom,
+      rgba($mid-color-light, 0.8),
+      rgba($mid-color-mid, 0.8)
+    ),
+    url(../../img/booksstapple.jpg);
+  background-size: cover;
+  // transform: skewY(-7deg);
 }
 
 .quote,
