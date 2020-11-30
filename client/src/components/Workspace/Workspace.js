@@ -2,7 +2,7 @@ import React from "react";
 import WorkspaceMain from "./WorkspaceMain";
 import WorkspaceMenuLeft from "./Menu/WorkspaceMenuLeft";
 
-const Workspace = () => {
+const Workspace = (props) => {
   return (
     <div className="ws">
       <section className="ws-left">

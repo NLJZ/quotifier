@@ -4,7 +4,7 @@ import NavLoginIconAvatar from "./NavLoginIconAvatar";
 import NavLoginIconThreeDots from "./NavLoginIconThreeDots";
 import NavLoginIconResponsive from "./NavLoginIconResponsive";
 
-function NavLogin() {
+const NavLogin = (props) => {
   const quoteViewerOn = useSelector((state) => state.quoteViewer);
 
   const [showGreeting, setShowGreeting] = useState(quoteViewerOn);
@@ -18,7 +18,7 @@ function NavLogin() {
 
   const handleChange = (e) => {
     e.preventDefault();
-    setShowGreeting(!quoteViewerOn);
+    setShowGreeting(false);
     console.log("quoteViewerOff");
   };
 
@@ -40,6 +40,6 @@ function NavLogin() {
       </div>
     </div>
   );
-}
+};
 
 export default NavLogin;

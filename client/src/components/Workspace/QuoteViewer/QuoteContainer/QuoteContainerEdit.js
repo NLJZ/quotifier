@@ -52,26 +52,26 @@ const QuoteContainerEdit = (props) => {
 
   const dispatch = useDispatch();
 
-  function closeForm() {
-    props.closeForm();
-  }
+  // function closeForm() {
+  //   props.closeForm();
+  // }
 
-  useEffect(() => {
-    if (Boolean(sourceAdded)) {
-      submitFormQuote();
-      setSourceAdded(false);
-      showAll();
-    } else if (Boolean(quoteAdded)) {
-      setQuoteAdded(false);
-      showAll();
-      setReadyToClose(true);
-    } else if (Boolean(readyToClose)) {
-      closeForm();
-    }
-  });
+  // useEffect(() => {
+  //   if (Boolean(sourceAdded)) {
+  //     submitFormQuote();
+  //     setSourceAdded(false);
+  //     showAll();
+  //   } else if (Boolean(quoteAdded)) {
+  //     setQuoteAdded(false);
+  //     showAll();
+  //     setReadyToClose(true);
+  //   } else if (Boolean(readyToClose)) {
+  //     closeForm();
+  //   }
+  // });
 
   const optionQuote = {
-    url: `/api/v1/data/updateQuote/:${props.quote._id}`,
+    url: `/api/v1/data/updateQuote/${props.quote._id}`,
     mode: "cors",
     method: "PATCH",
     headers: {
@@ -86,7 +86,7 @@ const QuoteContainerEdit = (props) => {
   };
 
   const optionSource = {
-    url: `/api/v1/data/updateSource/:${props.source._id}`,
+    url: `/api/v1/data/updateSource/${props.source._id}`,
     mode: "cors",
     method: "PATCH",
     headers: {

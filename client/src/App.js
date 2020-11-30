@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+
 //--------------components----------------------------
 import Home from "./components/Pages/Home/Home";
 import Help from "./components/Pages/Help/Help";
@@ -16,6 +17,7 @@ import { useSelector } from "react-redux";
 function App() {
   //------redux---------------------------------------
   const isLogged = useSelector((state) => state.isLogged);
+
   return (
     <Router>
       <div className="app app-all">
