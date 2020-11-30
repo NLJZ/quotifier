@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { createWorker } from "tesseract.js";
+import { setSourceMapRange } from "typescript";
 
 const Ocr = (props) => {
   const setBody = props.setBody;
@@ -22,7 +23,9 @@ const Ocr = (props) => {
     const {
       data: { text },
     } = await worker.recognize(currentFile);
-    setBody(text);
+    setBody(text.replace(/(\r\n|\n|\r)/gm, " "));
+    setOcr(text);
+    console.log(text.replace(/(\r\n|\n|\r)/gm, " "));
   };
 
   return (
