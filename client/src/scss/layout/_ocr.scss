@@ -1,0 +1,17 @@
+.ocr {
+  color: #222;
+  display: inline-flex;
+  align-items: center;
+  .loader {
+    width: 1rem;
+    height: 1rem;
+    margin: 0;
+  }
+  button {
+    padding: 0 0.5rem;
+    border-radius: 0.2rem;
+  }
+  input {
+    margin: 0.5rem;
+  }
+}

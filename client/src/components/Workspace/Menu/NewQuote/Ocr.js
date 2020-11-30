@@ -30,15 +30,24 @@ const Ocr = (props) => {
 
   return (
     <div className="ocr">
+      <label for="file">Text image: </label>
       <input
         type="file"
         accept="image/gif, image/jpeg, image/png"
         name="image"
         id="file"
+        width="0"
+        height="0"
         onChange={handleChange}
-      ></input>
-      {ocr ? <LoadingAnimation /> : null}
-      <button onClick={doOCR}>Submit</button>
+      />
+
+      {ocr ? (
+        <LoadingAnimation />
+      ) : (
+        <button className="nq-button" onClick={doOCR}>
+          Submit
+        </button>
+      )}
     </div>
   );
 };
