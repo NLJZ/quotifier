@@ -95,6 +95,7 @@ const QuoteContainer = (props) => {
         sourceTitle={sourceTitle}
         sourceInfo={sourceInfo}
         tags={renderTags}
+        setIsEditable={setIsEditable}
       />
     );
   }

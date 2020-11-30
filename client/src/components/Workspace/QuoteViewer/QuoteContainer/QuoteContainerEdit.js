@@ -16,6 +16,7 @@ const axios = require("axios");
 // const QuoteContainerEdit = ({ quote }) => {
 
 const QuoteContainerEdit = (props) => {
+  const setIsEditable = props.setIsEditable;
   const [inputValueSourceTitle, setInputValueSourceTitle] = useState(
     props.source.sourceTitle
   );
@@ -52,26 +53,22 @@ const QuoteContainerEdit = (props) => {
 
   const dispatch = useDispatch();
 
-  function closeForm() {
-    props.closeForm();
-  }
-
   useEffect(() => {
     if (Boolean(sourceAdded)) {
       submitFormQuote();
       setSourceAdded(false);
       showAll();
+      setIsEditable(false);
     } else if (Boolean(quoteAdded)) {
       setQuoteAdded(false);
       showAll();
       setReadyToClose(true);
     } else if (Boolean(readyToClose)) {
-      closeForm();
     }
   });
 
   const optionQuote = {
-    url: `/api/v1/data/updateQuote/:${props.quote._id}`,
+    url: `/api/v1/data/updateQuote/${props.quote._id}`,
     mode: "cors",
     method: "PATCH",
     headers: {
@@ -79,14 +76,13 @@ const QuoteContainerEdit = (props) => {
     },
     data: {
       body: inputValueQuoteBody,
-      tags: inputValueTags,
       userNotes: inputValueQuoteNotes,
       location: inputValueQuoteLocation,
     },
   };
 
   const optionSource = {
-    url: `/api/v1/data/updateSource/:${props.source._id}`,
+    url: `/api/v1/data/updateSource/${props.source._id}`,
     mode: "cors",
     method: "PATCH",
     headers: {
