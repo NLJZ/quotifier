@@ -1,12 +1,11 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
 import { createWorker } from "tesseract.js";
-import { setSourceMapRange } from "typescript";
+import LoadingAnimation from "../../../Animation/LoadingAnimation";
 
 const Ocr = (props) => {
   const setBody = props.setBody;
   const [currentFile, setCurrentFile] = useState(null);
-  const [ocr, setOcr] = useState("Recognizing...");
-  console.log(currentFile);
+  const [ocr, setOcr] = useState(false);
 
   const handleChange = (e) => {
     setCurrentFile(e.target.files[0]);
@@ -15,7 +14,9 @@ const Ocr = (props) => {
   const worker = createWorker({
     logger: (m) => console.log(m),
   });
+
   const doOCR = async (e) => {
+    setOcr(true);
     e.preventDefault();
     await worker.load();
     await worker.loadLanguage("eng");
@@ -24,8 +25,7 @@ const Ocr = (props) => {
       data: { text },
     } = await worker.recognize(currentFile);
     setBody(text.replace(/(\r\n|\n|\r)/gm, " "));
-    setOcr(text);
-    console.log(text.replace(/(\r\n|\n|\r)/gm, " "));
+    setOcr(false);
   };
 
   return (
@@ -37,6 +37,7 @@ const Ocr = (props) => {
         id="file"
         onChange={handleChange}
       ></input>
+      {ocr ? <LoadingAnimation /> : null}
       <button onClick={doOCR}>Submit</button>
     </div>
   );
