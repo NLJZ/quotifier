@@ -157,6 +157,11 @@ button.nq-button {
   // margin-top: 2rem;
 }
 
+button.nq-button:hover,
+.nq-button-submit:hover {
+  background-color: $mid-color-light;
+}
+
 .button.nq-button a {
   @include buttonUnStyle;
   color: $base-color-dark;
@@ -227,4 +232,10 @@ button.qce-form-button {
 .remove-tag-button {
   padding: 0 0.3rem;
   color: black;
+  margin-left: 1rem;
+  font: initial;
+}
+
+.remove-tag-button:hover {
+  background-color: $mid-color-light;
 }

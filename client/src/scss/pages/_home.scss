@@ -34,8 +34,8 @@
   padding: 200px 0;
   background-image: linear-gradient(
       to right bottom,
-      rgba($mid-color-light, 0.8),
-      rgba($mid-color-mid, 0.8)
+      rgba($mid-color-light, 0.9),
+      rgba($mid-color-mid, 0.9)
     ),
     url(../../img/booksstapple.jpg);
   background-size: cover;
@@ -45,10 +45,10 @@
 .quote {
   background-image: linear-gradient(
       to right bottom,
-      rgba($mid-color-mid, 0.8),
-      rgba($mid-color-light, 0.8)
+      rgba($mid-color-mid, 0.9),
+      rgba($mid-color-light, 0.9)
     ),
-    url(../../img/home-element-image.jpg);
+    url(../../img/postit.jpg);
   background-size: cover;
   // transform: skewY(-7deg);
 }
