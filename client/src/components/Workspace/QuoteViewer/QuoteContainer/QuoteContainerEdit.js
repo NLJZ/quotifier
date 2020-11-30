@@ -17,9 +17,9 @@ const axios = require("axios");
 
 const QuoteContainerEdit = (props) => {
   const setIsEditable = props.setIsEditable;
-  const [inputValueSourceTitle, setInputValueSourceTitle] = useState(
-    props.source.sourceTitle
-  );
+  // const [inputValueSourceTitle, setInputValueSourceTitle] = useState(
+  //   props.source.sourceTitle
+  // );
 
   const [inputValueQuoteBody, setInputValueQuoteBody] = useState(
     props.quote.body
@@ -36,9 +36,9 @@ const QuoteContainerEdit = (props) => {
   const [inputValueQuoteLocation, setInputValueQuoteLocation] = useState(
     props.quote.location
   );
-  const [inputValueSourceInfo, setInputValueSourceInfo] = useState(
-    props.source.sourceInfo
-  );
+  // const [inputValueSourceInfo, setInputValueSourceInfo] = useState(
+  //   props.source.sourceInfo
+  // );
 
   const [sourceAdded, setSourceAdded] = useState(false);
   const [quoteAdded, setQuoteAdded] = useState(false);
@@ -47,8 +47,8 @@ const QuoteContainerEdit = (props) => {
   const currentView = useSelector((state) => state.currentView);
 
   useEffect(() => {
-    console.log(props.quote._id);
-    console.log(props.source._id);
+    // console.log(props.quote._id);
+    // console.log(props.source._id);
   });
 
   const dispatch = useDispatch();
@@ -64,6 +64,7 @@ const QuoteContainerEdit = (props) => {
       showAll();
       setReadyToClose(true);
     } else if (Boolean(readyToClose)) {
+      setIsEditable(false);
     }
   });
 
@@ -81,18 +82,18 @@ const QuoteContainerEdit = (props) => {
     },
   };
 
-  const optionSource = {
-    url: `/api/v1/data/updateSource/${props.source._id}`,
-    mode: "cors",
-    method: "PATCH",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    data: {
-      sourceTitle: inputValueSourceTitle,
-      sourceInfo: inputValueSourceInfo,
-    },
-  };
+  // const optionSource = {
+  //   url: `/api/v1/data/updateSource/${props.source._id}`,
+  //   mode: "cors",
+  //   method: "PATCH",
+  //   headers: {
+  //     "Content-Type": "application/json",
+  //   },
+  //   data: {
+  //     sourceTitle: inputValueSourceTitle,
+  //     sourceInfo: inputValueSourceInfo,
+  //   },
+  // };
 
   const showAll = () => {
     if (currentView === "all") {
@@ -109,21 +110,21 @@ const QuoteContainerEdit = (props) => {
     }
   };
 
-  const submitFormSource = async () => {
-    let updatedSource;
-    await axios(optionSource)
-      .then((response) => {
-        console.log(response);
-        let sourceData = response.data;
-        console.log(sourceData);
-        dispatch(addSource(sourceData));
-        setSourceAdded(true);
-      })
-      .catch((error) => {
-        console.log(error.response);
-      });
-    return updatedSource;
-  };
+  // const submitFormSource = async () => {
+  //   let updatedSource;
+  //   await axios(optionSource)
+  //     .then((response) => {
+  //       console.log(response);
+  //       let sourceData = response.data;
+  //       console.log(sourceData);
+  //       dispatch(addSource(sourceData));
+  //       setSourceAdded(true);
+  //     })
+  //     .catch((error) => {
+  //       console.log(error.response);
+  //     });
+  //   return updatedSource;
+  // };
 
   const submitFormQuote = async () => {
     await axios(optionQuote)
@@ -144,11 +145,11 @@ const QuoteContainerEdit = (props) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (inputValueSourceTitle !== "") {
-      await submitFormSource();
-    } else {
-      await submitFormQuote();
-    }
+    // if (inputValueSourceTitle !== "") {
+    //   await submitFormSource();
+    // } else {
+    await submitFormQuote();
+    // }
   };
 
   const addTags = (e) => {
@@ -175,14 +176,15 @@ const QuoteContainerEdit = (props) => {
       <form onSubmit={handleSubmit}>
         <span>
           <p className="bold bold-source">Source:</p>
-          <input
+          {/* <input
             type="text"
             value={inputValueSourceTitle}
             onChange={(e) => {
               setInputValueSourceTitle(e.target.value);
             }}
             className="qc-span editable-input"
-          />
+          /> */}
+          {props.sourceTitle ? props.sourceTitle : ""}
         </span>
 
         <span>
@@ -200,7 +202,7 @@ const QuoteContainerEdit = (props) => {
         <span>
           <p className="bold bold-tags">Tags: </p>
           <div className="qce-tags">
-            <input
+            {/* <input
               type="text"
               value={inputValueTags}
               onKeyPress={(e) => handleKeypress(e)}
@@ -208,7 +210,8 @@ const QuoteContainerEdit = (props) => {
                 setInputValueTags(e.target.value);
               }}
               className="qc-span editable-input"
-            />
+            /> */}
+            {props.tags}
 
             <div className="qce-tags-line">
               {inputValueTagsArr.map((tag, i) => {
@@ -252,14 +255,15 @@ const QuoteContainerEdit = (props) => {
 
         <span>
           <p className="bold bold-details">Details:</p>{" "}
-          <input
+          {/* <input
             type="text"
             value={inputValueSourceInfo}
             onChange={(e) => {
               setInputValueSourceInfo(e.target.value);
             }}
             className="qc-span editable-input"
-          />
+          /> */}
+          {props.sourceInfo ? props.sourceInfo : ""}
         </span>
 
         <button
