@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
 import ReactHtmlParser from "react-html-parser";
 //-------icons------------------------
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -13,7 +12,6 @@ import {
 import QuoteContainerOpen from "./QuoteContainer/QuoteContainerOpen";
 import QuoteContainerClosed from "./QuoteContainer/QuoteContainerClosed";
 import QuoteContainerEdit from "./QuoteContainer/QuoteContainerEdit";
-
 //--------utils---------------------
 import cleanHtml from "../../../utils/cleanHtml";
 //---------redux--------------------
@@ -26,6 +24,7 @@ import {
   resetActiveFilters,
   setActiveFilters,
 } from "../../../redux/actions";
+import { useSelector, useDispatch } from "react-redux";
 
 const QuoteContainer = (props) => {
   const [isOff, setIsOff] = useState(true);

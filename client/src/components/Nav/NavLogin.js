@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
 import NavLoginIconAvatar from "./NavLoginIconAvatar";
 import NavLoginIconThreeDots from "./NavLoginIconThreeDots";
 import NavLoginIconResponsive from "./NavLoginIconResponsive";
+import { useDispatch, useSelector } from "react-redux";
+import { quoteViewerOff } from "../../redux/actions/index";
 
 function NavLogin() {
-  const quoteViewerOn = useSelector((state) => state.quoteViewer);
-
-  const [showGreeting, setShowGreeting] = useState(quoteViewerOn);
-  console.log(showGreeting);
+  // const quoteViewerOn = useSelector((state) => state.quoteViewer);
+  const dispatch = useDispatch();
+  // const [showGreeting, setShowGreeting] = useState(quoteViewerOn);
+  // console.log(showGreeting);
   const [width, setWidth] = useState(window.InnerWidth);
   const breakPoint = 800;
 
@@ -16,10 +17,15 @@ function NavLogin() {
     window.addEventListener("resize", () => setWidth(window.innerWidth));
   }, []);
 
-  const handleChange = (e) => {
-    e.preventDefault();
-    setShowGreeting(!quoteViewerOn);
-    console.log("quoteViewerOff");
+  // const handleChange = (e) => {
+  //   e.preventDefault();
+  //   setShowGreeting(!quoteViewerOn);
+  //   console.log("quoteViewerOff");
+  // };
+
+  const handleClick = (e) => {
+    console.log(e);
+    dispatch(quoteViewerOff());
   };
 
   return (
@@ -29,7 +35,7 @@ function NavLogin() {
           <NavLoginIconResponsive />
         </div>
       ) : (
-        <button className="nav-logo-button" onClick={handleChange}>
+        <button className="nav-logo-button" onClick={handleClick}>
           <p className="nav-logo">"quotifier"</p>
         </button>
       )}
