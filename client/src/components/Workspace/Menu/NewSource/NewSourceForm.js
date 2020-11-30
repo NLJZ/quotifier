@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState } from "react";
 import { addQuote, addSource, showAllSources } from "../../../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import SourceLookup from "../SourceLookup";
