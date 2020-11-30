@@ -146,6 +146,8 @@ div.qc span {
   border-radius: 20px;
   // height: 5rem;
   padding-left: 1rem;
+  border: black 1px solid;
+  outline: none;
 }
 
 .editable-input-quote {
@@ -153,12 +155,28 @@ div.qc span {
   // text-align: start;
   width: 80rem;
   height: fit-content;
+  border: black 1px solid;
 }
 
 .qce-tags {
   padding-left: 1rem;
   display: flex;
   flex-direction: column;
+}
+
+.qce-tags-line {
+  display: flex;
+  flex-direction: row;
+  max-width: 30rem;
+  flex-wrap: wrap;
+}
+
+.qce-tags-line > * {
+  border: black 1px solid;
+  border-radius: 20px;
+  margin: 0.3rem 0.5rem;
+  padding: 0 1rem;
+  font-size: 1rem;
 }
 
 //------quoteviewer-----------------------------ö

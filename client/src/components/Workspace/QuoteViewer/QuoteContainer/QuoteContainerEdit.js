@@ -170,7 +170,7 @@ const QuoteContainerEdit = (props) => {
     //it triggers by pressing the enter key
     if (e.keyCode === 13) {
       console.log("enter");
-      addTags();
+      addTags(e);
     }
   };
 
@@ -207,14 +207,14 @@ const QuoteContainerEdit = (props) => {
             <input
               type="text"
               value={inputValueTags}
-              onKeyPress={handleKeypress}
+              onKeyPress={(e) => handleKeypress(e)}
               onChange={(e) => {
                 setInputValueTags(e.target.value);
               }}
               className="qc-span editable-input"
             />
 
-            <div>
+            <div className="qce-tags-line">
               {inputValueTagsArr.map((tag, i) => {
                 return (
                   <div key={i}>
@@ -224,6 +224,10 @@ const QuoteContainerEdit = (props) => {
               })}
             </div>
           </div>
+          <button
+            className="qce-tags-button"
+            onClick={(e) => addTags(e)}
+          ></button>
         </span>
 
         <span>
