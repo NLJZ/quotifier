@@ -20,11 +20,7 @@
   width: 100%;
   background-color: $base-color-light;
   flex-direction: column;
-  // justify-content: center;
   align-items: center;
-  // border: 3px red solid;
-  // position: absolute;
-  // right: 0;
 
   h1 {
     font-size: 3rem;
@@ -62,16 +58,7 @@ div.qc {
   max-width: 50rem;
 }
 
-// div.qc button {
-//   // justify-items: flex-end;
-//   border: 1px solid yellow;
-//   justify-content: flex-end;
-// }
-
-div.qc > * > *:hover,
-div.qc > * > * > *:hover,
-div.qc > * > * > * > *:hover,
-span.qc-span-quote > *:hover {
+div.qc > * > * > * > *:hover {
   color: $mid-color-mid;
   cursor: pointer;
 }
