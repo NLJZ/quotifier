@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
 import { createWorker } from "tesseract.js";
 import LoadingAnimation from "../../../Animation/LoadingAnimation";
 
@@ -6,7 +6,6 @@ const Ocr = (props) => {
   const setBody = props.setBody;
   const [currentFile, setCurrentFile] = useState(null);
   const [ocr, setOcr] = useState(false);
-  console.log(currentFile);
 
   const handleChange = (e) => {
     setCurrentFile(e.target.files[0]);
