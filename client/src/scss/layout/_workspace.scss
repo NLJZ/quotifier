@@ -39,12 +39,6 @@
   max-width: 40rem;
 }
 
-//---------new quote form----------------
-
-.new-quote-form-input-quote {
-  height: 10rem;
-}
-
 //---------quote-container---------------
 
 div.qc {
@@ -193,4 +187,10 @@ div.qc span {
   .last-search {
     margin: 0 2rem;
   }
+}
+
+.qv h1 {
+  border-bottom: 1px $base-color-dark solid;
+  padding-bottom: 1rem;
+  font-size: 2.5rem;
 }

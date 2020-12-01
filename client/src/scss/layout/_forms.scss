@@ -34,9 +34,23 @@
 }
 
 //--------------------new-quote-form----------------
+//---------new quote form----------------
 
-.nq-form-container {
+.new-quote-form-input-quote {
+  height: 10rem;
+}
+
+div.nqf-collapsed {
+}
+
+div.nqf-collapsed:hover {
+  border: green 1px solid;
+}
+
+div.nq-form-container {
   // position: relative;
+  // padding: 0;
+  // border: 1px red solid;
 }
 
 .nq-form {
@@ -125,6 +139,12 @@
   padding-left: 1rem;
   outline: none;
   background-color: $base-color-light;
+}
+
+input.nq-input-text-image {
+  display: flex;
+  align-self: center;
+  justify-self: center;
 }
 
 //-----form grid--------

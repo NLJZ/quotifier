@@ -11,7 +11,7 @@ function NewQuoteFormButton() {
   const onOpenClick = () => setIsActive(true);
 
   return (
-    <div className="nq-form-container">
+    <div className="nq-form-container nqf-collapsed">
       <FontAwesomeIcon
         onClick={onOpenClick}
         className="test-test"
