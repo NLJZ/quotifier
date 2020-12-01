@@ -86,14 +86,16 @@ const NewSourceForm = (props) => {
     // <div className={`nq-form ${isActive ? "active" : "inactive"}`}>
     <form className="nq-form-form" onSubmit={handleSubmit}>
       <div className="form-row-input">
-        <div className="col-left"></div>
+        <div className="col-left">
+          <p className="nqf-bold">Source Search:</p>
+        </div>
         <div className="col-1-of-2">
           <SourceLookup
             setSourceTitle={setSourceTitle}
             setSourceInfo={setSourceInfo}
           />
         </div>
-        <div className="col-2-of-2"></div>
+        {/* <div className="col-2-of-2"></div> */}
       </div>
 
       <div className="form-row-input">
@@ -111,7 +113,7 @@ const NewSourceForm = (props) => {
             autoComplete="on"
           />
         </div>
-        <div className="col-2-of-2"></div>
+        {/* <div className="col-2-of-2"></div> */}
       </div>
 
       <div className="form-row-input">
@@ -129,7 +131,7 @@ const NewSourceForm = (props) => {
             autoComplete="on"
           />{" "}
         </div>{" "}
-        <div className="col-2-of-2"></div>
+        {/* <div className="col-2-of-2"></div> */}
       </div>
 
       <div className="form-row">

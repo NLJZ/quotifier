@@ -34,7 +34,6 @@
 }
 
 //--------------------new-quote-form----------------
-//---------new quote form----------------
 
 .new-quote-form-input-quote {
   height: 10rem;
@@ -44,7 +43,7 @@ div.nqf-collapsed {
 }
 
 div.nqf-collapsed:hover {
-  border: green 1px solid;
+  // border: green 1px solid;
 }
 
 div.nq-form-container {
@@ -141,12 +140,15 @@ div.nq-form-container {
   background-color: $base-color-light;
 }
 
-input.nq-input-text-image {
-  display: flex;
-  align-self: center;
-  justify-self: center;
+.nq-input-text-image {
+  // display: flex;
+  // align-self: center;
+  // justify-self: center;
 }
 
+.nqf-bold {
+  padding-top: 1.3rem;
+}
 //-----form grid--------
 
 .form-row-label,
@@ -162,6 +164,8 @@ input.nq-input-text-image {
 .col-1-of-2 {
   // border: 1px solid yellow;
   width: 30rem;
+  display: flex;
+  align-items: center;
 }
 
 .col-2-of-2 {
@@ -173,10 +177,10 @@ input.nq-input-text-image {
 
 .col-left {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: flex-end;
   // border: 1px solid yellow;
-  width: 10rem;
+  width: 11rem;
 }
 
 .col-tags div {
@@ -199,6 +203,11 @@ input.nq-input-text-image {
   justify-content: flex-start;
 }
 
+.col-1-of-2-ocr {
+  display: flex;
+  align-content: center;
+}
+
 .nq-input-fav {
   justify-content: flex-start;
 
@@ -209,6 +218,7 @@ input.nq-input-text-image {
   padding-left: 1rem;
   outline: none;
 }
+
 //---------------------------------------
 
 .ws-menu-left-test.inactive {

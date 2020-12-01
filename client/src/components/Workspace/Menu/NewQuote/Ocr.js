@@ -32,7 +32,7 @@ const Ocr = (props) => {
     // <div className="ocr">
     <>
       {/* <label for="file">Text image: </label> */}
-      <div className="col-1-of-2">
+      <div className="col-1-of-2 col-1-of-2-ocr ">
         <input
           type="file"
           accept="image/gif, image/jpeg, image/png"

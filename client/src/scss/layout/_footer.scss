@@ -27,13 +27,26 @@ ul.footer-middle {
   padding: 2rem 4rem;
 }
 
-p.text-footer a:link {
+p.text-footer:link {
   text-decoration: none;
   border: 0;
 }
 
-p.text-footer {
+// p.text-footer {
+//   text-decoration: none;
+//   border-bottom-style: none;
+// }
+
+// .text-footer a:link {
+//   text-decoration: none;
+//   border-bottom-style: none;
+// }
+
+// p.text-footer a:visited {
+//   text-decoration: none;
+//   border-bottom-style: none;
+// }
+
+li.footer-link a {
   text-decoration: none;
-  border: 0;
-  border-bottom-style: none;
 }
