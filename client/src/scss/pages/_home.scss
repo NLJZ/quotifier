@@ -62,8 +62,16 @@
 
 .sign-in,
 .register {
-  padding-bottom: 30vh;
-  border: 1px solid black;
+  // padding-bottom: 30vh;
+  // border: 1px solid black;
+  background-image: linear-gradient(
+      to right bottom,
+      rgba($mid-color-mid, 0.9),
+      rgba($mid-color-light, 0.9)
+    ),
+    url(../../img/postit.jpg);
+  background-size: cover;
+  // transform: skewY(-7deg);
 }
 
 .sign-up {

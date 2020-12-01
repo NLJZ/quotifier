@@ -1,28 +1,31 @@
 .sort-filter {
   display: inline-flex;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
+  border-bottom: $mid-color-dark 1px solid;
   button {
-    border: 1px solid#594f4c;
+    border: 1px solid $mid-color-dark;
     border-radius: 5px;
   }
   button:hover {
-    background-color: #bfaea8;
+    background-color: $mid-color-light;
     cursor: pointer;
   }
   button:focus {
-    outline-color: #594f4c;
+    outline-color: $mid-color-dark;
   }
   .tags {
-    border: 1px solid black;
+    border: 1px solid $base-color-dark;
     padding: 0.2rem 0.5rem;
     border-radius: 0.3rem;
   }
 }
 
 .filter-container {
-  margin: 1rem 0 0 2rem;
+  margin: 1rem 2rem;
   display: flex;
+  align-items: center;
   .filterButtons {
     button {
       padding-left: 0.5 rem;
@@ -37,10 +40,10 @@
 }
 
 .filterDropdown {
-  margin: 2.5rem 1rem 1rem 1rem;
-  border: 1px solid black;
+  margin: 24.5rem 1rem 1rem 1rem;
+  border: 1px solid $base-color-dark;
   padding: 1rem;
-  background-color: #ddd;
+  background-color: $base-color-light;
   position: absolute;
   overflow-y: scroll;
   max-width: 40rem;
@@ -58,12 +61,12 @@
   }
   .tags-list {
     li:first-child:hover {
-      background-color: #ddd;
+      background-color: $mid-color-light;
       cursor: default;
     }
 
     li:hover {
-      background-color: #bfaea8;
+      background-color: $mid-color-light;
       cursor: pointer;
     }
   }
@@ -97,17 +100,33 @@
 }
 
 .current-filters {
-  margin: 1rem 2rem;
+  // margin: 1rem 2rem;
+  padding: 1.5rem 3rem 1.5rem 3rem;
+  border-bottom: 1px $base-color-dark solid;
   li {
     display: inline;
     margin-right: 0.5rem;
-    border: 1px solid #222;
+    border: 1px solid $base-color-dark;
     border-radius: 0.5rem;
     padding: 0.2rem;
-    background-color: #ddd;
+    background-color: $base-color-light;
   }
   li:first-child {
     border: none;
     background-color: transparent;
+  }
+}
+
+li.filters {
+  padding: 0.2rem 0.8rem;
+  border-radius: 30px;
+}
+
+.currentFilters {
+  height: fit-content;
+  display: flex;
+  flex-wrap: wrap;
+  li {
+    margin: 0.3rem;
   }
 }

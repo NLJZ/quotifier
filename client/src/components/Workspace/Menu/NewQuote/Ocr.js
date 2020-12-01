@@ -29,26 +29,33 @@ const Ocr = (props) => {
   };
 
   return (
-    <div className="ocr">
-      <label for="file">Text image: </label>
-      <input
-        type="file"
-        accept="image/gif, image/jpeg, image/png"
-        name="image"
-        id="file"
-        width="0"
-        height="0"
-        onChange={handleChange}
-      />
+    // <div className="ocr">
+    <>
+      {/* <label for="file">Text image: </label> */}
+      <div className="col-1-of-2">
+        <input
+          type="file"
+          accept="image/gif, image/jpeg, image/png"
+          name="image"
+          id="file"
+          className="nq-input nq-input-text-image"
+          width="0"
+          height="0"
+          onChange={handleChange}
+        />
+      </div>
+      <div className="col-2-of-2">
+        {ocr ? (
+          <LoadingAnimation />
+        ) : (
+          <button className="nq-button" onClick={doOCR}>
+            Submit
+          </button>
+        )}
+      </div>
 
-      {ocr ? (
-        <LoadingAnimation />
-      ) : (
-        <button className="nq-button" onClick={doOCR}>
-          Submit
-        </button>
-      )}
-    </div>
+      {/* </div> */}
+    </>
   );
 };
 

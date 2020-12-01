@@ -10,7 +10,7 @@ function NewSourceFormButton() {
   const onOpenCloseClick = () => setIsActive(!isActive);
 
   return (
-    <div className="nq-form-container">
+    <div className="nq-form-container nqf-collapsed">
       <FontAwesomeIcon
         onClick={onOpenCloseClick}
         className="test-test"

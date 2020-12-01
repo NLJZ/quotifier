@@ -252,7 +252,14 @@ const NewQuoteForm = (props) => {
           <div className="col-2-of-2"></div>
         </div>
       </div>
-      <Ocr setBody={setBody} />
+
+      <div className="form-row-input">
+        <div className="col-left">
+          <p className="nqf-bold">Text image:</p>
+        </div>
+        <Ocr setBody={setBody} />
+      </div>
+
       <div className="form-row-input">
         <div className="col-left">
           <p className="nqf-bold">Quote:</p>
