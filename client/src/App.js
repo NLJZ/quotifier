@@ -14,7 +14,8 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 function App() {
-  //------redux---------------------------------------
+  
+  //----------redux---------------------------------------
   const isLogged = useSelector((state) => state.isLogged);
   return (
     <Router>
